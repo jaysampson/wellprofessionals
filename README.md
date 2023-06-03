@@ -21,11 +21,11 @@ then run npm start and open http://localhost:3000 with your browser to see the r
 
 # Collaborators
 
-Sunkanmi https://github.com/sunkanmicode
-David https://github.com/Dayveed021
-Steve https://github.com/Mr-Steve01
-Timilehin https://github.com/Timiprogs
-Priscillia https://github.com/cillacode
+Sunkanmi https://github.com/sunkanmicode <br>
+David https://github.com/Dayveed021 <br>
+Steve https://github.com/Mr-Steve01 <br>
+Timilehin https://github.com/Timiprogs <br>
+Priscillia https://github.com/cillacode <br>
 
 
 
