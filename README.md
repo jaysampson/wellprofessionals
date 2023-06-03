@@ -1,7 +1,7 @@
 # well professionals
 
 # Description
-Online Learning Platform for Oil and Gas professionals
+Online Learning Platform for Oil and Gas professionals and new entries
 
 The project is about building a website and mobile app, such as Udemy and the likes, that offers courses in different areas of expertise in the oil and gas industry including General HSE, Surface Well Testing & Data Acquisition, Drilling Technology, and Wireline, among others. 
 
