@@ -1,4 +1,4 @@
-# well professionals
+# Well Professionals
 
 # Description
 Online Learning Platform for Oil and Gas professionals and new entries
