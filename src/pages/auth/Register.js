@@ -17,149 +17,122 @@ import {
 import { Spinner, FormGroup } from "reactstrap";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import worker from "../../images/worker.svg";
+import back from "../../images/icons/back-arrow.svg";
+import googleicon from "../../images/icons/google-icon.svg";
+import appleicon from "../../images/icons/apple-icon.svg";
+import fbicon from "../../images/icons/facebook-icon.svg";
+import eye from "../../images/icons/eye.svg";
+import "../../assets/scss/auth-pages/Signup.scss";
 
 const Register = ({ history }) => {
-  const [passState, setPassState] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const { errors, register, handleSubmit } = useForm();
+  // const [passState, setPassState] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  // const { errors, register, handleSubmit } = useForm();
 
-  const handleFormSubmit = () => {
-    setLoading(true);
-    setTimeout(() => history.push(`${process.env.PUBLIC_URL}/auth-success`), 2000);
-  };
+  // const handleFormSubmit = () => {
+  //   setLoading(true);
+  //   setTimeout(() => history.push(`${process.env.PUBLIC_URL}/auth-success`), 2000);
+  // };
   return (
-    <React.Fragment>
-      <Head title="Register" />
-      <PageContainer>
-        <Block className="nk-block-middle nk-auth-body  wide-xs">
-          <div className="brand-logo pb-4 text-center">
-            <Link to={`${process.env.PUBLIC_URL}/`} className="logo-link">
-              <img className="logo-light logo-img logo-img-lg" src={Logo} alt="logo" />
-              <img className="logo-dark logo-img logo-img-lg" src={LogoDark} alt="logo-dark" />
-            </Link>
+    <div>
+      <div className="signup-pass-container">
+        <div className="signup-pass-content">
+          <img className="worker" src={worker} alt={worker} />
+          <div className="signup-form-container">
+            <div className="signup-form-content">
+              <div className="header">
+                <div className="back-con">
+                  <Link className="back" to={"/"}>
+                    <img src={back} alt={back} />
+                    <p>Back</p>
+                  </Link>
+                </div>
+                <div className="title">
+                  <header>Sign Up</header>
+                  <p>Welcome. Enter your credentials to create your account</p>
+                </div>
+              </div>
+              <div className="form">
+                <form action="POST">
+                  <div className="blank">
+                    <label htmlFor="">Full name</label>
+                    <div className="input">
+                      <input type="text" placeholder="Declan Rice" />
+                    </div>
+                  </div>
+                  <div className="blank">
+                    <label htmlFor="">Email Address</label>
+                    <div className="input">
+                      <input type="email" placeholder="yourname@gmail.com" />
+                    </div>
+                  </div>
+                  <div className="blank">
+                    <label htmlFor="">Phone number</label>
+                    <div className="input">
+                      <input type="number" placeholder="+2345678909876" />
+                    </div>
+                  </div>
+                  <div className="blank">
+                    <label htmlFor="">Create password</label>
+                    <div className="input">
+                      <input type="password" placeholder="* * * * * * * *" />
+                      <img src={eye} alt={eye} className="eye" />
+                    </div>
+                  </div>
+                  <div className="blank">
+                    <label htmlFor="">Confirm password</label>
+                    <div className="input">
+                      <input type="password" placeholder="* * * * * * * *" />
+                      <img src={eye} alt={eye} className="eye" />
+                    </div>
+                  </div>
+                </form>
+                <div className="remember">
+                  <input type="checkbox" className="checkbox" />
+                  <p>
+                    I agree with the <span>Terms & Conditions</span> of Well Professionals
+                  </p>
+                </div>
+                <div className="signup-ctn-btn">
+                  <button>
+                    <p>Sign Up</p>
+                  </button>
+                </div>
+                <div className="no-account">
+                  <p>
+                    Already have an account?{" "}
+                    <span>
+                      <Link to={`${process.env.PUBLIC_URL}/auth-login`} className="new">
+                        Sign into your account
+                      </Link>
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div className="signup-options">
+                <div className="or">
+                  <hr />
+                  <p>Or Sign Up with</p>
+                  <hr />
+                </div>
+                <div className="options">
+                  <button className="option-btn" style={{ border: "1px solid #D0D5DD", backgroundColor: "white" }}>
+                    <img src={googleicon} alt={googleicon} />
+                  </button>
+                  <button className="option-btn" style={{ backgroundColor: "black" }}>
+                    <img src={appleicon} alt={appleicon} />
+                  </button>
+                  <button className="option-btn" style={{ backgroundColor: "#1877F2" }}>
+                    <img src={fbicon} alt={fbicon} />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <PreviewCard className="card-bordered" bodyClass="card-inner-lg">
-            <BlockHead>
-              <BlockContent>
-                <BlockTitle tag="h4">Register</BlockTitle>
-                <BlockDes>
-                  <p>Create New Dashlite Account</p>
-                </BlockDes>
-              </BlockContent>
-            </BlockHead>
-            <form className="is-alter" onSubmit={handleSubmit(handleFormSubmit)}>
-              <FormGroup>
-                <label className="form-label" htmlFor="name">
-                  Name
-                </label>
-                <div className="form-control-wrap">
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Enter your name"
-                    ref={register({ required: true })}
-                    className="form-control-lg form-control"
-                  />
-                  {errors.name && <p className="invalid">This field is required</p>}
-                </div>
-              </FormGroup>
-              <FormGroup>
-                <div className="form-label-group">
-                  <label className="form-label" htmlFor="default-01">
-                    Email or Username
-                  </label>
-                </div>
-                <div className="form-control-wrap">
-                  <input
-                    type="text"
-                    bssize="lg"
-                    id="default-01"
-                    name="email"
-                    ref={register({ required: true })}
-                    className="form-control-lg form-control"
-                    placeholder="Enter your email address or username"
-                  />
-                  {errors.email && <p className="invalid">This field is required</p>}
-                </div>
-              </FormGroup>
-              <FormGroup>
-                <div className="form-label-group">
-                  <label className="form-label" htmlFor="password">
-                    Passcode
-                  </label>
-                </div>
-                <div className="form-control-wrap">
-                  <a
-                    href="#password"
-                    onClick={(ev) => {
-                      ev.preventDefault();
-                      setPassState(!passState);
-                    }}
-                    className={`form-icon lg form-icon-right passcode-switch ${passState ? "is-hidden" : "is-shown"}`}
-                  >
-                    <Icon name="eye" className="passcode-icon icon-show"></Icon>
-
-                    <Icon name="eye-off" className="passcode-icon icon-hide"></Icon>
-                  </a>
-                  <input
-                    type={passState ? "text" : "password"}
-                    id="password"
-                    name="passcode"
-                    ref={register({ required: "This field is required" })}
-                    placeholder="Enter your passcode"
-                    className={`form-control-lg form-control ${passState ? "is-hidden" : "is-shown"}`}
-                  />
-                  {errors.passcode && <span className="invalid">{errors.passcode.message}</span>}
-                </div>
-              </FormGroup>
-              <FormGroup>
-                <Button type="submit" color="primary" size="lg" className="btn-block">
-                  {loading ? <Spinner size="sm" color="light" /> : "Register"}
-                </Button>
-              </FormGroup>
-            </form>
-            <div className="form-note-s2 text-center pt-4">
-              {" "}
-              Already have an account?{" "}
-              <Link to={`${process.env.PUBLIC_URL}/auth-login`}>
-                <strong>Sign in instead</strong>
-              </Link>
-            </div>
-            <div className="text-center pt-4 pb-3">
-              <h6 className="overline-title overline-title-sap">
-                <span>OR</span>
-              </h6>
-            </div>
-            <ul className="nav justify-center gx-8">
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="#socials"
-                  onClick={(ev) => {
-                    ev.preventDefault();
-                  }}
-                >
-                  Facebook
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="#socials"
-                  onClick={(ev) => {
-                    ev.preventDefault();
-                  }}
-                >
-                  Google
-                </a>
-              </li>
-            </ul>
-          </PreviewCard>
-        </Block>
-        <AuthFooter />
-      </PageContainer>
-    </React.Fragment>
+        </div>
+      </div>
+    </div>
   );
 };
 export default Register;

@@ -7,58 +7,61 @@ import AuthFooter from "./AuthFooter";
 import { Block, BlockContent, BlockDes, BlockHead, BlockTitle, Button, PreviewCard } from "../../components/Component";
 import { FormGroup } from "reactstrap";
 import { Link } from "react-router-dom";
+import worker from "../../images/worker.svg";
+import arrowright from "../../images/icons/arrow-right.svg";
+import back from "../../images/icons/back-arrow.svg";
+import "../../assets/scss/auth-pages/Forgotpass.scss";
 
 const ForgotPassword = () => {
   return (
-    <React.Fragment>
-      <Head title="Forgot-Password" />
-      <PageContainer>
-        <Block className="nk-block-middle nk-auth-body  wide-xs">
-          <div className="brand-logo pb-4 text-center">
-            <Link to={process.env.PUBLIC_URL + "/"} className="logo-link">
-              <img className="logo-light logo-img logo-img-lg" src={Logo} alt="logo" />
-              <img className="logo-dark logo-img logo-img-lg" src={LogoDark} alt="logo-dark" />
-            </Link>
-          </div>
-          <PreviewCard className="card-bordered" bodyClass="card-inner-lg">
-            <BlockHead>
-              <BlockContent>
-                <BlockTitle tag="h5">Reset password</BlockTitle>
-                <BlockDes>
-                  <p>If you forgot your password, well, then we’ll email you instructions to reset your password.</p>
-                </BlockDes>
-              </BlockContent>
-            </BlockHead>
-            <form>
-              <FormGroup>
-                <div className="form-label-group">
-                  <label className="form-label" htmlFor="default-01">
-                    Email
-                  </label>
+    <div>
+      <div className="forgot-pass-container">
+        <div className="forgot-pass-content">
+          <img className="worker" src={worker} alt={worker} />
+          <div className="reset-form-container">
+            <div className="reset-form-content">
+              <div className="header">
+                <div className="back-con">
+                  <Link className="back" to={`${process.env.PUBLIC_URL}/auth-login`}>
+                    <img src={back} alt={back} />
+                    <p>Back</p>
+                  </Link>
                 </div>
-                <input
-                  type="text"
-                  className="form-control form-control-lg"
-                  id="default-01"
-                  placeholder="Enter your email address"
-                />
-              </FormGroup>
-              <FormGroup>
-                <Button color="primary" size="lg" className="btn-block" onClick={(ev) => ev.preventDefault()}>
-                  Send Reset Link
-                </Button>
-              </FormGroup>
-            </form>
-            <div className="form-note-s2 text-center pt-4">
-              <Link to={`${process.env.PUBLIC_URL}/auth-login`}>
-                <strong>Return to login</strong>
-              </Link>
+                <div className="title">
+                  <header>Forgot Password?</header>
+                  <p>Enter you registered email address to retrieve your password</p>
+                </div>
+              </div>
+              <div className="form">
+                <form action="POST">
+                  <div className="blank">
+                    <label htmlFor="">Email address</label>
+                    <input type="email" placeholder="yourname@gmail.com" />
+                  </div>
+                  <div className="or">
+                    <hr />
+                    <p>OR</p>
+                    <hr />
+                  </div>
+                  <div className="blank">
+                    <label htmlFor="">Phone number</label>
+                    <input type="number" />
+                  </div>
+                </form>
+                <div className="reset-ctn-btn">
+                  <Link className="ctn-btn" to={`${process.env.PUBLIC_URL}/auth-update`}>
+                    <button>
+                      <p>CONTINUE</p>
+                      <img src={arrowright} alt={arrowright} />
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
-          </PreviewCard>
-        </Block>
-        <AuthFooter />
-      </PageContainer>
-    </React.Fragment>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 export default ForgotPassword;
