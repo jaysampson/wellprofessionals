@@ -28,7 +28,7 @@ const About = () => {
               <div className="why-choose-con">
                 <header>
                   <p>Say hello to Well Professionals</p>
-                  <h2>Why Choose Well Professionals</h2>
+                  <h3>Why Choose Well Professionals</h3>
                 </header>
                 <div className="reasons">
                   <div className="reasons-con">
@@ -90,8 +90,8 @@ const About = () => {
             </div>
             <div className="team">
               <div className="team-con">
-                <div className="teeam-top">
-                  <p>The Brains!</p>
+                <div className="team-top">
+                  <main>The Brains!</main>
                   <h4>Meet our team</h4>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
