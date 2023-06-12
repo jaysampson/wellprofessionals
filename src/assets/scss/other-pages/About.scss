@@ -1,0 +1,166 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .about-container {
+    width: 100%;
+    .about-hero-con {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 40px;
+      background-image: url("../../../images/about-herobg.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 419px;
+      h1 {
+        font-weight: 800;
+        font-size: 60px;
+        text-align: center;
+        color: #ffffff;
+        font-family: "Plus Jakarta Sans";
+      }
+      p {
+        font-weight: 400;
+        font-size: 20px;
+        text-align: center;
+        color: #e2ebdf;
+        width: 60%;
+      }
+    }
+    body {
+      padding: 25px 40px 100px 40px;
+      .why-choose {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .why-choose-con {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 60px;
+          header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 13px;
+            p {
+              font-weight: 600;
+              font-size: 16px;
+              text-align: center;
+              letter-spacing: -0.2px;
+              color: #fdb241;
+              margin-bottom: 0px;
+            }
+            h2 {
+              font-style: normal;
+              font-weight: 600;
+              font-size: 52px;
+              text-align: center;
+              letter-spacing: -2px;
+              color: #1e1d2f;
+            }
+          }
+          .reasons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            .reasons-con {
+              width: 415px;
+              background: #ffffff;
+              border: 1px solid #e4e4e7;
+              border-radius: 20px;
+              padding: 39px;
+              display: flex;
+              align-items: flex-start;
+              justify-content: flex-start;
+              gap: 15px;
+              flex: 0 0 400px;
+              .reason {
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                p {
+                  margin-bottom: 0px;
+                  font-weight: 400;
+                  font-size: 16px;
+                  letter-spacing: -0.2px;
+                  color: #18181b;
+                  font-family: "Plus Jakarta Sans";
+                  span {
+                    font-weight: 700;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .mission {
+        padding: 100px 0px 100px 0px;
+        .mission-con {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .mission-img {
+            width: 45%;
+            // @media screen and (max-width: 1200px) {
+            //   width: 50%;
+            // }
+            @media screen and (max-width: 900px) {
+              display: none;
+            }
+          }
+          .mission-writeup {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            gap: 107px;
+            width: 50%;
+            .writeup {
+              display: flex;
+              align-items: flex-start;
+              justify-content: center;
+              flex-direction: column;
+              gap: 24px;
+              main {
+                font-weight: 500;
+                font-size: 14px;
+                color: #4f624a;
+              }
+              h3 {
+                font-family: "Plus Jakarta Sans";
+                font-weight: 600;
+                font-size: 52px;
+                letter-spacing: -2px;
+                color: #1e1d2f;
+              }
+              p {
+                font-weight: 400;
+                font-size: 16px;
+                color: #18181b;
+              }
+            }
+            .read {
+              font-weight: 600;
+              font-size: 16px;
+              letter-spacing: -0.2px;
+              color: #cd760f;
+            }
+          }
+        }
+      }
+    }
+  }
+}
