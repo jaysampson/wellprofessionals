@@ -39,7 +39,7 @@ const App = () => {
       <Route exact path={`${process.env.PUBLIC_URL}/auths/terms`} component={Terms}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/auths/faq`} component={Faq}></Route>
 
-      <Route exact path={`${process.env.PUBLIC_URL}/invoice-print`} component={About}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/invoice-print`} component={InvoicePrint}></Route>
 
       {/*Error Pages*/}
       <Route exact path={`${process.env.PUBLIC_URL}/errors/404-classic`} component={Error404Classic}></Route>
@@ -51,7 +51,7 @@ const App = () => {
       <PrivateRoute exact path="" component={Layout}></PrivateRoute>
       <Route component={RedirectAs404}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}></Route>
-      {/* <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}></Route> */}
+      <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}></Route>
     </Switch>
   );
 };
