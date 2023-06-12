@@ -19,6 +19,8 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import Success from "./pages/auth/Success";
 import InvoicePrint from "./pages/pre-built/invoice/InvoicePrint";
 import UpdatePassword from "./pages/auth/UpdatePassword";
+import Contact from "./pages/others/Contact";
+import About from "./pages/others/About";
 
 const App = () => {
   return (
@@ -48,6 +50,8 @@ const App = () => {
       {/*Main Routes*/}
       <PrivateRoute exact path="" component={Layout}></PrivateRoute>
       <Route component={RedirectAs404}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}></Route>
     </Switch>
   );
 };
