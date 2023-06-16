@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "./Footer";
+import Footer from "../others/Footer";
 import mission from "../../images/mission-image.svg";
 import member from "../../images/member.svg";
 import video from "../../images/Video.svg";

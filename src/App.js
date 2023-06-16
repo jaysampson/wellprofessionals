@@ -19,8 +19,8 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import Success from "./pages/auth/Success";
 import InvoicePrint from "./pages/pre-built/invoice/InvoicePrint";
 import UpdatePassword from "./pages/auth/UpdatePassword";
-import Contact from "./pages/others/Contact";
-import About from "./pages/others/About";
+import Contact from "./pages/LandingPages/Contact";
+import About from "./pages/LandingPages/About";
 
 const App = () => {
   return (
