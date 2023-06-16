@@ -1,7 +1,7 @@
 import React from "react";
 import contactperson from "../../images/contact-person.svg";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
+import Footer from "../others/Footer";
 import "../../assets/scss/other-pages/Contact.scss";
 
 const Contact = () => {
