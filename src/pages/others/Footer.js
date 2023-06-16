@@ -1,5 +1,5 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import twitterfoot from "../../images/icons/twitter-footer.svg";
 import fbfoot from "../../images/icons/fb-footer.svg";
 import instafoot from "../../images/icons/insta-footer.svg";
@@ -44,7 +44,7 @@ const Footer = () => {
               <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</h1>
               <button>
                 <p>Get Started</p>
-                <FontAwesomeIcon icon={faArrowRight} color="white" />
+                {/* <FontAwesomeIcon icon={faArrowRight} color="white" /> */}
               </button>
             </div>
             <hr />
