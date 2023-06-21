@@ -1,0 +1,184 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+// p {
+//   margin-bottom: 0px;
+//   padding-bottom: 0px;
+// }
+
+.home-nav {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .offers {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e1d2f;
+    height: 44px;
+    p {
+      font-weight: 500;
+      font-size: 16px;
+      color: #fff;
+      @media screen and (max-width: 500px) {
+        font-size: 14px;
+      }
+      span {
+        color: #ffb82e;
+      }
+    }
+  }
+  .main {
+    padding: 0px 50px 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 92px;
+    box-shadow: 0px 2px 5px rgba(49, 69, 44, 0.2);
+    @media screen and (max-width: 500px) {
+      padding: 0px 25px 0px 25px;
+    }
+    .ham {
+      display: none;
+      @media screen and (max-width: 1000px) {
+        display: block;
+      }
+    }
+    .logo-name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      p {
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 3px;
+        color: #0f0a0a;
+        @media screen and (max-width: 1000px) {
+          display: none;
+        }
+      }
+    }
+    .search-input {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 250px;
+      padding-inline-start: 10px;
+      height: 35px;
+      background-color: #fff;
+      border: 1px gray solid;
+      border-radius: 5px;
+      input {
+        border: none;
+        outline: none;
+        padding: 0px 10px 0px 0px;
+        width: 100%;
+        color: #64748b;
+      }
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+    .categories {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      span {
+        font-weight: 400;
+        font-size: 16px;
+        color: #64748b;
+      }
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+    .shop {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      p {
+        margin-left: -10px;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background-color: #af5e41;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        margin-top: -5px;
+      }
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+    .language {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      span {
+        font-weight: 400;
+        font-size: 16px;
+        color: #191d23;
+      }
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+    .book-notify {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+    .profile {
+      img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        border: 2px gray dashed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  .student-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 42px;
+    height: 65px;
+    background-color: #ebebec;
+    .options {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: black;
+      p {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+      }
+    }
+    @media screen and (max-width: 1000px) {
+      display: none;
+    }
+  }
+}

@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   background-color: #1e1d2f;
-  font-family: "Plus Jakarta Sans";
+  font-family: "Plus Jakarta Sans", sans-serif;
   .footer-container {
     padding: 60px;
     display: flex;
@@ -157,7 +157,7 @@
       .getstarted {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         width: 100%;
         @media screen and (max-width: 768px) {
           flex-direction: column;
@@ -233,7 +233,7 @@
           .footer-icons {
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             gap: 30px;
           }
         }
@@ -319,6 +319,7 @@
           font-weight: 400;
           font-size: 16px;
           color: #d5d5d7;
+          text-align: center;
         }
       }
     }

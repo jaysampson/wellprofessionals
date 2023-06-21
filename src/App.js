@@ -21,6 +21,7 @@ import InvoicePrint from "./pages/pre-built/invoice/InvoicePrint";
 import UpdatePassword from "./pages/auth/UpdatePassword";
 import Contact from "./pages/LandingPages/Contact";
 import About from "./pages/LandingPages/About";
+import Home from "./pages/LandingPages/HomePage";
 
 const App = () => {
   return (
@@ -39,7 +40,7 @@ const App = () => {
       <Route exact path={`${process.env.PUBLIC_URL}/auths/terms`} component={Terms}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/auths/faq`} component={Faq}></Route>
 
-      <Route exact path={`${process.env.PUBLIC_URL}/invoice-print`} component={InvoicePrint}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/invoice-print`} component={Home}></Route>
 
       {/*Error Pages*/}
       <Route exact path={`${process.env.PUBLIC_URL}/errors/404-classic`} component={Error404Classic}></Route>
@@ -52,6 +53,7 @@ const App = () => {
       <Route component={RedirectAs404}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}></Route>
+      <Route index element exact path={`${process.env.PUBLIC_URL}/`} component={Home}></Route>
     </Switch>
   );
 };
