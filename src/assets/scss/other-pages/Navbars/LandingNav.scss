@@ -1,0 +1,194 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.home-nav {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .offers {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #e65c00 0%, #f9d423 100%);
+    height: 44px;
+    p {
+      font-weight: 500;
+      font-size: 16px;
+      color: #000;
+      @media screen and (max-width: 500px) {
+        font-size: 14px;
+      }
+      span {
+        color: #fff;
+      }
+    }
+  }
+  .main {
+    padding: 0px 50px 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 92px;
+    box-shadow: 0px 2px 5px rgba(49, 69, 44, 0.2);
+    @media screen and (max-width: 500px) {
+      padding: 0px 25px 0px 25px;
+    }
+    .ham {
+      display: none;
+      @media screen and (max-width: 1000px) {
+        display: block;
+      }
+    }
+    .logo-name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      p {
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 3px;
+        color: #0f0a0a;
+        @media screen and (max-width: 1000px) {
+          display: none;
+        }
+      }
+    }
+    .search-input {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 250px;
+      padding-inline-start: 10px;
+      height: 35px;
+      background-color: #fff;
+      border: 1px gray solid;
+      border-radius: 5px;
+      input {
+        border: none;
+        outline: none;
+        padding: 0px 10px 0px 0px;
+        width: 100%;
+        color: #64748b;
+      }
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+    .categories {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      span {
+        font-weight: 400;
+        font-size: 16px;
+        color: #64748b;
+      }
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+    .shop {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      p {
+        margin-left: -10px;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background-color: #af5e41;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        margin-top: -5px;
+      }
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+    .language {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      margin-right: 20px;
+      span {
+        font-weight: 400;
+        font-size: 16px;
+        color: #191d23;
+      }
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+    .auths {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      .login-btn {
+        font-size: 16px;
+        font-weight: 500;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        color: #0f0a0a;
+      }
+      .create-btn {
+        display: flex;
+        width: 187px;
+        height: 45px;
+        // padding: 16px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: 1.5px solid #af5e41;
+        color: #af5e41;
+      }
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+    .search {
+      display: none;
+      @media screen and (max-width: 700px) {
+        display: block;
+      }
+    }
+  }
+  .student-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 42px;
+    height: 65px;
+    background-color: #ebebec;
+    .options {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: black;
+      p {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+      }
+    }
+    @media screen and (max-width: 1000px) {
+      display: none;
+    }
+  }
+}
