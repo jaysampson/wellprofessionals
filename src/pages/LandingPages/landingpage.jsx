@@ -16,6 +16,7 @@ import bulb from "../../images/bulb.svg";
 import statue from "../../images/statue.svg";
 import plus from "../../images/icons/plus-circle.svg";
 import minus from "../../images/icons/minus-circle.svg";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 const landingpage = () => {
   const [toggle1, setToggle1] = useState(false);
@@ -49,7 +50,9 @@ const landingpage = () => {
                 knowledge and skills, our courses are designed to meet your specific needs
               </p>
               <div className="btn-text">
-                <button>Get Started</button>
+                <NavLink to={`${process.env.PUBLIC_URL}/auth-register`}>
+                  <button>Get Started</button>
+                </NavLink>
                 <div className="trust">
                   <p>Trusted by 50k+ users</p>
                   <div className="star">
@@ -948,7 +951,9 @@ const landingpage = () => {
                   <p>Still have questions?</p>
                   <span>Can’t find the answer you’re looking for? Please chat to our friendly team.</span>
                 </div>
-                <button>Get in touch</button>
+                <NavLink to={`${process.env.PUBLIC_URL}/contact`}>
+                  <button>Get in touch</button>
+                </NavLink>
               </div>
             </main>
           </body>

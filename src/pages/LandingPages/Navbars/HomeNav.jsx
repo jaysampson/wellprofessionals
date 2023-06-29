@@ -23,10 +23,12 @@ const HomeNav = () => {
         </div>
         <div className="main">
           <FontAwesomeIcon icon={faBars} size="2x" color="#090914" className="ham" />
-          <div className="logo-name">
-            <img src={wellslogo} alt={wellslogo} />
-            <p> WELL PROFESSIONALS</p>
-          </div>
+          <NavLink to={`${process.env.PUBLIC_URL}/home`}>
+            <div className="logo-name">
+              <img src={wellslogo} alt={wellslogo} />
+              <p> WELL PROFESSIONALS</p>
+            </div>
+          </NavLink>
           <div className="search-input">
             <FontAwesomeIcon icon={faSearch} />
             <input type="text" placeholder="Search Courses" />
@@ -53,7 +55,7 @@ const HomeNav = () => {
           </div>
         </div>
         <div className="student-options">
-          <NavLink to="/home/dashboard" className="options">
+          <NavLink to={`${process.env.PUBLIC_URL}/home/dashboard`} className="options">
             <img src={homeicon} alt={homeicon} />
             <p>Dashboard</p>
           </NavLink>

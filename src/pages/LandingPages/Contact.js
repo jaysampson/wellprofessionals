@@ -3,10 +3,12 @@ import contactperson from "../../images/contact-person.svg";
 import { Link } from "react-router-dom";
 import Footer from "../others/Footer";
 import "../../assets/scss/other-pages/Contact.scss";
+import LandingNav from "./Navbars/LandingNav";
 
 const Contact = () => {
   return (
     <div>
+      <LandingNav />
       <div className="contact">
         <div className="contact-container">
           <div className="contact-hero">

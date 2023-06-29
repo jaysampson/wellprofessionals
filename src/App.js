@@ -33,7 +33,14 @@ const App = () => {
       <Route exact path={`${process.env.PUBLIC_URL}/auth-reset`} component={ForgotPassword}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/auth-update`} component={UpdatePassword}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/auth-register`} component={Register}></Route>
+
+      {/* Pages */}
       <Route exact path={`${process.env.PUBLIC_URL}/auth-login`} component={Login}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/home`} component={Home}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/`} component={landingpage}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/home/dashboard`} component={Dashboard}></Route>
 
       {/* Print Pages */}
       <Route exact path={`${process.env.PUBLIC_URL}/invoice-print/:id`} component={InvoicePrint}></Route>
@@ -42,7 +49,7 @@ const App = () => {
       <Route exact path={`${process.env.PUBLIC_URL}/auths/terms`} component={Terms}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/auths/faq`} component={Faq}></Route>
 
-      <Route exact path={`${process.env.PUBLIC_URL}/invoice-print`} component={Dashboard}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/invoice-print`} component={InvoicePrint}></Route>
 
       {/*Error Pages*/}
       <Route exact path={`${process.env.PUBLIC_URL}/errors/404-classic`} component={Error404Classic}></Route>
@@ -53,11 +60,6 @@ const App = () => {
       {/*Main Routes*/}
       <PrivateRoute exact path="" component={Layout}></PrivateRoute>
       <Route component={RedirectAs404}></Route>
-      <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Home}></Route>
-      <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}></Route>
-      <Route index element exact path={`${process.env.PUBLIC_URL}/home`} component={Home}></Route>
-      <Route index element exact path={`${process.env.PUBLIC_URL}/`} component={landingpage}></Route>
-      <Route index element exact path={`${process.env.PUBLIC_URL}/home/dashboard`} component={Dashboard}></Route>
     </Switch>
   );
 };

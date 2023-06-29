@@ -79,9 +79,11 @@
             padding: 6px 12px;
             justify-content: center;
             align-items: center;
+            outline: none;
             color: #fff;
             @media screen and (max-width: 400px) {
               width: 100%;
+              width: 250px;
             }
           }
           .trust {
@@ -833,6 +835,7 @@
             background: #af5e41;
             color: #fff;
             padding: 0.625rem 1.125rem;
+            outline: none;
           }
         }
       }

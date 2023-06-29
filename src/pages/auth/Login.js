@@ -24,6 +24,7 @@ import appleicon from "../../images/icons/apple-icon.svg";
 import fbicon from "../../images/icons/facebook-icon.svg";
 import eye from "../../images/icons/eye.svg";
 import "../../assets/scss/auth-pages/Login.scss";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 const Login = () => {
   return (
@@ -35,7 +36,7 @@ const Login = () => {
             <div className="signin-form-content">
               <div className="header">
                 <div className="back-con">
-                  <Link className="back" to={"/"}>
+                  <Link className="back" to={`${process.env.PUBLIC_URL}/`}>
                     <img src={back} alt={back} />
                     <p>Back</p>
                   </Link>
@@ -65,11 +66,12 @@ const Login = () => {
                   <input type="checkbox" className="checkbox" />
                   <p>Remember me</p>
                 </div>
-                <div className="signin-ctn-btn">
+                <NavLink to={`${process.env.PUBLIC_URL}/home`} className="signin-ctn-btn">
                   <button>
                     <p>Sign In</p>
                   </button>
-                </div>
+                </NavLink>
+
                 <div className="no-account">
                   <p>
                     Don't have an account?{" "}

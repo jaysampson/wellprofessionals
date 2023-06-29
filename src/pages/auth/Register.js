@@ -24,6 +24,7 @@ import appleicon from "../../images/icons/apple-icon.svg";
 import fbicon from "../../images/icons/facebook-icon.svg";
 import eye from "../../images/icons/eye.svg";
 import "../../assets/scss/auth-pages/Signup.scss";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 const Register = ({ history }) => {
   // const [passState, setPassState] = useState(false);
@@ -43,7 +44,7 @@ const Register = ({ history }) => {
             <div className="signup-form-content">
               <div className="header">
                 <div className="back-con">
-                  <Link className="back" to={"/"}>
+                  <Link className="back" to={`${process.env.PUBLIC_URL}/`}>
                     <img src={back} alt={back} />
                     <p>Back</p>
                   </Link>
@@ -94,11 +95,11 @@ const Register = ({ history }) => {
                     I agree with the <span>Terms & Conditions</span> of Well Professionals
                   </p>
                 </div>
-                <div className="signup-ctn-btn">
+                <NavLink to={`${process.env.PUBLIC_URL}/home`} className="signup-ctn-btn">
                   <button>
                     <p>Sign Up</p>
                   </button>
-                </div>
+                </NavLink>
                 <div className="no-account">
                   <p>
                     Already have an account?{" "}
