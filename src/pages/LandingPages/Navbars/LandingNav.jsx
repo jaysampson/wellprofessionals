@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { faAngleDown, faBars, faCaretDown, faMinus, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleDown,
+  faBars,
+  faCaretDown,
+  faMinus,
+  faPlus,
+  faSearch,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import wellslogo from "../../../images/Wells-Logo.svg";
 import shop from "../../../images/icons/shop-bag.svg";
@@ -15,10 +23,16 @@ import style from "react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark";
 
 const LandingNav = () => {
   const [toggle, setToggle] = useState(false);
+  const [drop, setDrop] = useState(false);
 
   function toggleMenu() {
     setToggle(!toggle);
   }
+
+  function toggleDrop() {
+    setDrop(!drop);
+  }
+
   return (
     <div className="home-nav">
       <div className="offers">
@@ -27,7 +41,14 @@ const LandingNav = () => {
         </p>
       </div>
       <div className="main">
-        <FontAwesomeIcon className="ham" icon={faBars} size="2x" color="#090914" />
+        <FontAwesomeIcon
+          className="ham"
+          icon={toggle ? faXmark : faBars}
+          size="2x"
+          color="#090914"
+          onClick={toggleMenu}
+          cursor={"pointer"}
+        />
         <NavLink to={`${process.env.PUBLIC_URL}`} className="logo-name">
           <img src={wellslogo} alt={wellslogo} />
           <p> WELL PROFESSIONALS</p>
@@ -82,7 +103,7 @@ const LandingNav = () => {
           <FontAwesomeIcon icon={faAngleDown} />
         </div>
       </div>
-      <div className="sidebar">
+      <div className={toggle ? "sidebar" : "null"}>
         <NavLink
           to={`${process.env.PUBLIC_URL}/auth-login`}
           style={{ textDecoration: "none", color: "black", fontWeight: "700", fontSize: "1rem" }}
@@ -107,7 +128,7 @@ const LandingNav = () => {
         <div className="side-categories">
           <div className="cat-header">
             <h3>Categories</h3>
-            <FontAwesomeIcon icon={toggle ? faMinus : faPlus} width={"30px"} height={"30px"} onClick={toggleMenu} />
+            <FontAwesomeIcon icon={drop ? faMinus : faPlus} width={"30px"} height={"30px"} onClick={toggleDrop} />
           </div>
           <div className="cats">
             <div className="each-cat">

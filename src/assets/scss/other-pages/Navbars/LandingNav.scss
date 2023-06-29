@@ -11,9 +11,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  top: 0px;
-  position: sticky;
-  z-index: 101;
+  @media screen and (max-width: 1000px) {
+    top: 0px;
+    position: sticky;
+    z-index: 101;
+  }
   .offers {
     width: 100%;
     display: flex;
@@ -303,5 +305,8 @@
         }
       }
     }
+  }
+  .null {
+    display: none;
   }
 }
