@@ -24,6 +24,9 @@ import About from "./pages/LandingPages/About";
 import Home from "./pages/LandingPages/HomePage";
 import landingpage from "./pages/LandingPages/landingpage";
 import Dashboard from "./pages/DashPages/Dashboard";
+import Overview from "./pages/CoursePages/Overview";
+import ProfLayout from "./pages/ProfDashboard/ProfLayout/ProfLayout";
+import ProfDashboard from "./pages/ProfDashboard/ProfDashboard";
 
 const App = () => {
   return (
@@ -33,14 +36,17 @@ const App = () => {
       <Route exact path={`${process.env.PUBLIC_URL}/auth-reset`} component={ForgotPassword}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/auth-update`} component={UpdatePassword}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/auth-register`} component={Register}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/auth-login`} component={Login}></Route>
 
       {/* Pages */}
-      <Route exact path={`${process.env.PUBLIC_URL}/auth-login`} component={Login}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/home`} component={Home}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/`} component={landingpage}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/home/dashboard`} component={Dashboard}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/home/overview`} component={Overview}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/prof-dashboard/*`} component={ProfDashboard}></Route>
+      <Route exact path={`${process.env.PUBLIC_URL}/prof-dashboard/`} component={ProfDashboard}></Route>
 
       {/* Print Pages */}
       <Route exact path={`${process.env.PUBLIC_URL}/invoice-print/:id`} component={InvoicePrint}></Route>

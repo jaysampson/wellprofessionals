@@ -168,21 +168,29 @@
               margin-top: 25px;
               display: flex;
               align-items: center;
-              justify-content: flex-start;
-              overflow: auto;
-              gap: 20px;
+              justify-content: center;
+              gap: 40px;
+              padding: 0px 0px 20px 0px;
               width: 100%;
+              flex-wrap: wrap;
               .course-con {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
+                gap: 30px;
+                flex: 0 0 320px;
+                .course-img {
+                  height: 204px;
+                  width: 100%;
+                  border-radius: 8px;
+                }
                 .content {
                   display: flex;
                   align-items: flex-start;
                   justify-content: center;
                   flex-direction: column;
-                  gap: 15px;
+                  gap: 5px;
                   .admin {
                     display: flex;
                     justify-content: flex-start;
@@ -195,8 +203,8 @@
                       align-items: center;
                       gap: 8px;
                       img {
-                        height: 50px;
-                        width: 50px;
+                        height: 32px;
+                        width: 32px;
                       }
                       p {
                         font-weight: 600;
@@ -265,6 +273,7 @@
                       border-radius: 8px;
                       color: #545454;
                       box-shadow: none;
+                      font-size: 13px;
                     }
                   }
                 }
@@ -290,6 +299,7 @@
           width: 100%;
           flex-direction: column;
           gap: 30px;
+          margin-top: 20px;
           .top-rated-con {
             display: flex;
             align-items: flex-start;
@@ -315,6 +325,11 @@
                 justify-content: center;
                 flex-direction: column;
                 flex: 0 0 320px;
+                gap: 30px;
+                .course-img {
+                  height: 204px;
+                  border-radius: 8px;
+                }
                 .content {
                   display: flex;
                   align-items: flex-start;
@@ -333,8 +348,8 @@
                       align-items: center;
                       gap: 8px;
                       img {
-                        height: 50px;
-                        width: 50px;
+                        height: 32px;
+                        width: 32px;
                       }
                       p {
                         font-weight: 600;
@@ -440,6 +455,7 @@
                       border-radius: 8px;
                       color: #545454;
                       box-shadow: none;
+                      font-size: 13px;
                     }
                   }
                 }
@@ -522,12 +538,19 @@
               justify-content: center;
               flex-direction: column;
               flex: 0 0 300px;
+              gap: 30px;
+              .course-img {
+                height: 204px;
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+              }
               .content {
                 display: flex;
                 align-items: flex-start;
                 justify-content: center;
                 flex-direction: column;
-                gap: 15px;
+                gap: 5px;
                 .admin-title {
                   display: flex;
                   justify-content: flex-start;

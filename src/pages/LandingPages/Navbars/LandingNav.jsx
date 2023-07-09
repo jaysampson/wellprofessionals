@@ -82,27 +82,6 @@ const LandingNav = () => {
           <FontAwesomeIcon icon={faSearch} color="#090914" size="2x" />
         </div>
       </div>
-      <div className="student-options">
-        <div className="options">
-          <img src={homeicon} alt={homeicon} />
-          <NavLink to={`${process.env.PUBLIC_URL}/home/dashboard`} className="dash-link">
-            Dashboard
-          </NavLink>
-        </div>
-        <div className="options">
-          <img src={carticon} alt={carticon} />
-          <p>Cart</p>
-        </div>
-        <div className="options">
-          <img src={book} alt={book} />
-          <p>Bookmark</p>
-        </div>
-        <div className="options">
-          <img src={settingicon} alt={settingicon} />
-          <p>Setting</p>
-          <FontAwesomeIcon icon={faAngleDown} />
-        </div>
-      </div>
       <div className={toggle ? "sidebar" : "null"}>
         <NavLink
           to={`${process.env.PUBLIC_URL}/auth-login`}

@@ -266,11 +266,14 @@
               overflow: auto;
               gap: 20px;
               width: 100%;
+              padding: 0px 0px 20px 0px;
+              flex-wrap: nowrap;
               .course-con {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
+                flex: 0 0 280px;
                 .content {
                   display: flex;
                   align-items: flex-start;

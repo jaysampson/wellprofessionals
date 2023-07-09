@@ -176,33 +176,7 @@
       }
     }
   }
-  .student-options {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 42px;
-    height: 65px;
-    background-color: #ebebec;
-    .options {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      color: black;
-      .dash-link {
-        text-decoration: none;
-        color: #000;
-      }
-      p {
-        margin-bottom: 0px;
-        padding-bottom: 0px;
-      }
-    }
-    @media screen and (max-width: 1000px) {
-      display: none;
-    }
-  }
+
   .sidebar {
     display: none;
     @media screen and (max-width: 1000px) {

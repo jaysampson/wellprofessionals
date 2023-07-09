@@ -25,16 +25,76 @@ import fbicon from "../../images/icons/facebook-icon.svg";
 import eye from "../../images/icons/eye.svg";
 import "../../assets/scss/auth-pages/Signup.scss";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Register = ({ history }) => {
-  // const [passState, setPassState] = useState(false);
-  // const [loading, setLoading] = useState(false);
-  // const { errors, register, handleSubmit } = useForm();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [valError, setValError] = useState("");
+  const [toggle, setToggle] = useState();
 
-  // const handleFormSubmit = () => {
-  //   setLoading(true);
-  //   setTimeout(() => history.push(`${process.env.PUBLIC_URL}/auth-success`), 2000);
-  // };
+  function handleToggle() {
+    setToggle(!toggle);
+  }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    let regobj = { name, password, email, mobile };
+
+    fetch("https://wellpro-server.onrender.com/api/user/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(regobj),
+    })
+      .then((res) => {
+        if (res.status == true) {
+          alert("Registered successfully");
+        } else {
+          return res.json(); // Parse response body as JSON
+        }
+      })
+      .then((data) => {
+        if (data && data.status === false) {
+          if (data.message.includes("duplicate")) {
+            setPhoneError(data.message);
+            setError("");
+          } else if (data.message.includes("Email")) {
+            setEmailError(data.message);
+            setError("");
+          } else if (data.message.includes("name")) {
+            setValError(data.message);
+            setError("");
+          } else {
+            setError(data.message);
+          }
+        } else {
+          throw new Error("Registration failed");
+        }
+      })
+      .catch((err) => {
+        setError("Failed: " + err.message);
+      });
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setEmailError("");
+    setValError("");
+    setError("");
+  };
+
+  const handleMobileChange = (e) => {
+    setMobile(e.target.value);
+    setError("");
+    setValError("");
+  };
+
   return (
     <div>
       <div className="signup-pass-container">
@@ -55,54 +115,80 @@ const Register = ({ history }) => {
                 </div>
               </div>
               <div className="form">
-                <form action="POST">
+                <form method="POST">
                   <div className="blank">
                     <label htmlFor="">Full name</label>
                     <div className="input">
-                      <input type="text" placeholder="Declan Rice" />
+                      <input
+                        type="text"
+                        placeholder="Declan Rice"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="blank">
                     <label htmlFor="">Email Address</label>
-                    <div className="input">
-                      <input type="email" placeholder="yourname@gmail.com" />
+                    <div className="input" style={emailError ? { border: "1px red solid" } : {}}>
+                      <input
+                        type="email"
+                        placeholder="yourname@gmail.com"
+                        value={email}
+                        onChange={handleEmailChange}
+                        className={error ? "error-input" : ""}
+                        required
+                      />
                     </div>
+                    {emailError && <p style={{ color: "red", margin: "0px", padding: "0px" }}>{emailError}</p>}
                   </div>
                   <div className="blank">
                     <label htmlFor="">Phone number</label>
-                    <div className="input">
-                      <input type="number" placeholder="+2345678909876" />
+                    <div className="input" style={phoneError ? { border: "1px red solid" } : {}}>
+                      <input
+                        type="number"
+                        placeholder="+2345678909876"
+                        value={mobile}
+                        onChange={handleMobileChange}
+                        required
+                      />
                     </div>
+                    {phoneError && <p style={{ color: "red", margin: "0px", padding: "0px" }}>{phoneError}</p>}
                   </div>
                   <div className="blank">
                     <label htmlFor="">Create password</label>
                     <div className="input">
-                      <input type="password" placeholder="* * * * * * * *" />
-                      <img src={eye} alt={eye} className="eye" />
-                    </div>
-                  </div>
-                  <div className="blank">
-                    <label htmlFor="">Confirm password</label>
-                    <div className="input">
-                      <input type="password" placeholder="* * * * * * * *" />
-                      <img src={eye} alt={eye} className="eye" />
+                      <input
+                        type={toggle ? "text" : "password"}
+                        placeholder="* * * * * * * *"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                      />
+                      <FontAwesomeIcon
+                        icon={toggle ? faEye : faEyeSlash}
+                        cursor="pointer"
+                        color="#000"
+                        onClick={handleToggle}
+                      />
                     </div>
                   </div>
                 </form>
                 <div className="remember">
-                  <input type="checkbox" className="checkbox" />
+                  <input type="checkbox" className="checkbox" required />
                   <p>
                     I agree with the <span>Terms & Conditions</span> of Well Professionals
                   </p>
                 </div>
-                <NavLink to={`${process.env.PUBLIC_URL}/home`} className="signup-ctn-btn">
-                  <button>
+                <div>{valError && <p style={{ color: "red", margin: "0px", padding: "0px" }}>{valError}</p>}</div>
+                <div className="signup-ctn-btn">
+                  <button type="submit" onClick={handleFormSubmit}>
                     <p>Sign Up</p>
                   </button>
-                </NavLink>
+                </div>
                 <div className="no-account">
                   <p>
-                    Already have an account?{" "}
+                    Already have an account?
                     <span>
                       <Link to={`${process.env.PUBLIC_URL}/auth-login`} className="new">
                         Sign into your account
