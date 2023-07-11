@@ -23,57 +23,79 @@ import appleicon from "../../images/icons/apple-icon.svg";
 import fbicon from "../../images/icons/facebook-icon.svg";
 import eye from "../../images/icons/eye.svg";
 import "../../assets/scss/auth-pages/Login.scss";
+import { useDispatch, useSelector } from "react-redux";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { login } from "../../redux/auth/reducers/login/authSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [eror, setEror] = useState("");
   const [toggle, setToggle] = useState();
+
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
+  const error = useSelector((state) => state.auth.error);
+
   function handleToggle() {
     setToggle(!toggle);
   }
 
   const history = useHistory();
-  async function login() {
+  // async function login() {
+  //   const values = {
+  //     email: email,
+  //     password: password,
+  //   };
+
+  //   try {
+  //     let response = await fetch("https://wellpro-server.onrender.com/api/user/login", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Accept: "application/json",
+  //       },
+  //       body: JSON.stringify(values),
+  //     });
+
+  //     if (response.status == true) {
+  //       const result = await response.json();
+  //       history.push(`${process.env.PUBLIC_URL}/home`);
+  //     } else {
+  //       const errorResponse = await response.json();
+  //       setError(`Login failed: ${errorResponse.message}`); // Display failure message with reason
+  //     }
+  //   } catch (error) {
+  //     console.error("Login error:", error);
+  //     alert(`An error occurred during login ${error.message}`); // Display error message
+  //   }
+  // }
+
+  const handleLogin = async () => {
     const values = {
       email: email,
       password: password,
     };
 
     try {
-      let response = await fetch("https://wellpro-server.onrender.com/api/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(values),
-      });
-
-      if (response.status == true) {
-        const result = await response.json();
-        history.push(`${process.env.PUBLIC_URL}/home`);
-      } else {
-        const errorResponse = await response.json();
-        setError(`Login failed: ${errorResponse.message}`); // Display failure message with reason
-      }
+      await dispatch(login(values));
+      history.push(`${process.env.PUBLIC_URL}/home`);
     } catch (error) {
       console.error("Login error:", error);
-      alert(`An error occurred during login ${error.message}`); // Display error message
+      // alert(`An error occurred during login ${error.message}`);
     }
-  }
+  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    setError("");
+    setEror("");
   };
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    setError("");
+    setEror("");
   };
 
   return (
@@ -127,8 +149,8 @@ const Login = () => {
                 </div>
                 {error && <p style={{ color: "red" }}>{error}</p>}
                 <div className="signin-ctn-btn">
-                  <button type="submit" onClick={login}>
-                    <p>Sign In</p>
+                  <button type="submit" onClick={handleLogin}>
+                    <p>{loading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Sign in"}</p>
                   </button>
                 </div>
 

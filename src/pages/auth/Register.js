@@ -26,59 +26,95 @@ import eye from "../../images/icons/eye.svg";
 import "../../assets/scss/auth-pages/Signup.scss";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+// import { setError, clearError } from "../../redux/auth/reducers/userSlice";
+import { setError, setPhoneError, setEmailError, setValError } from "../../redux/auth/reducers/register/userSlice";
+import { registerUser, selectLoading, selectError } from "../../redux/auth/reducers/register/authReg";
 
 const Register = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [mobile, setMobile] = useState("");
   const [name, setName] = useState("");
-  const [error, setError] = useState("");
+  const [eror, setEror] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [valError, setValError] = useState("");
+  const dispatch = useDispatch();
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
+
   const [toggle, setToggle] = useState();
+
+  // const dispatch = useDispatch();
+  // const error = useSelector((state) => state.auth.error);
 
   function handleToggle() {
     setToggle(!toggle);
   }
 
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   let regobj = { name, password, email, mobile };
+
+  //   fetch("https://wellpro-server.onrender.com/api/user/register", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json", Accept: "application/json" },
+  //     body: JSON.stringify(regobj),
+  //   })
+  //     .then((res) => {
+  //       if (res.status == true) {
+  //         history.push(`${process.env.PUBLIC_URL}/auth-login`);
+  //         alert("Registered successfully");
+  //       } else {
+  //         return res.json(); // Parse response body as JSON
+  //       }
+  //     })
+  //     .then((data) => {
+  //       if (data && data.status === false) {
+  //         if (data.message.includes("duplicate")) {
+  //           setPhoneError(data.message);
+  //           setError("");
+  //         } else if (data.message.includes("Email")) {
+  //           setEmailError(data.message);
+  //           setError("");
+  //         } else if (data.message.includes("name")) {
+  //           setValError(data.message);
+  //           setError("");
+  //         } else {
+  //           setError(data.message);
+  //         }
+  //       } else {
+  //         throw new Error("Registration failed");
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       setError("Failed: " + err.message);
+  //     });
+  // };
   const handleFormSubmit = (e) => {
     e.preventDefault();
     let regobj = { name, password, email, mobile };
 
-    fetch("https://wellpro-server.onrender.com/api/user/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(regobj),
-    })
-      .then((res) => {
-        if (res.status == true) {
-          alert("Registered successfully");
-        } else {
-          return res.json(); // Parse response body as JSON
-        }
-      })
-      .then((data) => {
-        if (data && data.status === false) {
-          if (data.message.includes("duplicate")) {
-            setPhoneError(data.message);
-            setError("");
-          } else if (data.message.includes("Email")) {
-            setEmailError(data.message);
-            setError("");
-          } else if (data.message.includes("name")) {
-            setValError(data.message);
-            setError("");
-          } else {
-            setError(data.message);
-          }
-        } else {
-          throw new Error("Registration failed");
-        }
+    dispatch(registerUser(regobj))
+      .unwrap()
+      .then(() => {
+        history.push(`${process.env.PUBLIC_URL}/auth-login`);
       })
       .catch((err) => {
-        setError("Failed: " + err.message);
+        if (err.message.includes("duplicate")) {
+          dispatch(setPhoneError(err.message));
+          dispatch(setEror(""));
+        } else if (err.message.includes("Email")) {
+          dispatch(setEmailError(err.message));
+          dispatch(setEror(""));
+        } else if (err.message.includes("mobile")) {
+          dispatch(setValError(err.message));
+          dispatch(setEror(""));
+        } else {
+          dispatch(setError(err.message));
+        }
       });
   };
 
@@ -86,12 +122,13 @@ const Register = ({ history }) => {
     setEmail(e.target.value);
     setEmailError("");
     setValError("");
-    setError("");
+    setEror("");
   };
 
   const handleMobileChange = (e) => {
     setMobile(e.target.value);
-    setError("");
+    setPhoneError("");
+    setEror("");
     setValError("");
   };
 
@@ -130,7 +167,7 @@ const Register = ({ history }) => {
                   </div>
                   <div className="blank">
                     <label htmlFor="">Email Address</label>
-                    <div className="input" style={emailError ? { border: "1px red solid" } : {}}>
+                    <div className="input">
                       <input
                         type="email"
                         placeholder="yourname@gmail.com"
@@ -144,7 +181,7 @@ const Register = ({ history }) => {
                   </div>
                   <div className="blank">
                     <label htmlFor="">Phone number</label>
-                    <div className="input" style={phoneError ? { border: "1px red solid" } : {}}>
+                    <div className="input">
                       <input
                         type="number"
                         placeholder="+2345678909876"
@@ -183,7 +220,7 @@ const Register = ({ history }) => {
                 <div>{valError && <p style={{ color: "red", margin: "0px", padding: "0px" }}>{valError}</p>}</div>
                 <div className="signup-ctn-btn">
                   <button type="submit" onClick={handleFormSubmit}>
-                    <p>Sign Up</p>
+                    <p>{loading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Sign Up"}</p>
                   </button>
                 </div>
                 <div className="no-account">
