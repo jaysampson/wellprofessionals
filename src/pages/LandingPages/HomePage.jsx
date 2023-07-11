@@ -18,6 +18,7 @@ import ladies from "../../images/ladies.svg";
 import pro from "../../images/Pro.svg";
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 const course = [
   {
@@ -351,10 +352,10 @@ const Home = () => {
                             <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
                           </p>
                         </div>
-                        <div className="course-name">
+                        <NavLink to={`${process.env.PUBLIC_URL}/home/overview`} className="course-name">
                           <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
                           <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
-                        </div>
+                        </NavLink>
                         <div className="desc">
                           <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

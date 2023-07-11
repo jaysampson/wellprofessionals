@@ -41,12 +41,13 @@ const App = () => {
       {/* Pages */}
       <Route exact path={`${process.env.PUBLIC_URL}/contact`} component={Contact}></Route>
       <Route exact path={`${process.env.PUBLIC_URL}/about`} component={About}></Route>
-      <Route exact path={`${process.env.PUBLIC_URL}/home`} component={Home}></Route>
+      {/* <Route exact path={`${process.env.PUBLIC_URL}/home`} component={Home}></Route> */}
+      <PrivateRoute exact path={`${process.env.PUBLIC_URL}/home`} component={Home} />
       <Route exact path={`${process.env.PUBLIC_URL}/`} component={landingpage}></Route>
-      <Route exact path={`${process.env.PUBLIC_URL}/home/dashboard`} component={Dashboard}></Route>
-      <Route exact path={`${process.env.PUBLIC_URL}/home/overview`} component={Overview}></Route>
-      <Route exact path={`${process.env.PUBLIC_URL}/prof-dashboard/*`} component={ProfDashboard}></Route>
-      <Route exact path={`${process.env.PUBLIC_URL}/prof-dashboard/`} component={ProfDashboard}></Route>
+      <PrivateRoute exact path={`${process.env.PUBLIC_URL}/home/dashboard`} component={Dashboard}></PrivateRoute>
+      <PrivateRoute exact path={`${process.env.PUBLIC_URL}/home/overview`} component={Overview}></PrivateRoute>
+      <PrivateRoute exact path={`${process.env.PUBLIC_URL}/prof-dashboard/*`} component={ProfDashboard}></PrivateRoute>
+      <PrivateRoute exact path={`${process.env.PUBLIC_URL}/prof-dashboard/`} component={ProfDashboard}></PrivateRoute>
 
       {/* Print Pages */}
       <Route exact path={`${process.env.PUBLIC_URL}/invoice-print/:id`} component={InvoicePrint}></Route>
@@ -64,7 +65,7 @@ const App = () => {
       <Route exact path={`${process.env.PUBLIC_URL}/errors/504-classic`} component={Error504Classic}></Route>
 
       {/*Main Routes*/}
-      <PrivateRoute exact path="" component={Layout}></PrivateRoute>
+      {/* <PrivateRoute exact path="" component={Layout}></PrivateRoute> */}
       <Route component={RedirectAs404}></Route>
     </Switch>
   );

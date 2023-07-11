@@ -28,13 +28,13 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import { faEye, faEyeSlash, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { login } from "../../redux/auth/reducers/login/authSlice";
+import { login, setLoggedIn } from "../../redux/auth/reducers/login/authSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [eror, setEror] = useState("");
-  const [toggle, setToggle] = useState();
+  const [toggle, setToggle] = useState(false);
 
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.auth.loading);
@@ -82,6 +82,7 @@ const Login = () => {
 
     try {
       await dispatch(login(values));
+      dispatch(setLoggedIn(true));
       history.push(`${process.env.PUBLIC_URL}/home`);
     } catch (error) {
       console.error("Login error:", error);
