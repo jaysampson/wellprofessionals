@@ -1,0 +1,20 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+select {
+  outline: none;
+}
+
+input {
+  outline: none;
+}
