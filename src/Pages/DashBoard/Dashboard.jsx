@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Layouts/Navbar/Navbar";
 import homeicon from "../../assets/Icons/home-icon.svg";
 import { Line } from "react-chartjs-2";
@@ -6,13 +6,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faCircleDot, faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Layouts/Footer/Footer";
 import "../Dashboard/Dashboard.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { faArrowUpRightFromSquare, faCheck } from "@fortawesome/free-solid-svg-icons";
 import ladies from "../../assets/Images/doings.svg";
 import pro from "../../assets/Images/Pro.svg";
 import star from "../../assets/Icons/Star.svg";
 import halfstar from "../../assets/Icons/Half-star.svg";
 import emptystar from "../../assets/Icons/emptystar.svg";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { BreadCrumb } from "../BreadCrumb/BreadCrumb";
 
 
 const chartData = {
@@ -39,6 +41,14 @@ const chartOptions = {
 };
 
 const Dashboard = () => {
+  const navigate = useNavigate()
+  const { user } = useSelector((state) => state.auth)
+
+  // useEffect(() => {
+  //   if (!user) {
+  //     navigate('/auth-login')
+  //   }
+  // }, [user, navigate])
   return (
     <div>
       <Navbar />
@@ -46,13 +56,10 @@ const Dashboard = () => {
         <div className="dashboard-con">
           <div className="dash-top">
             <div className="routes">
-              <img src={homeicon} alt={homeicon} />
-              <p>Home</p>
-              <FontAwesomeIcon icon={faAngleRight} />
-              <p style={{ color: "#AF5E41" }}>Dashboard</p>
+              <BreadCrumb />
             </div>
             <div className="user">
-              <h2>Welcome, Daniella!</h2>
+              <h2>Welcome,  {user && user.data.name}!</h2>
               <span>-Here's an overview of your well professionals journey </span>
             </div>
           </div>

@@ -7,7 +7,6 @@ import {
   faAngleDown,
   faCheck,
   faStar,
-  faAngleRight,
   faArrowUpRightFromSquare,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
@@ -17,6 +16,7 @@ import pro from "../../assets/Images/Pro.svg";
 import star from "../../assets/Icons/Star.svg";
 import halfstar from "../../assets/Icons/Half-star.svg";
 import emptystar from "../../assets/Icons/emptystar.svg";
+import { BreadCrumb } from "../BreadCrumb/BreadCrumb";
 
 const Overview = () => {
   return (
@@ -25,14 +25,7 @@ const Overview = () => {
       <div className="overview">
         <div className="overview-con">
           <div className="overview-top">
-            <div className="routes">
-              <img src={homeicon} alt={homeicon} />
-              <p>Home</p>
-              <FontAwesomeIcon icon={faAngleRight} />
-              <p>Dashboard</p>
-              <FontAwesomeIcon icon={faAngleRight} />
-              <p style={{ color: "#AF5E41" }}>Course Overview</p>
-            </div>
+            <BreadCrumb />
           </div>
           <div className="overview-body">
             <div className="left-con">
@@ -253,15 +246,15 @@ const Overview = () => {
                     <div className="slice">₦4,449.99</div>
                   </div>
                   <div className="purchase">
-                    <button className="add">Add to cart</button>
+                    <button className="add"> Buy now</button>
                     <button className="buy">
-                      <span>Buy now</span>
+                      <span>Add to cart</span>
                       <FontAwesomeIcon icon={faCartShopping} className="cart" size="2x" />
                     </button>
                   </div>
                   <div className="offer">
                     <p>Offer ends in </p>
-                    <span>{" "}9d 8h 0m 54s</span>
+                    <span>9d 8h 0m 54s</span>
                   </div>
                 </div>
                 <hr />

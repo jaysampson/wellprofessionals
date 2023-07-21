@@ -88,10 +88,10 @@ const LandingPage = () => {
                             <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
                           </p>
                         </div>
-                        <div className="course-name">
+                        <Link to='/overview' className="course-name">
                           <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
                           <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
-                        </div>
+                        </Link>
                         <div className="desc">
                           <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

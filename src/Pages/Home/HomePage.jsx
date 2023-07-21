@@ -16,9 +16,10 @@ import halfstar from "../../assets/Icons/Half-star.svg";
 import emptystar from "../../assets/Icons/emptystar.svg";
 import ladies from "../../assets/Images/doings.svg";
 import pro from "../../assets/Images/Pro.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 const course = [
   {
@@ -192,6 +193,17 @@ const course = [
 ];
 
 const Home = () => {
+
+  const navigate = useNavigate()
+  const { user } = useSelector((state) => state.auth)
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/auth-login')
+    }
+  }, [user, navigate])
+
+
   const [currentPage, setCurrentPage] = useState(0); // State for the current page
   const itemsPerPage = 6; // Number of items per page
   const pageCount = Math.ceil(course.length / itemsPerPage); // Total number of pages
@@ -203,6 +215,7 @@ const Home = () => {
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const displayedCourses = course.slice(startIndex, endIndex);
+
   return (
     <div>
       <Navbar />
@@ -593,14 +606,14 @@ const Home = () => {
                   <ReactPaginate
                     previousLabel={
                       <div className="prev">
-                        <FontAwesomeIcon icon={faArrowLeft} />
+                        <FontAwesomeIcon icon={faArrowLeft} cursor={"pointer"} />
                         <p>Previous</p>
                       </div>
                     }
                     nextLabel={
                       <div className="next">
                         <p>Next</p>
-                        <FontAwesomeIcon icon={faArrowRight} />
+                        <FontAwesomeIcon icon={faArrowRight} cursor={"pointer"} />
                       </div>
                     }
                     breakLabel={<div className="ellipses">...</div>}

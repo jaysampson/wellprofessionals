@@ -1,4 +1,4 @@
-import { faAngleDown, faBars, faCaretDown, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faBars, faCaretDown, faMinus, faPlus, faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import wellslogo from "../../../assets/Images/Wells-Logo.svg";
 import shop from "../../../assets/Icons/shop-bag.svg";
@@ -9,10 +9,23 @@ import "../Navbar/Navbar.scss";
 import homeicon from "../../../assets/Icons/home-icon.svg";
 import settingicon from "../../../assets/Icons/setting-icon.svg";
 import carticon from "../../../assets/Icons/cart-icon.svg";
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+
+  const [toggle, setToggle] = useState(false);
+  const [drop, setDrop] = useState(false);
+  const { user } = useSelector((state) => (state.auth))
+  function toggleMenu() {
+    setToggle(!toggle);
+  }
+
+  function toggleDrop() {
+    setDrop(!drop);
+  }
+
   return (
     <div>
       <div className="home-nav">
@@ -22,13 +35,20 @@ const Navbar = () => {
           </p>
         </div>
         <div className="main">
-          <FontAwesomeIcon icon={faBars} size="2x" color="#090914" className="ham" />
-          <NavLink to='/home'>
+          <FontAwesomeIcon icon={toggle ? faXmark : faBars} size="2x" color="#090914" className="ham" onClick={toggleMenu} />
+          {user ? (<NavLink to='/home'>
             <div className="logo-name">
               <img src={wellslogo} alt={wellslogo} />
               <p> WELL PROFESSIONALS</p>
             </div>
-          </NavLink>
+          </NavLink>) : (<NavLink to='/'>
+            <div className="logo-name">
+              <img src={wellslogo} alt={wellslogo} />
+              <p> WELL PROFESSIONALS</p>
+            </div>
+          </NavLink>)}
+
+          <FontAwesomeIcon icon={faSearch} size="2x" className="search" />
           <div className="search-input">
             <FontAwesomeIcon icon={faSearch} />
             <input type="text" placeholder="Search Courses" />
@@ -50,35 +70,81 @@ const Navbar = () => {
             <img src={book} alt={book} />
             <img src={notify} alt={notify} />
           </div>
-          <div className="auths">
-            <NavLink to='/auth-login' className="login-btn">
-              Login
-            </NavLink>
-            <NavLink to='/auth-register' className="create-btn">
-              Create Account
-            </NavLink>
-          </div>
-          {/* : <div className="profile">
-            <img src="" alt="" />
-          </div> */}
+          {
+            user ? (<div className="profile">
+              <img src="" alt="" />
+            </div>) : (<div className="auths">
+              <NavLink to='/auth-login' className="login-btn">
+                Login
+              </NavLink>
+              <NavLink to='/auth-register' className="create-btn">
+                Create Account
+              </NavLink>
+            </div>)
+          }
         </div>
-        <div className="student-options">
-          <NavLink to='/home/dashboard' className="options">
-            <img src={homeicon} alt={homeicon} />
-            <p>Dashboard</p>
-          </NavLink>
-          <div className="options">
-            <img src={carticon} alt={carticon} />
-            <p>Cart</p>
+        {
+          user ? (<div className="student-options">
+            <NavLink to='/home/dashboard' className="options">
+              <img src={homeicon} alt={homeicon} />
+              <p>Dashboard</p>
+            </NavLink>
+            <div className="options">
+              <img src={carticon} alt={carticon} />
+              <p>Cart</p>
+            </div>
+            <div className="options">
+              <img src={book} alt={book} />
+              <p>Bookmark</p>
+            </div>
+            <div className="options">
+              <img src={settingicon} alt={settingicon} />
+              <p>Setting</p>
+              <FontAwesomeIcon icon={faAngleDown} />
+            </div>
+          </div>) : ""
+        }
+      </div>
+      <div className={toggle ? "sidebar" : "null"}>
+        <NavLink
+          to='/auth-login'
+          style={{ textDecoration: "none", color: "black", fontWeight: "700", fontSize: "1rem" }}
+        >
+          Login
+        </NavLink>
+        <NavLink
+          to='/auth-register'
+          style={{ textDecoration: "none", color: "#AF5E41", fontWeight: "700", fontSize: "1rem" }}
+        >
+          Create Account
+        </NavLink>
+        <hr />
+        <h3>Top rated courses</h3>
+        <h3>Courses for you</h3>
+        <h3>New Courses</h3>
+        <hr />
+        <div className="navigate">
+          <p>NAVIGATE TO</p>
+          <hr />
+        </div>
+        <div className="side-categories">
+          <div className="cat-header">
+            <h3>Categories</h3>
+            <FontAwesomeIcon icon={drop ? faMinus : faPlus} width={"30px"} height={"30px"} onClick={toggleDrop} cursor={"pointer"} />
           </div>
-          <div className="options">
-            <img src={book} alt={book} />
-            <p>Bookmark</p>
-          </div>
-          <div className="options">
-            <img src={settingicon} alt={settingicon} />
-            <p>Setting</p>
-            <FontAwesomeIcon icon={faAngleDown} />
+          <div className="cats">
+            <div className="each-cat">
+              <input type="radio" />
+              Lorem Ipusm
+            </div>
+            <div className="each-cat">
+              <input type="radio" />
+              Lorem Ipusm
+            </div>
+            <div className="each-cat">
+              <input type="radio" />
+              Lorem Ipusm
+            </div>
           </div>
         </div>
       </div>
