@@ -4,7 +4,7 @@ import worker from "../../../assets/Images/worker.svg";
 import back from "../../../assets/Icons/back-arrow.svg";
 import googleicon from "../../../assets/Icons/google-icon.svg";
 import fbicon from "../../../assets/Icons/facebook-icon.svg";
-import "../Signup/Signup.scss";
+import "../SignUp/SignUp.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
