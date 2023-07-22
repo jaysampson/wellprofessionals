@@ -4,7 +4,7 @@ import { Line } from "react-chartjs-2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faCircleDot, faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Layouts/Footer/Footer";
-import "../DashBoard/Dashboard";
+import "../DashBoard/Dashboard.scss";
 import { NavLink, useNavigate } from "react-router-dom";
 import { faArrowUpRightFromSquare, faCheck } from "@fortawesome/free-solid-svg-icons";
 import ladies from "../../assets/Images/doings.svg";
