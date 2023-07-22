@@ -243,7 +243,7 @@ const Register = () => {
                 </div>
                 <div className="no-account">
                   <p>
-                    Already have an account?
+                    Already have an account?{" "}
                     <span>
                       <Link to='/auth-login' className="new">
                         Sign into your account

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Overview/Overview.scss";
 import Footer from "../Layouts/Footer/Footer";
 import Navbar from "../Layouts/Navbar/Navbar";
@@ -9,6 +9,7 @@ import {
   faStar,
   faArrowUpRightFromSquare,
   faCartShopping,
+  faAngleUp,
 } from "@fortawesome/free-solid-svg-icons";
 import ladies from "../../assets/Images/doings.svg";
 import pro from "../../assets/Images/Pro.svg";
@@ -18,6 +19,23 @@ import emptystar from "../../assets/Icons/emptystar.svg";
 import { BreadCrumb } from "../BreadCrumb/BreadCrumb";
 
 const Overview = () => {
+  const [drop, setDrop] = useState(false)
+  const [drop1, setDrop1] = useState(false)
+  const [drop2, setDrop2] = useState(false)
+  const [drop3, setDrop3] = useState(false)
+
+  function HandleDrop() {
+    setDrop(!drop)
+  }
+  function HandleDrop2() {
+    setDrop1(!drop1)
+  }
+  function HandleDrop3() {
+    setDrop2(!drop2)
+  }
+  function HandleDrop4() {
+    setDrop3(!drop3)
+  }
   return (
     <div>
       <Navbar />
@@ -54,59 +72,69 @@ const Overview = () => {
               <div className="expectation">
                 <div className="expect-top">
                   <h2>What you’ll learn</h2>
-                  <FontAwesomeIcon icon={faAngleDown} />
+                  <FontAwesomeIcon icon={drop ? faAngleUp : faAngleDown} onClick={HandleDrop} cursor={"pointer"} />
                 </div>
-                <div className="learnt">
-                  <p>
-                    <FontAwesomeIcon icon={faCheck} />
-                    <span>Lorem ipsum dolor sit amet, consectetur</span>
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faCheck} />
-                    <span>Lorem ipsum dolor sit amet, consectetur</span>
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faCheck} />
-                    <span>Lorem ipsum dolor sit amet, consectetur</span>
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faCheck} />
-                    <span>Lorem ipsum dolor sit amet, consectetur</span>
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faCheck} />
-                    <span>Lorem ipsum dolor sit amet, consectetur</span>
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faCheck} />
-                    <span>Lorem ipsum dolor sit amet, consectetur</span>
-                  </p>
-                </div>
+                {drop && (
+                  <div className="learnt">
+                    <p>
+                      <FontAwesomeIcon icon={faCheck} />
+                      <span>Lorem ipsum dolor sit amet, consectetur</span>
+                    </p>
+                    <p>
+                      <FontAwesomeIcon icon={faCheck} />
+                      <span>Lorem ipsum dolor sit amet, consectetur</span>
+                    </p>
+                    <p>
+                      <FontAwesomeIcon icon={faCheck} />
+                      <span>Lorem ipsum dolor sit amet, consectetur</span>
+                    </p>
+                    <p>
+                      <FontAwesomeIcon icon={faCheck} />
+                      <span>Lorem ipsum dolor sit amet, consectetur</span>
+                    </p>
+                    <p>
+                      <FontAwesomeIcon icon={faCheck} />
+                      <span>Lorem ipsum dolor sit amet, consectetur</span>
+                    </p>
+                    <p>
+                      <FontAwesomeIcon icon={faCheck} />
+                      <span>Lorem ipsum dolor sit amet, consectetur</span>
+                    </p>
+                  </div>
+                )}
+
               </div>
               <hr />
               <div className="overview-lesson">
                 <div className="class-overview">
                   <title>
                     <p>CLASS OVERVIEW</p>
-                    <h3>Learn all of Lorem ipsum dolor sit amet, consectetur</h3>
+                    <div className="class-drop">
+                      <h3>Learn all of Lorem ipsum dolor sit amet, consectetur</h3>
+                      <FontAwesomeIcon icon={drop1 ? faAngleUp : faAngleDown} onClick={HandleDrop2} cursor={"pointer"} />
+                    </div>
+
                   </title>
-                  <div className="classov-body">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
+                  {drop1 && (
+                    <div className="classov-body">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat.
+                      </p>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat.
+                      </p>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat.
+                      </p>
+                    </div>
+                  )}
+
                 </div>
                 <div className="lesson-videos">
                   <p>LESSONS</p>
@@ -136,33 +164,39 @@ const Overview = () => {
               </div>
               <hr />
               <div className="for-who">
-                <h3>Who’s this class for?</h3>
-                <div className="write-up">
-                  <div className="persons">
-                    <p>1</p>
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat.
-                    </span>
-                  </div>
-                  <div className="persons">
-                    <p>2</p>
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat.
-                    </span>
-                  </div>
-                  <div className="persons">
-                    <p>3</p>
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat.
-                    </span>
-                  </div>
+                <div className="for-who-top">
+                  <h3>Who’s this class for?</h3>
+                  <FontAwesomeIcon icon={drop2 ? faAngleUp : faAngleDown} onClick={HandleDrop3} cursor={"pointer"} />
                 </div>
+
+                {drop2 && (
+                  <div className="write-up">
+                    <div className="persons">
+                      <p>1</p>
+                      <span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat.
+                      </span>
+                    </div>
+                    <div className="persons">
+                      <p>2</p>
+                      <span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat.
+                      </span>
+                    </div>
+                    <div className="persons">
+                      <p>3</p>
+                      <span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat.
+                      </span>
+                    </div>
+                  </div>
+                )}
               </div>
               <hr />
               <div className="course-reviews">

@@ -132,20 +132,22 @@ const Navbar = () => {
             <h3>Categories</h3>
             <FontAwesomeIcon icon={drop ? faMinus : faPlus} width={"30px"} height={"30px"} onClick={toggleDrop} cursor={"pointer"} />
           </div>
-          <div className="cats">
-            <div className="each-cat">
-              <input type="radio" />
-              Lorem Ipusm
+          {drop && (
+            <div className="cats">
+              <div className="each-cat">
+                <input type="radio" />
+                Lorem Ipusm
+              </div>
+              <div className="each-cat">
+                <input type="radio" />
+                Lorem Ipusm
+              </div>
+              <div className="each-cat">
+                <input type="radio" />
+                Lorem Ipusm
+              </div>
             </div>
-            <div className="each-cat">
-              <input type="radio" />
-              Lorem Ipusm
-            </div>
-            <div className="each-cat">
-              <input type="radio" />
-              Lorem Ipusm
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

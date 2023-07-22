@@ -35,6 +35,10 @@
           align-items: center;
           height: max-content;
           padding: 40px 0px 40px 0px;
+          background-image: url("../../assets//Images/header-sectionmb.svg");
+          height: 700px;
+          background-position-y: top;
+          justify-content: flex-end;
         }
         h1 {
           font-weight: 800;
@@ -173,6 +177,9 @@
               padding: 0px 0px 20px 0px;
               width: 100%;
               flex-wrap: wrap;
+              @media screen and (max-width: 768px) {
+                justify-content: center;
+              }
               .course-con {
                 display: flex;
                 align-items: center;
@@ -321,6 +328,9 @@
               gap: 20px;
               width: 100%;
               flex-wrap: wrap;
+              @media screen and (max-width: 768px) {
+                justify-content: center;
+              }
               .course-con {
                 display: flex;
                 align-items: center;
@@ -420,12 +430,12 @@
                         padding-bottom: 0px;
                         margin-bottom: 0px;
                         color: #242e21;
-                        font-size: 18;
+                        font-size: 12px;
                         font-weight: 600;
                       }
                       span {
                         color: var(--gray-500, #667085);
-                        font-size: 14px;
+                        font-size: 10px;
                       }
                     }
                   }
@@ -756,7 +766,7 @@
               align-items: flex-start;
               justify-content: center;
               flex-direction: column;
-              gap: 30px;
+              gap: 45px;
               width: 500px;
               @media screen and (max-width: 600px) {
                 width: 100%;
@@ -766,6 +776,7 @@
                 align-items: flex-start;
                 justify-content: center;
                 flex-direction: column;
+                gap: 10px;
                 @media screen and (max-width: 600px) {
                   width: 100%;
                 }

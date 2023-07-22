@@ -604,28 +604,44 @@ const LandingPage = () => {
                         <p>Is there a free trail available?</p>
                         <img src={toggle1 ? minus : plus} alt="loading" onClick={handleToggle1} />
                       </div>
-                      <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                      {
+                        toggle1 && (
+                          <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                        )
+                      }
                     </div>
                     <div className="question-con">
                       <div className="question">
                         <p>Is there a free trail available?</p>
                         <img src={toggle2 ? minus : plus} alt="loading" onClick={handleToggle2} />
                       </div>
-                      <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                      {
+                        toggle2 && (
+                          <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                        )
+                      }
                     </div>
                     <div className="question-con">
                       <div className="question">
                         <p>Is there a free trail available?</p>
                         <img src={toggle3 ? minus : plus} alt="loading" onClick={handleToggle3} />
                       </div>
-                      <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                      {
+                        toggle3 && (
+                          <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                        )
+                      }
                     </div>
                     <div className="question-con">
                       <div className="question">
                         <p>Is there a free trail available?</p>
                         <img src={toggle4 ? minus : plus} alt="loading" onClick={handleToggle4} />
                       </div>
-                      <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                      {
+                        toggle4 && (
+                          <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                        )
+                      }
                     </div>
                   </div>
                   <img src={question} alt={question} className="faq-img" />

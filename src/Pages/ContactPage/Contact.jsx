@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../ContactPage/Contact.scss";
 import Navbar from "../Layouts/Navbar/Navbar";
 import Footer from "../Layouts/Footer/Footer";
+import contactperson from "../../assets/Images/contact-person.svg"
 
 const Contact = () => {
   return (

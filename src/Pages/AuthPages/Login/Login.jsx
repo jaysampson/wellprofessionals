@@ -167,7 +167,7 @@ const Login = () => {
 
                 <div className="no-account">
                   <p>
-                    Don't have an account?
+                    Don't have an account?{" "}
                     <span>
                       <Link to='/auth-register' className="new">
                         Create free account

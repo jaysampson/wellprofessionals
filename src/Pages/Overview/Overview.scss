@@ -189,12 +189,14 @@
             justify-content: center;
             flex-direction: column;
             gap: 30px;
+            width: 100%;
             title {
               display: flex;
               align-items: flex-start;
               justify-content: center;
               flex-direction: column;
               gap: 15px;
+              width: 100%;
               p {
                 color: #545454;
                 font-size: 0.875rem;
@@ -202,10 +204,20 @@
                 margin: 0px;
                 padding: 0px;
               }
-              h3 {
-                color: #000;
-                font-size: 1.375rem;
-                font-weight: 700;
+              .class-drop {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                h3 {
+                  color: #000;
+                  font-size: 1.375rem;
+                  font-weight: 700;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 20px;
+                }
               }
             }
             .classov-body {
@@ -277,11 +289,18 @@
           flex-direction: column;
           width: 100%;
           gap: 25px;
-          h3 {
-            color: #000;
-            font-size: 1.375rem;
-            font-weight: 700;
+          .for-who-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            h3 {
+              color: #000;
+              font-size: 1.375rem;
+              font-weight: 700;
+            }
           }
+
           .write-up {
             display: flex;
             align-items: flex-start;
