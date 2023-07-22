@@ -10,7 +10,6 @@ import {
   faArrowUpRightFromSquare,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
-import homeicon from "../../assets/Icons/home-icon.svg";
 import ladies from "../../assets/Images/doings.svg";
 import pro from "../../assets/Images/Pro.svg";
 import star from "../../assets/Icons/Star.svg";

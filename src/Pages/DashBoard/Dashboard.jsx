@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import Navbar from "../Layouts/Navbar/Navbar";
-import homeicon from "../../assets/Icons/home-icon.svg";
 import { Line } from "react-chartjs-2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faCircleDot, faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Layouts/Footer/Footer";
-import "../Dashboard/Dashboard.scss";
+import "../DashBoard/Dashboard";
 import { NavLink, useNavigate } from "react-router-dom";
 import { faArrowUpRightFromSquare, faCheck } from "@fortawesome/free-solid-svg-icons";
 import ladies from "../../assets/Images/doings.svg";
@@ -44,11 +43,6 @@ const Dashboard = () => {
   const navigate = useNavigate()
   const { user } = useSelector((state) => state.auth)
 
-  // useEffect(() => {
-  //   if (!user) {
-  //     navigate('/auth-login')
-  //   }
-  // }, [user, navigate])
   return (
     <div>
       <Navbar />
