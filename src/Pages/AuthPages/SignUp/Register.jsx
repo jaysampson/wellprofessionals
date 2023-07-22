@@ -21,11 +21,15 @@ const Register = () => {
   const navigate = useNavigate()
 
   const [toggle, setToggle] = useState();
+  const [toggle2, setToggle2] = useState();
   const dispatch = useDispatch();
   const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
 
   function handleToggle() {
     setToggle(!toggle);
+  }
+  function handleToggle2() {
+    setToggle2(!toggle2);
   }
 
   //   e.preventDefault();
@@ -148,7 +152,7 @@ const Register = () => {
                 </div>
                 <div className="title">
                   <header>Sign Up</header>
-                  <p>Welcome. Enter your credentials to create your account</p>
+                  <p>Welcome, enter your credentials to create your account</p>
                 </div>
               </div>
               <div className="form">
@@ -218,10 +222,10 @@ const Register = () => {
                         required
                       />
                       <FontAwesomeIcon
-                        icon={toggle ? faEye : faEyeSlash}
+                        icon={toggle2 ? faEye : faEyeSlash}
                         cursor="pointer"
                         color="#000"
-                        onClick={handleToggle}
+                        onClick={handleToggle2}
                       />
                     </div>
                   </div>

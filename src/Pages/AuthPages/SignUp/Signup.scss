@@ -88,6 +88,7 @@
             justify-content: center;
             flex-direction: column;
             width: 100%;
+            gap: 10px;
             @media screen and (max-width: 900px) {
               align-items: center;
             }
@@ -95,7 +96,7 @@
               font-size: 18px;
               @media screen and (max-width: 900px) {
                 text-align: center;
-                // color: #fff;
+                color: #fff;
               }
             }
             header {
