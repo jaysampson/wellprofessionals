@@ -318,6 +318,25 @@ const Overview = () => {
                 </div>
               </div>
             </div>
+            <div className="box-2">
+              <div className="box-top-2">
+                <img src="" alt="" />
+                <div className="box-top-text">
+                  <h4>Lorem ipsum</h4>
+                  <div className="price">
+                    <p>₦2,549.99</p>
+                    <div className="slice">₦4,449.99</div>
+                  </div>
+                </div>
+              </div>
+              <div className="purchase">
+                <button className="add"> Buy now</button>
+                <button className="buy">
+                  <span>Add to cart</span>
+                  <FontAwesomeIcon icon={faCartShopping} className="cart" />
+                </button>
+              </div>
+            </div>
           </div>
           <div className="recommend">
             <h3>Topics based on your picks</h3>

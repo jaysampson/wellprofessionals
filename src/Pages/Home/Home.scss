@@ -519,6 +519,11 @@
                   padding-bottom: 0px;
                   margin-bottom: 0px;
                 }
+                .disabled {
+                  pointer-events: none;
+                  opacity: 0.5;
+                  cursor: not-allowed;
+                }
               }
               .next {
                 display: flex;
@@ -530,6 +535,11 @@
                 p {
                   padding-bottom: 0px;
                   margin-bottom: 0px;
+                }
+                .disabled {
+                  pointer-events: none;
+                  opacity: 0.5;
+                  cursor: not-allowed;
                 }
               }
               .page-link {
@@ -549,6 +559,27 @@
               border-radius: 8px;
               color: #af5e41;
               cursor: pointer;
+            }
+          }
+          .mobile-pagination {
+            display: block;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 20px;
+            .disabled {
+              pointer-events: none;
+              opacity: 0.5;
+              cursor: not-allowed;
+              padding: 10px 10px;
+              background-color: #af5e41;
+              border-radius: 50%;
+            }
+            .enabled {
+              padding: 10px 10px;
+              background-color: #af5e41;
+              border-radius: 50%;
+              // color: white;
             }
           }
         }

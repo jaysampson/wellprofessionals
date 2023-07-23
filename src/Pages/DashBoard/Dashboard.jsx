@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "../Layouts/Navbar/Navbar";
-import { Line } from "react-chartjs-2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faCircleDot, faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Layouts/Footer/Footer";
@@ -14,14 +13,16 @@ import halfstar from "../../assets/Icons/Half-star.svg";
 import emptystar from "../../assets/Icons/emptystar.svg";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { BreadCrumb } from "../BreadCrumb/BreadCrumb";
+import Chart from "chart.js/auto";
+import { Line } from "react-chartjs-2";
 
 
 const chartData = {
-  labels: ["January", "February", "March", "April", "May", "June"],
+  labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
   datasets: [
     {
       label: "Student Report",
-      data: [65, 78, 82, 75, 79],
+      data: [0, 58, 42, 85, 79],
       fill: false,
       borderColor: "#AF5E41",
       tension: 0.3,
@@ -193,7 +194,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          {/* <div className="chart-recent">
+          <div className="chart-recent">
             <div className="chart">
               <Line data={chartData} options={chartOptions} />
             </div>
@@ -237,7 +238,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
 
           <div className="on-picks">
             <div className="top-rated-con">

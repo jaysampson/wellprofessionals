@@ -190,6 +190,545 @@ const course = [
     price: "₦2,549.99",
     slashedprice: "₦4,449.99",
   },
+  {
+    id: 25,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 26,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 27,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 28,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 29,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 30,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 31,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 32,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 33,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 34,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 35,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 36,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 37,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 38,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 39,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 40,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 41,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 42,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 43,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 44,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 45,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 46,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 47,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 48,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 49,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 50,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 51,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 52,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 53,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 54,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 55,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 56,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 57,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 58,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 59,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 60,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 61,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 62,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 63,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 64,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 65,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 66,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 67,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 68,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 69,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 70,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 71,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 72,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 73,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 74,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 75,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 76,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 77,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 78,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 79,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 80,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 81,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 82,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 83,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 84,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 85,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 86,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 87,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 88,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 89,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 90,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 91,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 92,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 93,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 94,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 95,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 96,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 97,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 98,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 99,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 100,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
+  {
+    id: 101,
+    name: "Michael Jordan",
+    desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "₦2,549.99",
+    slashedprice: "₦4,449.99",
+  },
 ];
 
 const Home = () => {
@@ -205,7 +744,10 @@ const Home = () => {
 
 
   const [currentPage, setCurrentPage] = useState(0); // State for the current page
-  const itemsPerPage = 6; // Number of items per page
+  const [itemsPerPage, setItemsPerPage] = useState(
+    window.innerWidth >= 900 ? 6 : window.innerWidth >= 500 ? 4 : 2
+  );
+  // const itemsPerPage = 6; // Number of items per page
   const pageCount = Math.ceil(course.length / itemsPerPage); // Total number of pages
 
   const handlePageChange = ({ selected }) => {
@@ -215,6 +757,29 @@ const Home = () => {
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const displayedCourses = course.slice(startIndex, endIndex);
+
+  // State for mobile view
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 500);
+
+  // Update isMobileView state on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 500);
+      setItemsPerPage(
+        window.innerWidth >= 900 ? 6 : window.innerWidth >= 500 ? 4 : 2
+      );
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Call handleResize on component mount to set the initial value correctly
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
 
   return (
     <div>
@@ -583,46 +1148,46 @@ const Home = () => {
                     </div>
                   ))}
                 </div>
-                {/* <div className="pagination">
-                  <div className="prev">
-                    <FontAwesomeIcon icon={faArrowLeft} />
-                    <p>Previous</p>
-                  </div>
-                  <div className="pages">
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <div className="ellipses">...</div>
-                    <button>8</button>
-                    <button>9</button>
-                    <button>10</button>
-                  </div>
-                  <div className="next">
-                    <FontAwesomeIcon icon={faArrowRight} />
-                    <p>Next</p>
-                  </div>
-                </div> */}
                 <div className="pagination">
-                  <ReactPaginate
-                    previousLabel={
-                      <div className="prev">
-                        <FontAwesomeIcon icon={faArrowLeft} cursor={"pointer"} />
-                        <p>Previous</p>
-                      </div>
-                    }
-                    nextLabel={
-                      <div className="next">
-                        <p>Next</p>
-                        <FontAwesomeIcon icon={faArrowRight} cursor={"pointer"} />
-                      </div>
-                    }
-                    breakLabel={<div className="ellipses">...</div>}
-                    pageCount={pageCount}
-                    onPageChange={handlePageChange}
-                    containerClassName="pages"
-                    activeClassName="active"
-                    pageLinkClassName="page-link"
-                  />
+                  {console.log(isMobileView)}
+                  {isMobileView ? (
+                    <div className="mobile-pagination">
+                      <FontAwesomeIcon
+                        icon={faArrowLeft}
+                        cursor="pointer"
+                        onClick={() => setCurrentPage(currentPage - 1)}
+                        className={currentPage === 0 ? 'disabled' : 'enabled'}
+                      />
+                      <p>Page {currentPage + 1}/{pageCount}</p>
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        cursor="pointer"
+                        onClick={() => setCurrentPage(currentPage + 1)}
+                        className={currentPage === pageCount - 1 ? 'disabled' : 'enabled'}
+                      />
+                    </div>
+                  ) : (
+                    <ReactPaginate
+                      previousLabel={
+                        <div className="prev">
+                          <FontAwesomeIcon icon={faArrowLeft} cursor="pointer" />
+                          <p>Previous</p>
+                        </div>
+                      }
+                      nextLabel={
+                        <div className="next">
+                          <p>Next</p>
+                          <FontAwesomeIcon icon={faArrowRight} cursor="pointer" />
+                        </div>
+                      }
+                      breakLabel={<div className="ellipses">...</div>}
+                      pageCount={pageCount}
+                      onPageChange={handlePageChange}
+                      containerClassName="pages"
+                      activeClassName="active"
+                      pageLinkClassName="page-link"
+                    />
+                  )}
                 </div>
               </div>
             </div>
