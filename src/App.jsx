@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Register from './Pages/AuthPages/SignUp/Register'
 import Login from './Pages/AuthPages/Login/Login'
 import UpdatePassword from './Pages/AuthPages/Reset-ForgetPasswords/ResetPasword/UpdatePassword'
@@ -12,8 +11,11 @@ import Contact from './Pages/ContactPage/Contact'
 import Dashboard from './Pages/DashBoard/Dashboard'
 import Overview from './Pages/Overview/Overview'
 import ProfDashboard from './Pages/ProfDashboard/ProfDashboard'
+import { useSelector, useDispatch } from "react-redux";
 
 function App() {
+
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <>
@@ -27,8 +29,10 @@ function App() {
         <Route path='/auth-update' element={<ForgotPassword />} />
 
         {/* Pages */}
-
-        <Route index element={<LandingPage />} />
+        {
+          user ?
+            (< Navigate from="/" to="/home" />) : (< Route index element={<LandingPage />} />)
+        }
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
