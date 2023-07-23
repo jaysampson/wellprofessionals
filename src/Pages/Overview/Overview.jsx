@@ -342,7 +342,7 @@ const Overview = () => {
             <h3>Topics based on your picks</h3>
             <div className="courses">
               <div className="course-con">
-                <img src={ladies} alt={ladies} />
+                <img src={ladies} alt={ladies} className="course-img" />
                 <div className="content">
                   <div className="admin">
                     <div className="admin-title">
@@ -382,7 +382,7 @@ const Overview = () => {
                 </div>
               </div>
               <div className="course-con">
-                <img src={ladies} alt={ladies} />
+                <img src={ladies} alt={ladies} className="course-img" />
                 <div className="content">
                   <div className="admin">
                     <div className="admin-title">
@@ -422,7 +422,7 @@ const Overview = () => {
                 </div>
               </div>
               <div className="course-con">
-                <img src={ladies} alt={ladies} />
+                <img src={ladies} alt={ladies} className="course-img" />
                 <div className="content">
                   <div className="admin">
                     <div className="admin-title">
@@ -462,7 +462,7 @@ const Overview = () => {
                 </div>
               </div>
               <div className="course-con">
-                <img src={ladies} alt={ladies} />
+                <img src={ladies} alt={ladies} className="course-img" />
                 <div className="content">
                   <div className="admin">
                     <div className="admin-title">
@@ -502,7 +502,7 @@ const Overview = () => {
                 </div>
               </div>
               <div className="course-con">
-                <img src={ladies} alt={ladies} />
+                <img src={ladies} alt={ladies} className="course-img" />
                 <div className="content">
                   <div className="admin">
                     <div className="admin-title">
@@ -542,7 +542,7 @@ const Overview = () => {
                 </div>
               </div>
               <div className="course-con">
-                <img src={ladies} alt={ladies} />
+                <img src={ladies} alt={ladies} className="course-img" />
                 <div className="content">
                   <div className="admin">
                     <div className="admin-title">
