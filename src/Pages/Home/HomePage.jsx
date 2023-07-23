@@ -1149,7 +1149,6 @@ const Home = () => {
                   ))}
                 </div>
                 <div className="pagination">
-                  {console.log(isMobileView)}
                   {isMobileView ? (
                     <div className="mobile-pagination">
                       <FontAwesomeIcon

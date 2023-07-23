@@ -318,7 +318,7 @@ const Overview = () => {
                 </div>
               </div>
             </div>
-            <div className="box-2">
+            {/* <div className="box-2">
               <div className="box-top-2">
                 <img src="" alt="" />
                 <div className="box-top-text">
@@ -336,7 +336,7 @@ const Overview = () => {
                   <FontAwesomeIcon icon={faCartShopping} className="cart" />
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="recommend">
             <h3>Topics based on your picks</h3>
@@ -371,9 +371,7 @@ const Overview = () => {
                       <img src={halfstar} alt={halfstar} />
                       <img src={emptystar} alt={emptystar} />
                     </div>
-                    <div className="rated">
-                      <p>43k Ratings</p>
-                    </div>
+                    <p>43k Ratings</p>
                   </div>
                   <div className="price-add">
                     <div className="price">
@@ -413,9 +411,7 @@ const Overview = () => {
                       <img src={halfstar} alt={halfstar} />
                       <img src={emptystar} alt={emptystar} />
                     </div>
-                    <div className="rated">
-                      <p>43k Ratings</p>
-                    </div>
+                    <p>43k Ratings</p>
                   </div>
                   <div className="price-add">
                     <div className="price">
@@ -455,9 +451,7 @@ const Overview = () => {
                       <img src={halfstar} alt={halfstar} />
                       <img src={emptystar} alt={emptystar} />
                     </div>
-                    <div className="rated">
-                      <p>43k Ratings</p>
-                    </div>
+                    <p>43k Ratings</p>
                   </div>
                   <div className="price-add">
                     <div className="price">
@@ -497,9 +491,7 @@ const Overview = () => {
                       <img src={halfstar} alt={halfstar} />
                       <img src={emptystar} alt={emptystar} />
                     </div>
-                    <div className="rated">
-                      <p>43k Ratings</p>
-                    </div>
+                    <p>43k Ratings</p>
                   </div>
                   <div className="price-add">
                     <div className="price">
@@ -539,9 +531,7 @@ const Overview = () => {
                       <img src={halfstar} alt={halfstar} />
                       <img src={emptystar} alt={emptystar} />
                     </div>
-                    <div className="rated">
-                      <p>43k Ratings</p>
-                    </div>
+                    <p>43k Ratings</p>
                   </div>
                   <div className="price-add">
                     <div className="price">
@@ -581,9 +571,7 @@ const Overview = () => {
                       <img src={halfstar} alt={halfstar} />
                       <img src={emptystar} alt={emptystar} />
                     </div>
-                    <div className="rated">
-                      <p>43k Ratings</p>
-                    </div>
+                    <p>43k Ratings</p>
                   </div>
                   <div className="price-add">
                     <div className="price">

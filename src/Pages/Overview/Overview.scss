@@ -356,7 +356,7 @@
           .review-con {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;
             flex-wrap: wrap;
             gap: 30px;
             width: 100%;
@@ -440,9 +440,6 @@
           background-color: #f5f6f7;
           @media screen and (max-width: 1200px) {
             box-shadow: none;
-          }
-          @media screen and (max-height: 600px) {
-            display: none;
           }
           .box-top {
             display: flex;
@@ -796,6 +793,21 @@
                 font-weight: 400;
                 font-size: 12px;
                 color: #667085;
+              }
+            }
+            .rating {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 15px;
+              .star {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+              }
+              p {
+                font-size: 14px;
               }
             }
             .price-add {
