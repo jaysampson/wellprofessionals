@@ -1,4 +1,4 @@
-import { faAngleDown, faBars, faCaretDown, faMinus, faPlus, faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faBars, faCaretDown, faMinus, faPlus, faSearch, faUser, faUserAlt, faUserCircle, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import wellslogo from "../../../assets/Images/Wells-Logo.svg";
 import shop from "../../../assets/Icons/shop-bag.svg";
@@ -109,7 +109,7 @@ const Navbar = () => {
         {
           user ?
             (<div className="nav-user">
-              <img src="" alt="" className="nav-user-img" />
+              <FontAwesomeIcon icon={faUserCircle} color="#af5e41" size="3x" style={{ borderRadius: "50%" }} />
               <div className="nav-user-dets">
                 <h4>{user && user.data.name}</h4>
                 <span>{user && user.data.email}</span>
