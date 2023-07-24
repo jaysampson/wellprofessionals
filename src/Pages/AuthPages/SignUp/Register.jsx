@@ -122,7 +122,7 @@ const Register = () => {
     dispatch(reset());
   }, [user, isError, isSuccess, message, history, dispatch]);
 
-  const onSubmit = (e) => {
+  const registerUser = (e) => {
     if (password !== password2) {
       toast.error("Passwords do not match");
     } else {
@@ -215,7 +215,7 @@ const Register = () => {
                     <label htmlFor="">Confirm password</label>
                     <div className="input">
                       <input
-                        type={toggle ? "text" : "password"}
+                        type={toggle2 ? "text" : "password"}
                         placeholder="* * * * * * * *"
                         value={password2}
                         onChange={(e) => setPassword2(e.target.value)}
@@ -237,7 +237,7 @@ const Register = () => {
                   </p>
                 </div>
                 <div className="signup-ctn-btn">
-                  <button type="submit" onClick={onSubmit}>
+                  <button type="submit" onClick={registerUser}>
                     <p>{isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Sign Up"}</p>
                   </button>
                 </div>
