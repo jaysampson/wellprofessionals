@@ -32,84 +32,6 @@ const Register = () => {
     setToggle2(!toggle2);
   }
 
-  //   e.preventDefault();
-  //   let regobj = { name, password, email, mobile };
-
-  //   fetch("https://wellpro-server.onrender.com/api/user/register", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json", Accept: "application/json" },
-  //     body: JSON.stringify(regobj),
-  //   })
-  //     .then((res) => {
-  //       if (res.status == true) {
-  //         history.push(`${process.env.PUBLIC_URL}/auth-login`);
-  //         alert("Registered successfully");
-  //       } else {
-  //         return res.json(); // Parse response body as JSON
-  //       }
-  //     })
-  //     .then((data) => {
-  //       if (data && data.status === false) {
-  //         if (data.message.includes("duplicate")) {
-  //           setPhoneError(data.message);
-  //           setError("");
-  //         } else if (data.message.includes("Email")) {
-  //           setEmailError(data.message);
-  //           setError("");
-  //         } else if (data.message.includes("name")) {
-  //           setValError(data.message);
-  //           setError("");
-  //         } else {
-  //           setError(data.message);
-  //         }
-  //       } else {
-  //         throw new Error("Registration failed");
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       setError("Failed: " + err.message);
-  //     });
-  // };
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   let regobj = { name, password, email, mobile };
-
-  //   dispatch(registerUser(regobj))
-  //     .unwrap()
-  //     .then(() => {
-  //       history.push(`${process.env.PUBLIC_URL}/auth-login`);
-  //     })
-  //     .catch((err) => {
-  //       if (err.message.includes("duplicate")) {
-  //         dispatch(setPhoneError(err.message));
-  //         dispatch(setEror(""));
-  //       } else if (err.message.includes("Email")) {
-  //         dispatch(setEmailError(err.message));
-  //         dispatch(setEror(""));
-  //       } else if (err.message.includes("mobile")) {
-  //         dispatch(setValError(err.message));
-  //         dispatch(setEror(""));
-  //       } else {
-  //         dispatch(setError(err.message));
-  //       }
-  //     });
-  // };
-
-  // const handleEmailChange = (e) => {
-
-  //   setEmail(e.target.value);
-  //   setEmailError("");
-  //   setValError("");
-  //   setEror("");
-  // };
-
-  // const handleMobileChange = (e) => {
-  //   setMobile(e.target.value);
-  //   setPhoneError("");
-  //   setEror("");
-  //   setValError("");
-  // };
-
   useEffect(() => {
     if (isError) {
       toast.error(message);
@@ -120,9 +42,10 @@ const Register = () => {
     }
 
     dispatch(reset());
-  }, [user, isError, isSuccess, message, history, dispatch]);
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
   const registerUser = (e) => {
+    e.preventDefault();
     if (password !== password2) {
       toast.error("Passwords do not match");
     } else {
@@ -134,6 +57,7 @@ const Register = () => {
       };
       dispatch(register(userData));
     }
+    console.log("clicked");
   };
 
   return (

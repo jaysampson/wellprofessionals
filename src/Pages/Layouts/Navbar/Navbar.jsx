@@ -106,18 +106,28 @@ const Navbar = () => {
         }
       </div>
       <div className={toggle ? "sidebar" : "null"}>
-        <NavLink
-          to='/auth-login'
-          style={{ textDecoration: "none", color: "black", fontWeight: "700", fontSize: "1rem" }}
-        >
-          Login
-        </NavLink>
-        <NavLink
-          to='/auth-register'
-          style={{ textDecoration: "none", color: "#AF5E41", fontWeight: "700", fontSize: "1rem" }}
-        >
-          Create Account
-        </NavLink>
+        {
+          user ?
+            (<div className="nav-user">
+              <img src="" alt="" className="nav-user-img" />
+              <div className="nav-user-dets">
+                <h4>{user && user.data.name}</h4>
+                <span>{user && user.data.email}</span>
+              </div>
+            </div>) : (<>
+              <NavLink
+                to='/auth-login'
+                style={{ textDecoration: "none", color: "black", fontWeight: "700", fontSize: "1rem" }}
+              >
+                Login
+              </NavLink>
+              <NavLink
+                to='/auth-register'
+                style={{ textDecoration: "none", color: "#AF5E41", fontWeight: "700", fontSize: "1rem" }}
+              >
+                Create Account
+              </NavLink></>)
+        }
         <hr />
         <h3>Top rated courses</h3>
         <h3>Courses for you</h3>

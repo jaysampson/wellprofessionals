@@ -30,7 +30,7 @@ const Login = () => {
     }
 
     dispatch(reset());
-  }, [user, isError, isSuccess, message, history, dispatch]);
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
 
   function handleToggle() {
@@ -47,7 +47,6 @@ const Login = () => {
     dispatch(login(userData));
   };
 
-  //   const values = {
   //     email: email,
   //     password: password,
   //   };

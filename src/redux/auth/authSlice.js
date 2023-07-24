@@ -22,8 +22,7 @@ export const register = createAsyncThunk(
       const message =
         (error.response && error.response.data && error.data.message) ||
         error.message ||
-        error.toString() ||
-        data.message;
+        error.toString();
       return thunkApi.rejectWithValue(message);
     }
   }
@@ -37,8 +36,7 @@ export const login = createAsyncThunk("auth/login", async (user, thunkApi) => {
     const message =
       (error.response && error.response.data && error.data.message) ||
       error.message ||
-      error.toString() ||
-      data.message;
+      error.toString();
     return thunkApi.rejectWithValue(message);
   }
 });

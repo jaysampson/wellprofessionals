@@ -11,11 +11,14 @@ import Contact from './Pages/ContactPage/Contact'
 import Dashboard from './Pages/DashBoard/Dashboard'
 import Overview from './Pages/Overview/Overview'
 import ProfDashboard from './Pages/ProfDashboard/ProfDashboard'
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 
   return (
     <>
+
       <Routes>
 
         {/* AuthPages */}
@@ -43,6 +46,7 @@ function App() {
         <Route path='/prof-dashboard/*' component={<ProfDashboard />} />
         <Route path='/prof-dashboard/' component={<ProfDashboard />} />
       </Routes>
+      <ToastContainer />
     </>
   )
 }
