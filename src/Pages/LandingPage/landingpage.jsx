@@ -504,7 +504,7 @@ const LandingPage = () => {
                       </div>
                     </div>
                   </div>
-                  <button>Show more courses</button>ß
+                  <button>Show more courses</button>
                 </div>
               </div>
               <div className="what-course">
