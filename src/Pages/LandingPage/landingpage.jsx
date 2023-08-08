@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare, faCheck, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowUpRightFromSquare,
+  faCheck,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
 import ladies from "../../assets/Images/doings.svg";
 import pro from "../../assets/Images/Pro.svg";
 import Navbar from "../Layouts/Navbar/Navbar";
@@ -46,11 +50,12 @@ const LandingPage = () => {
             <div className="hero-con">
               <h1>Create your own unique path to knowledge</h1>
               <p>
-                Are you looking to kick-start your career, or you’re a seasoned professional seeking to enhance your
-                knowledge and skills, our courses are designed to meet your specific needs
+                Are you looking to kick-start your career, or you’re a seasoned
+                professional seeking to enhance your knowledge and skills, our
+                courses are designed to meet your specific needs
               </p>
               <div className="btn-text">
-                <Link to='/auth-register'>
+                <Link to="/auth-register">
                   <button>Get Started</button>
                 </Link>
                 <div className="trust">
@@ -85,17 +90,28 @@ const LandingPage = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
-                        <Link to='/overview' className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                        <Link to="/overview" className="course-name">
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </Link>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -116,17 +132,28 @@ const LandingPage = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -147,17 +174,28 @@ const LandingPage = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -178,17 +216,28 @@ const LandingPage = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -209,17 +258,28 @@ const LandingPage = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -240,17 +300,28 @@ const LandingPage = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -279,17 +350,28 @@ const LandingPage = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="students">
@@ -322,17 +404,28 @@ const LandingPage = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="students">
@@ -365,17 +458,28 @@ const LandingPage = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="students">
@@ -399,8 +503,8 @@ const LandingPage = () => {
                         </div>
                       </div>
                     </div>
-                    <button>Show more courses</button>
                   </div>
+                  <button>Show more courses</button>ß
                 </div>
               </div>
               <div className="what-course">
@@ -431,13 +535,18 @@ const LandingPage = () => {
                       <div className="admin-title">
                         <p>John Doe</p>
                         <p className="check">
-                          <FontAwesomeIcon icon={faCheck} size="2xs" color="black" />
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            size="2xs"
+                            color="black"
+                          />
                         </p>
                       </div>
                       <div className="desc">
                         <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magnam dolorum minima
-                          accusantium eos quisquam facere? Doloribus quam doloremque veritatis!
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Enim magnam dolorum minima accusantium eos
+                          quisquam facere? Doloribus quam doloremque veritatis!
                         </p>
                       </div>
                       <div className="rating">
@@ -464,13 +573,18 @@ const LandingPage = () => {
                       <div className="admin-title">
                         <p>John Doe</p>
                         <p className="check">
-                          <FontAwesomeIcon icon={faCheck} size="2xs" color="black" />
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            size="2xs"
+                            color="black"
+                          />
                         </p>
                       </div>
                       <div className="desc">
                         <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magnam dolorum minima
-                          accusantium eos quisquam facere? Doloribus quam doloremque veritatis!
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Enim magnam dolorum minima accusantium eos
+                          quisquam facere? Doloribus quam doloremque veritatis!
                         </p>
                       </div>
                       <div className="rating">
@@ -497,13 +611,18 @@ const LandingPage = () => {
                       <div className="admin-title">
                         <p>John Doe</p>
                         <p className="check">
-                          <FontAwesomeIcon icon={faCheck} size="2xs" color="black" />
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            size="2xs"
+                            color="black"
+                          />
                         </p>
                       </div>
                       <div className="desc">
                         <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magnam dolorum minima
-                          accusantium eos quisquam facere? Doloribus quam doloremque veritatis!
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Enim magnam dolorum minima accusantium eos
+                          quisquam facere? Doloribus quam doloremque veritatis!
                         </p>
                       </div>
                       <div className="rating">
@@ -530,13 +649,18 @@ const LandingPage = () => {
                       <div className="admin-title">
                         <p>John Doe</p>
                         <p className="check">
-                          <FontAwesomeIcon icon={faCheck} size="2xs" color="black" />
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            size="2xs"
+                            color="black"
+                          />
                         </p>
                       </div>
                       <div className="desc">
                         <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magnam dolorum minima
-                          accusantium eos quisquam facere? Doloribus quam doloremque veritatis!
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Enim magnam dolorum minima accusantium eos
+                          quisquam facere? Doloribus quam doloremque veritatis!
                         </p>
                       </div>
                       <div className="rating">
@@ -573,7 +697,10 @@ const LandingPage = () => {
                         <img src={star} alt={star} />
                         <img src={star} alt={star} />
                       </div>
-                      <p>"We love Wells professionals! Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                      <p>
+                        "We love Wells professionals! Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit."
+                      </p>
                       <span>Eze Wilson</span>
                     </div>
                   </div>
@@ -586,7 +713,10 @@ const LandingPage = () => {
                         <img src={star} alt={star} />
                         <img src={star} alt={star} />
                       </div>
-                      <p>"We love Wells professionals! Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                      <p>
+                        "We love Wells professionals! Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit."
+                      </p>
                       <span>Eze Wilson</span>
                     </div>
                   </div>
@@ -597,51 +727,74 @@ const LandingPage = () => {
                   <div className="faq-questions">
                     <div className="top-text">
                       <h3>Frequently asked questions</h3>
-                      <p>Everything you need to know about the product and billing.</p>
+                      <p>
+                        Everything you need to know about the product and
+                        billing.
+                      </p>
                     </div>
                     <div className="question-con">
                       <div className="question">
                         <p>Is there a free trail available?</p>
-                        <img src={toggle1 ? minus : plus} alt="loading" onClick={handleToggle1} />
+                        <img
+                          src={toggle1 ? minus : plus}
+                          alt="loading"
+                          onClick={handleToggle1}
+                        />
                       </div>
-                      {
-                        toggle1 && (
-                          <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
-                        )
-                      }
+                      {toggle1 && (
+                        <div className="answer">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit
+                        </div>
+                      )}
                     </div>
                     <div className="question-con">
                       <div className="question">
                         <p>Is there a free trail available?</p>
-                        <img src={toggle2 ? minus : plus} alt="loading" onClick={handleToggle2} />
+                        <img
+                          src={toggle2 ? minus : plus}
+                          alt="loading"
+                          onClick={handleToggle2}
+                        />
                       </div>
-                      {
-                        toggle2 && (
-                          <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
-                        )
-                      }
+                      {toggle2 && (
+                        <div className="answer">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit
+                        </div>
+                      )}
                     </div>
                     <div className="question-con">
                       <div className="question">
                         <p>Is there a free trail available?</p>
-                        <img src={toggle3 ? minus : plus} alt="loading" onClick={handleToggle3} />
+                        <img
+                          src={toggle3 ? minus : plus}
+                          alt="loading"
+                          onClick={handleToggle3}
+                        />
                       </div>
-                      {
-                        toggle3 && (
-                          <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
-                        )
-                      }
+                      {toggle3 && (
+                        <div className="answer">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit
+                        </div>
+                      )}
                     </div>
                     <div className="question-con">
                       <div className="question">
                         <p>Is there a free trail available?</p>
-                        <img src={toggle4 ? minus : plus} alt="loading" onClick={handleToggle4} />
+                        <img
+                          src={toggle4 ? minus : plus}
+                          alt="loading"
+                          onClick={handleToggle4}
+                        />
                       </div>
-                      {
-                        toggle4 && (
-                          <div className="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
-                        )
-                      }
+                      {toggle4 && (
+                        <div className="answer">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit
+                        </div>
+                      )}
                     </div>
                   </div>
                   <img src={question} alt={question} className="faq-img" />
@@ -655,9 +808,12 @@ const LandingPage = () => {
                 </div>
                 <div className="text">
                   <p>Still have questions?</p>
-                  <span>Can’t find the answer you’re looking for? Please chat to our friendly team.</span>
+                  <span>
+                    Can’t find the answer you’re looking for? Please chat to our
+                    friendly team.
+                  </span>
                 </div>
-                <Link to='/contact'>
+                <Link to="/contact">
                   <button>Get in touch</button>
                 </Link>
               </div>

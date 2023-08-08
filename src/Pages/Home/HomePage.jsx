@@ -732,16 +732,14 @@ const course = [
 ];
 
 const Home = () => {
-
-  const navigate = useNavigate()
-  const { user } = useSelector((state) => state.auth)
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (!user) {
-      navigate('/auth-login')
+      navigate("/auth-login");
     }
-  }, [user, navigate])
-
+  }, [user, navigate]);
 
   const [currentPage, setCurrentPage] = useState(0); // State for the current page
   const [itemsPerPage, setItemsPerPage] = useState(
@@ -770,16 +768,15 @@ const Home = () => {
       );
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Call handleResize on component mount to set the initial value correctly
     handleResize();
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
-
 
   return (
     <div>
@@ -788,11 +785,12 @@ const Home = () => {
         <div className="home-hero">
           <div className="hero-text">
             <div className="top-text">
-              <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
-              <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis
-                enim velit mollit. Exercitation veniam consequat.
-              </p>
+              <h1>
+                Welcome to Well Professionals, the premier online platform
+                offering affordable oil and gas courses. Learn from the comfort
+                of your home on our mobile app or personal computers
+              </h1>
+              <p>Become Professionals and ready to join the world</p>
             </div>
             <div className="input-search">
               <div className="search">
@@ -926,17 +924,28 @@ const Home = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
-                        <Link to='/home/overview' className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                        <Link to="/home/overview" className="course-name">
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </Link>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -957,11 +966,18 @@ const Home = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
                           <FontAwesomeIcon
                             icon={faArrowUpRightFromSquare}
                             color="#000"
@@ -971,8 +987,9 @@ const Home = () => {
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -993,17 +1010,28 @@ const Home = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -1024,17 +1052,28 @@ const Home = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -1055,17 +1094,28 @@ const Home = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -1086,17 +1136,28 @@ const Home = () => {
                             <p>Michael Jordan</p>
                           </div>
                           <p className="check">
-                            <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
                           </p>
                         </div>
                         <div className="course-name">
-                          <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                          <h2>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h2>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
                         </div>
                         <div className="desc">
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
                           </p>
                         </div>
                         <div className="price-add">
@@ -1155,28 +1216,38 @@ const Home = () => {
                         icon={faArrowLeft}
                         cursor="pointer"
                         onClick={() => setCurrentPage(currentPage - 1)}
-                        className={currentPage === 0 ? 'disabled' : 'enabled'}
+                        className={currentPage === 0 ? "disabled" : "enabled"}
                       />
-                      <p>Page {currentPage + 1}/{pageCount}</p>
+                      <p>
+                        Page {currentPage + 1}/{pageCount}
+                      </p>
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         cursor="pointer"
                         onClick={() => setCurrentPage(currentPage + 1)}
-                        className={currentPage === pageCount - 1 ? 'disabled' : 'enabled'}
+                        className={
+                          currentPage === pageCount - 1 ? "disabled" : "enabled"
+                        }
                       />
                     </div>
                   ) : (
                     <ReactPaginate
                       previousLabel={
                         <div className="prev">
-                          <FontAwesomeIcon icon={faArrowLeft} cursor="pointer" />
+                          <FontAwesomeIcon
+                            icon={faArrowLeft}
+                            cursor="pointer"
+                          />
                           <p>Previous</p>
                         </div>
                       }
                       nextLabel={
                         <div className="next">
                           <p>Next</p>
-                          <FontAwesomeIcon icon={faArrowRight} cursor="pointer" />
+                          <FontAwesomeIcon
+                            icon={faArrowRight}
+                            cursor="pointer"
+                          />
                         </div>
                       }
                       breakLabel={<div className="ellipses">...</div>}

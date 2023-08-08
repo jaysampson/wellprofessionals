@@ -1,4 +1,15 @@
-import { faAngleDown, faBars, faCaretDown, faMinus, faPlus, faSearch, faUser, faUserAlt, faUserCircle, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleDown,
+  faBars,
+  faCaretDown,
+  faMinus,
+  faPlus,
+  faSearch,
+  faUser,
+  faUserAlt,
+  faUserCircle,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import wellslogo from "../../../assets/Images/Wells-Logo.svg";
 import shop from "../../../assets/Icons/shop-bag.svg";
@@ -14,10 +25,9 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-
   const [toggle, setToggle] = useState(false);
   const [drop, setDrop] = useState(false);
-  const { user } = useSelector((state) => (state.auth))
+  const { user } = useSelector((state) => state.auth);
   function toggleMenu() {
     setToggle(!toggle);
   }
@@ -29,24 +39,29 @@ const Navbar = () => {
   return (
     <div>
       <div className="home-nav">
-        <div className="offers">
-          <p>
-            Limited time launch <span>discount</span> : 20% off 03:25:15
-          </p>
-        </div>
         <div className="main">
-          <FontAwesomeIcon icon={toggle ? faXmark : faBars} size="2x" color="#090914" className="ham" onClick={toggleMenu} />
-          {user ? (<NavLink to='/home'>
-            <div className="logo-name">
-              <img src={wellslogo} alt={wellslogo} />
-              <p> WELL PROFESSIONALS</p>
-            </div>
-          </NavLink>) : (<NavLink to='/'>
-            <div className="logo-name">
-              <img src={wellslogo} alt={wellslogo} />
-              <p> WELL PROFESSIONALS</p>
-            </div>
-          </NavLink>)}
+          <FontAwesomeIcon
+            icon={toggle ? faXmark : faBars}
+            size="2x"
+            color="#090914"
+            className="ham"
+            onClick={toggleMenu}
+          />
+          {user ? (
+            <NavLink to="/home">
+              <div className="logo-name">
+                <img src={wellslogo} alt={wellslogo} />
+                <p> WELL PROFESSIONALS</p>
+              </div>
+            </NavLink>
+          ) : (
+            <NavLink to="/">
+              <div className="logo-name">
+                <img src={wellslogo} alt={wellslogo} />
+                <p> WELL PROFESSIONALS</p>
+              </div>
+            </NavLink>
+          )}
 
           <FontAwesomeIcon icon={faSearch} size="2x" className="search" />
           <div className="search-input">
@@ -70,22 +85,29 @@ const Navbar = () => {
             <img src={book} alt={book} />
             <img src={notify} alt={notify} />
           </div>
-          {
-            user ? (<div className="profile">
+          {user ? (
+            <div className="profile">
               <img src="" alt="" />
-            </div>) : (<div className="auths">
-              <NavLink to='/auth-login' className="login-btn">
+            </div>
+          ) : (
+            <div className="auths">
+              <NavLink to="/auth-login" className="login-btn">
                 Login
               </NavLink>
-              <NavLink to='/auth-register' className="create-btn">
+              <NavLink to="/auth-register" className="create-btn">
                 Create Account
               </NavLink>
-            </div>)
-          }
+            </div>
+          )}
         </div>
-        {
-          user ? (<div className="student-options">
-            <NavLink to='/home/dashboard' className="options">
+        <div className="offers">
+          <p>
+            Limited time launch <span>discount</span> : 20% off 03:25:15
+          </p>
+        </div>
+        {user ? (
+          <div className="student-options">
+            <NavLink to="/home/dashboard" className="options">
               <img src={homeicon} alt={homeicon} />
               <p>Dashboard</p>
             </NavLink>
@@ -102,32 +124,51 @@ const Navbar = () => {
               <p>Setting</p>
               <FontAwesomeIcon icon={faAngleDown} />
             </div>
-          </div>) : ""
-        }
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       <div className={toggle ? "sidebar" : "null"}>
-        {
-          user ?
-            (<div className="nav-user">
-              <FontAwesomeIcon icon={faUserCircle} color="#af5e41" size="3x" style={{ borderRadius: "50%" }} />
-              <div className="nav-user-dets">
-                <h4>{user && user.data.name}</h4>
-                <span>{user && user.data.email}</span>
-              </div>
-            </div>) : (<>
-              <NavLink
-                to='/auth-login'
-                style={{ textDecoration: "none", color: "black", fontWeight: "700", fontSize: "1rem" }}
-              >
-                Login
-              </NavLink>
-              <NavLink
-                to='/auth-register'
-                style={{ textDecoration: "none", color: "#AF5E41", fontWeight: "700", fontSize: "1rem" }}
-              >
-                Create Account
-              </NavLink></>)
-        }
+        {user ? (
+          <div className="nav-user">
+            <FontAwesomeIcon
+              icon={faUserCircle}
+              color="#af5e41"
+              size="3x"
+              style={{ borderRadius: "50%" }}
+            />
+            <div className="nav-user-dets">
+              <h4>{user && user.data.name}</h4>
+              <span>{user && user.data.email}</span>
+            </div>
+          </div>
+        ) : (
+          <>
+            <NavLink
+              to="/auth-login"
+              style={{
+                textDecoration: "none",
+                color: "black",
+                fontWeight: "700",
+                fontSize: "1rem",
+              }}
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/auth-register"
+              style={{
+                textDecoration: "none",
+                color: "#AF5E41",
+                fontWeight: "700",
+                fontSize: "1rem",
+              }}
+            >
+              Create Account
+            </NavLink>
+          </>
+        )}
         <hr />
         <h3>Top rated courses</h3>
         <h3>Courses for you</h3>
@@ -140,7 +181,13 @@ const Navbar = () => {
         <div className="side-categories">
           <div className="cat-header">
             <h3>Categories</h3>
-            <FontAwesomeIcon icon={drop ? faMinus : faPlus} width={"30px"} height={"30px"} onClick={toggleDrop} cursor={"pointer"} />
+            <FontAwesomeIcon
+              icon={drop ? faMinus : faPlus}
+              width={"30px"}
+              height={"30px"}
+              onClick={toggleDrop}
+              cursor={"pointer"}
+            />
           </div>
           {drop && (
             <div className="cats">

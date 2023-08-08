@@ -4,7 +4,7 @@ import back from "../../../assets/Icons/back-arrow.svg";
 import googleicon from "../../../assets/Icons/google-icon.svg";
 import fbicon from "../../../assets/Icons/facebook-icon.svg";
 import "../Login/Login.scss";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { faEye, faEyeSlash, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
