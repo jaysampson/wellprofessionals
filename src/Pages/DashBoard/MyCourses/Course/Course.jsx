@@ -9,6 +9,7 @@ import {
   faCircleDot,
   faPlay,
   faStar,
+  faStarHalf,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import ladies from "../../../../assets/Images/doings.svg";
@@ -95,11 +96,11 @@ const Course = () => {
                 <div className="rating-members">
                   <div className="star-rating">
                     <div className="star">
-                      <FontAwesomeIcon icon={faStar} />
-                      <FontAwesomeIcon icon={faStar} />
-                      <FontAwesomeIcon icon={faStar} />
-                      <FontAwesomeIcon icon={faStar} />
-                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} color={"#F8C51B"} />
+                      <FontAwesomeIcon icon={faStar} color={"#F8C51B"} />
+                      <FontAwesomeIcon icon={faStar} color={"#F8C51B"} />
+                      <FontAwesomeIcon icon={faStar} color={"#F8C51B"} />
+                      <FontAwesomeIcon icon={faStarHalf} color={"#F8C51B"} />
                     </div>
                     <span>43K Ratings</span>
                   </div>

@@ -38,7 +38,7 @@ function App() {
 
         <Route path="/home/dashboard" element={<Dashboard />} />
         <Route path="/home/overview" element={<Overview />} />
-        <Route path="/home/dashoboard/mycourses/course" element={<Course />} />
+        <Route path="/home/dashboard/mycourses/course" element={<Course />} />
 
         {/* Professionals-Dashboard */}
 
