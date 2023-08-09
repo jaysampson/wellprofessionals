@@ -12,7 +12,7 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import ladies from "../../../../assets/Images/doings.svg";
-import star from "../../../../assets/Icons/star.svg";
+import star from "../../../../assets/Icons";
 import { useState } from "react";
 import video from "../../../../assets/Images/video.mp4";
 import ReactPlayer from "react-player";
@@ -100,7 +100,7 @@ const Course = () => {
                       <img src={star} alt={star} />
                       <img src={star} alt={star} />
                       <img src={star} alt={star} />
-                      <img src={star} alt={star} className="half-star" />
+                      <img src={star} alt={star} />
                     </div>
                     <span>43K Ratings</span>
                   </div>
