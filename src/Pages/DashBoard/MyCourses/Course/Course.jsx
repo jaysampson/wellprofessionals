@@ -1,6 +1,5 @@
 import Navbar from "../../../Layouts/Navbar/Navbar";
 import "../Course/Course.scss";
-// import coursevideo from "../../../../assets/Images/course-video.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleDown,
@@ -9,10 +8,10 @@ import {
   faCircle,
   faCircleDot,
   faPlay,
+  faStar,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import ladies from "../../../../assets/Images/doings.svg";
-import star from "../../../../assets/Icons";
 import { useState } from "react";
 import video from "../../../../assets/Images/video.mp4";
 import ReactPlayer from "react-player";
@@ -96,11 +95,11 @@ const Course = () => {
                 <div className="rating-members">
                   <div className="star-rating">
                     <div className="star">
-                      <img src={star} alt={star} />
-                      <img src={star} alt={star} />
-                      <img src={star} alt={star} />
-                      <img src={star} alt={star} />
-                      <img src={star} alt={star} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
                     </div>
                     <span>43K Ratings</span>
                   </div>
