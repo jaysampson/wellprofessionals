@@ -1,0 +1,111 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: 0px;
+}
+
+.lesson-comp {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  header {
+    color: #545454;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .course-chapters {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(204, 204, 204, 0.1);
+    .chapter {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      border-radius: 8px;
+      background-color: #fff;
+      .chapter-img {
+        height: 50px;
+        width: 50px;
+        border-radius: 10px;
+      }
+      .coursename-desc {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 5px;
+        flex-direction: column;
+        h3 {
+          font-size: 16px;
+        }
+        .coursenum-time {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          p {
+            color: #3c3c4399;
+          }
+          span {
+            color: #af5e41;
+          }
+        }
+      }
+    }
+    .chapter-contents {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 10px;
+      border-radius: 10px;
+      width: 100%;
+      background-color: #fae26a;
+      .title-time {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+          gap: 10px;
+        }
+      }
+      .level {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 5px;
+        border-radius: 10px;
+        background-color: greenyellow;
+        p {
+          padding: 0px;
+          margin: 0px;
+          color: #18181b;
+          font-size: 0.83263rem;
+          font-weight: 700;
+        }
+        span {
+          color: #71717a;
+          font-size: 0.83263rem;
+        }
+      }
+    }
+  }
+}
