@@ -19,10 +19,12 @@ export const register = createAsyncThunk(
     try {
       return await authService.register(user);
     } catch (error) {
-      const message =
-        (error.response && error.response.data && error.data.message) ||
-        error.message ||
-        error.toString();
+      const defaultMessage = "An error occurred. Please try again.";
+      let message = defaultMessage;
+
+      if (error.response && error.response.data && error.response.data.msg) {
+        message = error.response.data.msg; // Use the 'msg' property from the response
+      }
       return thunkApi.rejectWithValue(message);
     }
   }
@@ -33,10 +35,12 @@ export const login = createAsyncThunk("auth/login", async (user, thunkApi) => {
   try {
     return await authService.login(user);
   } catch (error) {
-    const message =
-      (error.response && error.response.data && error.data.message) ||
-      error.message ||
-      error.toString();
+    const defaultMessage = "An error occurred. Please try again.";
+    let message = defaultMessage;
+
+    if (error.response && error.response.data && error.response.data.msg) {
+      message = error.response.data.msg; // Use the 'msg' property from the response
+    }
     return thunkApi.rejectWithValue(message);
   }
 });
@@ -52,7 +56,7 @@ export const authSlice = createSlice({
     reset: (state) => {
       state.isLoading = false;
       state.isSuccess = false;
-      state.isError - false;
+      state.isError = false;
       state.message = "";
     },
   },

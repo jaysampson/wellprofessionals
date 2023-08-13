@@ -5,7 +5,11 @@ import googleicon from "../../../assets/Icons/google-icon.svg";
 import fbicon from "../../../assets/Icons/facebook-icon.svg";
 import "../Login/Login.scss";
 import { useState, useEffect } from "react";
-import { faEye, faEyeSlash, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
@@ -16,9 +20,11 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [toggle, setToggle] = useState(false);
   const dispatch = useDispatch();
-  const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isError) {
@@ -26,13 +32,13 @@ const Login = () => {
     }
 
     if (isSuccess || user) {
-      navigate('/home');
+      // navigate("/home");
+      toast.success("Logged in");
+      dispatch(reset());
     }
-
-    dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
-
+  console.log(message);
   function handleToggle() {
     setToggle(!toggle);
   }
@@ -160,7 +166,13 @@ const Login = () => {
                 {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
                 <div className="signin-ctn-btn">
                   <button type="submit" onClick={loginSubmit}>
-                    <p>{isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Sign in"}</p>
+                    <p>
+                      {isLoading ? (
+                        <FontAwesomeIcon icon={faSpinner} spin />
+                      ) : (
+                        "Sign in"
+                      )}
+                    </p>
                   </button>
                 </div>
 
@@ -168,7 +180,7 @@ const Login = () => {
                   <p>
                     Don't have an account?{" "}
                     <span>
-                      <Link to='/auth-register' className="new">
+                      <Link to="/auth-register" className="new">
                         Create free account
                       </Link>
                     </span>
@@ -182,10 +194,19 @@ const Login = () => {
                   <hr />
                 </div>
                 <div className="options">
-                  <button className="option-btn" style={{ border: "1px solid #D0D5DD", backgroundColor: "white" }}>
+                  <button
+                    className="option-btn"
+                    style={{
+                      border: "1px solid #D0D5DD",
+                      backgroundColor: "white",
+                    }}
+                  >
                     <img src={googleicon} alt={googleicon} />
                   </button>
-                  <button className="option-btn" style={{ backgroundColor: "#1877F2" }}>
+                  <button
+                    className="option-btn"
+                    style={{ backgroundColor: "#1877F2" }}
+                  >
                     <img src={fbicon} alt={fbicon} />
                   </button>
                 </div>
