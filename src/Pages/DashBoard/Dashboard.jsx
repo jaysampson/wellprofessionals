@@ -1,11 +1,18 @@
 import React from "react";
 import Navbar from "../Layouts/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faCircleDot, faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleRight,
+  faCircleDot,
+  faEllipsis,
+} from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Layouts/Footer/Footer";
 import "../DashBoard/Dashboard.scss";
 import { NavLink, useNavigate } from "react-router-dom";
-import { faArrowUpRightFromSquare, faCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowUpRightFromSquare,
+  faCheck,
+} from "@fortawesome/free-solid-svg-icons";
 import ladies from "../../assets/Images/doings.svg";
 import pro from "../../assets/Images/Pro.svg";
 import star from "../../assets/Icons/Star.svg";
@@ -16,9 +23,20 @@ import { BreadCrumb } from "../BreadCrumb/BreadCrumb";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-
 const chartData = {
-  labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
+  labels: [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ],
   datasets: [
     {
       label: "Student Report",
@@ -41,8 +59,8 @@ const chartOptions = {
 };
 
 const Dashboard = () => {
-  const navigate = useNavigate()
-  const { user } = useSelector((state) => state.auth)
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <div>
@@ -54,8 +72,10 @@ const Dashboard = () => {
               <BreadCrumb />
             </div>
             <div className="user">
-              <h2>Welcome,  {user && user.data.name}!</h2>
-              <span>-Here's an overview of your well professionals journey </span>
+              <h2>Welcome, {user && user.data.name}!</h2>
+              <span>
+                -Here's an overview of your well professionals journey{" "}
+              </span>
             </div>
           </div>
           <div className="mark-course">
@@ -66,7 +86,10 @@ const Dashboard = () => {
                     <h3>My Courses</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipis.</p>
                   </div>
-                  <NavLink to="/home/dashboard/mycourses" className="all-course">
+                  <NavLink
+                    to="/home/dashboard/mycourses"
+                    className="all-course"
+                  >
                     <span>See All My Courses</span>
                     <FontAwesomeIcon icon={faAngleRight} />
                   </NavLink>
@@ -212,28 +235,44 @@ const Dashboard = () => {
                       <p>Lorem ipsum dolor sit.</p>
                       <p>72%</p>
                     </div>
-                    <progress className="progress" max="100" value="72"></progress>
+                    <progress
+                      className="progress"
+                      max="100"
+                      value="72"
+                    ></progress>
                   </div>
                   <div className="progress-con">
                     <div className="course">
                       <p>Lorem ipsum dolor sit.</p>
                       <p>62%</p>
                     </div>
-                    <progress className="progress" max="100" value="62"></progress>
+                    <progress
+                      className="progress"
+                      max="100"
+                      value="62"
+                    ></progress>
                   </div>
                   <div className="progress-con">
                     <div className="course">
                       <p>Lorem ipsum dolor sit.</p>
                       <p>41%</p>
                     </div>
-                    <progress className="progress" max="100" value="41"></progress>
+                    <progress
+                      className="progress"
+                      max="100"
+                      value="41"
+                    ></progress>
                   </div>
                   <div className="progress-con">
                     <div className="course">
                       <p>Lorem ipsum dolor sit.</p>
                       <p>23%</p>
                     </div>
-                    <progress className="progress" max="100" value="23"></progress>
+                    <progress
+                      className="progress"
+                      max="100"
+                      value="23"
+                    ></progress>
                   </div>
                 </div>
               </div>
@@ -253,17 +292,28 @@ const Dashboard = () => {
                         <p>Michael Jordan</p>
                       </div>
                       <p className="check">
-                        <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                        <FontAwesomeIcon
+                          icon={faCheck}
+                          color="#000"
+                          size="2xs"
+                        />
                       </p>
                     </div>
                     <div className="course-name">
-                      <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                      <h2>
+                        Creative Engineering: Lorem ipsum dolor sit amet,
+                        consectetur
+                      </h2>
+                      <FontAwesomeIcon
+                        icon={faArrowUpRightFromSquare}
+                        color="#000"
+                      />
                     </div>
                     <div className="desc">
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
                       </p>
                     </div>
                     <div className="rating">
@@ -295,17 +345,28 @@ const Dashboard = () => {
                         <p>Michael Jordan</p>
                       </div>
                       <p className="check">
-                        <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                        <FontAwesomeIcon
+                          icon={faCheck}
+                          color="#000"
+                          size="2xs"
+                        />
                       </p>
                     </div>
                     <div className="course-name">
-                      <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                      <h2>
+                        Creative Engineering: Lorem ipsum dolor sit amet,
+                        consectetur
+                      </h2>
+                      <FontAwesomeIcon
+                        icon={faArrowUpRightFromSquare}
+                        color="#000"
+                      />
                     </div>
                     <div className="desc">
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
                       </p>
                     </div>
                     <div className="rating">
@@ -337,17 +398,28 @@ const Dashboard = () => {
                         <p>Michael Jordan</p>
                       </div>
                       <p className="check">
-                        <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                        <FontAwesomeIcon
+                          icon={faCheck}
+                          color="#000"
+                          size="2xs"
+                        />
                       </p>
                     </div>
                     <div className="course-name">
-                      <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                      <h2>
+                        Creative Engineering: Lorem ipsum dolor sit amet,
+                        consectetur
+                      </h2>
+                      <FontAwesomeIcon
+                        icon={faArrowUpRightFromSquare}
+                        color="#000"
+                      />
                     </div>
                     <div className="desc">
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
                       </p>
                     </div>
                     <div className="rating">
@@ -379,17 +451,28 @@ const Dashboard = () => {
                         <p>Michael Jordan</p>
                       </div>
                       <p className="check">
-                        <FontAwesomeIcon icon={faCheck} color="#000" size="2xs" />
+                        <FontAwesomeIcon
+                          icon={faCheck}
+                          color="#000"
+                          size="2xs"
+                        />
                       </p>
                     </div>
                     <div className="course-name">
-                      <h2>Creative Engineering: Lorem ipsum dolor sit amet, consectetur</h2>
-                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#000" />
+                      <h2>
+                        Creative Engineering: Lorem ipsum dolor sit amet,
+                        consectetur
+                      </h2>
+                      <FontAwesomeIcon
+                        icon={faArrowUpRightFromSquare}
+                        color="#000"
+                      />
                     </div>
                     <div className="desc">
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
                       </p>
                     </div>
                     <div className="rating">

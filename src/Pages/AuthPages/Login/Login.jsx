@@ -32,7 +32,7 @@ const Login = () => {
     }
 
     if (isSuccess || user) {
-      // navigate("/home");
+      navigate("/home");
       toast.success("Logged in");
       dispatch(reset());
     }
