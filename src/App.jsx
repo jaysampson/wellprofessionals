@@ -10,10 +10,19 @@ import About from "./Pages/AboutPage/About";
 import Contact from "./Pages/ContactPage/Contact";
 import Dashboard from "./Pages/DashBoard/Dashboard";
 import Overview from "./Pages/Overview/Overview";
-import ProfDashboard from "./Pages/ProfDashboard/ProfDashboard";
+import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Course from "./Pages/DashBoard/MyCourses/Course/Course";
+import MyCourses from "./Pages/DashBoard/MyCourses/MyCourses";
+import AdminCourse from "./Pages/AdminDashboard/AdminPages/AdminCourse/AdminCourse";
+import Announcements from "./Pages/AdminDashboard/AdminPages/AdminAnnouncements/Announcements";
+import AdminInstructors from "./Pages/AdminDashboard/AdminPages/AdminInstructors/AdminInstructors";
+import AdminGradebook from "./Pages/AdminDashboard/AdminPages/AdminGradebook/AdminGradebook";
+import AdminFinance from "./Pages/AdminDashboard/AdminPages/AdminFinance/AdminFinance";
+import AdminSupport from "./Pages/AdminDashboard/AdminPages/AdminSupport/AdminSupport";
+import AdminReport from "./Pages/AdminDashboard/AdminPages/AdminReports/AdminReport";
+import AdminSettings from "./Pages/AdminDashboard/AdminPages/AdminSettings/AdminSettings";
 
 function App() {
   return (
@@ -38,12 +47,22 @@ function App() {
 
         <Route path="/home/dashboard" element={<Dashboard />} />
         <Route path="/home/overview" element={<Overview />} />
+        <Route path="/home/dashboard/mycourses" element={<MyCourses />} />
         <Route path="/home/dashboard/mycourses/course" element={<Course />} />
 
-        {/* Professionals-Dashboard */}
+        {/* Admin-Pages */}
 
-        <Route path="/prof-dashboard/*" component={<ProfDashboard />} />
-        <Route path="/prof-dashboard/" component={<ProfDashboard />} />
+        <Route path="/admin/*" element={<AdminDashboard />} />
+        <Route path="/admin/" element={<AdminDashboard />} />
+        <Route path="/admin/admin-courses" element={<AdminCourse />} />
+        <Route path="/admin/announcements" element={<Announcements />} />
+        <Route path="/admin/admin-instructors" element={<AdminInstructors />} />
+        <Route path="/admin/admin-instructors" element={<AdminInstructors />} />
+        <Route path="/admin/admin-gradebook" element={<AdminGradebook />} />
+        <Route path="/admin/admin-finance" element={<AdminFinance />} />
+        <Route path="/admin/admin-support" element={<AdminSupport />} />
+        <Route path="/admin/admin-report" element={<AdminReport />} />
+        <Route path="/admin/admin-settings" element={<AdminSettings />} />
       </Routes>
       <ToastContainer />
     </>

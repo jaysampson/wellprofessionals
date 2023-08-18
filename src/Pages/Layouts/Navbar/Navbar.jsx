@@ -5,8 +5,6 @@ import {
   faMinus,
   faPlus,
   faSearch,
-  faUser,
-  faUserAlt,
   faUserCircle,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
@@ -22,7 +20,7 @@ import settingicon from "../../../assets/Icons/setting-icon.svg";
 import carticon from "../../../assets/Icons/cart-icon.svg";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -170,7 +168,12 @@ const Navbar = () => {
           </>
         )}
         <hr />
-        <h3>Top rated courses</h3>
+        <Link to="/home">
+          <h3>Home</h3>
+        </Link>
+        <Link to="/home/dashboard">
+          <h3>Dashboard</h3>
+        </Link>
         <h3>Courses for you</h3>
         <h3>New Courses</h3>
         <hr />
