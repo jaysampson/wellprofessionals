@@ -64,7 +64,10 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faSearch} size="2x" className="search" />
           <div className="search-input">
             <FontAwesomeIcon icon={faSearch} />
-            <input type="text" placeholder="Search Courses" />
+            <input type="text" placeholder="What do you want to learn?" />
+            <Link to="/home/search">
+              <button>Search</button>
+            </Link>
           </div>
           <div className="categories">
             <span>Categories</span>

@@ -75,8 +75,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      width: 250px;
-      padding-inline-start: 10px;
+      width: 285px;
+      padding-inline: 5px;
       height: 35px;
       background-color: #fff;
       border: 1px gray solid;
@@ -87,6 +87,12 @@
         padding: 0px 10px 0px 0px;
         width: 100%;
         color: #64748b;
+      }
+      button {
+        background-color: #af5e41;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: #fff;
       }
       @media screen and (max-width: 1000px) {
         display: none;

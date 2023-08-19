@@ -23,6 +23,7 @@ import AdminFinance from "./Pages/AdminDashboard/AdminPages/AdminFinance/AdminFi
 import AdminSupport from "./Pages/AdminDashboard/AdminPages/AdminSupport/AdminSupport";
 import AdminReport from "./Pages/AdminDashboard/AdminPages/AdminReports/AdminReport";
 import AdminSettings from "./Pages/AdminDashboard/AdminPages/AdminSettings/AdminSettings";
+import SearchPage from "./Pages/SearchPage/SearchPage";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/overview" element={<Overview />} />
+        <Route path="/home/search" element={<SearchPage />} />
 
         {/* Student-Dashboard */}
 

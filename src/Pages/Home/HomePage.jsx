@@ -797,7 +797,9 @@ const Home = () => {
                 <FontAwesomeIcon icon={faSearch} color="#667085" />
                 <input type="text" placeholder="Search for online courses" />
               </div>
-              <button>Search</button>
+              <Link to="/home/search">
+                <button>Search</button>
+              </Link>
             </div>
           </div>
           <div className="hero-bottom-colors">
