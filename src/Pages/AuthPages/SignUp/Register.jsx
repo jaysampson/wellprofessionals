@@ -6,7 +6,11 @@ import googleicon from "../../../assets/Icons/google-icon.svg";
 import fbicon from "../../../assets/Icons/facebook-icon.svg";
 import "../SignUp/Signup.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { register, reset } from "../../../redux/auth/authSlice";
@@ -18,12 +22,14 @@ const Register = () => {
   const [mobile, setMobile] = useState("");
   const [name, setName] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [toggle, setToggle] = useState();
   const [toggle2, setToggle2] = useState();
   const dispatch = useDispatch();
-  const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
 
   function handleToggle() {
     setToggle(!toggle);
@@ -38,7 +44,7 @@ const Register = () => {
     }
 
     if (isSuccess || user) {
-      navigate('/auth-login');
+      navigate("/auth-login");
     }
 
     dispatch(reset());
@@ -69,7 +75,7 @@ const Register = () => {
             <div className="signup-form-content">
               <div className="header">
                 <div className="back-con">
-                  <Link className="back" to='/'>
+                  <Link className="back" to="/">
                     <img src={back} alt={back} />
                     <p>Back</p>
                   </Link>
@@ -157,19 +163,26 @@ const Register = () => {
                 <div className="remember">
                   <input type="checkbox" className="checkbox" required />
                   <p>
-                    I agree with the <span>Terms & Conditions</span> of Well Professionals
+                    I agree with the <span>Terms & Conditions</span> of Well
+                    Professionals
                   </p>
                 </div>
                 <div className="signup-ctn-btn">
                   <button type="submit" onClick={registerUser}>
-                    <p>{isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Sign Up"}</p>
+                    <p>
+                      {isLoading ? (
+                        <FontAwesomeIcon icon={faSpinner} spin />
+                      ) : (
+                        "Sign Up"
+                      )}
+                    </p>
                   </button>
                 </div>
                 <div className="no-account">
                   <p>
                     Already have an account?{" "}
                     <span>
-                      <Link to='/auth-login' className="new">
+                      <Link to="/auth-login" className="new">
                         Sign into your account
                       </Link>
                     </span>
@@ -183,10 +196,19 @@ const Register = () => {
                   <hr />
                 </div>
                 <div className="options">
-                  <button className="option-btn" style={{ border: "1px solid #D0D5DD", backgroundColor: "white" }}>
+                  <button
+                    className="option-btn"
+                    style={{
+                      border: "1px solid #D0D5DD",
+                      backgroundColor: "white",
+                    }}
+                  >
                     <img src={googleicon} alt={googleicon} />
                   </button>
-                  <button className="option-btn" style={{ backgroundColor: "#1877F2" }}>
+                  <button
+                    className="option-btn"
+                    style={{ backgroundColor: "#1877F2" }}
+                  >
                     <img src={fbicon} alt={fbicon} />
                   </button>
                 </div>

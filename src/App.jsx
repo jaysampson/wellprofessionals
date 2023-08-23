@@ -59,7 +59,6 @@ function App() {
         <Route path="/admin/admin-courses" element={<AdminCourse />} />
         <Route path="/admin/announcements" element={<Announcements />} />
         <Route path="/admin/admin-instructors" element={<AdminInstructors />} />
-        <Route path="/admin/admin-instructors" element={<AdminInstructors />} />
         <Route path="/admin/admin-gradebook" element={<AdminGradebook />} />
         <Route path="/admin/admin-finance" element={<AdminFinance />} />
         <Route path="/admin/admin-support" element={<AdminSupport />} />
