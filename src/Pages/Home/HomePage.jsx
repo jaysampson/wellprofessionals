@@ -733,13 +733,13 @@ const course = [
 
 const Home = () => {
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth);
+  // const { user } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/auth-login");
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     navigate("/auth-login");
+  //   }
+  // }, [user, navigate]);
 
   const [currentPage, setCurrentPage] = useState(0); // State for the current page
   const [itemsPerPage, setItemsPerPage] = useState(
