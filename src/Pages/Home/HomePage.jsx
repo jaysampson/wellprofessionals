@@ -24,7 +24,7 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 const course = [
   {
     id: 1,
-    name: "Michael Jordan",
+    name: "Declan rice",
     desc: " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price: "₦2,549.99",
     slashedprice: "₦4,449.99",

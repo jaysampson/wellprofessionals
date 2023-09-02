@@ -87,7 +87,7 @@ const Navbar = () => {
             <img src={notify} alt={notify} />
           </div>
           {user ? (
-            <div className="profile">
+            <div className="profile-img">
               <img src="" alt="" />
             </div>
           ) : (
@@ -120,11 +120,11 @@ const Navbar = () => {
               <img src={book} alt={book} />
               <p>Bookmark</p>
             </div>
-            <div className="options">
+            <NavLink to="/home/settings/profile" className="options">
               <img src={settingicon} alt={settingicon} />
               <p>Setting</p>
               <FontAwesomeIcon icon={faAngleDown} />
-            </div>
+            </NavLink>
           </div>
         ) : (
           ""

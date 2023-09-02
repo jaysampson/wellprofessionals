@@ -24,6 +24,8 @@ import AdminSupport from "./Pages/AdminDashboard/AdminPages/AdminSupport/AdminSu
 import AdminReport from "./Pages/AdminDashboard/AdminPages/AdminReports/AdminReport";
 import AdminSettings from "./Pages/AdminDashboard/AdminPages/AdminSettings/AdminSettings";
 import SearchPage from "./Pages/SearchPage/SearchPage";
+import SettingLayout from "./Pages/Settings/SettingLayout/SettingLayout";
+import Profile from "./Pages/Settings/SetttingPages/Profile/Profile";
 
 function App() {
   return (
@@ -64,6 +66,11 @@ function App() {
         <Route path="/admin/admin-support" element={<AdminSupport />} />
         <Route path="/admin/admin-report" element={<AdminReport />} />
         <Route path="/admin/admin-settings" element={<AdminSettings />} />
+
+        {/* {Setting Pages} */}
+
+        <Route path="/home/settings/*" element={<SettingLayout />} />
+        <Route path="/home/settings/profile" element={<Profile />} />
       </Routes>
       <ToastContainer />
     </>
