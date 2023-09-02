@@ -133,12 +133,19 @@ const Navbar = () => {
       <div className={toggle ? "sidebar" : "null"}>
         {user ? (
           <div className="nav-user">
-            <FontAwesomeIcon
-              icon={faUserCircle}
-              color="#af5e41"
-              size="3x"
-              style={{ borderRadius: "50%" }}
-            />
+            {user ? (
+              <img
+                src={user && user.data.user_image}
+                alt={user && user.data.user_image}
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faUserCircle}
+                color="#af5e41"
+                size="3x"
+                style={{ borderRadius: "50%" }}
+              />
+            )}
             <div className="nav-user-dets">
               <h4>{user && user.data.name}</h4>
               <span>{user && user.data.email}</span>
