@@ -137,6 +137,7 @@ const Navbar = () => {
               <img
                 src={user && user.data.user_image}
                 alt={user && user.data.user_image}
+                style={{ width: "80px", height: "80px", borderRadius: "50%" }}
               />
             ) : (
               <FontAwesomeIcon
