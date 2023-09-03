@@ -48,7 +48,7 @@ const updateUser = async (userData) => {
 
     return response.data;
   } catch (error) {
-    console.error("Update user error:", error);
+    console.error("Update user error:", error, user_id, token);
     throw error;
   }
 };
