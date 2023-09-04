@@ -16,19 +16,12 @@ const Profile = () => {
 };
 
 export const Content = () => {
-  const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [name, setName] = useState("");
   const [user_image, setUser_Image] = useState(null);
 
   const dispatch = useDispatch();
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
-
-  //   name = user.data.name;
-  //   mobile = user.data.mobile;
-  //   email = user.data.email;
 
   useEffect(() => {
     if (isError) {
@@ -63,18 +56,9 @@ export const Content = () => {
     }
   };
 
-  const [value, setValue] = useState("This is an initial value");
-  const [isEditing, setIsEditing] = useState(false);
-
-  const handleEditClick = () => {
-    setIsEditing(!isEditing);
-  };
-
-  const handleEdit = (e) => {
-    e.preventDefault();
-    // Handle form submission, e.g., send the updated value to an API or update state.
-    setIsEditing(false);
-  };
+  const [email, setEmail] = useState(user ? user.data.email : "");
+  const [mobile, setMobile] = useState(user ? user.data.mobile : "");
+  const [name, setName] = useState(user ? user.data.name : "");
 
   return (
     <div className="profile">
@@ -107,9 +91,8 @@ export const Content = () => {
               <label htmlFor="">Full Name</label>
               <input
                 type="text"
-                placeholder={user && user.data.name}
+                placeholder={name}
                 value={name}
-                defaultValue={user && user.data.name}
                 onChange={(e) => setName(e.target.value)}
                 required
               />
@@ -119,7 +102,6 @@ export const Content = () => {
               <input
                 type="email"
                 placeholder={user && user.data.email}
-                // contentEditable
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
