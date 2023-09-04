@@ -1,5 +1,6 @@
 import {
   faAngleDown,
+  faArrowRightFromBracket,
   faBars,
   faCaretDown,
   faMinus,
@@ -220,6 +221,17 @@ const Navbar = () => {
             </div>
           )}
         </div>
+        <p
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "5px",
+          }}
+        >
+          <FontAwesomeIcon icon={faArrowRightFromBracket} />
+          <span>Logout</span>
+        </p>
       </div>
     </div>
   );
