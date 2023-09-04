@@ -132,7 +132,7 @@ const Navbar = () => {
       </div>
       <div className={toggle ? "sidebar" : "null"}>
         {user ? (
-          <div className="nav-user">
+          <Link to="/home/settings/profile" className="nav-user">
             {user ? (
               <img
                 src={user && user.data.user_image}
@@ -151,7 +151,7 @@ const Navbar = () => {
               <h4>{user && user.data.name}</h4>
               <span>{user && user.data.email}</span>
             </div>
-          </div>
+          </Link>
         ) : (
           <>
             <NavLink
