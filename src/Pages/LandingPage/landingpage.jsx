@@ -339,7 +339,7 @@ const LandingPage = () => {
               </div>
               <div className="based-on-picks">
                 <div className="top-rated-con">
-                  <h3>Courses for you based on our picks</h3>
+                  <h3>Courses for you based on your picks</h3>
                   <div className="courses">
                     <div className="course-con">
                       <img src={ladies} alt={ladies} className="course-img" />

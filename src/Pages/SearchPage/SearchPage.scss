@@ -196,6 +196,7 @@
           flex-wrap: wrap;
           @media screen and (max-width: 768px) {
             justify-content: center;
+            gap: 50px;
           }
           .course-con {
             display: flex;
@@ -203,7 +204,7 @@
             justify-content: center;
             flex-direction: column;
             gap: 30px;
-            flex: 0 0 350px;
+            flex: 0 0 300px;
             .course-img {
               width: 100%;
               border-radius: 8px;
