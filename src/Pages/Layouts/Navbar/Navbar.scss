@@ -11,6 +11,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  top: 0px;
+  position: sticky;
+  z-index: 10;
   .offers {
     width: 100%;
     display: flex;
@@ -232,11 +235,12 @@
     align-items: flex-start;
     flex-direction: column;
     position: absolute;
-    top: 136px;
+    top: 92px;
     left: 0px;
     width: 70%;
     height: 100vh;
     background-color: white;
+
     overflow-y: auto;
     margin-right: 0px;
     padding: 30px 20px 30px 10px;
