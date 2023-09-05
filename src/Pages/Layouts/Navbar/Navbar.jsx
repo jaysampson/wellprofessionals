@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className="main">
           <FontAwesomeIcon
             icon={toggle ? faXmark : faBars}
-            size="2x"
+            // size="x"
             color="#090914"
             className="ham"
             onClick={toggleMenu}
@@ -62,7 +62,7 @@ const Navbar = () => {
             </NavLink>
           )}
 
-          <FontAwesomeIcon icon={faSearch} size="2x" className="search" />
+          <FontAwesomeIcon icon={faSearch} className="search" />
           <div className="search-input">
             <FontAwesomeIcon icon={faSearch} />
             <input type="text" placeholder="What do you want to learn?" />
