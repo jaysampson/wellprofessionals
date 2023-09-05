@@ -33,7 +33,7 @@ h1 {
 }
 
 h2 {
-  @include responsive-font-size(20, 30, 320, 1200 !important);
+  @include responsive-font-size(18, 30, 320, 1200 !important);
 }
 
 span {

@@ -7,7 +7,6 @@ import {
   faCheck,
   faCircleDot,
   faClapperboard,
-  faFilm,
   faStar,
   faStarHalf,
 } from "@fortawesome/free-solid-svg-icons";
