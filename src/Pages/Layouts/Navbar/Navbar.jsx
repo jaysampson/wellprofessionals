@@ -36,12 +36,12 @@ const Navbar = () => {
   }
 
   return (
-    <div>
+    <nav>
       <div className="home-nav">
         <div className="main">
           <FontAwesomeIcon
             icon={toggle ? faXmark : faBars}
-            // size="x"
+            size="2x"
             color="#090914"
             className="ham"
             onClick={toggleMenu}
@@ -62,7 +62,7 @@ const Navbar = () => {
             </NavLink>
           )}
 
-          <FontAwesomeIcon icon={faSearch} className="search" />
+          <FontAwesomeIcon icon={faSearch} size="2x" className="search" />
           <div className="search-input">
             <FontAwesomeIcon icon={faSearch} />
             <input type="text" placeholder="What do you want to learn?" />
@@ -233,7 +233,7 @@ const Navbar = () => {
           <span>Logout</span>
         </p>
       </div>
-    </div>
+    </nav>
   );
 };
 

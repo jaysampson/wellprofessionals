@@ -26,6 +26,7 @@ import AdminSettings from "./Pages/AdminDashboard/AdminPages/AdminSettings/Admin
 import SearchPage from "./Pages/SearchPage/SearchPage";
 import SettingLayout from "./Pages/Settings/SettingLayout/SettingLayout";
 import Profile from "./Pages/Settings/SetttingPages/Profile/Profile";
+import Navbar from "./Pages/Layouts/Navbar/Navbar";
 
 function App() {
   return (
