@@ -27,6 +27,7 @@ import SearchPage from "./Pages/SearchPage/SearchPage";
 import SettingLayout from "./Pages/Settings/SettingLayout/SettingLayout";
 import Profile from "./Pages/Settings/SetttingPages/Profile/Profile";
 import "./font.scss";
+import Cart from "./Pages/Cart/Cart";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/overview" element={<Overview />} />
         <Route path="/home/search" element={<SearchPage />} />
+        <Route path="/home/cart" element={<Cart />} />
 
         {/* Student-Dashboard */}
 
