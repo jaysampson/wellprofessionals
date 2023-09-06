@@ -32,6 +32,11 @@ const Course = () => {
   const [drop8, setDrop8] = useState(false);
   const [drop9, setDrop9] = useState(false);
   const [active, setActive] = useState("lesson");
+  const [show, setShow] = useState(false);
+
+  function handleShow() {
+    setShow(!show);
+  }
 
   function handleDrop() {
     setDrop(!drop);
@@ -84,41 +89,63 @@ const Course = () => {
             </div>
             <div className="coursepage-left-contents">
               <div className="course-details">
-                <h2>DRILLING ENGINEERING FUNDAMENTALS</h2>
+                <h3>DRILLING ENGINEERING FUNDAMENTALS</h3>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
                   iure maxime accusamus cumque voluptates assumenda sapiente
                   excepturi itaque cupiditate quisquam.
                 </p>
-                <span>
+                <span onClick={handleShow}>
                   Show More <FontAwesomeIcon icon={faAngleDown} />
                 </span>
-                <div className="rating-members">
-                  <div className="star-rating">
-                    <div className="star">
-                      <FontAwesomeIcon icon={faStar} color={"#F8C51B"} />
-                      <FontAwesomeIcon icon={faStar} color={"#F8C51B"} />
-                      <FontAwesomeIcon icon={faStar} color={"#F8C51B"} />
-                      <FontAwesomeIcon icon={faStar} color={"#F8C51B"} />
-                      <FontAwesomeIcon icon={faStarHalf} color={"#F8C51B"} />
+                {show && (
+                  <div className="rating-members">
+                    <div className="star-rating">
+                      <div className="star">
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          color={"#F8C51B"}
+                          size="sm"
+                        />
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          color={"#F8C51B"}
+                          size="sm"
+                        />
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          color={"#F8C51B"}
+                          size="sm"
+                        />
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          color={"#F8C51B"}
+                          size="sm"
+                        />
+                        <FontAwesomeIcon
+                          icon={faStarHalf}
+                          color={"#F8C51B"}
+                          size="sm"
+                        />
+                      </div>
+                      <span>43K Ratings</span>
                     </div>
-                    <span>43K Ratings</span>
+                    <div className="perks">
+                      <div className="perk">
+                        <FontAwesomeIcon icon={faUsers} color={"#71717a"} />
+                        <p>1376 members</p>
+                      </div>
+                      <div className="perk">
+                        <FontAwesomeIcon icon={faPlay} color={"#71717a"} />
+                        <p>12 lessons</p>
+                      </div>
+                      <div className="perk">
+                        <FontAwesomeIcon icon={faAward} color={"#71717a"} />
+                        <p>Certificate</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="perks">
-                    <div className="perk">
-                      <FontAwesomeIcon icon={faUsers} color={"#71717a"} />
-                      <p>1376 members</p>
-                    </div>
-                    <div className="perk">
-                      <FontAwesomeIcon icon={faPlay} color={"#71717a"} />
-                      <p>12 lessons</p>
-                    </div>
-                    <div className="perk">
-                      <FontAwesomeIcon icon={faAward} color={"#71717a"} />
-                      <p>Certificate</p>
-                    </div>
-                  </div>
-                </div>
+                )}
               </div>
               <div className="tutor">
                 <h4>TUTOR</h4>

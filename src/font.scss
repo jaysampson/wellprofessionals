@@ -17,7 +17,7 @@
 
 // Applying the mixin to various tags
 p {
-  @include responsive-font-size(16, 20, 320, 1200 !important);
+  @include responsive-font-size(14, 20, 320, 1200 !important);
 }
 
 ul {
