@@ -43,7 +43,7 @@ const updateUser = async (userData) => {
     });
 
     if (response.data) {
-      localStorage.setItem("user", JSON.stringify(response.data));
+      localStorage.setItem("upadate", JSON.stringify(response.data));
     }
 
     return response.data;

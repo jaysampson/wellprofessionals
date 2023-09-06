@@ -3,6 +3,7 @@ import authService from "./authService";
 
 // Get user from localStorage
 const user = JSON.parse(localStorage.getItem("user"));
+const update = JSON.parse(localStorage.getItem("update"));
 
 const initialState = {
   user: user ? user : null,
@@ -48,9 +49,9 @@ export const login = createAsyncThunk("auth/login", async (user, thunkApi) => {
 // Update user
 export const updateUser = createAsyncThunk(
   "auth/update",
-  async (user, thunkApi) => {
+  async (update, thunkApi) => {
     try {
-      return await authService.updateUser(user);
+      return await authService.updateUser(update);
     } catch (error) {
       const defaultMessage = "An error occurred. Please try again.";
       let message = defaultMessage;
@@ -114,13 +115,13 @@ export const authSlice = createSlice({
       .addCase(updateUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.user = action.payload;
+        state.update = action.payload;
       })
       .addCase(updateUser.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        state.user = null;
+        state.update = null;
       })
       .addCase(logout.fulfilled, (state) => {
         state.user = null;

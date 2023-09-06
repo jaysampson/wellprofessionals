@@ -186,8 +186,10 @@ const Navbar = () => {
         <Link to="/home/dashboard">
           <h3>Dashboard</h3>
         </Link>
-        <h3>Courses for you</h3>
-        <h3>New Courses</h3>
+        <h3>Cart</h3>
+        <h3>Notifications</h3>
+        <h3>Instructor</h3>
+        <h3>Settings</h3>
         <hr />
         <div className="navigate">
           <p>NAVIGATE TO</p>
@@ -227,6 +229,8 @@ const Navbar = () => {
             alignItems: "center",
             justifyContent: "center",
             gap: "5px",
+            position: "fixed",
+            bottom: "70px",
           }}
         >
           <FontAwesomeIcon icon={faArrowRightFromBracket} />
