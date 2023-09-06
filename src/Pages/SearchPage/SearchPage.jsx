@@ -108,7 +108,7 @@ const SearchPage = () => {
               <FontAwesomeIcon icon={faSearch} color="#667085" />
               <input type="text" placeholder="Search for online courses" />
             </div>
-            <Link to="/home/search">
+            <Link to="/search">
               <button>Search</button>
             </Link>
           </div>
@@ -149,7 +149,7 @@ const SearchPage = () => {
                         />
                       </p>
                     </div>
-                    <Link to="/home/overview" className="course-name">
+                    <Link to="/overview" className="course-name">
                       <h2>
                         Creative Engineering: Lorem ipsum dolor sit amet,
                         consectetur

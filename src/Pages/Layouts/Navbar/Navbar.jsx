@@ -46,27 +46,17 @@ const Navbar = () => {
             className="ham"
             onClick={toggleMenu}
           />
-          {user ? (
-            <NavLink to="/home">
-              <div className="logo-name">
-                <img src={wellslogo} alt={wellslogo} />
-                <p> WELL PROFESSIONALS</p>
-              </div>
-            </NavLink>
-          ) : (
-            <NavLink to="/">
-              <div className="logo-name">
-                <img src={wellslogo} alt={wellslogo} />
-                <p> WELL PROFESSIONALS</p>
-              </div>
-            </NavLink>
-          )}
-
+          <NavLink to="/">
+            <div className="logo-name">
+              <img src={wellslogo} alt={wellslogo} />
+              <p> WELL PROFESSIONALS</p>
+            </div>
+          </NavLink>
           <FontAwesomeIcon icon={faSearch} className="search" />
           <div className="search-input">
             <FontAwesomeIcon icon={faSearch} />
             <input type="text" placeholder="What do you want to learn?" />
-            <Link to="/home/search">
+            <Link to="/search">
               <button>Search</button>
             </Link>
           </div>
@@ -109,7 +99,7 @@ const Navbar = () => {
         </div>
         {user ? (
           <div className="student-options">
-            <NavLink to="/home/dashboard" className="options">
+            <NavLink to="/dashboard" className="options">
               <img src={homeicon} alt={homeicon} />
               <p>Dashboard</p>
             </NavLink>
@@ -121,7 +111,7 @@ const Navbar = () => {
               <img src={book} alt={book} />
               <p>Bookmark</p>
             </div>
-            <NavLink to="/home/settings/profile" className="options">
+            <NavLink to="/settings/profile" className="options">
               <img src={settingicon} alt={settingicon} />
               <p>Setting</p>
               <FontAwesomeIcon icon={faAngleDown} />
@@ -133,7 +123,7 @@ const Navbar = () => {
       </div>
       <div className={toggle ? "sidebar" : "null"}>
         {user ? (
-          <Link to="/home/settings/profile" className="nav-user">
+          <Link to="/settings/profile" className="nav-user">
             {user ? (
               <img
                 src={user && user.data.user_image}
@@ -183,7 +173,7 @@ const Navbar = () => {
         <Link to="/home">
           <h3>Home</h3>
         </Link>
-        <Link to="/home/dashboard">
+        <Link to="/dashboard">
           <h3>Dashboard</h3>
         </Link>
         <h3>Cart</h3>

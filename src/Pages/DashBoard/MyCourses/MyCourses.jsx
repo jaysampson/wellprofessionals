@@ -40,7 +40,7 @@ const MyCourses = () => {
                   </p>
                 </div>
                 <div className="course-name">
-                  <Link to="/home/dashboard/mycourses/course">
+                  <Link to="/dashboard/mycourses/course">
                     <h4>
                       Creative Engineering: Lorem ipsum dolor sit amet,
                       consectetur

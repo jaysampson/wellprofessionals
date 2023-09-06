@@ -28,8 +28,11 @@ import SettingLayout from "./Pages/Settings/SettingLayout/SettingLayout";
 import Profile from "./Pages/Settings/SetttingPages/Profile/Profile";
 import "./font.scss";
 import Cart from "./Pages/Cart/Cart";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { user } = useSelector((state) => state.auth);
+
   return (
     <>
       <Routes>
@@ -42,20 +45,19 @@ function App() {
 
         {/* Pages */}
 
-        <Route index element={<LandingPage />} />
-        <Route path="/home" element={<Home />} />
+        <Route index element={user ? <Home /> : <LandingPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/overview" element={<Overview />} />
-        <Route path="/home/search" element={<SearchPage />} />
-        <Route path="/home/cart" element={<Cart />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/cart" element={<Cart />} />
 
         {/* Student-Dashboard */}
 
-        <Route path="/home/dashboard" element={<Dashboard />} />
-        <Route path="/home/overview" element={<Overview />} />
-        <Route path="/home/dashboard/mycourses" element={<MyCourses />} />
-        <Route path="/home/dashboard/mycourses/course" element={<Course />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/overview" element={<Overview />} />
+        <Route path="/dashboard/mycourses" element={<MyCourses />} />
+        <Route path="/dashboard/mycourses/course" element={<Course />} />
 
         {/* Admin-Pages */}
 
@@ -72,8 +74,8 @@ function App() {
 
         {/* {Setting Pages} */}
 
-        <Route path="/home/settings/*" element={<SettingLayout />} />
-        <Route path="/home/settings/profile" element={<Profile />} />
+        <Route path="/settings/*" element={<SettingLayout />} />
+        <Route path="/settings/profile" element={<Profile />} />
       </Routes>
       <ToastContainer />
     </>
