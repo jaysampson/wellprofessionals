@@ -86,10 +86,7 @@ const Dashboard = () => {
                     <h3>My Courses</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipis.</p>
                   </div>
-                  <NavLink
-                    to="/home/dashboard/mycourses"
-                    className="all-course"
-                  >
+                  <NavLink to="/dashboard/mycourses" className="all-course">
                     <span>See All My Courses</span>
                     <FontAwesomeIcon icon={faAngleRight} />
                   </NavLink>
@@ -210,7 +207,7 @@ const Dashboard = () => {
                     <span>Lorem</span>
                   </div>
                 </div>
-                <NavLink to="/home/dashboard/mycourses" className="cart">
+                <NavLink to="/dashboard/mycourses" className="cart">
                   <span>See All My Courses</span>
                   <FontAwesomeIcon icon={faAngleRight} />
                 </NavLink>

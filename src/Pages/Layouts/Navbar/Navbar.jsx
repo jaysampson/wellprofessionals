@@ -79,7 +79,7 @@ const Navbar = () => {
           </div>
           {user ? (
             <div className="profile-img">
-              <img src="" alt="" />
+              <img src={user.data.user_img} alt={user.data.user_img} />
             </div>
           ) : (
             <div className="auths">
