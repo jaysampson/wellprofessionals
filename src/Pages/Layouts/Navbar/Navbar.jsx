@@ -41,7 +41,6 @@ const Navbar = () => {
         <div className="main">
           <FontAwesomeIcon
             icon={toggle ? faXmark : faBars}
-            // size="2x"
             color="#090914"
             className="ham"
             onClick={toggleMenu}
@@ -79,7 +78,10 @@ const Navbar = () => {
           </div>
           {user ? (
             <div className="profile-img">
-              <img src={user.data.user_img} alt={user.data.user_img} />
+              <img
+                src={user && user.data.user_image}
+                alt={user && user.data.user_image}
+              />
             </div>
           ) : (
             <div className="auths">
