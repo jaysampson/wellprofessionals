@@ -210,15 +210,15 @@ const Navbar = () => {
             <div className="cats">
               <div className="each-cat">
                 <input type="radio" />
-                Lorem Ipusm
+                Upstream
               </div>
               <div className="each-cat">
                 <input type="radio" />
-                Lorem Ipusm
+                Midstream
               </div>
               <div className="each-cat">
                 <input type="radio" />
-                Lorem Ipusm
+                Downstream
               </div>
             </div>
           )}
@@ -230,7 +230,7 @@ const Navbar = () => {
             justifyContent: "center",
             gap: "5px",
             position: "fixed",
-            bottom: "70px",
+            bottom: "130px",
           }}
         >
           <FontAwesomeIcon icon={faArrowRightFromBracket} />
