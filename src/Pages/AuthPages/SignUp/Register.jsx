@@ -43,7 +43,8 @@ const Register = () => {
       toast.error(message);
     }
 
-    if (isSuccess || user) {
+    if (isSuccess) {
+      toast.success("Registered Successfully");
       navigate("/auth-login");
     }
 

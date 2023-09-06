@@ -31,8 +31,8 @@ const Login = () => {
       toast.error(message);
     }
 
-    if (isSuccess || user) {
-      navigate("/home");
+    if (isSuccess) {
+      navigate("/");
       toast.success("Logged in");
       dispatch(reset());
     }
