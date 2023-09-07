@@ -3,3 +3,157 @@
   padding: 0px;
   box-sizing: border-box;
 }
+
+.cart-page {
+  .cart-con {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 40px;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+    .cart-main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 100%;
+      flex-direction: column;
+      gap: 30px;
+      padding: 20px 0px 20px 40px;
+      @media screen and (max-width: 768px) {
+        padding: 20px 10px;
+      }
+      h2 {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        margin-top: 25px;
+      }
+      .items-cart {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        .cart-body {
+          height: 350px;
+          overflow: auto;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          flex-direction: column;
+          gap: 30px;
+          width: 100%;
+          hr {
+            height: 1px;
+            background-color: #d9d9d9;
+            width: 90%;
+          }
+          .cart-course {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            img {
+              height: 70px;
+              width: 100px;
+            }
+            .course-des {
+              display: flex;
+              align-items: flex-start;
+              justify-content: center;
+              flex-direction: column;
+              gap: 7px;
+              p {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                span {
+                  color: #cd760f;
+                }
+              }
+              .rating-star {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                .star {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 5px;
+                }
+                span {
+                  color: #5b6871;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .totals {
+      background-color: "#fbfbfc";
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 77vh;
+      width: 100%;
+      background-color: #fbfbfc;
+      border-left: 1px #d9d9d9 solid;
+      padding-left: 20px;
+      @media screen and (max-width: 768px) {
+        padding: 0px 10px;
+        border: none;
+      }
+      .totals-con {
+        background-color: "#fbfbfc";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        width: 50%;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+        hr {
+          height: 1px;
+          background-color: #d9d9d9;
+          width: 100%;
+        }
+        .buy-btn {
+          display: flex;
+          width: 254px;
+          padding: 13px 27.38px 13px 25px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 4px;
+          background: #af5e41;
+          box-shadow: 0px 4px 10px 0px #0000001a;
+          color: #fff;
+        }
+        .ctn-browsing {
+          display: flex;
+          width: 254px;
+          padding: 13px 27.38px 13px 25px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 4px;
+          border: 1px solid var(--stroke, #af5e41);
+          background: #fff;
+          box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+          color: var(--sec-01, #af5e41);
+        }
+      }
+    }
+  }
+}
+
+@import "../../font.scss";
