@@ -109,10 +109,10 @@ const Navbar = () => {
               <img src={carticon} alt={carticon} />
               <p>Cart</p>
             </div>
-            <div className="options">
+            <NavLink className="options">
               <img src={book} alt={book} />
               <p>Bookmark</p>
-            </div>
+            </NavLink>
             <NavLink to="/settings/profile" className="options">
               <img src={settingicon} alt={settingicon} />
               <p>Setting</p>
@@ -180,10 +180,14 @@ const Navbar = () => {
             <Link to="/dashboard">
               <h3>Dashboard</h3>
             </Link>
-            <h3>Cart</h3>
+            <Link to="/cart">
+              <h3>Cart</h3>
+            </Link>
             <h3>Notifications</h3>
             <h3>Instructor</h3>
-            <h3>Settings</h3>
+            <Link to="/settings/profile">
+              <h3>Settings</h3>
+            </Link>
             <hr />
           </>
         ) : (
