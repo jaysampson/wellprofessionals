@@ -182,6 +182,9 @@ const Navbar = () => {
             <Link to="/cart">
               <h3>Cart</h3>
             </Link>
+            <Link to="/admin/create">
+              <h3>Create Course</h3>
+            </Link>
             <h3>Notifications</h3>
             <h3>Instructor</h3>
             <Link to="/settings/profile">
