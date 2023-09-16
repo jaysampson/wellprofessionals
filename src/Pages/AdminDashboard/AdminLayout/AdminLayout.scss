@@ -40,8 +40,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        padding: 10px 20px;
+        .create-1 {
+          text-decoration: none;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+        }
       }
       .active {
         list-style: none;

@@ -1,0 +1,99 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.create {
+  display: flex;
+  align-items: flex-start;
+  justify-self: flex-start;
+  flex-direction: column;
+  gap: 30px;
+  padding: 10px 20px;
+  width: 100%;
+  .create-contents {
+    display: flex;
+    align-items: flex-start;
+    justify-self: flex-start;
+    flex-direction: column;
+    width: 100%;
+    form {
+      display: flex;
+      align-items: flex-start;
+      justify-self: flex-start;
+      flex-direction: column;
+      gap: 20px;
+      width: 50%;
+      @media screen and (max-width: 800px) {
+        width: 100%;
+      }
+      .dets {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        gap: 5px;
+        flex-direction: column;
+        input {
+          width: 80%;
+          height: 40px;
+          border-radius: 5px;
+          border: 1px #d0d5dd solid;
+          @media screen and (max-width: 800px) {
+            width: 100%;
+          }
+        }
+        textarea {
+          width: 80%;
+          border: 1px #d0d5dd solid;
+          padding: 5px;
+          line-height: 1.3rem;
+          border-radius: 5px;
+          @media screen and (max-width: 800px) {
+            width: 100%;
+          }
+        }
+        select {
+          width: 50%;
+          height: 40px;
+          border: 1px #d0d5dd solid;
+          border-radius: 5px;
+          @media screen and (max-width: 800px) {
+            width: 100%;
+          }
+        }
+        hr {
+          width: 80%;
+          height: 1px;
+          background-color: #d0d5dd;
+          margin-top: 10px;
+          @media screen and (max-width: 800px) {
+            width: 100%;
+          }
+        }
+        .add {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          cursor: pointer;
+        }
+      }
+      button {
+        width: 150px;
+        text-align: center;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #af5e41;
+        color: #fff;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@import "../../../../font.scss";

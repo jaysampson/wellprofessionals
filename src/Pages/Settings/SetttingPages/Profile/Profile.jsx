@@ -134,28 +134,6 @@ export const Content = () => {
               </select>
             </div>
           </div>
-          <div className="right-side">
-            <div className="dets">
-              <label htmlFor="">Website</label>
-              <input type="text" />
-            </div>
-            <div className="dets">
-              <label htmlFor="">Instagram</label>
-              <input type="text" />
-            </div>
-            <div className="dets">
-              <label htmlFor="">LinkedIn</label>
-              <input type="text" />
-            </div>
-            <div className="dets">
-              <label htmlFor="">Twitter</label>
-              <input type="text" />
-            </div>
-            <div className="dets">
-              <label htmlFor="">Facebook</label>
-              <input type="text" />
-            </div>
-          </div>
         </div>
         <button type="submit" onClick={updateDetails}>
           <p>

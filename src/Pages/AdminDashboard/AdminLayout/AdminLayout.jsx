@@ -15,7 +15,7 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import "./AdminLayout.scss";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const AdminLayout = ({ content }) => {
   return (
@@ -25,8 +25,10 @@ const AdminLayout = ({ content }) => {
         <div className="left-layout">
           <div className="left-top">
             <button className="create">
-              <FontAwesomeIcon icon={faPlus} />
-              <p>Create New Course</p>
+              <Link to="/admin/create" className="create-1">
+                <FontAwesomeIcon icon={faPlus} />
+                <p>Create New Course</p>
+              </Link>
             </button>
             <NavLink
               to="/admin/"

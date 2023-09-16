@@ -2,16 +2,18 @@ import axios from "axios";
 
 // Retrieve user details from local storage
 // const user_details = JSON.parse(localStorage.getItem("user"));
+
 const user_id = JSON.parse(localStorage.getItem("id"));
 const user_token = JSON.parse(localStorage.getItem("token"));
 
 // Initialize user_id and token based on user_details, if available
 // const user_id = user_details && user_details.data && user_details.data._id;
-// const token = user_details && user_details.token;
+// const user_token = user_details && user_details.token;
 
 const REGISTER_API = "https://wellpro-server.onrender.com/api/user/register";
 const LOGIN_API = "https://wellpro-server.onrender.com/api/user/login";
 const UPDATE_API = `https://wellpro-server.onrender.com/api/user/${user_id}`;
+// const COURSE_API = "https://wellpro-server.onrender.com/api/course";
 
 const register = async (userData) => {
   const response = await axios.post(REGISTER_API, userData);
@@ -57,6 +59,17 @@ const updateUser = async (userData) => {
   }
 };
 
+// //get courses
+
+// const courses = async (userData) => {
+//   const response = await axios.post(COURSE_API, userData);
+//   if (response.data) {
+//     // localStorage.setItem("user", JSON.stringify(response.data));
+//     console.log("successful");
+//   }
+//   return response.data;
+// };
+
 //logout user
 const logout = () => {
   localStorage.removeItem("user");
@@ -67,6 +80,7 @@ const authService = {
   login,
   logout,
   updateUser,
+  // courses,
 };
 
 export default authService;

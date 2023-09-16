@@ -116,7 +116,6 @@ const Navbar = () => {
             <NavLink to="/settings/profile" className="options">
               <img src={settingicon} alt={settingicon} />
               <p>Setting</p>
-              <FontAwesomeIcon icon={faAngleDown} />
             </NavLink>
           </div>
         ) : (

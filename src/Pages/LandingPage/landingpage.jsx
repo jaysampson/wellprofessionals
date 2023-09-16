@@ -21,6 +21,8 @@ import statue from "../../assets/Images/statue.svg";
 import plus from "../../assets/Icons/plus-circle.svg";
 import minus from "../../assets/Icons/minus-circle.svg";
 import { Link } from "react-router-dom";
+// import { useSelector, useDispatch } from "react-redux";
+// import { courses, reset } from "../../../../redux/auth/authSlice";
 
 const LandingPage = () => {
   const [toggle1, setToggle1] = useState(false);

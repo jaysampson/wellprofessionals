@@ -29,6 +29,7 @@ import Profile from "./Pages/Settings/SetttingPages/Profile/Profile";
 import "./font.scss";
 import Cart from "./Pages/Cart/Cart";
 import { useSelector } from "react-redux";
+import AdminCreate from "./Pages/AdminDashboard/AdminPages/AdminCreate/AdminCreate";
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -63,6 +64,7 @@ function App() {
 
         <Route path="/admin/*" element={<AdminDashboard />} />
         <Route path="/admin/" element={<AdminDashboard />} />
+        <Route path="/admin/create" element={<AdminCreate />} />
         <Route path="/admin/admin-courses" element={<AdminCourse />} />
         <Route path="/admin/announcements" element={<Announcements />} />
         <Route path="/admin/admin-instructors" element={<AdminInstructors />} />
