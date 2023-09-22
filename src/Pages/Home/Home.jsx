@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../Layouts/Navbar/Navbar";
-import "../Home/Home.scss";
 import Footer from "../Layouts/Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -18,9 +17,8 @@ import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import { useDispatch, useSelector } from "react-redux";
-import wellslogo from "../../assets/Images/Wells-Logo.svg";
 
-const Home = () => {
+export const Home = () => {
   const dispatch = useDispatch();
   const { isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.course
@@ -80,7 +78,6 @@ const Home = () => {
   //     </div>
   //   );
   // }
-
   // if (isError) {
   //   return <div>Error: {message}</div>;
   // } else {
@@ -91,25 +88,20 @@ const Home = () => {
         <div className="home-hero">
           <div className="hero-text">
             <div className="top-text">
-              <h1>Mastering Oil & Gas, one course at a time</h1>
-              <p>
-                We are dedicated to providing comprehensive online courses in
-                the field of oil and gas
-              </p>
+              <h1>
+                Welcome to Well Professionals, the premier online platform
+                offering affordable oil and gas courses. Learn from the comfort
+                of your home on our mobile app or personal computers
+              </h1>
+              <p>Become Professionals and ready to join the world</p>
             </div>
             <div className="input-search">
               <div className="search">
-                <FontAwesomeIcon icon={faSearch} color="#fff" />
-                <input
-                  type="text"
-                  placeholder="What course do you want to learn?"
-                />
-                <Link to="/search">
-                  <button className="search-1">Search</button>
-                </Link>
+                <FontAwesomeIcon icon={faSearch} color="#667085" />
+                <input type="text" placeholder="Search for online courses" />
               </div>
-              <Link to="/search" className="search-2">
-                <button>Search Course</button>
+              <Link to="/search">
+                <button>Search</button>
               </Link>
             </div>
           </div>
@@ -219,86 +211,86 @@ const Home = () => {
               <div className="all-courses">
                 <h2>Courses For You Based On Your Picks</h2>
                 <div className="courses">
-                  {displayedCourses.map((courses) => (
-                    <div className="course-con" key={courses.id}>
-                      {/* <img
-                        src={courses.thumbnail.url}
-                        alt={courses.thumbnail.url}
-                        className="course-img"
-                      /> */}
-                      <div className="content">
-                        <Link to="/overview" className="course-name">
-                          <h3>
-                            {courses.name.length > 26
-                              ? courses.name.slice(0, 26) + "..."
-                              : courses.name}
-                          </h3>
-                          <FontAwesomeIcon
-                            icon={faArrowUpRightFromSquare}
-                            color="#000"
-                          />
-                        </Link>
-                        <div className="desc">
-                          <span>
-                            {courses.description.length > 65
-                              ? courses.description.slice(0, 65) + "..."
-                              : courses.description}
-                          </span>
-                        </div>
-                        <div className="admin">
-                          <p style={{ color: "#CD760F" }}> by Michael Jordan</p>
-                          <p className="check">
-                            <FontAwesomeIcon
-                              icon={faCheck}
-                              color="#000"
-                              size="2xs"
-                            />
-                          </p>
-                        </div>
-                        <div className="rating">
-                          <div className="star">
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              size="sm"
-                              color="#F8C51B"
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              size="sm"
-                              color="#F8C51B"
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              size="sm"
-                              color="#F8C51B"
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              size="sm"
-                              color="#F8C51B"
-                            />
-                            <FontAwesomeIcon
-                              icon={faStarHalf}
-                              size="sm"
-                              color="#F8C51B"
-                            />
-                          </div>
-                          <div className="rated">
-                            <p>43k Ratings</p>
-                          </div>
-                        </div>
-                        <div className="price-add">
-                          <div className="price">
-                            <p> {`₦${courses.price}`}</p>
-                            <span className="slice">
-                              {`₦${courses.estimatedPrice}`}
-                            </span>
-                          </div>
-                          <button>Add to Cart</button>
-                        </div>
-                      </div>
+                  {/* {displayedCourses.map((courses) => (
+              <div className="course-con" key={courses.id}>
+                <img
+                  src={courses.thumbnail.url}
+                  alt={courses.thumbnail.url}
+                  className="course-img"
+                />
+                <div className="content">
+                  <Link to="/overview" className="course-name">
+                    <h3>
+                      {courses.name.length > 26
+                        ? courses.name.slice(0, 26) + "..."
+                        : courses.name}
+                    </h3>
+                    <FontAwesomeIcon
+                      icon={faArrowUpRightFromSquare}
+                      color="#000"
+                    />
+                  </Link>
+                  <div className="desc">
+                    <span>
+                      {courses.description.length > 65
+                        ? courses.description.slice(0, 65) + "..."
+                        : courses.description}
+                    </span>
+                  </div>
+                  <div className="admin">
+                    <p style={{ color: "#CD760F" }}> by Michael Jordan</p>
+                    <p className="check">
+                      <FontAwesomeIcon
+                        icon={faCheck}
+                        color="#000"
+                        size="2xs"
+                      />
+                    </p>
+                  </div>
+                  <div className="rating">
+                    <div className="star">
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        size="sm"
+                        color="#F8C51B"
+                      />
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        size="sm"
+                        color="#F8C51B"
+                      />
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        size="sm"
+                        color="#F8C51B"
+                      />
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        size="sm"
+                        color="#F8C51B"
+                      />
+                      <FontAwesomeIcon
+                        icon={faStarHalf}
+                        size="sm"
+                        color="#F8C51B"
+                      />
                     </div>
-                  ))}
+                    <div className="rated">
+                      <p>43k Ratings</p>
+                    </div>
+                  </div>
+                  <div className="price-add">
+                    <div className="price">
+                      <p> {`₦${courses.price}`}</p>
+                      <span className="slice">
+                        {`₦${courses.estimatedPrice}`}
+                      </span>
+                    </div>
+                    <button>Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            ))} */}
                 </div>
                 <div className="pagination">
                   {isMobileView ? (
@@ -359,6 +351,3 @@ const Home = () => {
     </div>
   );
 };
-// };
-
-export default Home;

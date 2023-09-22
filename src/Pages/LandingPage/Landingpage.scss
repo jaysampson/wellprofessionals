@@ -52,7 +52,7 @@
           }
         }
         p {
-          font-size: 14px;
+          // font-size: 14px;
           color: #fff;
           font-weight: 400;
           width: 45%;
@@ -98,7 +98,7 @@
             flex-direction: column;
             color: #fff;
             gap: 10px;
-            font-size: 14px;
+            // font-size: 14px;
             @media screen and (max-width: 768px) {
               align-items: center;
             }
@@ -146,33 +146,34 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        gap: 50px;
+        gap: 80px;
         @media screen and (max-width: 768px) {
           padding: 0px 25px 60px 25px;
         }
         .top-rated {
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           justify-content: center;
           width: 100%;
           flex-direction: column;
-          gap: 30px;
+          gap: 10px;
           .top-rated-con {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             flex-direction: column;
             width: 100%;
+            gap: 10px;
             h3 {
               font-weight: 700;
-              font-size: 26px;
+              // font-size: 26px;
               color: #000000;
             }
             .courses {
               margin-top: 25px;
               display: flex;
               align-items: center;
-              justify-content: flex-start;
+              justify-content: center;
               gap: 40px;
               padding: 0px 0px 20px 0px;
               width: 100%;
@@ -199,12 +200,12 @@
                   align-items: flex-start;
                   justify-content: center;
                   flex-direction: column;
-                  gap: 5px;
+                  gap: 10px;
                   .admin {
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
-                    gap: 45px;
+                    gap: 15px;
                     width: 100%;
                     .admin-title {
                       display: flex;
@@ -217,7 +218,7 @@
                       }
                       p {
                         font-weight: 600;
-                        font-size: 14px;
+                        // font-size: 14px;
                         color: #000000;
                       }
                     }
@@ -238,16 +239,31 @@
                     width: 100%;
                     h2 {
                       font-weight: 700;
-                      font-size: 17px;
+                      // font-size: 17px;
                       color: #000000;
                       width: 230px;
                     }
                   }
                   .desc {
-                    p {
+                    span {
                       font-weight: 400;
-                      font-size: 12px;
+                      // font-size: 12px;
                       color: #667085;
+                    }
+                  }
+                  .rating {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 20px;
+                    .star {
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      gap: 7px;
+                    }
+                    .rated {
+                      color: #5b6871;
                     }
                   }
                   .price-add {
@@ -262,14 +278,14 @@
                       gap: 10px;
                       p {
                         font-weight: 700;
-                        font-size: 15px;
+                        // font-size: 15px;
                         color: #000000;
                         padding-bottom: 0px;
                         margin-bottom: 0px;
                       }
                       .slice {
                         font-weight: 400;
-                        font-size: 13px;
+                        // font-size: 13px;
                         text-decoration-line: line-through;
                         color: #545454;
                       }
@@ -282,7 +298,7 @@
                       border-radius: 8px;
                       color: #545454;
                       box-shadow: none;
-                      font-size: 13px;
+                      // font-size: 13px;
                     }
                   }
                 }
@@ -297,13 +313,13 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 4px;
             font-weight: 600;
-            font-size: 15px;
+            // font-size: 15px;
             color: #af5e41;
           }
         }
         .based-on-picks {
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           justify-content: center;
           width: 100%;
           flex-direction: column;
@@ -311,21 +327,23 @@
           margin-top: 20px;
           .top-rated-con {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             flex-direction: column;
             width: 100%;
             gap: 25px;
             h3 {
               font-weight: 700;
-              font-size: 26px;
+              // font-size: 26px;
               color: #000000;
             }
             .courses {
+              margin-top: 25px;
               display: flex;
               align-items: center;
-              justify-content: flex-start;
-              gap: 20px;
+              justify-content: center;
+              gap: 40px;
+              padding: 0px 0px 20px 0px;
               width: 100%;
               flex-wrap: wrap;
               @media screen and (max-width: 768px) {
@@ -336,13 +354,13 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                flex: 0 0 320px;
                 gap: 30px;
+                flex: 0 0 320px;
                 @media screen and (max-width: 768px) {
                   flex: 0 0 280px;
                 }
-                .course-img {
-                  height: 204px;
+                img {
+                  width: 100%;
                   border-radius: 8px;
                 }
                 .content {
@@ -350,12 +368,12 @@
                   align-items: flex-start;
                   justify-content: center;
                   flex-direction: column;
-                  gap: 15px;
+                  gap: 10px;
                   .admin {
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
-                    gap: 45px;
+                    gap: 15px;
                     width: 100%;
                     .admin-title {
                       display: flex;
@@ -368,7 +386,7 @@
                       }
                       p {
                         font-weight: 600;
-                        font-size: 14px;
+                        // font-size: 14px;
                         color: #000000;
                       }
                     }
@@ -387,56 +405,33 @@
                     align-items: center;
                     justify-content: space-between;
                     width: 100%;
-                    text-decoration: none;
                     h2 {
                       font-weight: 700;
-                      font-size: 17px;
+                      // font-size: 17px;
                       color: #000000;
                       width: 230px;
                     }
                   }
                   .desc {
-                    p {
+                    span {
                       font-weight: 400;
-                      font-size: 12px;
+                      // font-size: 12px;
                       color: #667085;
                     }
                   }
-
-                  .students {
+                  .rating {
                     display: flex;
-                    justify-content: flex-start;
                     align-items: center;
-                    gap: 15px;
-                    .images {
+                    justify-content: center;
+                    gap: 20px;
+                    .star {
                       display: flex;
                       align-items: center;
                       justify-content: center;
-                      img {
-                        height: 30px;
-                        width: 30px;
-                        margin-left: -10px;
-                      }
-                      .first {
-                        margin-left: 0px;
-                      }
+                      gap: 7px;
                     }
-                    .total-date {
-                      display: flex;
-                      justify-content: center;
-                      align-items: flex-start;
-                      flex-direction: column;
-                      p {
-                        padding-bottom: 0px;
-                        margin-bottom: 0px;
-                        color: #242e21;
-                        font-size: 12px;
-                        font-weight: 600;
-                      }
-                      span {
-                        color: var(--gray-500, #667085);
-                        font-size: 10px;
-                      }
+                    .rated {
+                      color: #5b6871;
                     }
                   }
                   .price-add {
@@ -451,14 +446,14 @@
                       gap: 10px;
                       p {
                         font-weight: 700;
-                        font-size: 15px;
+                        // font-size: 15px;
                         color: #000000;
                         padding-bottom: 0px;
                         margin-bottom: 0px;
                       }
                       .slice {
                         font-weight: 400;
-                        font-size: 13px;
+                        // font-size: 13px;
                         text-decoration-line: line-through;
                         color: #545454;
                       }
@@ -471,7 +466,7 @@
                       border-radius: 8px;
                       color: #545454;
                       box-shadow: none;
-                      font-size: 13px;
+                      // font-size: 13px;
                     }
                   }
                 }
@@ -486,7 +481,7 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 4px;
             font-weight: 600;
-            font-size: 15px;
+            // font-size: 15px;
             color: #af5e41;
           }
         }
@@ -500,7 +495,7 @@
           p {
             color: #000;
             text-align: center;
-            font-size: 26px;
+            // font-size: 26px;
             font-weight: 700;
             padding-bottom: 0px;
             margin-bottom: 0px;
@@ -520,11 +515,11 @@
               background-color: #1f1f1f;
               color: #fff;
               text-align: center;
-              font-size: 16.143px;
+              // font-size: 16.143px;
               flex: 0 0 140px;
               height: 40px;
               @media screen and (max-width: 768px) {
-                font-size: 14px;
+                // font-size: 14px;
                 flex: 0 0 120px;
               }
             }
@@ -539,30 +534,36 @@
           flex-direction: column;
           gap: 20px;
           padding-bottom: 30px;
-          h2 {
+          h3 {
             font-weight: 700;
-            font-size: 26px;
-            text-align: center;
-            color: #000000;
+            // font-size: 26px;
+            color: black;
+            text-decoration: none;
           }
-          .new-courses {
+          .courses {
+            margin-top: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
+            gap: 40px;
+            padding: 0px 0px 20px 0px;
             width: 100%;
-            gap: 30px;
+            flex-wrap: wrap;
+            @media screen and (max-width: 768px) {
+              justify-content: center;
+            }
             .course-con {
               display: flex;
               align-items: center;
               justify-content: center;
               flex-direction: column;
-              flex: 0 0 300px;
               gap: 30px;
-              .course-img {
-                height: 204px;
+              flex: 0 0 320px;
+              @media screen and (max-width: 768px) {
+                flex: 0 0 280px;
+              }
+              img {
                 width: 100%;
-                height: 100%;
                 border-radius: 8px;
               }
               .content {
@@ -570,19 +571,27 @@
                 align-items: flex-start;
                 justify-content: center;
                 flex-direction: column;
-                gap: 5px;
-                .admin-title {
+                gap: 10px;
+                .admin {
                   display: flex;
                   justify-content: flex-start;
                   align-items: center;
                   gap: 15px;
                   width: 100%;
-                  p {
-                    font-weight: 600;
-                    font-size: 14px;
-                    color: #000000;
-                    padding-bottom: 0px;
-                    margin-bottom: 0px;
+                  .admin-title {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 8px;
+                    img {
+                      height: 32px;
+                      width: 32px;
+                    }
+                    p {
+                      font-weight: 600;
+                      // font-size: 14px;
+                      color: #000000;
+                    }
                   }
                   .check {
                     display: flex;
@@ -594,10 +603,22 @@
                     background-color: #fae26a;
                   }
                 }
+                .course-name {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  width: 100%;
+                  h2 {
+                    font-weight: 700;
+                    // font-size: 17px;
+                    color: #000000;
+                    width: 230px;
+                  }
+                }
                 .desc {
-                  p {
+                  span {
                     font-weight: 400;
-                    font-size: 12px;
+                    // font-size: 12px;
                     color: #667085;
                   }
                 }
@@ -616,23 +637,39 @@
                     color: #5b6871;
                   }
                 }
-                .price {
+                .price-add {
                   display: flex;
                   align-items: center;
-                  justify-content: flex-start;
-                  gap: 20px;
-                  p {
-                    font-weight: 700;
-                    font-size: 15px;
-                    color: #000000;
-                    padding-bottom: 0px;
-                    margin-bottom: 0px;
+                  justify-content: space-between;
+                  width: 100%;
+                  .price {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 10px;
+                    p {
+                      font-weight: 700;
+                      // font-size: 15px;
+                      color: #000000;
+                      padding-bottom: 0px;
+                      margin-bottom: 0px;
+                    }
+                    .slice {
+                      font-weight: 400;
+                      // font-size: 13px;
+                      text-decoration-line: line-through;
+                      color: #545454;
+                    }
                   }
-                  .slice {
-                    font-weight: 400;
-                    font-size: 13px;
-                    text-decoration-line: line-through;
+                  button {
+                    width: 96.02px;
+                    height: 30px;
+                    background-color: #ffffff;
+                    border: 1px solid #cbcbcb;
+                    border-radius: 8px;
                     color: #545454;
+                    box-shadow: none;
+                    // font-size: 13px;
                   }
                 }
               }
@@ -646,7 +683,7 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 4px;
             font-weight: 600;
-            font-size: 15px;
+            // font-size: 15px;
             color: #af5e41;
           }
         }
@@ -660,7 +697,7 @@
           p {
             color: #cd760f;
             text-align: center;
-            font-size: 1rem;
+            // font-size: 1rem;
             font-weight: 600;
             letter-spacing: -0.0125rem;
             margin-bottom: 0px;
@@ -669,12 +706,7 @@
           h3 {
             color: var(--base-02, #090914);
             text-align: center;
-            font-size: 3.25rem;
             font-weight: 600;
-            letter-spacing: -0.125rem;
-            @media screen and (max-width: 500px) {
-              font-size: 30px;
-            }
           }
           .testimony-main {
             display: flex;
@@ -719,16 +751,16 @@
               }
               p {
                 color: var(--base-02, #090914);
-                font-size: 1.125rem;
+                // font-size: 1.125rem;
                 font-weight: 500;
                 text-align: left;
                 @media screen and (max-width: 500px) {
-                  font-size: 12px;
+                  // font-size: 12px;
                 }
               }
               span {
                 color: var(--base-02, #090914);
-                font-size: 1rem;
+                // font-size: 1rem;
                 font-weight: 600;
                 letter-spacing: -0.0125rem;
               }
@@ -782,14 +814,14 @@
                 }
                 h3 {
                   color: #1e1d2f;
-                  font-size: 1.875rem;
+                  // font-size: 1.875rem;
                   font-weight: 600;
                 }
                 p {
                   padding-bottom: 0px;
                   margin-bottom: 0px;
                   color: var(--gray-500, #667085);
-                  font-size: 1.125rem;
+                  // font-size: 1.125rem;
                   display: block;
                 }
               }
@@ -812,7 +844,7 @@
                     padding-bottom: 0px;
                     margin-bottom: 0px;
                     color: var(--gray-900, #101828);
-                    font-size: 1.125rem;
+                    // font-size: 1.125rem;
                     font-weight: 500;
                     display: block;
                   }
@@ -820,7 +852,7 @@
                 .answer {
                   span {
                     color: var(--gray-500, #667085);
-                    font-size: 1rem;
+                    // font-size: 1rem;
                   }
                 }
               }
@@ -890,3 +922,5 @@
     }
   }
 }
+
+@import "../../font.scss";

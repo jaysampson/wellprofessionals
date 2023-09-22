@@ -4,7 +4,7 @@ import courseService from "./courseService";
 const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
-  //   user: user ? user : null,
+  data: [],
   isError: false,
   isLoading: false,
   isSuccess: false,
@@ -29,6 +29,21 @@ export const createCourse = createAsyncThunk(
     }
   }
 );
+
+//GetAllCourses
+export const getCourse = createAsyncThunk("course/get", async (_, thunkApi) => {
+  try {
+    return await courseService.getCourse();
+  } catch (error) {
+    const defaultMessage = "An error occurred. Please try again.";
+    let message = defaultMessage;
+
+    if (error.response && error.response.data && error.response.data.msg) {
+      message = error.response.data.msg; // Use the 'msg' property from the response
+    }
+    return thunkApi.rejectWithValue(message);
+  }
+});
 
 export const courseSlice = createSlice({
   name: "course",
@@ -55,7 +70,24 @@ export const courseSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        state.user = null;
+        // state.user = null;
+      })
+      .addCase(getCourse.pending, (state) => {
+        state.isLoading = true;
+        state.isSuccess = false;
+      })
+      .addCase(getCourse.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.data = action.payload;
+        // state.user = action.payload;
+      })
+      .addCase(getCourse.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.isError = true;
+        state.message = action.payload;
+        // state.user = null;
       });
   },
 });

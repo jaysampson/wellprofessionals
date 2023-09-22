@@ -49,50 +49,41 @@ const Navbar = () => {
             <div className="logo-name">
               <img src={wellslogo} alt={wellslogo} />
               <p> WELL PROFESSIONALS</p>
+              <div className="categories">
+                <span>Categories</span>
+                <FontAwesomeIcon icon={faAngleDown} color="#64748B" />
+              </div>
             </div>
           </NavLink>
           <FontAwesomeIcon icon={faSearch} className="search" />
-          <div className="search-input">
-            <FontAwesomeIcon icon={faSearch} />
-            <input type="text" placeholder="What do you want to learn?" />
-            <Link to="/search">
-              <button>Search</button>
-            </Link>
-          </div>
-          <div className="categories">
-            <span>Categories</span>
-            <FontAwesomeIcon icon={faAngleDown} color="#64748B" />
-          </div>
-          <div className="shop">
-            <img src={shop} alt={shop} />
-            <p>2</p>
-          </div>
-          <div className="language">
-            <img src={lang} alt={lang} />
-            <span>English</span>
-            <FontAwesomeIcon icon={faCaretDown} color="#64748B" />
-          </div>
-          <div className="book-notify">
-            <img src={book} alt={book} />
-            <img src={notify} alt={notify} />
-          </div>
-          {user ? (
-            <div className="profile-img">
-              <img
-                src={user && user.data.user_image}
-                alt={user && user.data.user_image}
-              />
+          <div className="right-nav">
+            <FontAwesomeIcon icon={faSearch} className="search-input" />
+            <div className="shop">
+              <img src={shop} alt={shop} />
+              <p>2</p>
             </div>
-          ) : (
-            <div className="auths">
-              <NavLink to="/auth-login" className="login-btn">
-                Login
-              </NavLink>
-              <NavLink to="/auth-register" className="create-btn">
-                Create Account
-              </NavLink>
+            <div className="book-notify">
+              <img src={book} alt={book} />
+              <img src={notify} alt={notify} />
             </div>
-          )}
+            {user ? (
+              <div className="profile-img">
+                <img
+                  src={user && user.data.user_image}
+                  alt={user && user.data.user_image}
+                />
+              </div>
+            ) : (
+              <div className="auths">
+                <NavLink to="/auth-login" className="login-btn">
+                  Login
+                </NavLink>
+                <NavLink to="/auth-register" className="create-btn">
+                  Create Account
+                </NavLink>
+              </div>
+            )}
+          </div>
         </div>
         <div className="offers">
           <p>
