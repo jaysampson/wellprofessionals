@@ -222,8 +222,8 @@ const Home = () => {
                   {displayedCourses?.map((courses) => (
                     <div className="course-con" key={courses.id}>
                       <img
-                        src={courses.thumbnail.url}
-                        alt={courses.thumbnail.url}
+                        src={courses?.thumbnail?.url}
+                        alt={courses?.thumbnail?.url}
                         className="course-img"
                       />
                       <div className="content">
