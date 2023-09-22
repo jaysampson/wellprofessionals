@@ -22,9 +22,9 @@ import wellslogo from "../../assets/Images/Wells-Logo.svg";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.course
-  );
+  // const { isLoading, isError, isSuccess, message } = useSelector(
+  //   (state) => state.course
+  // );
   const data = useSelector((state) => state.course.data);
 
   const [currentPage, setCurrentPage] = useState(0); // State for the current page
@@ -32,7 +32,7 @@ const Home = () => {
     window.innerWidth >= 900 ? 6 : window.innerWidth >= 500 ? 4 : 2
   );
   // const itemsPerPage = 6; // Number of items per page
-  const pageCount = Math.ceil(data.getCourse.length / itemsPerPage); // Total number of pages
+  const pageCount = Math.ceil(data?.getCourse?.length / itemsPerPage); // Total number of pages
 
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
@@ -40,7 +40,7 @@ const Home = () => {
 
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const displayedCourses = data.getCourse.slice(startIndex, endIndex);
+  const displayedCourses = data?.getCourse?.slice(startIndex, endIndex);
 
   // State for mobile view
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 500);
@@ -129,11 +129,11 @@ const Home = () => {
                 <div className="top-rated-con">
                   <h2>Top rated courses</h2>
                   <div className="courses">
-                    {data.getCourse.slice(0, 3).map((courses) => (
+                    {data?.getCourse?.slice(0, 3).map((courses) => (
                       <div className="course-con" key={courses.id}>
                         <img
-                          src={courses.thumbnail.url}
-                          alt={courses.thumbnail.url}
+                          src={courses?.thumbnail?.url}
+                          // alt={courses.thumbnail.url}
                           className="course-img"
                         />
                         <div className="content">
@@ -219,13 +219,13 @@ const Home = () => {
               <div className="all-courses">
                 <h2>Courses For You Based On Your Picks</h2>
                 <div className="courses">
-                  {displayedCourses.map((courses) => (
+                  {displayedCourses?.map((courses) => (
                     <div className="course-con" key={courses.id}>
-                      {/* <img
+                      <img
                         src={courses.thumbnail.url}
                         alt={courses.thumbnail.url}
                         className="course-img"
-                      /> */}
+                      />
                       <div className="content">
                         <Link to="/overview" className="course-name">
                           <h3>
