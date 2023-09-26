@@ -29,11 +29,14 @@ const createCourse = async (courseData) => {
 };
 const getCourse = async () => {
   try {
-    const response = await axios.get(GET_COURSE_API, {
-      headers: {
-        Authorization: `Bearer ${user_token}`,
-      },
-    });
+    const response = await axios.get(
+      GET_COURSE_API
+      //   , {
+      //   headers: {
+      //     Authorization: `Bearer ${user_token}`,
+      //   },
+      // }
+    );
     if (response.data) {
       console.log(response.data);
       //   localStorage.setItem(
