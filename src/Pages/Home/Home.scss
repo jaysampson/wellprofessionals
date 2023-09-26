@@ -322,6 +322,7 @@
                   width: 100%;
                   border-radius: 8px;
                   height: 200px;
+                  border: 1px solid #af5e41;
                 }
                 .content {
                   display: flex;
@@ -484,10 +485,11 @@
               @media screen and (max-width: 768px) {
                 flex: 0 0 300px;
               }
-              img {
+              .course-img {
                 width: 100%;
                 border-radius: 8px;
                 height: 200px;
+                border: 1px solid #af5e41;
               }
               .content {
                 display: flex;

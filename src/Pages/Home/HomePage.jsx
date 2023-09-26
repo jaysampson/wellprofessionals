@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import { useDispatch, useSelector } from "react-redux";
 import wellslogo from "../../assets/Images/Wells-Logo.svg";
+import noimage from "../../assets/Images/noimage.png";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -132,8 +133,8 @@ const Home = () => {
                       {data?.getCourse?.slice(0, 3).map((courses) => (
                         <div className="course-con" key={courses.id}>
                           <img
-                            src={courses?.thumbnail?.url}
-                            // alt={courses.thumbnail.url}
+                            src={courses?.thumbnail?.url || noimage}
+                            alt={courses.thumbnail?.url}
                             className="course-img"
                           />
                           <div className="content">
@@ -222,7 +223,7 @@ const Home = () => {
                     {displayedCourses?.map((courses) => (
                       <div className="course-con" key={courses.id}>
                         <img
-                          src={courses?.thumbnail?.url}
+                          src={courses?.thumbnail?.url || noimage}
                           alt={courses?.thumbnail?.url}
                           className="course-img"
                         />
