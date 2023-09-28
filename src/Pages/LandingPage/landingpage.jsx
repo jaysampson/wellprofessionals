@@ -54,7 +54,7 @@ const LandingPage = () => {
 
   if (isLoading) {
     return (
-      <div className="loading">
+      <div className="loading-page">
         <img src={wellslogo} alt={wellslogo} />
         <h1>WELLPROFESSIONALS</h1>
       </div>
