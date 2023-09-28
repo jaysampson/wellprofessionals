@@ -22,6 +22,8 @@ import carticon from "../../../assets/Icons/cart-icon.svg";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout, reset } from "../../../redux/auth/authSlice";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -33,6 +35,12 @@ const Navbar = () => {
 
   function toggleDrop() {
     setDrop(!drop);
+  }
+  let dispatch = useDispatch();
+
+  function handleLogout() {
+    dispatch(logout());
+    dispatch(reset());
   }
 
   return (
@@ -227,6 +235,7 @@ const Navbar = () => {
             position: "fixed",
             bottom: "130px",
           }}
+          onClick={handleLogout}
         >
           <FontAwesomeIcon icon={faArrowRightFromBracket} />
           <span>Logout</span>
