@@ -65,17 +65,7 @@ const Home = () => {
 
   if (isLoading) {
     return (
-      <div
-        style={{
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          gap: "10px",
-          flexWrap: "wrap",
-        }}
-      >
+      <div className="loading-page">
         <img src={wellslogo} alt={wellslogo} />
         <h1>WELLPROFESSIONALS</h1>
       </div>
