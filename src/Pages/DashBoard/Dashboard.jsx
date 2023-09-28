@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Layouts/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleRight,
   faCircleDot,
   faEllipsis,
+  faStar,
+  faStarHalf,
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Layouts/Footer/Footer";
 import "../DashBoard/Dashboard.scss";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   faArrowUpRightFromSquare,
   faCheck,
@@ -20,8 +22,11 @@ import halfstar from "../../assets/Icons/Half-star.svg";
 import emptystar from "../../assets/Icons/emptystar.svg";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { BreadCrumb } from "../BreadCrumb/BreadCrumb";
+import { getCourse } from "../../redux/CourseAPI/courseSlice";
+import { useDispatch } from "react-redux";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
+import noimage from "../../assets/Images/noimage.png";
 
 const chartData = {
   labels: [
@@ -61,6 +66,16 @@ const chartOptions = {
 const Dashboard = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
+  let dispatch = useDispatch();
+
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.course
+  );
+  const data = useSelector((state) => state.course.data);
+
+  useEffect(() => {
+    dispatch(getCourse());
+  }, [dispatch]);
 
   return (
     <div>
@@ -280,218 +295,89 @@ const Dashboard = () => {
             <div className="top-rated-con">
               <h3>Topics based on your picks</h3>
               <div className="courses">
-                <div className="course-con">
-                  <img src={ladies} alt={ladies} />
-                  <div className="content">
-                    <div className="admin">
-                      <div className="admin-title">
-                        <img src={pro} alt={pro} />
-                        <p>Michael Jordan</p>
-                      </div>
-                      <p className="check">
+                {data?.getCourse?.map((courses) => (
+                  <div className="course-con" key={courses.id}>
+                    <img
+                      src={courses?.thumbnail?.url || noimage}
+                      alt={courses.thumbnail?.url}
+                      className="course-img"
+                    />
+                    <div className="content">
+                      <Link
+                        to={`/overview/${courses._id}`}
+                        className="course-name"
+                      >
+                        <h3>
+                          {courses.name.length > 26
+                            ? courses.name.slice(0, 26) + "..."
+                            : courses.name}
+                        </h3>
                         <FontAwesomeIcon
-                          icon={faCheck}
+                          icon={faArrowUpRightFromSquare}
                           color="#000"
-                          size="2xs"
                         />
-                      </p>
-                    </div>
-                    <div className="course-name">
-                      <h2>
-                        Creative Engineering: Lorem ipsum dolor sit amet,
-                        consectetur
-                      </h2>
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        color="#000"
-                      />
-                    </div>
-                    <div className="desc">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                    <div className="rating">
-                      <div className="star">
-                        <img src={star} alt={star} />
-                        <img src={star} alt={star} />
-                        <img src={star} alt={star} />
-                        <img src={halfstar} alt={halfstar} />
-                        <img src={emptystar} alt={emptystar} />
+                      </Link>
+                      <div className="desc">
+                        <span>
+                          {courses.description.length > 65
+                            ? courses.description.slice(0, 65) + "..."
+                            : courses.description}
+                        </span>
                       </div>
-                      <div className="rated">
-                        <p>43k Ratings</p>
+                      <div className="admin">
+                        <p style={{ color: "#CD760F" }}> by Michael Jordan</p>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
                       </div>
-                    </div>
-                    <div className="price-add">
-                      <div className="price">
-                        <p>₦2,549.99</p>
-                        <div className="slice">₦4,449.99</div>
+                      <div className="rating">
+                        <div className="star">
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            size="sm"
+                            color="#F8C51B"
+                          />
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            size="sm"
+                            color="#F8C51B"
+                          />
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            size="sm"
+                            color="#F8C51B"
+                          />
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            size="sm"
+                            color="#F8C51B"
+                          />
+                          <FontAwesomeIcon
+                            icon={faStarHalf}
+                            size="sm"
+                            color="#F8C51B"
+                          />
+                        </div>
+                        <div className="rated">
+                          <p>43k Ratings</p>
+                        </div>
+                      </div>
+                      <div className="price-add">
+                        <div className="price">
+                          <p> {`₦${courses.price}`}</p>
+                          <span className="slice">
+                            {`₦${courses.estimatedPrice}`}
+                          </span>
+                        </div>
+                        <button>Add to Cart</button>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="course-con">
-                  <img src={ladies} alt={ladies} />
-                  <div className="content">
-                    <div className="admin">
-                      <div className="admin-title">
-                        <img src={pro} alt={pro} />
-                        <p>Michael Jordan</p>
-                      </div>
-                      <p className="check">
-                        <FontAwesomeIcon
-                          icon={faCheck}
-                          color="#000"
-                          size="2xs"
-                        />
-                      </p>
-                    </div>
-                    <div className="course-name">
-                      <h2>
-                        Creative Engineering: Lorem ipsum dolor sit amet,
-                        consectetur
-                      </h2>
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        color="#000"
-                      />
-                    </div>
-                    <div className="desc">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                    <div className="rating">
-                      <div className="star">
-                        <img src={star} alt={star} />
-                        <img src={star} alt={star} />
-                        <img src={star} alt={star} />
-                        <img src={halfstar} alt={halfstar} />
-                        <img src={emptystar} alt={emptystar} />
-                      </div>
-                      <div className="rated">
-                        <p>43k Ratings</p>
-                      </div>
-                    </div>
-                    <div className="price-add">
-                      <div className="price">
-                        <p>₦2,549.99</p>
-                        <div className="slice">₦4,449.99</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="course-con">
-                  <img src={ladies} alt={ladies} />
-                  <div className="content">
-                    <div className="admin">
-                      <div className="admin-title">
-                        <img src={pro} alt={pro} />
-                        <p>Michael Jordan</p>
-                      </div>
-                      <p className="check">
-                        <FontAwesomeIcon
-                          icon={faCheck}
-                          color="#000"
-                          size="2xs"
-                        />
-                      </p>
-                    </div>
-                    <div className="course-name">
-                      <h2>
-                        Creative Engineering: Lorem ipsum dolor sit amet,
-                        consectetur
-                      </h2>
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        color="#000"
-                      />
-                    </div>
-                    <div className="desc">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                    <div className="rating">
-                      <div className="star">
-                        <img src={star} alt={star} />
-                        <img src={star} alt={star} />
-                        <img src={star} alt={star} />
-                        <img src={halfstar} alt={halfstar} />
-                        <img src={emptystar} alt={emptystar} />
-                      </div>
-                      <div className="rated">
-                        <p>43k Ratings</p>
-                      </div>
-                    </div>
-                    <div className="price-add">
-                      <div className="price">
-                        <p>₦2,549.99</p>
-                        <div className="slice">₦4,449.99</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="course-con">
-                  <img src={ladies} alt={ladies} />
-                  <div className="content">
-                    <div className="admin">
-                      <div className="admin-title">
-                        <img src={pro} alt={pro} />
-                        <p>Michael Jordan</p>
-                      </div>
-                      <p className="check">
-                        <FontAwesomeIcon
-                          icon={faCheck}
-                          color="#000"
-                          size="2xs"
-                        />
-                      </p>
-                    </div>
-                    <div className="course-name">
-                      <h2>
-                        Creative Engineering: Lorem ipsum dolor sit amet,
-                        consectetur
-                      </h2>
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        color="#000"
-                      />
-                    </div>
-                    <div className="desc">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                    <div className="rating">
-                      <div className="star">
-                        <img src={star} alt={star} />
-                        <img src={star} alt={star} />
-                        <img src={star} alt={star} />
-                        <img src={halfstar} alt={halfstar} />
-                        <img src={emptystar} alt={emptystar} />
-                      </div>
-                      <div className="rated">
-                        <p>43k Ratings</p>
-                      </div>
-                    </div>
-                    <div className="price-add">
-                      <div className="price">
-                        <p>₦2,549.99</p>
-                        <div className="slice">₦4,449.99</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

@@ -33,7 +33,7 @@ const Content = () => {
   const [prerequisites, setPrerequisites] = useState([{ title: "" }]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  const { course, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.course
   );
 
@@ -42,12 +42,11 @@ const Content = () => {
       toast.error(message);
     }
 
-    if (isSuccess) {
-      navigate("/");
+    if (course) {
       toast.success("Course Created Successfully");
       dispatch(reset());
     }
-  }, [isError, isSuccess, message, navigate, dispatch]);
+  }, [isError, course, message, dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

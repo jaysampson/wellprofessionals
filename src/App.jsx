@@ -49,7 +49,7 @@ function App() {
         <Route index element={user ? <Home /> : <LandingPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/overview" element={<Overview />} />
+        <Route path="/overview/:courseId" element={<Overview />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/cart" element={<Cart />} />
 

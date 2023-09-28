@@ -27,16 +27,15 @@ const createCourse = async (courseData) => {
     throw error;
   }
 };
+
+//Get all courses
 const getCourse = async () => {
   try {
-    const response = await axios.get(
-      GET_COURSE_API
-      //   , {
-      //   headers: {
-      //     Authorization: `Bearer ${user_token}`,
-      //   },
-      // }
-    );
+    const response = await axios.get(GET_COURSE_API, {
+      headers: {
+        Authorization: `Bearer ${user_token}`,
+      },
+    });
     if (response.data) {
       console.log(response.data);
       //   localStorage.setItem(
@@ -54,9 +53,27 @@ const getCourse = async () => {
   }
 };
 
+//get a single course
+const getACourse = axios.create({
+  baseURL: "https://wellpro-server.onrender.com",
+});
+
+getACourse.interceptors.request.use(
+  (config) => {
+    if (user_token) {
+      config.headers.Authorization = `Bearer ${user_token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 const courseService = {
   createCourse,
   getCourse,
+  getACourse,
 };
 
 export default courseService;

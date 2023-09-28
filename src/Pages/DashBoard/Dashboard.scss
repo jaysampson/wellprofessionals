@@ -426,11 +426,13 @@
             align-items: flex-start;
             justify-content: center;
             flex-direction: column;
-            width: 280px;
+            flex: 0 0 310px;
             gap: 30px;
-            img {
+            .course-img {
               border-radius: 10px;
               width: 100%;
+              height: 200px;
+              border: 1px solid #af5e41;
             }
             .content {
               display: flex;
@@ -438,6 +440,10 @@
               justify-content: center;
               flex-direction: column;
               gap: 5px;
+              h3 {
+                font-size: 20px;
+                text-align: left;
+              }
               .admin {
                 display: flex;
                 justify-content: flex-start;

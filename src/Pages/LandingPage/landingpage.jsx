@@ -6,14 +6,10 @@ import {
   faStar,
   faStarHalf,
 } from "@fortawesome/free-solid-svg-icons";
-import ladies from "../../assets/Images/doings.svg";
-import pro from "../../assets/Images/Pro.svg";
 import Navbar from "../Layouts/Navbar/Navbar";
 import Footer from "../Layouts/Footer/Footer";
 import "../LandingPage/Landingpage.scss";
 import star from "../../assets/Icons/Star.svg";
-import halfstar from "../../assets/Icons/Half-star.svg";
-import emptystar from "../../assets/Icons/emptystar.svg";
 import testy from "../../assets/Images/testy.svg";
 import question from "../../assets/Images/question.svg";
 import think from "../../assets/Images/think.svg";
@@ -217,7 +213,10 @@ const LandingPage = () => {
                             className="course-img"
                           />
                           <div className="content">
-                            <Link to="/overview" className="course-name">
+                            <Link
+                              to={`/overview/${courses._id}`}
+                              className="course-name"
+                            >
                               <h3>
                                 {courses.name.length > 26
                                   ? courses.name.slice(0, 26) + "..."

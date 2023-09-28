@@ -138,7 +138,10 @@ const Home = () => {
                             className="course-img"
                           />
                           <div className="content">
-                            <Link to="/overview" className="course-name">
+                            <Link
+                              to={`/overview/${courses._id}`}
+                              className="course-name"
+                            >
                               <h3>
                                 {courses.name.length > 26
                                   ? courses.name.slice(0, 26) + "..."

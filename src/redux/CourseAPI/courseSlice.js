@@ -5,6 +5,7 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
   data: [],
+  courseArray: [],
   isError: false,
   isLoading: false,
   isSuccess: false,
@@ -45,6 +46,19 @@ export const getCourse = createAsyncThunk("course/get", async (_, thunkApi) => {
   }
 });
 
+//Get a single course
+
+export const fetchACourse = createAsyncThunk(
+  "course/fetchCourse",
+  async (courseId) => {
+    const response = await courseService.getACourse.get(
+      `/api/course/${courseId}`
+    );
+    console.log(response.data);
+    return response.data;
+  }
+);
+
 export const courseSlice = createSlice({
   name: "course",
   initialState,
@@ -64,13 +78,12 @@ export const courseSlice = createSlice({
       .addCase(createCourse.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.user = action.payload;
+        state.data = action.payload;
       })
       .addCase(createCourse.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        // state.user = null;
       })
       .addCase(getCourse.pending, (state) => {
         state.isLoading = true;
@@ -80,14 +93,27 @@ export const courseSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.data = action.payload;
-        // state.user = action.payload;
       })
       .addCase(getCourse.rejected, (state, action) => {
         state.isLoading = false;
         state.isSuccess = false;
         state.isError = true;
         state.message = action.payload;
-        // state.user = null;
+      })
+      .addCase(fetchACourse.pending, (state) => {
+        state.isLoading = true;
+        state.isSuccess = false;
+      })
+      .addCase(fetchACourse.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.courseArray = action.payload;
+      })
+      .addCase(fetchACourse.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.isError = true;
+        state.message = action.payload;
       });
   },
 });
