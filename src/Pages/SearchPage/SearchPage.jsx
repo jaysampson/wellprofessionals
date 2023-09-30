@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Layouts/Navbar/Navbar";
 import Footer from "../Layouts/Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,14 +7,39 @@ import {
   faCheck,
   faList,
   faSearch,
+  faStar,
+  faStarHalf,
   faTableCells,
 } from "@fortawesome/free-solid-svg-icons";
 import ladies from "../../assets/Images/doings.svg";
 import pro from "../../assets/Images/Pro.svg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import "./SearchPage.scss";
 
 const SearchPage = () => {
+  const dispatch = useDispatch();
+  const { searchQuery } = useParams();
+  // const { isLoading, isError, isSuccess, message } = useSelector(
+  //   (state) => state.course
+  // );
+  const data = useSelector((state) => state.course.data);
+
+  useEffect(() => {
+    dispatch(getCourse());
+  }, [dispatch]);
+
+  const filteredCourses = data.getCourse?.filter(
+    (course) =>
+      searchQuery.toLowerCase() === "" ||
+      course.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  console.log("Search Query:", searchQuery);
+  console.log("Course Data:", data.getCourse);
+  console.log("Filtered Courses:", filteredCourses);
+
   return (
     <div>
       <Navbar />
@@ -133,260 +158,89 @@ const SearchPage = () => {
           <div className="search-result">
             <div className="top-rated-con">
               <div className="courses">
-                <div className="course-con">
-                  <img src={ladies} alt={ladies} className="course-img" />
-                  <div className="content">
-                    <div className="admin">
-                      <div className="admin-title">
-                        <img src={pro} alt={pro} />
-                        <p>Michael Jordan</p>
-                      </div>
-                      <p className="check">
+                {filteredCourses?.map((courses) => (
+                  <div className="course-con" key={courses._id}>
+                    <img
+                      src={courses?.thumbnail?.url || noimage}
+                      alt={courses.thumbnail?.url}
+                      className="course-img"
+                    />
+                    <div className="content">
+                      <Link
+                        to={`/overview/${courses._id}`}
+                        className="course-name"
+                      >
+                        <h3>
+                          {courses.name.length > 26
+                            ? courses.name.slice(0, 26) + "..."
+                            : courses.name}
+                        </h3>
                         <FontAwesomeIcon
-                          icon={faCheck}
+                          icon={faArrowUpRightFromSquare}
                           color="#000"
-                          size="2xs"
                         />
-                      </p>
-                    </div>
-                    <Link to="/overview" className="course-name">
-                      <h2>
-                        Creative Engineering: Lorem ipsum dolor sit amet,
-                        consectetur
-                      </h2>
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        color="#000"
-                      />
-                    </Link>
-                    <div className="desc">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                    <div className="price-add">
-                      <div className="price">
-                        <p>₦2,549.99</p>
-                        <div className="slice">₦4,449.99</div>
+                      </Link>
+                      <div className="desc">
+                        <span>
+                          {courses.description.length > 65
+                            ? courses.description.slice(0, 65) + "..."
+                            : courses.description}
+                        </span>
                       </div>
-                      <button>Add to Cart</button>
+                      <div className="admin">
+                        <p style={{ color: "#CD760F" }}> by Michael Jordan</p>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="rating">
+                        <div className="star">
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            size="sm"
+                            color="#F8C51B"
+                          />
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            size="sm"
+                            color="#F8C51B"
+                          />
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            size="sm"
+                            color="#F8C51B"
+                          />
+                          <FontAwesomeIcon
+                            icon={faStar}
+                            size="sm"
+                            color="#F8C51B"
+                          />
+                          <FontAwesomeIcon
+                            icon={faStarHalf}
+                            size="sm"
+                            color="#F8C51B"
+                          />
+                        </div>
+                        <div className="rated">
+                          <p>43k Ratings</p>
+                        </div>
+                      </div>
+                      <div className="price-add">
+                        <div className="price">
+                          <p> {`₦${courses.price}`}</p>
+                          <span className="slice">
+                            {`₦${courses.estimatedPrice}`}
+                          </span>
+                        </div>
+                        <button>Add to Cart</button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="course-con">
-                  <img src={ladies} alt={ladies} className="course-img" />
-                  <div className="content">
-                    <div className="admin">
-                      <div className="admin-title">
-                        <img src={pro} alt={pro} />
-                        <p>Michael Jordan</p>
-                      </div>
-                      <p className="check">
-                        <FontAwesomeIcon
-                          icon={faCheck}
-                          color="#000"
-                          size="2xs"
-                        />
-                      </p>
-                    </div>
-                    <div className="course-name">
-                      <h2>
-                        Creative Engineering: Lorem ipsum dolor sit amet,
-                        consectetur
-                      </h2>
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        color="#000"
-                        height={"24px"}
-                        width={"24px"}
-                      />
-                    </div>
-                    <div className="desc">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                    <div className="price-add">
-                      <div className="price">
-                        <p>₦2,549.99</p>
-                        <div className="slice">₦4,449.99</div>
-                      </div>
-                      <button>Add to Cart</button>
-                    </div>
-                  </div>
-                </div>
-                <div className="course-con">
-                  <img src={ladies} alt={ladies} className="course-img" />
-                  <div className="content">
-                    <div className="admin">
-                      <div className="admin-title">
-                        <img src={pro} alt={pro} />
-                        <p>Michael Jordan</p>
-                      </div>
-                      <p className="check">
-                        <FontAwesomeIcon
-                          icon={faCheck}
-                          color="#000"
-                          size="2xs"
-                        />
-                      </p>
-                    </div>
-                    <div className="course-name">
-                      <h2>
-                        Creative Engineering: Lorem ipsum dolor sit amet,
-                        consectetur
-                      </h2>
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        color="#000"
-                      />
-                    </div>
-                    <div className="desc">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                    <div className="price-add">
-                      <div className="price">
-                        <p>₦2,549.99</p>
-                        <div className="slice">₦4,449.99</div>
-                      </div>
-                      <button>Add to Cart</button>
-                    </div>
-                  </div>
-                </div>
-                <div className="course-con">
-                  <img src={ladies} alt={ladies} className="course-img" />
-                  <div className="content">
-                    <div className="admin">
-                      <div className="admin-title">
-                        <img src={pro} alt={pro} />
-                        <p>Michael Jordan</p>
-                      </div>
-                      <p className="check">
-                        <FontAwesomeIcon
-                          icon={faCheck}
-                          color="#000"
-                          size="2xs"
-                        />
-                      </p>
-                    </div>
-                    <div className="course-name">
-                      <h2>
-                        Creative Engineering: Lorem ipsum dolor sit amet,
-                        consectetur
-                      </h2>
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        color="#000"
-                      />
-                    </div>
-                    <div className="desc">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                    <div className="price-add">
-                      <div className="price">
-                        <p>₦2,549.99</p>
-                        <div className="slice">₦4,449.99</div>
-                      </div>
-                      <button>Add to Cart</button>
-                    </div>
-                  </div>
-                </div>
-                <div className="course-con">
-                  <img src={ladies} alt={ladies} className="course-img" />
-                  <div className="content">
-                    <div className="admin">
-                      <div className="admin-title">
-                        <img src={pro} alt={pro} />
-                        <p>Michael Jordan</p>
-                      </div>
-                      <p className="check">
-                        <FontAwesomeIcon
-                          icon={faCheck}
-                          color="#000"
-                          size="2xs"
-                        />
-                      </p>
-                    </div>
-                    <div className="course-name">
-                      <h2>
-                        Creative Engineering: Lorem ipsum dolor sit amet,
-                        consectetur
-                      </h2>
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        color="#000"
-                      />
-                    </div>
-                    <div className="desc">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                    <div className="price-add">
-                      <div className="price">
-                        <p>₦2,549.99</p>
-                        <div className="slice">₦4,449.99</div>
-                      </div>
-                      <button>Add to Cart</button>
-                    </div>
-                  </div>
-                </div>
-                <div className="course-con">
-                  <img src={ladies} alt={ladies} className="course-img" />
-                  <div className="content">
-                    <div className="admin">
-                      <div className="admin-title">
-                        <img src={pro} alt={pro} />
-                        <p>Michael Jordan</p>
-                      </div>
-                      <p className="check">
-                        <FontAwesomeIcon
-                          icon={faCheck}
-                          color="#000"
-                          size="2xs"
-                        />
-                      </p>
-                    </div>
-                    <div className="course-name">
-                      <h2>
-                        Creative Engineering: Lorem ipsum dolor sit amet,
-                        consectetur
-                      </h2>
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        color="#000"
-                      />
-                    </div>
-                    <div className="desc">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                    <div className="price-add">
-                      <div className="price">
-                        <p>₦2,549.99</p>
-                        <div className="slice">₦4,449.99</div>
-                      </div>
-                      <button>Add to Cart</button>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

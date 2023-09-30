@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
   faCheck,
+  faSpinner,
   faStar,
   faStarHalf,
 } from "@fortawesome/free-solid-svg-icons";
@@ -57,6 +58,7 @@ const LandingPage = () => {
       <div className="loading-page">
         <img src={wellslogo} alt={wellslogo} />
         <h1>WELLPROFESSIONALS</h1>
+        <FontAwesomeIcon icon={faSpinner} size="2x" spin />
       </div>
     );
   }
@@ -196,7 +198,7 @@ const LandingPage = () => {
                     <h2>Courses for you based on your picks</h2>
                     <div className="courses">
                       {data?.getCourse?.map((courses) => (
-                        <div className="course-con" key={courses.id}>
+                        <div className="course-con" key={courses._id}>
                           <img
                             src={courses?.thumbnail?.url || noimage}
                             alt={courses.thumbnail?.url}

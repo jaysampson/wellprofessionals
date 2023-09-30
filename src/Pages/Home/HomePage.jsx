@@ -9,19 +9,23 @@ import {
   faArrowUpRightFromSquare,
   faCheck,
   faSearch,
+  faSpinner,
   faStar,
   faStarHalf,
 } from "@fortawesome/free-solid-svg-icons";
 import homeicon from "../../assets/Icons/home-icon.svg";
 import { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import { useDispatch, useSelector } from "react-redux";
 import wellslogo from "../../assets/Images/Wells-Logo.svg";
 import noimage from "../../assets/Images/noimage.png";
 
 const Home = () => {
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const { isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.course
@@ -63,11 +67,20 @@ const Home = () => {
     };
   }, [dispatch]);
 
+  const handleSearch = () => {
+    // Redirect to the search page with the search query as a route parameter
+    if (search) {
+      navigate(`/search/${encodeURIComponent(search)}`);
+      console.log("search: ", search);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="loading-page">
         <img src={wellslogo} alt={wellslogo} />
         <h1>WELLPROFESSIONALS</h1>
+        <FontAwesomeIcon icon={faSpinner} size="2x" spin />
       </div>
     );
   }
@@ -93,15 +106,19 @@ const Home = () => {
                   <FontAwesomeIcon icon={faSearch} color="#fff" />
                   <input
                     type="text"
+                    value={search}
                     placeholder="What course do you want to learn?"
+                    onChange={(e) => setSearch(e.target.value)}
                   />
-                  <Link to="/search">
-                    <button className="search-1">Search</button>
-                  </Link>
+                  <div>
+                    <button className="search-1" onClick={handleSearch}>
+                      Search
+                    </button>
+                  </div>
                 </div>
-                <Link to="/search" className="search-2">
-                  <button>Search Course</button>
-                </Link>
+                <div className="search-2">
+                  <button onClick={handleSearch}>Search Course</button>
+                </div>
               </div>
             </div>
             <div className="hero-bottom-colors">
@@ -121,7 +138,7 @@ const Home = () => {
                     <h2>Top rated courses</h2>
                     <div className="courses">
                       {data?.getCourse?.slice(0, 3).map((courses) => (
-                        <div className="course-con" key={courses.id}>
+                        <div className="course-con" key={courses._id}>
                           <img
                             src={courses?.thumbnail?.url || noimage}
                             alt={courses.thumbnail?.url}
