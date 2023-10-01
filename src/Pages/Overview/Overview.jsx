@@ -137,27 +137,7 @@ const Overview = () => {
                     </title>
                     {drop1 && (
                       <div className="classov-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat.
-                        </p>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat.
-                        </p>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat.
-                        </p>
+                        <p>{courseArray?.course?.description}</p>
                       </div>
                     )}
                   </div>
@@ -291,7 +271,10 @@ const Overview = () => {
               <div className="right-con">
                 <div className="box">
                   <div className="box-top">
-                    <img src="" alt="" />
+                    <img
+                      src={courseArray?.course?.thumbnail?.url}
+                      alt={courseArray?.thumbnail?.url}
+                    />
                     <h2>{courseArray?.course?.name}</h2>
                     <div className="price">
                       <p>{`₦${courseArray?.course?.price}`}</p>

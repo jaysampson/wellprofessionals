@@ -139,7 +139,8 @@ const SearchPage = () => {
           </div>
           <div className="right-layout-top">
             <h2>
-              Found 376 results for <span>Oil Sector</span>
+              Found {filteredCourses?.length} results for{" "}
+              <span>{searchQuery}</span>
             </h2>
             <div className="sort-arrange">
               <div className="sort">
