@@ -62,11 +62,11 @@ const Navbar = () => {
               </div>
             </div>
           </NavLink>
-          <Link to="/search">
-            <FontAwesomeIcon icon={faSearch} className="search" />
+          <Link to="/search" className="search">
+            <FontAwesomeIcon icon={faSearch} />
           </Link>
           <div className="right-nav">
-            <Link to="/search">
+            <Link to="/search" className="search-2">
               <FontAwesomeIcon icon={faSearch} className="search-input" />
             </Link>
             <div className="shop">

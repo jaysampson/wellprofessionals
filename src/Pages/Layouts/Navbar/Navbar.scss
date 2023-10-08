@@ -64,6 +64,7 @@ nav {
           cursor: pointer;
           height: 20px;
           width: 20px;
+          color: #000;
         }
       }
       .logo-name {
@@ -108,6 +109,10 @@ nav {
         align-items: center;
         justify-content: center;
         gap: 25px;
+        .search-2 {
+          text-decoration: none;
+          color: black;
+        }
         .shop {
           display: flex;
           align-items: flex-start;
