@@ -30,6 +30,7 @@ import "./font.scss";
 import Cart from "./Pages/Cart/Cart";
 import { useSelector } from "react-redux";
 import AdminCreate from "./Pages/AdminDashboard/AdminPages/AdminCreate/AdminCreate";
+import AdminCreate2 from "./Pages/AdminDashboard/AdminPages/AdminCreate/AdminCreate2/AdminCreate2";
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -65,7 +66,7 @@ function App() {
         <Route path="/admin/*" element={<AdminDashboard />} />
         <Route path="/admin/" element={<AdminDashboard />} />
         <Route path="/admin/create" element={<AdminCreate />} />
-        <Route path="/admin/create/2" element={<AdminCreate />} />
+        <Route path="/admin/create/2" element={<AdminCreate2 />} />
         <Route path="/admin/admin-courses" element={<AdminCourse />} />
         <Route path="/admin/announcements" element={<Announcements />} />
         <Route path="/admin/admin-instructors" element={<AdminInstructors />} />

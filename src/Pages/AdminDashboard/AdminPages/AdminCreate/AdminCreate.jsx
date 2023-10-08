@@ -42,7 +42,7 @@ const Content = () => {
       toast.error(message);
     }
 
-    if (isSuccess) {
+    if (course) {
       toast.success("Course Created Successfully");
       navigate("/admin/create/2");
       dispatch(reset());
