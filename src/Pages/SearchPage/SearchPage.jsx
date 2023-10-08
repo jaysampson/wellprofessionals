@@ -10,13 +10,23 @@ import {
   faStarHalf,
   faTableCells,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import "./SearchPage.scss";
 import noimage from "../../assets/Images/noimage.png";
 
 const SearchPage = () => {
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const [priceRange, setPriceRange] = useState({ min: "", max: "" });
+  const [totalHours, setTotalHours] = useState({
+    "1hour": false,
+    "20-35mins": false,
+    "4hours": false,
+    "6hours": false,
+    "10-15mins": false,
+  });
   const dispatch = useDispatch();
   const { searchQuery } = useParams();
   const data = useSelector((state) => state.course.data);
@@ -25,15 +35,45 @@ const SearchPage = () => {
     dispatch(getCourse());
   }, [dispatch]);
 
-  const filteredCourses = data.getCourse?.filter(
-    (course) =>
-      searchQuery.toLowerCase() === "" ||
-      course.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredCourses = data.getCourse?.filter((course) => {
+    const coursePrice = parseFloat(course.price);
 
-  console.log("Search Query:", searchQuery);
-  console.log("Course Data:", data.getCourse);
-  console.log("Filtered Courses:", filteredCourses);
+    if (isNaN(coursePrice)) {
+      // Handle cases where course price is not a valid number
+      return false;
+    }
+
+    // Convert input values to numbers, or set them to null if empty
+    const minPrice = priceRange.min ? parseFloat(priceRange.min) : null;
+    const maxPrice = priceRange.max ? parseFloat(priceRange.max) : null;
+
+    if (
+      (minPrice !== null && coursePrice < minPrice) ||
+      (maxPrice !== null && coursePrice > maxPrice)
+    ) {
+      return false;
+    }
+
+    // Search query filter
+    if (
+      searchQuery &&
+      !course.name.toLowerCase().includes(searchQuery.toLowerCase())
+    ) {
+      return false;
+    }
+
+    return true; // Include the course if it passes the price range and search query filter
+  });
+
+  console.log(filteredCourses, "filteredCourses");
+
+  const handleSearch = () => {
+    // Redirect to the search page with the search query as a route parameter
+    if (search) {
+      navigate(`/search/${encodeURIComponent(search)}`);
+      console.log("search: ", search);
+    }
+  };
 
   return (
     <div>
@@ -43,8 +83,22 @@ const SearchPage = () => {
           <div className="price-range">
             <h4>Price, $</h4>
             <div className="price-input">
-              <input type="number" placeholder="min" />
-              <input type="number" placeholder="max" />
+              <input
+                type="number"
+                placeholder="min"
+                value={priceRange.min}
+                onChange={(e) =>
+                  setPriceRange({ ...priceRange, min: e.target.value })
+                }
+              />
+              <input
+                type="number"
+                placeholder="max"
+                value={priceRange.max}
+                onChange={(e) =>
+                  setPriceRange({ ...priceRange, max: e.target.value })
+                }
+              />
             </div>
             <div className="filters">
               <ul>
@@ -126,14 +180,19 @@ const SearchPage = () => {
           <div className="input-search">
             <div className="search">
               <FontAwesomeIcon icon={faSearch} color="#667085" />
-              <input type="text" placeholder="Search for online courses" />
+              <input
+                type="text"
+                placeholder="Search for online courses"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
             </div>
-            <button>Search</button>
+            <button onClick={handleSearch}>Search</button>
           </div>
           <div className="right-layout-top">
             <h2>
               Found {filteredCourses?.length} results for{" "}
-              <span>{searchQuery}</span>
+              <span>{searchQuery || "All courses"}</span>
             </h2>
             <div className="sort-arrange">
               <div className="sort">

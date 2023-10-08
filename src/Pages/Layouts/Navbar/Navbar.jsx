@@ -66,7 +66,9 @@ const Navbar = () => {
             <FontAwesomeIcon icon={faSearch} className="search" />
           </Link>
           <div className="right-nav">
-            <FontAwesomeIcon icon={faSearch} className="search-input" />
+            <Link to="/search">
+              <FontAwesomeIcon icon={faSearch} className="search-input" />
+            </Link>
             <div className="shop">
               <img src={shop} alt={shop} />
               <p>2</p>
