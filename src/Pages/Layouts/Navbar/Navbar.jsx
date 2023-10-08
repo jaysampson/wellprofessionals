@@ -87,6 +87,7 @@ const Navbar = () => {
                       width: "70px",
                       height: "70px",
                       borderRadius: "50%",
+                      border: "1px solid #af5e41",
                     }}
                   />
                 ) : (
@@ -149,7 +150,12 @@ const Navbar = () => {
               <img
                 src={user.data.image}
                 alt={user.data.name}
-                style={{ width: "80px", height: "80px", borderRadius: "50%" }}
+                style={{
+                  width: "70px",
+                  height: "70px",
+                  borderRadius: "50%",
+                  border: "1px solid #af5e41",
+                }}
               />
             ) : (
               <FontAwesomeIcon
