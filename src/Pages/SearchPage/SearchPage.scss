@@ -189,10 +189,12 @@
         .courses {
           margin-top: 25px;
           display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          gap: 20px 20px;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+          // gap: 20px 20px;
           width: 100%;
+          padding: 20px 0px;
           flex-wrap: wrap;
           @media screen and (max-width: 768px) {
             justify-content: center;
@@ -201,14 +203,18 @@
           .course-con {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            justify-content: flex-start;
+            // flex-direction: column;
             gap: 30px;
-            flex: 0 0 300px;
+            // flex: 0 0 300px;
+            width: 100%;
+            padding: 20px 0px;
+            border-bottom: 1px solid #000;
+            border-top: 1px solid #000;
             .course-img {
-              width: 100%;
+              width: 120px;
               border-radius: 8px;
-              height: 200px;
+              height: 100px;
               border: 1px solid #af5e41;
             }
             .content {
@@ -221,7 +227,7 @@
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                gap: 45px;
+                gap: 15px;
                 width: 100%;
                 .admin-title {
                   display: flex;
@@ -265,6 +271,21 @@
                   font-weight: 400;
                   font-size: 12px;
                   color: #667085;
+                }
+              }
+              .rating {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                .star {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 7px;
+                }
+                .rated {
+                  color: #5b6871;
                 }
               }
               .price-add {

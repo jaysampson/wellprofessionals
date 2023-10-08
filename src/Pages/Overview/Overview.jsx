@@ -25,6 +25,7 @@ import wellslogo from "../../assets/Images/Wells-Logo.svg";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import noimage from "../../assets/Images/noimage.png";
 import courseService from "../../redux/CourseAPI/courseService";
+import gif from "../../assets/Images/Loading.gif";
 
 const Overview = () => {
   const [drop, setDrop] = useState(false);
@@ -63,8 +64,7 @@ const Overview = () => {
   if (isLoading) {
     return (
       <div className="loading-page">
-        <img src={wellslogo} alt={wellslogo} />
-        <h1>WELLPROFESSIONALS</h1>
+        <img src={gif} alt={gif} />
       </div>
     );
   }

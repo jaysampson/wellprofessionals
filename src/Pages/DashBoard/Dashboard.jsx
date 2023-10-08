@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleRight,
   faCircleDot,
-  faEllipsis,
+  faShare,
   faStar,
   faStarHalf,
 } from "@fortawesome/free-solid-svg-icons";
@@ -114,14 +114,11 @@ const Dashboard = () => {
                     </div>
                     <div className="course-desc">
                       <p>Lorem ipsum dolor sit amet</p>
-                      <span>Lorem ipsum dolor sit amet</span>
                     </div>
                     <div className="dates">
                       <p>2 months</p>
-                      <span>Jan 17, 2022</span>
                     </div>
-                    <span>Lorem Ipsum</span>
-                    <FontAwesomeIcon icon={faEllipsis} color="#71717a" />
+                    <FontAwesomeIcon icon={faShare} cursor="pointer" />
                   </div>
                   <div className="body-con">
                     <div className="level">
@@ -130,14 +127,11 @@ const Dashboard = () => {
                     </div>
                     <div className="course-desc">
                       <p>Lorem ipsum dolor sit amet</p>
-                      <span>Lorem ipsum dolor sit amet</span>
                     </div>
                     <div className="dates">
                       <p>2 months</p>
-                      <span>Jan 17, 2022</span>
                     </div>
-                    <span>Lorem Ipsum</span>
-                    <FontAwesomeIcon icon={faEllipsis} />
+                    <FontAwesomeIcon icon={faShare} cursor="pointer" />
                   </div>
                   <div className="body-con">
                     <div className="level">
@@ -146,14 +140,11 @@ const Dashboard = () => {
                     </div>
                     <div className="course-desc">
                       <p>Lorem ipsum dolor sit amet</p>
-                      <span>Lorem ipsum dolor sit amet</span>
                     </div>
                     <div className="dates">
                       <p>2 months</p>
-                      <span>Jan 17, 2022</span>
                     </div>
-                    <span>Lorem Ipsum</span>
-                    <FontAwesomeIcon icon={faEllipsis} color="#71717a" />
+                    <FontAwesomeIcon icon={faShare} cursor="pointer" />
                   </div>
                   <div className="body-con">
                     <div className="level">
@@ -162,18 +153,15 @@ const Dashboard = () => {
                     </div>
                     <div className="course-desc">
                       <p>Lorem ipsum dolor sit amet</p>
-                      <span>Lorem ipsum dolor sit amet</span>
                     </div>
                     <div className="dates">
                       <p>2 months</p>
-                      <span>Jan 17, 2022</span>
                     </div>
-                    <span>Lorem Ipsum</span>
-                    <FontAwesomeIcon icon={faEllipsis} color="#71717a" />
+                    <FontAwesomeIcon icon={faShare} cursor="pointer" />
                   </div>
                 </div>
               </div>
-              <div className="bookmark">
+              {/* <div className="bookmark">
                 <div className="mark-top">
                   <h3>Bookmarked courses</h3>
                   <p>Lorem ipsum dolor sit ametis.</p>
@@ -226,68 +214,68 @@ const Dashboard = () => {
                   <span>See All My Courses</span>
                   <FontAwesomeIcon icon={faAngleRight} />
                 </NavLink>
+              </div> */}
+              <div className="recent">
+                <div className="recent-con">
+                  <div className="recent-top">
+                    <h3>My recent Studies</h3>
+                    <select name="" id="">
+                      <option value="">Last 7 days</option>
+                    </select>
+                  </div>
+                  <div className="progress-main">
+                    <div className="progress-con">
+                      <div className="course">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <p>72%</p>
+                      </div>
+                      <progress
+                        className="progress"
+                        max="100"
+                        value="72"
+                      ></progress>
+                    </div>
+                    <div className="progress-con">
+                      <div className="course">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <p>62%</p>
+                      </div>
+                      <progress
+                        className="progress"
+                        max="100"
+                        value="62"
+                      ></progress>
+                    </div>
+                    <div className="progress-con">
+                      <div className="course">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <p>41%</p>
+                      </div>
+                      <progress
+                        className="progress"
+                        max="100"
+                        value="41"
+                      ></progress>
+                    </div>
+                    <div className="progress-con">
+                      <div className="course">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <p>23%</p>
+                      </div>
+                      <progress
+                        className="progress"
+                        max="100"
+                        value="23"
+                      ></progress>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div className="chart-recent">
             <div className="chart">
               <Line data={chartData} options={chartOptions} />
-            </div>
-            <div className="recent">
-              <div className="recent-con">
-                <div className="recent-top">
-                  <h3>My recent Studies</h3>
-                  <select name="" id="">
-                    <option value="">Last 7 days</option>
-                  </select>
-                </div>
-                <div className="progress-main">
-                  <div className="progress-con">
-                    <div className="course">
-                      <p>Lorem ipsum dolor sit.</p>
-                      <p>72%</p>
-                    </div>
-                    <progress
-                      className="progress"
-                      max="100"
-                      value="72"
-                    ></progress>
-                  </div>
-                  <div className="progress-con">
-                    <div className="course">
-                      <p>Lorem ipsum dolor sit.</p>
-                      <p>62%</p>
-                    </div>
-                    <progress
-                      className="progress"
-                      max="100"
-                      value="62"
-                    ></progress>
-                  </div>
-                  <div className="progress-con">
-                    <div className="course">
-                      <p>Lorem ipsum dolor sit.</p>
-                      <p>41%</p>
-                    </div>
-                    <progress
-                      className="progress"
-                      max="100"
-                      value="41"
-                    ></progress>
-                  </div>
-                  <div className="progress-con">
-                    <div className="course">
-                      <p>Lorem ipsum dolor sit.</p>
-                      <p>23%</p>
-                    </div>
-                    <progress
-                      className="progress"
-                      max="100"
-                      value="23"
-                    ></progress>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 

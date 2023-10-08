@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
   faCheck,
+  faSearch,
   faSpinner,
   faStar,
   faStarHalf,
@@ -18,17 +19,20 @@ import bulb from "../../assets/Images/bulb.svg";
 import statue from "../../assets/Images/statue.svg";
 import plus from "../../assets/Icons/plus-circle.svg";
 import minus from "../../assets/Icons/minus-circle.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import { useDispatch, useSelector } from "react-redux";
 import wellslogo from "../../assets/Images/Wells-Logo.svg";
 import noimage from "../../assets/Images/noimage.png";
+import gif from "../../assets/Images/Loading.gif";
 
 const LandingPage = () => {
   const [toggle1, setToggle1] = useState(false);
   const [toggle2, setToggle2] = useState(false);
   const [toggle3, setToggle3] = useState(false);
   const [toggle4, setToggle4] = useState(false);
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const { isLoading, isError, isSuccess, message } = useSelector(
@@ -53,12 +57,18 @@ const LandingPage = () => {
     dispatch(getCourse());
   }, [dispatch]);
 
+  const handleSearch = () => {
+    // Redirect to the search page with the search query as a route parameter
+    if (search) {
+      navigate(`/search/${encodeURIComponent(search)}`);
+      console.log("search: ", search);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="loading-page">
-        <img src={wellslogo} alt={wellslogo} />
-        <h1>WELLPROFESSIONALS</h1>
-        <FontAwesomeIcon icon={faSpinner} size="2x" spin />
+        <img src={gif} alt={gif} />
       </div>
     );
   }
@@ -71,33 +81,38 @@ const LandingPage = () => {
         <Navbar />
         <div className="landing">
           <div className="landing-con">
-            <div className="hero">
-              <div className="hero-con">
-                <h1>Create your own unique path to knowledge</h1>
-                <p>
-                  Are you looking to kick-start your career, or you’re a
-                  seasoned professional seeking to enhance your knowledge and
-                  skills, our courses are designed to meet your specific needs
-                </p>
-                <div className="btn-text">
-                  <Link to="/auth-register">
-                    <button>Get Started</button>
-                  </Link>
-                  <div className="trust">
-                    <p>Trusted by 50k+ users</p>
-                    <div className="star">
-                      <div className="stars">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <p>
-                        4.1/5 <span>(14k Reviews)</span>
-                      </p>
+            <div className="home-hero">
+              <div className="hero-text">
+                <div className="top-text">
+                  <h1>Mastering Oil & Gas, one course at a time</h1>
+                  <p>
+                    We are dedicated to providing comprehensive online courses
+                    in the field of oil and gas
+                  </p>
+                </div>
+                <div className="input-search">
+                  <div className="search">
+                    <FontAwesomeIcon icon={faSearch} color="#fff" />
+                    <input
+                      type="text"
+                      value={search}
+                      placeholder="What course do you want to learn?"
+                      onChange={(e) => setSearch(e.target.value)}
+                    />
+                    <div>
+                      <button className="search-1" onClick={handleSearch}>
+                        Search
+                      </button>
                     </div>
                   </div>
+                  <div className="search-2">
+                    <button onClick={handleSearch}>Search Course</button>
+                  </div>
                 </div>
+              </div>
+              <div className="hero-bottom-colors">
+                <div className="brown"></div>
+                <div className="blue"></div>
               </div>
             </div>
             <body>
@@ -114,7 +129,10 @@ const LandingPage = () => {
                             className="course-img"
                           />
                           <div className="content">
-                            <Link to="/overview" className="course-name">
+                            <Link
+                              to={`/overview/${courses._id}`}
+                              className="course-name"
+                            >
                               <h3>
                                 {courses.name.length > 26
                                   ? courses.name.slice(0, 26) + "..."
@@ -197,11 +215,11 @@ const LandingPage = () => {
                   <div className="top-rated-con">
                     <h2>Courses for you based on your picks</h2>
                     <div className="courses">
-                      {data?.getCourse?.map((courses) => (
+                      {data?.getCourse?.slice(0, 3).map((courses) => (
                         <div className="course-con" key={courses._id}>
                           <img
                             src={courses?.thumbnail?.url || noimage}
-                            alt={courses.thumbnail?.url}
+                            alt={courses.thumbnail?.url || noimage}
                             className="course-img"
                           />
                           <div className="content">
@@ -317,7 +335,10 @@ const LandingPage = () => {
                           className="course-img"
                         />
                         <div className="content">
-                          <Link to="/overview" className="course-name">
+                          <Link
+                            to={`/overview/${courses._id}`}
+                            className="course-name"
+                          >
                             <h3>
                               {courses.name.length > 26
                                 ? courses.name.slice(0, 26) + "..."

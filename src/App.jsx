@@ -65,6 +65,7 @@ function App() {
         <Route path="/admin/*" element={<AdminDashboard />} />
         <Route path="/admin/" element={<AdminDashboard />} />
         <Route path="/admin/create" element={<AdminCreate />} />
+        <Route path="/admin/create/2" element={<AdminCreate />} />
         <Route path="/admin/admin-courses" element={<AdminCourse />} />
         <Route path="/admin/announcements" element={<Announcements />} />
         <Route path="/admin/admin-instructors" element={<AdminInstructors />} />

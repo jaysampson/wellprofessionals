@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminLayout from "./AdminLayout/AdminLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,6 +10,8 @@ import {
 import upload from "../../assets/Images/upload.svg";
 import "./AdminDashboard.scss";
 import { BreadCrumb } from "../BreadCrumb/BreadCrumb";
+import { getCourse } from "../../redux/CourseAPI/courseSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const AdminDashboard = () => {
   return (
@@ -20,6 +22,16 @@ const AdminDashboard = () => {
 };
 
 const Content = () => {
+  const dispatch = useDispatch();
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.course
+  );
+  const data = useSelector((state) => state.course.data);
+
+  useEffect(() => {
+    dispatch(getCourse());
+  }, [dispatch]);
+
   return (
     <div className="dash-home">
       <div className="dash-home-con">
@@ -27,7 +39,7 @@ const Content = () => {
         <div className="draw-downs">
           <div className="draw-down">
             <p>TOTAL COURSES</p>
-            <span>3456</span>
+            <span>{data?.getCourse?.length}</span>
           </div>
           <div className="draw-down">
             <p>TOTAL STUDENTS</p>

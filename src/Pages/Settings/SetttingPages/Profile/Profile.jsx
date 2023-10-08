@@ -4,7 +4,7 @@ import "../Profile/Profile.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser, reset } from "../../../../redux/auth/authSlice";
 import { toast } from "react-toastify";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Profile = () => {
@@ -16,7 +16,7 @@ const Profile = () => {
 };
 
 export const Content = () => {
-  const [user_image, setUser_Image] = useState(null);
+  const [image, setImage] = useState(null);
 
   const dispatch = useDispatch();
   const { user, isLoading, isError, isSuccess, message } = useSelector(
@@ -41,7 +41,7 @@ export const Content = () => {
       name,
       email,
       mobile,
-      user_image,
+      image,
     };
     dispatch(updateUser(userData));
     console.log("clicked");
@@ -52,24 +52,41 @@ export const Content = () => {
 
     if (selectedImage) {
       // You can handle the selected image here, such as displaying it or uploading it to a server.
-      setUser_Image(URL.createObjectURL(selectedImage));
+      setImage(URL.createObjectURL(selectedImage));
     }
   };
 
   const [email, setEmail] = useState(user ? user.data.email : "");
   const [mobile, setMobile] = useState(user ? user.data.mobile : "");
   const [name, setName] = useState(user ? user.data.name : "");
+  const [description, setDescription] = useState(
+    user ? user.data.description : ""
+  );
+  const [language, setLanguage] = useState(user ? user.data.language : "");
 
   return (
     <div className="profile">
       <h1>Profile</h1>
       <div className="user">
         <label htmlFor="imageUpload" style={{ cursor: "pointer" }}>
-          <img
-            src={user_image || (user && user.data.user_image)}
-            alt={user && user.data.user_image}
-            style={{ width: "100px", height: "100px" }}
-          />
+          {user.data.image ? (
+            <img
+              src={user.data.image}
+              alt={user.data.name}
+              style={{ width: "80px", height: "80px", borderRadius: "50%" }}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faUserCircle}
+              color="#af5e41"
+              size="3x"
+              style={{
+                borderRadius: "50%",
+                width: "70px",
+                height: "70px",
+              }}
+            />
+          )}
         </label>
         <input
           type="file"
@@ -124,13 +141,23 @@ export const Content = () => {
                 id=""
                 cols="30"
                 rows="10"
-                placeholder="Enter a description"
+                placeholder="Describe yourself"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               ></textarea>
             </div>
             <div className="dets">
               <label htmlFor="">Language</label>
-              <select name="" id="">
-                <option value="">English</option>
+              <select
+                name=""
+                id=""
+                value={language}
+                onChange={(e) => setLanguage(e.target.value)}
+              >
+                <option>Select preffered language</option>
+                <option value="English">English</option>
+                <option value="French">French</option>
+                <option value="Spanish">Spanish</option>
               </select>
             </div>
           </div>

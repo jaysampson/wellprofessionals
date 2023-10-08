@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from "react";
-import AdminLayout from "../../AdminLayout/AdminLayout";
-import { BreadCrumb } from "../../../BreadCrumb/BreadCrumb";
-import "../AdminCreate/AdminCreate.scss";
-import { toast } from "react-toastify";
-import { useSelector, useDispatch } from "react-redux";
-import { reset, createCourse } from "../../../../redux/CourseAPI/courseSlice";
+import AdminLayout from "../../../AdminLayout/AdminLayout";
 import { useNavigate } from "react-router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMinusCircle,
-  faPlusCircle,
-  faSpinner,
-} from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
 
-const AdminCreate = () => {
+const AdminCreate2 = () => {
   return (
     <div>
       <AdminLayout content={<Content />} />
@@ -22,84 +12,84 @@ const AdminCreate = () => {
 };
 
 const Content = () => {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [estimatedPrice, setEstimatedPrice] = useState("");
-  const [category, setCategory] = useState("");
-  const [tags, setTags] = useState("");
-  const [level, setLevel] = useState("");
-  const [benefits, setBenefits] = useState([{ title: "" }]);
-  const [prerequisites, setPrerequisites] = useState([{ title: "" }]);
+  //   const [name, setName] = useState("");
+  //   const [description, setDescription] = useState("");
+  //   const [price, setPrice] = useState("");
+  //   const [estimatedPrice, setEstimatedPrice] = useState("");
+  //   const [category, setCategory] = useState("");
+  //   const [tags, setTags] = useState("");
+  //   const [level, setLevel] = useState("");
+  //   const [benefits, setBenefits] = useState([{ title: "" }]);
+  //   const [prerequisites, setPrerequisites] = useState([{ title: "" }]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { course, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.course
-  );
+  //   const { course, isLoading, isError, isSuccess, message } = useSelector(
+  //     (state) => state.course
+  //   );
 
-  useEffect(() => {
-    if (isError) {
-      toast.error(message);
-    }
+  //   useEffect(() => {
+  //     if (isError) {
+  //       toast.error(message);
+  //     }
 
-    if (isSuccess) {
-      toast.success("Course Created Successfully");
-      navigate("/admin/create/2");
-      dispatch(reset());
-    }
-  }, [isError, course, message, isSuccess, navigate, dispatch]);
+  //     if (course) {
+  //       toast.success("Course Created Successfully");
+  //       dispatch(reset());
+  //       navigate("/admin/create/2");
+  //     }
+  //   }, [isError, course, message, dispatch]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  //   const handleSubmit = (e) => {
+  //     e.preventDefault();
 
-    const courseData = {
-      name,
-      description,
-      price,
-      estimatedPrice,
-      category,
-      tags,
-      level,
-      benefits,
-      prerequisites,
-    };
-    dispatch(createCourse(courseData));
-    console.log(courseData, "mychief");
-  };
+  //     const courseData = {
+  //       name,
+  //       description,
+  //       price,
+  //       estimatedPrice,
+  //       category,
+  //       tags,
+  //       level,
+  //       benefits,
+  //       prerequisites,
+  //     };
+  //     dispatch(createCourse(courseData));
+  //     console.log(courseData, "mychief");
+  //   };
 
-  const addPrerequisite = () => {
-    setPrerequisites([...prerequisites, { title: "" }]); // Add a new empty prerequisite object
-  };
+  //   const addPrerequisite = () => {
+  //     setPrerequisites([...prerequisites, { title: "" }]); // Add a new empty prerequisite object
+  //   };
 
-  const removePrerequisite = (index) => {
-    const updatedPrerequisites = [...prerequisites];
-    updatedPrerequisites.splice(index, 1); // Remove the prerequisite object at the specified index
-    setPrerequisites(updatedPrerequisites);
-  };
+  //   const removePrerequisite = (index) => {
+  //     const updatedPrerequisites = [...prerequisites];
+  //     updatedPrerequisites.splice(index, 1); // Remove the prerequisite object at the specified index
+  //     setPrerequisites(updatedPrerequisites);
+  //   };
 
-  const handlePrerequisitesChange = (e, index) => {
-    const { value } = e.target;
-    const updatedPrerequisites = [...prerequisites];
-    updatedPrerequisites[index] = { title: value };
-    setPrerequisites(updatedPrerequisites);
-  };
+  //   const handlePrerequisitesChange = (e, index) => {
+  //     const { value } = e.target;
+  //     const updatedPrerequisites = [...prerequisites];
+  //     updatedPrerequisites[index] = { title: value };
+  //     setPrerequisites(updatedPrerequisites);
+  //   };
 
-  const addBenefits = () => {
-    setBenefits([...benefits, { title: "" }]); // Add a new empty benefit object
-  };
+  //   const addBenefits = () => {
+  //     setBenefits([...benefits, { title: "" }]); // Add a new empty benefit object
+  //   };
 
-  const removeBenefits = (index) => {
-    const updatedBenefits = [...benefits];
-    updatedBenefits.splice(index, 1); // Remove the benefit object at the specified index
-    setBenefits(updatedBenefits);
-  };
+  //   const removeBenefits = (index) => {
+  //     const updatedBenefits = [...benefits];
+  //     updatedBenefits.splice(index, 1); // Remove the benefit object at the specified index
+  //     setBenefits(updatedBenefits);
+  //   };
 
-  const handleBenefitsChange = (e, index) => {
-    const { value } = e.target;
-    const updatedBenefits = [...benefits];
-    updatedBenefits[index] = { title: value };
-    setBenefits(updatedBenefits);
-  };
+  //   const handleBenefitsChange = (e, index) => {
+  //     const { value } = e.target;
+  //     const updatedBenefits = [...benefits];
+  //     updatedBenefits[index] = { title: value };
+  //     setBenefits(updatedBenefits);
+  //   };
 
   return (
     <div className="create">
@@ -202,7 +192,7 @@ const Content = () => {
               >
                 <input
                   type="text"
-                  placeholder="Enter what students will benefit from this course"
+                  placeholder="Enter what students may need to carry out this course"
                   value={item?.title}
                   onChange={(e) => handleBenefitsChange(e, index)}
                   required
@@ -268,4 +258,4 @@ const Content = () => {
   );
 };
 
-export default AdminCreate;
+export default AdminCreate2;

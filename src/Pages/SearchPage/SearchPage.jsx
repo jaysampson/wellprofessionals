@@ -3,7 +3,6 @@ import Navbar from "../Layouts/Navbar/Navbar";
 import Footer from "../Layouts/Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowUpRightFromSquare,
   faCheck,
   faList,
   faSearch,
@@ -11,19 +10,15 @@ import {
   faStarHalf,
   faTableCells,
 } from "@fortawesome/free-solid-svg-icons";
-import ladies from "../../assets/Images/doings.svg";
-import pro from "../../assets/Images/Pro.svg";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import "./SearchPage.scss";
+import noimage from "../../assets/Images/noimage.png";
 
 const SearchPage = () => {
   const dispatch = useDispatch();
   const { searchQuery } = useParams();
-  // const { isLoading, isError, isSuccess, message } = useSelector(
-  //   (state) => state.course
-  // );
   const data = useSelector((state) => state.course.data);
 
   useEffect(() => {
@@ -133,9 +128,7 @@ const SearchPage = () => {
               <FontAwesomeIcon icon={faSearch} color="#667085" />
               <input type="text" placeholder="Search for online courses" />
             </div>
-            <Link to="/search">
-              <button>Search</button>
-            </Link>
+            <button>Search</button>
           </div>
           <div className="right-layout-top">
             <h2>
@@ -171,15 +164,7 @@ const SearchPage = () => {
                         to={`/overview/${courses._id}`}
                         className="course-name"
                       >
-                        <h3>
-                          {courses.name.length > 26
-                            ? courses.name.slice(0, 26) + "..."
-                            : courses.name}
-                        </h3>
-                        <FontAwesomeIcon
-                          icon={faArrowUpRightFromSquare}
-                          color="#000"
-                        />
+                        <h3>{courses.name}</h3>
                       </Link>
                       <div className="desc">
                         <span>
@@ -230,7 +215,7 @@ const SearchPage = () => {
                           <p>43k Ratings</p>
                         </div>
                       </div>
-                      <div className="price-add">
+                      {/* <div className="price-add">
                         <div className="price">
                           <p> {`₦${courses.price}`}</p>
                           <span className="slice">
@@ -238,7 +223,7 @@ const SearchPage = () => {
                           </span>
                         </div>
                         <button>Add to Cart</button>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 ))}

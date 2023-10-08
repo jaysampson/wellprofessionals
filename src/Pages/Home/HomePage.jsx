@@ -21,6 +21,7 @@ import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import { useDispatch, useSelector } from "react-redux";
 import wellslogo from "../../assets/Images/Wells-Logo.svg";
 import noimage from "../../assets/Images/noimage.png";
+import gif from "../../assets/Images/Loading.gif";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -78,9 +79,7 @@ const Home = () => {
   if (isLoading) {
     return (
       <div className="loading-page">
-        <img src={wellslogo} alt={wellslogo} />
-        <h1>WELLPROFESSIONALS</h1>
-        <FontAwesomeIcon icon={faSpinner} size="2x" spin />
+        <img src={gif} alt={gif} />
       </div>
     );
   }
@@ -95,11 +94,11 @@ const Home = () => {
           <div className="home-hero">
             <div className="hero-text">
               <div className="top-text">
-                <h1>Mastering Oil & Gas, one course at a time</h1>
-                <p>
-                  We are dedicated to providing comprehensive online courses in
-                  the field of oil and gas
-                </p>
+                <h1>
+                  Welcome to Well Professionals, the premier online platform
+                  offering affordable oil and gas courses.
+                </h1>
+                <p>Become Professionals and ready to join the world</p>
               </div>
               <div className="input-search">
                 <div className="search">
@@ -238,7 +237,10 @@ const Home = () => {
                           className="course-img"
                         />
                         <div className="content">
-                          <Link to="/overview" className="course-name">
+                          <Link
+                            to={`/overview/${courses._id}`}
+                            className="course-name"
+                          >
                             <h3>
                               {courses.name.length > 26
                                 ? courses.name.slice(0, 26) + "..."

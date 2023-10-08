@@ -23,121 +23,144 @@
     justify-content: center;
     flex-direction: column;
     gap: 60px;
-    .hero {
+    .home-hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
       width: 100%;
-      .hero-con {
-        background-image: url("../../assets/Images/header-section.svg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 470px;
+      height: 400px;
+      padding: 20px 0px 0px 0px;
+      background-image: url("../../assets/Images//home-bgc.svg");
+      background-color: #000000;
+      @media screen and (max-width: 500px) {
+        height: 100%;
+      }
+      .hero-text {
         display: flex;
-        justify-content: flex-start;
-        padding: 40px 0px 0px 40px;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
-        gap: 20px;
-        @media screen and (max-width: 768px) {
-          align-items: center;
-          height: max-content;
-          padding: 40px 0px 40px 0px;
-          background-image: url("../../assets//Images/header-sectionmb.svg");
-          height: 700px;
-          background-position-y: top;
-          justify-content: flex-end;
+        gap: 40px;
+        width: 70%;
+        padding-bottom: 30px;
+        height: 100%;
+        @media screen and (max-width: 500px) {
+          width: 90%;
+          padding: 30px 0px 30px 0px;
         }
+      }
+      .top-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 27px;
         h1 {
-          font-weight: 800;
-          font-size: 60px;
-          color: #fff;
-          width: 710px;
-          @media screen and (max-width: 768px) {
-            font-size: 40px;
-            text-align: center;
-            width: 100%;
+          font-weight: 600;
+          font-size: 40px;
+          text-align: center;
+          color: #ffffff;
+          @media screen and (max-width: 500px) {
+            font-size: 22px;
           }
         }
         p {
-          // font-size: 14px;
-          color: #fff;
           font-weight: 400;
-          width: 45%;
-          line-height: 28px;
-          @media screen and (max-width: 768px) {
-            width: 70%;
-            text-align: center;
-          }
+          // font-size: 18px;
+          text-align: center;
+          color: #a1a1aa;
           @media screen and (max-width: 500px) {
-            width: 85%;
+            // font-size: 16px;
           }
         }
-        .btn-text {
+      }
+      .input-search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        color: #fff;
+        flex-direction: column;
+        gap: 10px;
+        .search {
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 70px;
-          @media screen and (max-width: 768px) {
-            flex-direction: column;
-            gap: 40px;
+          padding: 0px 4px 0px 14px;
+          gap: 10px;
+          width: 400px;
+          color: #fff;
+          height: 50px;
+          background: transparent;
+          border: 1px solid var(--sec-01, #af5e41);
+          border-radius: 8px;
+          @media screen and (max-width: 500px) {
+            width: 100%;
           }
-          button {
-            border-radius: 4px;
-            background: #af5e41;
+          input {
+            outline: none;
             border: none;
+            width: 100%;
+            height: 30px;
+            background-position: center;
+            background-color: transparent;
+            font-weight: 400;
+            // font-size: 16px;
+            color: #fff;
+          }
+        }
+        .search-1 {
+          width: 79px;
+          height: 35px;
+          background: #af5e41;
+          border: 1px solid #af5e41;
+          border-radius: 8px;
+          color: #ffffff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 500;
+          // font-size: 14px;
+          @media screen and (max-width: 500px) {
+            display: none;
+          }
+        }
+        .search-2 {
+          width: 100%;
+          display: none;
+          button {
+            height: 40px;
+            background: #af5e41;
+            border: 1px solid #af5e41;
+            border-radius: 8px;
+            color: #ffffff;
             display: flex;
-            width: 290px;
-            height: 60px;
-            padding: 6px 12px;
             justify-content: center;
             align-items: center;
-            outline: none;
-            color: #fff;
-            @media screen and (max-width: 400px) {
-              width: 100%;
-              width: 250px;
-            }
+            font-weight: 500;
+            width: 100%;
           }
-          .trust {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-            color: #fff;
-            gap: 10px;
-            // font-size: 14px;
-            @media screen and (max-width: 768px) {
-              align-items: center;
-            }
-            p {
-              width: 100%;
-              margin-bottom: 0px;
-              padding-bottom: 0px;
-            }
-            .star {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              gap: 35px;
-              .stars {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 3px;
-                width: max-content;
-                @media screen and (max-width: 768px) {
-                  align-items: center;
-                }
-              }
-              p {
-                width: 100%;
-                span {
-                  color: #545454;
-                  width: 100%;
-                }
-              }
-            }
+          @media screen and (max-width: 500px) {
+            display: block;
           }
+        }
+      }
+      .hero-bottom-colors {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        .brown {
+          height: 12px;
+          background-color: #5d5b76;
+          width: 568px;
+        }
+        .blue {
+          width: 100%;
+          height: 12px;
+          background-color: #af5e41;
         }
       }
     }

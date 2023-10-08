@@ -2,7 +2,6 @@ import {
   faAngleDown,
   faArrowRightFromBracket,
   faBars,
-  faCaretDown,
   faMinus,
   faPlus,
   faSearch,
@@ -63,7 +62,9 @@ const Navbar = () => {
               </div>
             </div>
           </NavLink>
-          <FontAwesomeIcon icon={faSearch} className="search" />
+          <Link to="/search">
+            <FontAwesomeIcon icon={faSearch} className="search" />
+          </Link>
           <div className="right-nav">
             <FontAwesomeIcon icon={faSearch} className="search-input" />
             <div className="shop">
@@ -75,12 +76,30 @@ const Navbar = () => {
               <img src={notify} alt={notify} />
             </div>
             {user ? (
-              <div className="profile-img">
-                <img
-                  src={user && user.data.user_image}
-                  alt={user && user.data.user_image}
-                />
-              </div>
+              <Link to="/settings/profile" className="profile-img">
+                {user.data.image ? (
+                  <img
+                    src={user.data.image}
+                    alt={user.data.name}
+                    style={{
+                      width: "70px",
+                      height: "70px",
+                      borderRadius: "50%",
+                    }}
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faUserCircle}
+                    color="#af5e41"
+                    size="3x"
+                    style={{
+                      borderRadius: "50%",
+                      width: "70px",
+                      height: "70px",
+                    }}
+                  />
+                )}
+              </Link>
             ) : (
               <div className="auths">
                 <NavLink to="/auth-login" className="login-btn">
@@ -124,10 +143,10 @@ const Navbar = () => {
       <div className={toggle ? "sidebar" : "null"}>
         {user ? (
           <Link to="/settings/profile" className="nav-user">
-            {user ? (
+            {user.data.image ? (
               <img
-                src={user && user.data.user_image}
-                alt={user && user.data.user_image}
+                src={user.data.image}
+                alt={user.data.name}
                 style={{ width: "80px", height: "80px", borderRadius: "50%" }}
               />
             ) : (
@@ -135,7 +154,11 @@ const Navbar = () => {
                 icon={faUserCircle}
                 color="#af5e41"
                 size="3x"
-                style={{ borderRadius: "50%" }}
+                style={{
+                  borderRadius: "50%",
+                  width: "70px",
+                  height: "70px",
+                }}
               />
             )}
             <div className="nav-user-dets">
@@ -226,17 +249,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        <p
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "5px",
-            position: "fixed",
-            bottom: "130px",
-          }}
-          onClick={handleLogout}
-        >
+        <p onClick={handleLogout}>
           <FontAwesomeIcon icon={faArrowRightFromBracket} />
           <span>Logout</span>
         </p>
