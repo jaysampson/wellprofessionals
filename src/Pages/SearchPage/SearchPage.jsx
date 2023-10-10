@@ -218,11 +218,11 @@ const SearchPage = () => {
                         to={`/overview/${courses._id}`}
                         className="course-name"
                       >
-                        <h4>
+                        <h3>
                           {courses.name.length > 31
                             ? courses.name.slice(0, 29) + "..."
                             : courses.name}
-                        </h4>
+                        </h3>
                       </Link>
                       <div className="desc">
                         <span>
