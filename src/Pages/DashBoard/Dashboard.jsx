@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleRight,
   faCircleDot,
+  faClapperboard,
   faShare,
   faStar,
   faStarHalf,
@@ -95,7 +96,7 @@ const Dashboard = () => {
           </div>
           <div className="mark-course">
             <div className="course-book">
-              <div className="my-courses">
+              {/* <div className="my-courses">
                 <div className="courses-top">
                   <div className="left-text">
                     <h3>My Courses</h3>
@@ -160,7 +161,7 @@ const Dashboard = () => {
                     <FontAwesomeIcon icon={faShare} cursor="pointer" />
                   </div>
                 </div>
-              </div>
+              </div> */}
               {/* <div className="bookmark">
                 <div className="mark-top">
                   <h3>Bookmarked courses</h3>
@@ -215,58 +216,562 @@ const Dashboard = () => {
                   <FontAwesomeIcon icon={faAngleRight} />
                 </NavLink>
               </div> */}
-              <div className="recent">
-                <div className="recent-con">
-                  <div className="recent-top">
-                    <h3>My recent Studies</h3>
-                    <select name="" id="">
-                      <option value="">Last 7 days</option>
-                    </select>
-                  </div>
-                  <div className="progress-main">
-                    <div className="progress-con">
-                      <div className="course">
-                        <p>Lorem ipsum dolor sit.</p>
-                        <p>72%</p>
+            </div>
+            <div className="my-courses">
+              <div className="learning">
+                <h3>Currently Learning</h3>
+                <div className="learning-course">
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
                       </div>
-                      <progress
-                        className="progress"
-                        max="100"
-                        value="72"
-                      ></progress>
-                    </div>
-                    <div className="progress-con">
-                      <div className="course">
-                        <p>Lorem ipsum dolor sit.</p>
-                        <p>62%</p>
+                      <div className="course-name">
+                        <Link to="/dashboard/mycourses/course">
+                          <h4>
+                            Creative Engineering: Lorem ipsum dolor sit amet,
+                            consectetur
+                          </h4>
+                        </Link>
+
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
                       </div>
-                      <progress
-                        className="progress"
-                        max="100"
-                        value="62"
-                      ></progress>
-                    </div>
-                    <div className="progress-con">
-                      <div className="course">
-                        <p>Lorem ipsum dolor sit.</p>
+                      <div className="progress">
+                        <progress
+                          className="progress"
+                          max="100"
+                          value="41"
+                        ></progress>
                         <p>41%</p>
                       </div>
-                      <progress
-                        className="progress"
-                        max="100"
-                        value="41"
-                      ></progress>
-                    </div>
-                    <div className="progress-con">
-                      <div className="course">
-                        <p>Lorem ipsum dolor sit.</p>
-                        <p>23%</p>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
                       </div>
-                      <progress
-                        className="progress"
-                        max="100"
-                        value="23"
-                      ></progress>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>
+                          Creative Engineering: Lorem ipsum dolor sit amet,
+                          consectetur
+                        </h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="progress">
+                        <progress
+                          className="progress"
+                          max="100"
+                          value="41"
+                        ></progress>
+                        <p>41%</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>
+                          Creative Engineering: Lorem ipsum dolor sit amet,
+                          consectetur
+                        </h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="progress">
+                        <progress
+                          className="progress"
+                          max="100"
+                          value="41"
+                        ></progress>
+                        <p>41%</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>
+                          Creative Engineering: Lorem ipsum dolor sit amet,
+                          consectetur
+                        </h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="progress">
+                        <progress
+                          className="progress"
+                          max="100"
+                          value="41"
+                        ></progress>
+                        <p>41%</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>
+                          Creative Engineering: Lorem ipsum dolor sit amet,
+                          consectetur
+                        </h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="progress">
+                        <progress
+                          className="progress"
+                          max="100"
+                          value="41"
+                        ></progress>
+                        <p>41%</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>
+                          Creative Engineering: Lorem ipsum dolor sit amet,
+                          consectetur
+                        </h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="progress">
+                        <progress
+                          className="progress"
+                          max="100"
+                          value="41"
+                        ></progress>
+                        <p>41%</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>
+                          Creative Engineering: Lorem ipsum dolor sit amet,
+                          consectetur
+                        </h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="progress">
+                        <progress
+                          className="progress"
+                          max="100"
+                          value="41"
+                        ></progress>
+                        <p>41%</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div className="learning">
+                <h3>Completed Courses</h3>
+                <div className="learning-course">
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>Creative Engineering: Lorem</h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="level">
+                        <FontAwesomeIcon icon={faCircleDot} />
+                        <p>Completed</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>Creative Engineering: Lorem</h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="level">
+                        <FontAwesomeIcon icon={faCircleDot} />
+                        <p>Completed</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>Creative Engineering: Lorem</h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="level">
+                        <FontAwesomeIcon icon={faCircleDot} />
+                        <p>Completed</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>Creative Engineering: Lorem</h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="level">
+                        <FontAwesomeIcon icon={faCircleDot} />
+                        <p>Completed</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>Creative Engineering: Lorem</h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="level">
+                        <FontAwesomeIcon icon={faCircleDot} />
+                        <p>Completed</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>Creative Engineering: Lorem</h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="level">
+                        <FontAwesomeIcon icon={faCircleDot} />
+                        <p>Completed</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>Creative Engineering: Lorem</h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="level">
+                        <FontAwesomeIcon icon={faCircleDot} />
+                        <p>Completed</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="course-con">
+                    <img src={ladies} alt={ladies} />
+                    <div className="content">
+                      <div className="admin">
+                        <div className="admin-title">
+                          <img src={pro} alt={pro} />
+                          <p>Michael Jordan</p>
+                        </div>
+                        <p className="check">
+                          <FontAwesomeIcon
+                            icon={faCheck}
+                            color="#000"
+                            size="2xs"
+                          />
+                        </p>
+                      </div>
+                      <div className="course-name">
+                        <h4>Creative Engineering: Lorem</h4>
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          color="#000"
+                        />
+                      </div>
+                      <div className="level">
+                        <FontAwesomeIcon icon={faCircleDot} />
+                        <p>Completed</p>
+                      </div>
+                      <div className="course-duration">
+                        <FontAwesomeIcon icon={faClapperboard} />
+                        <p>2-3 weeks course</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -277,11 +782,66 @@ const Dashboard = () => {
             <div className="chart">
               <Line data={chartData} options={chartOptions} />
             </div>
+            <div className="recent">
+              <div className="recent-con">
+                <div className="recent-top">
+                  <h3>My recent Studies</h3>
+                  <select name="" id="">
+                    <option value="">Last 7 days</option>
+                  </select>
+                </div>
+                <div className="progress-main">
+                  <div className="progress-con">
+                    <div className="course">
+                      <p>Lorem ipsum dolor sit.</p>
+                      <p>72%</p>
+                    </div>
+                    <progress
+                      className="progress"
+                      max="100"
+                      value="72"
+                    ></progress>
+                  </div>
+                  <div className="progress-con">
+                    <div className="course">
+                      <p>Lorem ipsum dolor sit.</p>
+                      <p>62%</p>
+                    </div>
+                    <progress
+                      className="progress"
+                      max="100"
+                      value="62"
+                    ></progress>
+                  </div>
+                  <div className="progress-con">
+                    <div className="course">
+                      <p>Lorem ipsum dolor sit.</p>
+                      <p>41%</p>
+                    </div>
+                    <progress
+                      className="progress"
+                      max="100"
+                      value="41"
+                    ></progress>
+                  </div>
+                  <div className="progress-con">
+                    <div className="course">
+                      <p>Lorem ipsum dolor sit.</p>
+                      <p>23%</p>
+                    </div>
+                    <progress
+                      className="progress"
+                      max="100"
+                      value="23"
+                    ></progress>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
           <div className="on-picks">
             <div className="top-rated-con">
-              <h3>Topics based on your picks</h3>
+              <h2>Topics recommended for you</h2>
               <div className="courses">
                 {data?.getCourse?.map((courses) => (
                   <div className="course-con" key={courses.id}>
@@ -295,11 +855,11 @@ const Dashboard = () => {
                         to={`/overview/${courses._id}`}
                         className="course-name"
                       >
-                        <h3>
+                        <h4>
                           {courses.name.length > 26
                             ? courses.name.slice(0, 26) + "..."
                             : courses.name}
-                        </h3>
+                        </h4>
                         <FontAwesomeIcon
                           icon={faArrowUpRightFromSquare}
                           color="#000"
@@ -367,25 +927,6 @@ const Dashboard = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-          <div className="recommended">
-            <p>Topics recommended for you</p>
-            <div className="options">
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
-              <p>Lorem Ipsum</p>
             </div>
           </div>
         </div>

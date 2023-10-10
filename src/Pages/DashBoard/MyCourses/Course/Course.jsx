@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleDown,
   faAngleRight,
+  faArrowLeft,
+  faArrowRight,
   faAward,
   faCircle,
   faCircleDot,
@@ -34,9 +36,9 @@ const Course = () => {
   const [active, setActive] = useState("lesson");
   const [show, setShow] = useState(false);
 
-  function handleShow() {
-    setShow(!show);
-  }
+  // function handleShow() {
+  //   setShow(!show);
+  // }
 
   function handleDrop() {
     setDrop(!drop);
@@ -79,6 +81,7 @@ const Course = () => {
       <div className="course-page">
         <div className="course-page-hero">
           <div className="coursepage-hero-left">
+            <h3>DRILLING ENGINEERING FUNDAMENTALS</h3>
             <div className="course-vid">
               <ReactPlayer
                 url={video}
@@ -89,13 +92,12 @@ const Course = () => {
             </div>
             <div className="coursepage-left-contents">
               <div className="course-details">
-                <h3>DRILLING ENGINEERING FUNDAMENTALS</h3>
-                <p>
+                {/* <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
                   iure maxime accusamus cumque voluptates assumenda sapiente
                   excepturi itaque cupiditate quisquam.
-                </p>
-                <span onClick={handleShow}>
+                </p> */}
+                {/* <span onClick={handleShow}>
                   Show More <FontAwesomeIcon icon={faAngleDown} />
                 </span>
                 {show && (
@@ -145,7 +147,21 @@ const Course = () => {
                       </div>
                     </div>
                   </div>
-                )}
+                )} */}
+                <div className="controls">
+                  <div className="arrow">
+                    <FontAwesomeIcon icon={faArrowLeft} />
+                    <span>Previous</span>
+                  </div>
+                  <p>Chapter 1</p>
+                </div>
+                <div className="controls">
+                  <div className="arrow">
+                    <span>Next</span>
+                    <FontAwesomeIcon icon={faArrowRight} />
+                  </div>
+                  <p>Chapter 3</p>
+                </div>
               </div>
               <div className="tutor">
                 <h4>TUTOR</h4>

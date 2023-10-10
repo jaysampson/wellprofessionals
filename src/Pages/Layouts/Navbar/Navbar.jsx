@@ -52,16 +52,18 @@ const Navbar = () => {
             className="ham"
             onClick={toggleMenu}
           />
-          <NavLink to="/">
+          <div to="/">
             <div className="logo-name">
-              <img src={wellslogo} alt={wellslogo} />
-              <p> WELL PROFESSIONALS</p>
+              <NavLink to="/" className="logo">
+                <img src={wellslogo} alt={wellslogo} />
+                <p> WELL PROFESSIONALS</p>
+              </NavLink>
               <div className="categories">
                 <span>Categories</span>
                 <FontAwesomeIcon icon={faAngleDown} color="#64748B" />
               </div>
             </div>
-          </NavLink>
+          </div>
           <Link to="/search" className="search">
             <FontAwesomeIcon icon={faSearch} />
           </Link>

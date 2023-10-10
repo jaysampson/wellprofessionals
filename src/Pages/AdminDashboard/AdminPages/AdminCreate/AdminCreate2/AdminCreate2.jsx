@@ -6,7 +6,7 @@ import upload from "../../../../../assets/Images/upload.svg";
 import { faCloudUpload, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { BreadCrumb } from "../../../../BreadCrumb/BreadCrumb";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../AdminCreate2/AdminCreate2.scss";
+import "./AdminCreate2.scss";
 
 const AdminCreate2 = () => {
   return (

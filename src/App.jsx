@@ -59,7 +59,6 @@ function App() {
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/overview" element={<Overview />} />
-        <Route path="/dashboard/mycourses" element={<MyCourses />} />
         <Route path="/dashboard/mycourses/course" element={<Course />} />
 
         {/* Admin-Pages */}

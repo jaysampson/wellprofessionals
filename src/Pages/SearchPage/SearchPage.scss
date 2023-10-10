@@ -190,30 +190,30 @@
           align-items: flex-start;
           justify-content: center;
           flex-direction: column;
-          // gap: 20px 20px;
           width: 100%;
           padding: 20px 0px;
           flex-wrap: wrap;
+          border-bottom: 1px solid #000;
           @media screen and (max-width: 768px) {
             justify-content: center;
-            gap: 50px;
           }
           .course-con {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: flex-start;
-            // flex-direction: column;
-            gap: 30px;
-            // flex: 0 0 300px;
+            gap: 2%;
             width: 100%;
             padding: 20px 0px;
-            border-bottom: 1px solid #000;
             border-top: 1px solid #000;
             .course-img {
               width: 120px;
               border-radius: 8px;
               height: 100px;
               border: 1px solid #af5e41;
+              @media screen and (max-width: 500px) {
+                width: 30%;
+                height: 80%;
+              }
             }
             .content {
               display: flex;
@@ -257,18 +257,19 @@
                 align-items: center;
                 justify-content: space-between;
                 width: 100%;
-                h3 {
-                  font-weight: 700;
-                  font-size: 20px;
+                h4 {
                   color: #000000;
                   text-align: left;
                 }
               }
               .desc {
-                p {
-                  font-weight: 400;
-                  font-size: 12px;
+                span {
+                  // font-weight: 400;
+                  // font-size: 12px;
                   color: #667085;
+                }
+                @media screen and (max-width: 500px) {
+                  display: none;
                 }
               }
               .rating {
@@ -289,7 +290,8 @@
               .price-add {
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
+                justify-content: flex-start;
+                gap: 15px;
                 width: 100%;
                 .price {
                   display: flex;

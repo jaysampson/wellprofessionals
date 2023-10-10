@@ -40,75 +40,89 @@
       justify-content: flex-start;
       flex-direction: column;
       gap: 40px;
+      width: 100%;
       .course-details {
         display: flex;
         align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-        gap: 10px;
-        p {
-          color: rgba(25, 29, 35, 0.7);
-          text-overflow: ellipsis;
-          // font-size: 20px;
-          font-weight: 400;
-        }
-        span {
-          color: var(--neutral-800, #191d23);
-          font-feature-settings: "clig" off, "liga" off;
-          // font-size: 20px;
-          // font-weight: 600;
-          font-size: 14px;
-          display: flex;
-          gap: 5px;
-          justify-content: center;
-          align-items: center;
-        }
-        .rating-members {
+        justify-content: space-between;
+        width: 100%;
+        // p {
+        //   color: rgba(25, 29, 35, 0.7);
+        //   text-overflow: ellipsis;
+        //   // font-size: 20px;
+        //   font-weight: 400;
+        // }
+        // span {
+        //   color: var(--neutral-800, #191d23);
+        //   font-feature-settings: "clig" off, "liga" off;
+        //   // font-size: 20px;
+        //   // font-weight: 600;
+        //   font-size: 14px;
+        //   display: flex;
+        //   gap: 5px;
+        //   justify-content: center;
+        //   align-items: center;
+        // }
+        // .rating-members {
+        //   display: flex;
+        //   align-items: flex-start;
+        //   justify-content: center;
+        //   gap: 15px;
+        //   flex-direction: column;
+        //   .star-rating {
+        //     display: flex;
+        //     align-items: center;
+        //     gap: 20px;
+        //     justify-content: center;
+        //     .star {
+        //       display: flex;
+        //       align-items: center;
+        //       justify-content: flex-start;
+        //       gap: 10px;
+        //       img {
+        //         height: 20px;
+        //         width: 20px;
+        //       }
+        //       .half-star {
+        //         height: 20px;
+        //         width: 20px;
+        //       }
+        //     }
+        //     span {
+        //       color: var(--mid-gray-mid-gray-1, #5b6871);
+        //       font-weight: 400;
+        //       font-size: 14px;
+        //     }
+        //   }
+        //   .perks {
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: flex-start;
+        //     gap: 15px;
+        //     flex-wrap: wrap;
+        //     .perk {
+        //       display: flex;
+        //       align-items: center;
+        //       justify-content: center;
+        //       gap: 8px;
+        //       p {
+        //         font-size: 14px;
+        //       }
+        //     }
+        //   }
+        // }
+        .controls {
           display: flex;
           align-items: flex-start;
           justify-content: center;
-          gap: 15px;
+          gap: 5px;
           flex-direction: column;
-          .star-rating {
+          .arrow {
             display: flex;
-            align-items: center;
-            gap: 20px;
+            align-items: flex-start;
             justify-content: center;
-            .star {
-              display: flex;
-              align-items: center;
-              justify-content: flex-start;
-              gap: 10px;
-              img {
-                height: 20px;
-                width: 20px;
-              }
-              .half-star {
-                height: 20px;
-                width: 20px;
-              }
-            }
-            span {
-              color: var(--mid-gray-mid-gray-1, #5b6871);
-              font-weight: 400;
-              font-size: 14px;
-            }
-          }
-          .perks {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 15px;
-            flex-wrap: wrap;
-            .perk {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              gap: 8px;
-              p {
-                font-size: 14px;
-              }
-            }
+            gap: 5px;
+            cursor: pointer;
           }
         }
       }

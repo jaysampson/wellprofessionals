@@ -4,11 +4,9 @@ import Footer from "../Layouts/Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
-  faList,
   faSearch,
   faStar,
   faStarHalf,
-  faTableCells,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -200,11 +198,8 @@ const SearchPage = () => {
                 <select name="" id="">
                   <option value="">Featured</option>
                   <option value="">Price</option>
+                  <option value="">Popularity</option>
                 </select>
-              </div>
-              <div className="filter">
-                <FontAwesomeIcon icon={faTableCells} className="awesome" />
-                <FontAwesomeIcon icon={faList} className="awesome-2" />
               </div>
             </div>
           </div>
@@ -223,7 +218,11 @@ const SearchPage = () => {
                         to={`/overview/${courses._id}`}
                         className="course-name"
                       >
-                        <h3>{courses.name}</h3>
+                        <h4>
+                          {courses.name.length > 31
+                            ? courses.name.slice(0, 29) + "..."
+                            : courses.name}
+                        </h4>
                       </Link>
                       <div className="desc">
                         <span>
@@ -274,7 +273,7 @@ const SearchPage = () => {
                           <p>43k Ratings</p>
                         </div>
                       </div>
-                      {/* <div className="price-add">
+                      <div className="price-add">
                         <div className="price">
                           <p> {`₦${courses.price}`}</p>
                           <span className="slice">
@@ -282,7 +281,7 @@ const SearchPage = () => {
                           </span>
                         </div>
                         <button>Add to Cart</button>
-                      </div> */}
+                      </div>
                     </div>
                   </div>
                 ))}

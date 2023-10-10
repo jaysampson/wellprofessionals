@@ -318,7 +318,9 @@
               width: 100%;
               flex-wrap: wrap;
               @media screen and (max-width: 768px) {
-                justify-content: center;
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                overflow: auto;
               }
               .course-con {
                 display: flex;
