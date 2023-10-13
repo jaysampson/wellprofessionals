@@ -124,8 +124,8 @@ const Login = () => {
                   <p>Enter your details below</p>
                 </div>
               </div>
-              <form className="form">
-                <form method="POST">
+              <form method="POST" className="form" onSubmit={loginSubmit}>
+                <div className="form">
                   <div className="blank">
                     <label htmlFor="">Email Address</label>
                     <div className="input">
@@ -136,6 +136,7 @@ const Login = () => {
                         onChange={(e) => {
                           setEmail(e.target.value);
                         }}
+                        required
                       />
                     </div>
                   </div>
@@ -149,6 +150,7 @@ const Login = () => {
                         onChange={(e) => {
                           setPassword(e.target.value);
                         }}
+                        required
                       />
                       <FontAwesomeIcon
                         icon={toggle ? faEye : faEyeSlash}
@@ -158,14 +160,14 @@ const Login = () => {
                       />
                     </div>
                   </div>
-                </form>
+                </div>
                 <div className="remember">
-                  <input type="checkbox" className="checkbox" />
+                  <input type="checkbox" className="checkbox" required />
                   <p>Remember me</p>
                 </div>
                 {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
                 <div className="signin-ctn-btn">
-                  <button type="submit" onClick={loginSubmit}>
+                  <button type="submit">
                     <p>
                       {isLoading ? (
                         <FontAwesomeIcon icon={faSpinner} spin />

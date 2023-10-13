@@ -86,8 +86,8 @@ const Register = () => {
                   <p>Welcome, enter your credentials to create your account</p>
                 </div>
               </div>
-              <div className="form">
-                <form method="POST">
+              <form method="POST" onSubmit={registerUser}>
+                <div className="form">
                   <div className="blank">
                     <label htmlFor="">Full name</label>
                     <div className="input">
@@ -160,7 +160,7 @@ const Register = () => {
                       />
                     </div>
                   </div>
-                </form>
+                </div>
                 <div className="remember">
                   <input type="checkbox" className="checkbox" required />
                   <p>
@@ -169,7 +169,7 @@ const Register = () => {
                   </p>
                 </div>
                 <div className="signup-ctn-btn">
-                  <button type="submit" onClick={registerUser}>
+                  <button type="submit">
                     <p>
                       {isLoading ? (
                         <FontAwesomeIcon icon={faSpinner} spin />
@@ -189,7 +189,7 @@ const Register = () => {
                     </span>
                   </p>
                 </div>
-              </div>
+              </form>
               <div className="signup-options">
                 <div className="or">
                   <hr />
