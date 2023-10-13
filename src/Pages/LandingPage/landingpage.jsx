@@ -215,7 +215,7 @@ const LandingPage = () => {
                   <div className="top-rated-con">
                     <h2>Courses for you based on your picks</h2>
                     <div className="courses">
-                      {data?.getCourse?.slice(0, 3).map((courses) => (
+                      {data?.getCourse?.map((courses) => (
                         <div className="course-con" key={courses._id}>
                           <img
                             src={courses?.thumbnail?.url || noimage}

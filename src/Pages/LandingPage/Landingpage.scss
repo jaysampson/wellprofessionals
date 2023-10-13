@@ -375,16 +375,12 @@
               margin-top: 25px;
               display: flex;
               align-items: center;
-              justify-content: center;
               gap: 40px;
               padding: 0px 0px 20px 0px;
               width: 100%;
-              flex-wrap: wrap;
-              @media screen and (max-width: 768px) {
-                justify-content: flex-start;
-                flex-wrap: nowrap;
-                overflow: auto;
-              }
+              justify-content: flex-start;
+              flex-wrap: nowrap;
+              overflow: auto;
               .course-con {
                 display: flex;
                 align-items: center;
@@ -582,16 +578,13 @@
             margin-top: 25px;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 40px;
             padding: 0px 0px 20px 0px;
             width: 100%;
-            flex-wrap: wrap;
-            @media screen and (max-width: 768px) {
-              justify-content: flex-start;
-              flex-wrap: nowrap;
-              overflow: auto;
-            }
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            overflow: auto;
+
             .course-con {
               display: flex;
               align-items: center;
