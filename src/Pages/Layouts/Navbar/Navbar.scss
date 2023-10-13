@@ -230,9 +230,8 @@ nav {
       top: 60px;
       left: 0px;
       width: 70%;
-      height: 100vh;
+      height: 94vh;
       background-color: white;
-
       overflow-y: auto;
       margin-right: 0px;
       padding: 30px 20px 30px 10px;
@@ -342,6 +341,14 @@ nav {
             }
           }
         }
+      }
+      .logout {
+        color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
       }
     }
   }

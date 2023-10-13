@@ -203,22 +203,27 @@ const Navbar = () => {
           </>
         )}
         <hr />
+        <Link to="/">
+          <h3>Home</h3>
+        </Link>
+        <Link to="/cart">
+          <h3>Cart</h3>
+        </Link>
+        <h3>Become an Instructor</h3>
+        <h3>Rate & Review</h3>
+        <h3>Terms & Conditions</h3>
+        <h3>Privacy Policy</h3>
+        <h3>Help</h3>
         {user ? (
           <>
-            <Link to="/">
-              <h3>Home</h3>
-            </Link>
             <Link to="/dashboard">
               <h3>Dashboard</h3>
-            </Link>
-            <Link to="/cart">
-              <h3>Cart</h3>
             </Link>
             <Link to="/admin/create">
               <h3>Create Course</h3>
             </Link>
             <h3>Notifications</h3>
-            <h3>Instructor</h3>
+            <h3>Change Password</h3>
             <Link to="/settings/profile">
               <h3>Settings</h3>
             </Link>
@@ -259,10 +264,14 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        <p onClick={handleLogout}>
-          <FontAwesomeIcon icon={faArrowRightFromBracket} />
-          <span>Logout</span>
-        </p>
+        {user ? (
+          <p className="logout" onClick={handleLogout}>
+            <FontAwesomeIcon icon={faArrowRightFromBracket} />
+            <span>Logout</span>
+          </p>
+        ) : (
+          ""
+        )}
       </div>
     </nav>
   );
