@@ -31,6 +31,7 @@ import Cart from "./Pages/Cart/Cart";
 import { useSelector } from "react-redux";
 import AdminCreate from "./Pages/AdminDashboard/AdminPages/AdminCreate/AdminCreate";
 import AdminCreate2 from "./Pages/AdminDashboard/AdminPages/AdminCreate/AdminCreate2/AdminCreate2";
+import "./font.scss";
 
 function App() {
   const { user } = useSelector((state) => state.auth);
