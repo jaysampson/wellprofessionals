@@ -119,7 +119,7 @@ const LandingPage = () => {
               <main>
                 <div className="top-rated">
                   <div className="top-rated-con">
-                    <h3>Top rated courses</h3>
+                    <h2>Top rated courses</h2>
                     <div className="courses">
                       {data?.getCourse?.slice(0, 3).map((courses) => (
                         <div className="course-con" key={courses.id}>
@@ -133,15 +133,14 @@ const LandingPage = () => {
                               to={`/overview/${courses._id}`}
                               className="course-name"
                             >
-                              <h5>
+                              <h3>
                                 {courses.name.length > 26
                                   ? courses.name.slice(0, 26) + "..."
                                   : courses.name}
-                              </h5>
+                              </h3>
                               <FontAwesomeIcon
                                 icon={faArrowUpRightFromSquare}
                                 color="#000"
-                                size="sm"
                               />
                             </Link>
                             <div className="desc">
@@ -193,7 +192,7 @@ const LandingPage = () => {
                                 />
                               </div>
                               <div className="rated">
-                                <span>43k Ratings</span>
+                                <p>43k Ratings</p>
                               </div>
                             </div>
                             <div className="price-add">
@@ -216,11 +215,11 @@ const LandingPage = () => {
                   <div className="top-rated-con">
                     <h2>Courses for you based on your picks</h2>
                     <div className="courses">
-                      {data?.getCourse?.slice(0, 3).map((courses) => (
-                        <div className="course-con" key={courses.id}>
+                      {data?.getCourse?.map((courses) => (
+                        <div className="course-con" key={courses._id}>
                           <img
                             src={courses?.thumbnail?.url || noimage}
-                            alt={courses.thumbnail?.url}
+                            alt={courses.thumbnail?.url || noimage}
                             className="course-img"
                           />
                           <div className="content">
@@ -228,15 +227,14 @@ const LandingPage = () => {
                               to={`/overview/${courses._id}`}
                               className="course-name"
                             >
-                              <h5>
+                              <h3>
                                 {courses.name.length > 26
                                   ? courses.name.slice(0, 26) + "..."
                                   : courses.name}
-                              </h5>
+                              </h3>
                               <FontAwesomeIcon
                                 icon={faArrowUpRightFromSquare}
                                 color="#000"
-                                size="sm"
                               />
                             </Link>
                             <div className="desc">
@@ -247,10 +245,10 @@ const LandingPage = () => {
                               </span>
                             </div>
                             <div className="admin">
-                              <span style={{ color: "#CD760F" }}>
+                              <p style={{ color: "#CD760F" }}>
                                 {" "}
                                 by Michael Jordan
-                              </span>
+                              </p>
                               <p className="check">
                                 <FontAwesomeIcon
                                   icon={faCheck}
@@ -263,32 +261,32 @@ const LandingPage = () => {
                               <div className="star">
                                 <FontAwesomeIcon
                                   icon={faStar}
-                                  size="2xs"
+                                  size="sm"
                                   color="#F8C51B"
                                 />
                                 <FontAwesomeIcon
                                   icon={faStar}
-                                  size="2xs"
+                                  size="sm"
                                   color="#F8C51B"
                                 />
                                 <FontAwesomeIcon
                                   icon={faStar}
-                                  size="2xs"
+                                  size="sm"
                                   color="#F8C51B"
                                 />
                                 <FontAwesomeIcon
                                   icon={faStar}
-                                  size="2xs"
+                                  size="sm"
                                   color="#F8C51B"
                                 />
                                 <FontAwesomeIcon
                                   icon={faStarHalf}
-                                  size="2xs"
+                                  size="sm"
                                   color="#F8C51B"
                                 />
                               </div>
                               <div className="rated">
-                                <span>43k Ratings</span>
+                                <p>43k Ratings</p>
                               </div>
                             </div>
                             <div className="price-add">
@@ -329,7 +327,7 @@ const LandingPage = () => {
                 <div className="new">
                   <h2>New Classes (1093)</h2>
                   <div className="courses">
-                    {data?.getCourse?.slice(0, 3).map((courses) => (
+                    {data?.getCourse?.map((courses) => (
                       <div className="course-con" key={courses.id}>
                         <img
                           src={courses?.thumbnail?.url || noimage}
@@ -341,15 +339,14 @@ const LandingPage = () => {
                             to={`/overview/${courses._id}`}
                             className="course-name"
                           >
-                            <h5>
+                            <h3>
                               {courses.name.length > 26
                                 ? courses.name.slice(0, 26) + "..."
                                 : courses.name}
-                            </h5>
+                            </h3>
                             <FontAwesomeIcon
                               icon={faArrowUpRightFromSquare}
                               color="#000"
-                              size="sm"
                             />
                           </Link>
                           <div className="desc">
@@ -360,10 +357,10 @@ const LandingPage = () => {
                             </span>
                           </div>
                           <div className="admin">
-                            <span style={{ color: "#CD760F" }}>
+                            <p style={{ color: "#CD760F" }}>
                               {" "}
                               by Michael Jordan
-                            </span>
+                            </p>
                             <p className="check">
                               <FontAwesomeIcon
                                 icon={faCheck}
@@ -376,32 +373,32 @@ const LandingPage = () => {
                             <div className="star">
                               <FontAwesomeIcon
                                 icon={faStar}
-                                size="2xs"
+                                size="sm"
                                 color="#F8C51B"
                               />
                               <FontAwesomeIcon
                                 icon={faStar}
-                                size="2xs"
+                                size="sm"
                                 color="#F8C51B"
                               />
                               <FontAwesomeIcon
                                 icon={faStar}
-                                size="2xs"
+                                size="sm"
                                 color="#F8C51B"
                               />
                               <FontAwesomeIcon
                                 icon={faStar}
-                                size="2xs"
+                                size="sm"
                                 color="#F8C51B"
                               />
                               <FontAwesomeIcon
                                 icon={faStarHalf}
-                                size="2xs"
+                                size="sm"
                                 color="#F8C51B"
                               />
                             </div>
                             <div className="rated">
-                              <span>43k Ratings</span>
+                              <p>43k Ratings</p>
                             </div>
                           </div>
                           <div className="price-add">
