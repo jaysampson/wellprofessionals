@@ -164,15 +164,15 @@ const Course = () => {
                 </div>
               </div>
               <div className="tutor">
-                <h4>TUTOR</h4>
+                <h5>TUTOR</h5>
                 <div className="img-name">
                   <img src={ladies} alt={ladies} className="tutor-img" />
                   <div className="name-desc">
-                    <h4>Lorem Ipsum</h4>
-                    <p>
+                    <p>Lorem Ipsum</p>
+                    <span>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Voluptatum, delectus!
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -204,7 +204,7 @@ const Course = () => {
               <div className="chapter" onClick={handleDrop}>
                 <img src={ladies} alt={ladies} className="chapter-img" />
                 <div className="coursename-desc">
-                  <h3>Chapter: Course Overview</h3>
+                  <h4>Chapter: Course Overview</h4>
                   <div className="coursenum-time">
                     <p>1/12</p>
                     <FontAwesomeIcon
@@ -268,7 +268,7 @@ const Course = () => {
               <div className="chapter" onClick={handleDrop1}>
                 <img src={ladies} alt={ladies} className="chapter-img" />
                 <div className="coursename-desc">
-                  <h3>Chapter: Coal mining</h3>
+                  <h4>Chapter: Coal mining</h4>
                   <div className="coursenum-time">
                     <p>1/12</p>
                     <FontAwesomeIcon
@@ -332,7 +332,7 @@ const Course = () => {
               <div className="chapter" onClick={handleDrop2}>
                 <img src={ladies} alt={ladies} className="chapter-img" />
                 <div className="coursename-desc">
-                  <h3>Chapter: Hope</h3>
+                  <h4>Chapter: Hope</h4>
                   <div className="coursenum-time">
                     <p>1/12</p>
                     <FontAwesomeIcon
@@ -381,7 +381,7 @@ const Course = () => {
               <div className="chapter" onClick={handleDrop3}>
                 <img src={ladies} alt={ladies} className="chapter-img" />
                 <div className="coursename-desc">
-                  <h3>Chapter: For</h3>
+                  <h4>Chapter: For</h4>
                   <div className="coursenum-time">
                     <p>1/12</p>
                     <FontAwesomeIcon
@@ -415,7 +415,7 @@ const Course = () => {
               <div className="chapter" onClick={handleDrop4}>
                 <img src={ladies} alt={ladies} className="chapter-img" />
                 <div className="coursename-desc">
-                  <h3>Chapter: A better</h3>
+                  <h4>Chapter: A better</h4>
                   <div className="coursenum-time">
                     <p>1/12</p>
                     <FontAwesomeIcon
@@ -449,7 +449,7 @@ const Course = () => {
               <div className="chapter" onClick={handleDrop5}>
                 <img src={ladies} alt={ladies} className="chapter-img" />
                 <div className="coursename-desc">
-                  <h3>Chapter: Nigeria</h3>
+                  <h4>Chapter: Nigeria</h4>
                   <div className="coursenum-time">
                     <p>1/12</p>
                     <FontAwesomeIcon
@@ -498,7 +498,7 @@ const Course = () => {
               <div className="chapter" onClick={handleDrop6}>
                 <img src={ladies} alt={ladies} className="chapter-img" />
                 <div className="coursename-desc">
-                  <h3>Chapter: Amen</h3>
+                  <h4>Chapter: Amen</h4>
                   <div className="coursenum-time">
                     <p>1/12</p>
                     <FontAwesomeIcon
@@ -532,7 +532,7 @@ const Course = () => {
               <div className="chapter" onClick={handleDrop7}>
                 <img src={ladies} alt={ladies} className="chapter-img" />
                 <div className="coursename-desc">
-                  <h3>Chapter: Drilling</h3>
+                  <h4>Chapter: Drilling</h4>
                   <div className="coursenum-time">
                     <p>1/12</p>
                     <FontAwesomeIcon
@@ -566,7 +566,7 @@ const Course = () => {
               <div className="chapter" onClick={handleDrop8}>
                 <img src={ladies} alt={ladies} className="chapter-img" />
                 <div className="coursename-desc">
-                  <h3>Chapter: Mid Stream</h3>
+                  <h4>Chapter: Mid Stream</h4>
                   <div className="coursenum-time">
                     <p>1/12</p>
                     <FontAwesomeIcon
@@ -600,7 +600,7 @@ const Course = () => {
               <div className="chapter" onClick={handleDrop9}>
                 <img src={ladies} alt={ladies} className="chapter-img" />
                 <div className="coursename-desc">
-                  <h3>Chapter: Gas</h3>
+                  <h4>Chapter: Gas</h4>
                   <div className="coursenum-time">
                     <p>1/12</p>
                     <FontAwesomeIcon

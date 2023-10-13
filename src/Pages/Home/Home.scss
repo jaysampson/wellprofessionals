@@ -234,6 +234,7 @@
                   align-items: flex-start;
                   justify-content: center;
                   flex-direction: column;
+                  width: 100%;
 
                   .top-content {
                     p {
@@ -311,9 +312,9 @@
             .courses {
               margin-top: 25px;
               display: flex;
-              align-items: center;
+              align-items: flex-start;
               justify-content: center;
-              gap: 40px;
+              gap: 30px;
               padding: 0px 0px 20px 0px;
               width: 100%;
               flex-wrap: wrap;
@@ -330,7 +331,7 @@
                 gap: 30px;
                 flex: 0 0 300px;
                 @media screen and (max-width: 768px) {
-                  flex: 0 0 300px;
+                  flex: 0 0 280px;
                 }
                 img {
                   width: 100%;
@@ -343,7 +344,9 @@
                   align-items: flex-start;
                   justify-content: center;
                   flex-direction: column;
-                  gap: 10px;
+                  gap: 3px;
+                  width: 100%;
+
                   .admin {
                     display: flex;
                     justify-content: flex-start;
@@ -377,7 +380,7 @@
                   }
                   .course-name {
                     display: flex;
-                    align-items: center;
+                    align-items: flex-start;
                     justify-content: space-between;
                     width: 100%;
                     h2 {
@@ -480,7 +483,7 @@
           .courses {
             margin-top: 25px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             gap: 40px;
             padding: 0px 0px 20px 0px;
@@ -497,7 +500,7 @@
               gap: 30px;
               flex: 0 0 300px;
               @media screen and (max-width: 768px) {
-                flex: 0 0 300px;
+                flex: 0 0 280px;
               }
               .course-img {
                 width: 100%;
@@ -510,7 +513,9 @@
                 align-items: flex-start;
                 justify-content: center;
                 flex-direction: column;
-                gap: 10px;
+                gap: 3px;
+                width: 100%;
+
                 .admin {
                   display: flex;
                   justify-content: flex-start;
@@ -544,7 +549,7 @@
                 }
                 .course-name {
                   display: flex;
-                  align-items: center;
+                  align-items: flex-start;
                   justify-content: space-between;
                   width: 100%;
                   h2 {

@@ -82,11 +82,11 @@ const Overview = () => {
               <div className="left-con">
                 <header>
                   <p>Lorem ipsum dolor sit</p>
-                  <h1>{courseArray?.course?.name}</h1>
+                  <h2>{courseArray?.course?.name}</h2>
                   <span>{courseArray?.course?.description}</span>
                 </header>
                 <div className="taught-by">
-                  <h2>TAUGHT BY</h2>
+                  <p>TAUGHT BY</p>
                   <div className="teacher">
                     <img src="" alt="" />
                     <div className="name-desc">
@@ -101,7 +101,7 @@ const Overview = () => {
                 <hr />
                 <div className="expectation">
                   <div className="expect-top">
-                    <h2>What you’ll learn</h2>
+                    <h3>What you’ll learn</h3>
                     <FontAwesomeIcon
                       icon={drop ? faAngleUp : faAngleDown}
                       onClick={HandleDrop}
@@ -195,7 +195,7 @@ const Overview = () => {
                 <div className="course-reviews">
                   <title>
                     <FontAwesomeIcon icon={faStar} color="#AF5E41" />
-                    <p>4.91 (642 reviews)</p>
+                    <h4>4.91 (642 reviews)</h4>
                   </title>
                   <div className="review-con">
                     <div className="review">
@@ -275,7 +275,7 @@ const Overview = () => {
                       src={courseArray?.course?.thumbnail?.url}
                       alt={courseArray?.thumbnail?.url}
                     />
-                    <h2>{courseArray?.course?.name}</h2>
+                    <h3>{courseArray?.course?.name}</h3>
                     <div className="price">
                       <p>{`₦${courseArray?.course?.price}`}</p>
                       <div className="slice">{`₦${courseArray?.course?.estimatedPrice}`}</div>
@@ -359,11 +359,11 @@ const Overview = () => {
                         to={`/overview/${courses._id}`}
                         className="course-name"
                       >
-                        <h3>
+                        <h4>
                           {courses.name.length > 26
                             ? courses.name.slice(0, 26) + "..."
                             : courses.name}
-                        </h3>
+                        </h4>
                         <FontAwesomeIcon
                           icon={faArrowUpRightFromSquare}
                           color="#000"

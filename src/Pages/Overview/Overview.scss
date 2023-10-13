@@ -93,20 +93,20 @@
             border-radius: 0.1875rem;
             background: #cd760f;
             color: #fff;
-            font-size: 0.875rem;
+            // font-size: 0.875rem;
             font-weight: 400;
           }
           h1 {
             color: #000;
-            font-size: 2.5rem;
+            // font-size: 2.5rem;
             font-weight: 700;
             @media screen and (max-width: 768px) {
-              font-size: 1.72525rem;
+              // font-size: 1.72525rem;
             }
           }
           span {
             color: #000;
-            font-size: 1.0625rem;
+            // font-size: 1.0625rem;
             font-weight: 400;
           }
         }
@@ -118,7 +118,7 @@
           gap: 15px;
           h2 {
             color: #545454;
-            font-size: 0.875rem;
+            // font-size: 0.875rem;
             font-weight: 400;
           }
           .teacher {
@@ -144,7 +144,6 @@
                 margin: 0px;
                 padding: 0px;
                 color: #000;
-                font-size: 1.0625rem;
                 font-weight: 600;
               }
               span {
@@ -167,7 +166,7 @@
             width: 100%;
             h2 {
               color: #000;
-              font-size: 1.375rem;
+              // font-size: 1.375rem;
               font-weight: 700;
             }
           }
@@ -211,7 +210,7 @@
               width: 100%;
               p {
                 color: #545454;
-                font-size: 0.875rem;
+                // font-size: 0.875rem;
                 font-weight: 400;
                 margin: 0px;
                 padding: 0px;
@@ -223,7 +222,6 @@
                 width: 100%;
                 h3 {
                   color: #000;
-                  font-size: 1.375rem;
                   font-weight: 700;
                   display: flex;
                   justify-content: center;
@@ -254,7 +252,7 @@
             gap: 10px;
             p {
               color: #545454;
-              font-size: 0.875rem;
+              // font-size: 0.875rem;
               font-weight: 400;
               margin: 0px;
               padding: 0px;
@@ -287,7 +285,7 @@
                   margin: 0px;
                   padding: 0px 5px;
                   color: #000;
-                  font-size: 0.8125rem;
+                  // font-size: 0.8125rem;
                   font-weight: 400;
                 }
               }
@@ -308,7 +306,6 @@
             width: 100%;
             h3 {
               color: #000;
-              font-size: 1.375rem;
               font-weight: 700;
             }
           }
@@ -339,7 +336,7 @@
               }
               span {
                 color: #000;
-                font-size: 0.9375rem;
+                // font-size: 0.9375rem;
                 font-weight: 400;
                 width: 90%;
               }
@@ -359,7 +356,7 @@
             gap: 10px;
             p {
               color: #000;
-              font-size: 1.375rem;
+              // font-size: 1.375rem;
               font-weight: 700;
               margin: 0px;
               padding: 0px;
@@ -397,7 +394,7 @@
                     margin: 0px;
                     padding: 0px;
                     color: #000;
-                    font-size: 0.9375rem;
+                    // font-size: 0.9375rem;
                     font-weight: 600;
                   }
                 }
@@ -405,7 +402,7 @@
                   margin: 0px;
                   padding: 0px;
                   color: #000;
-                  font-size: 0.9375rem;
+                  // font-size: 0.9375rem;
                   font-weight: 400;
                 }
               }
@@ -419,7 +416,7 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 4px;
             font-weight: 600;
-            font-size: 15px;
+            // font-size: 15px;
             color: #af5e41;
           }
         }
@@ -470,7 +467,7 @@
               @media screen and (max-width: 768px) {
                 display: block;
                 color: #000;
-                font-size: 1.72525rem;
+                // font-size: 1.72525rem;
                 font-weight: 700;
               }
             }
@@ -481,16 +478,19 @@
               gap: 20px;
               width: 100%;
               padding: 0px 10px;
+              @media screen and (max-width: 1200px) {
+                justify-content: center;
+              }
               p {
                 font-weight: 700;
-                font-size: 20px;
+                // font-size: 20px;
                 color: #000000;
                 padding-bottom: 0px;
                 margin-bottom: 0px;
               }
               .slice {
                 font-weight: 400;
-                font-size: 13px;
+                // font-size: 13px;
                 text-decoration-line: line-through;
                 color: #545454;
               }
@@ -558,14 +558,14 @@
               gap: 5px;
               p {
                 color: #757575;
-                font-size: 0.8125rem;
+                // font-size: 0.8125rem;
                 font-weight: 400;
                 margin: 0px;
                 padding: 0px;
               }
               span {
                 color: #af5e41;
-                font-size: 0.8125rem;
+                // font-size: 0.8125rem;
                 font-weight: 400;
               }
             }
@@ -587,7 +587,7 @@
             gap: 20px;
             p {
               color: #545454;
-              font-size: 0.875rem;
+              // font-size: 0.875rem;
               font-weight: 400;
               letter-spacing: 0.0625rem;
               margin: 0px;
@@ -607,7 +607,7 @@
                 gap: 10px;
                 p {
                   color: #000;
-                  font-size: 0.8125rem;
+                  // font-size: 0.8125rem;
                   font-weight: 600;
                 }
               }
@@ -652,7 +652,7 @@
                 gap: 10px;
                 .slice {
                   font-weight: 400;
-                  font-size: 13px;
+                  // font-size: 13px;
                   text-decoration-line: line-through;
                   color: #545454;
                 }
@@ -722,15 +722,15 @@
         width: 100%;
         color: #000;
         text-align: center;
-        font-size: 1.625rem;
+        // font-size: 1.625rem;
         font-weight: 700;
       }
       .courses {
         margin-top: 35px;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
-        gap: 20px;
+        gap: 30px;
         width: 100%;
         flex-wrap: wrap;
         @media screen and (max-width: 600px) {
@@ -761,11 +761,12 @@
             justify-content: center;
             flex-direction: column;
             gap: 5px;
+            width: 100%;
             .admin {
               display: flex;
               justify-content: flex-start;
               align-items: center;
-              gap: 45px;
+              gap: 5px;
               width: 100%;
               .admin-title {
                 display: flex;
@@ -778,7 +779,7 @@
                 }
                 p {
                   font-weight: 600;
-                  font-size: 14px;
+                  // font-size: 14px;
                   color: #000000;
                 }
               }
@@ -797,17 +798,17 @@
               align-items: center;
               justify-content: space-between;
               width: 100%;
-              h3 {
+              h4 {
                 font-weight: 700;
                 color: #000000;
-                font-size: 20px;
+                // font-size: 20px;
                 text-align: left;
               }
             }
             .desc {
               p {
                 font-weight: 400;
-                font-size: 12px;
+                // font-size: 12px;
                 color: #667085;
               }
             }
@@ -823,7 +824,7 @@
                 gap: 5px;
               }
               p {
-                font-size: 14px;
+                // font-size: 14px;
               }
             }
             .price-add {
@@ -838,14 +839,14 @@
                 gap: 20px;
                 p {
                   font-weight: 700;
-                  font-size: 15px;
+                  // font-size: 15px;
                   color: #000000;
                   padding-bottom: 0px;
                   margin-bottom: 0px;
                 }
                 .slice {
                   font-weight: 400;
-                  font-size: 13px;
+                  // font-size: 13px;
                   text-decoration-line: line-through;
                   color: #545454;
                 }

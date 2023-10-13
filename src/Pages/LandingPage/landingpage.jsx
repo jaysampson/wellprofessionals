@@ -167,27 +167,27 @@ const LandingPage = () => {
                               <div className="star">
                                 <FontAwesomeIcon
                                   icon={faStar}
-                                  size="2xs"
+                                  size="sm"
                                   color="#F8C51B"
                                 />
                                 <FontAwesomeIcon
                                   icon={faStar}
-                                  size="2xs"
+                                  size="sm"
                                   color="#F8C51B"
                                 />
                                 <FontAwesomeIcon
                                   icon={faStar}
-                                  size="2xs"
+                                  size="sm"
                                   color="#F8C51B"
                                 />
                                 <FontAwesomeIcon
                                   icon={faStar}
-                                  size="2xs"
+                                  size="sm"
                                   color="#F8C51B"
                                 />
                                 <FontAwesomeIcon
                                   icon={faStarHalf}
-                                  size="2xs"
+                                  size="sm"
                                   color="#F8C51B"
                                 />
                               </div>

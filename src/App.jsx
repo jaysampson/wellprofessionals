@@ -14,7 +14,7 @@ import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Course from "./Pages/DashBoard/MyCourses/Course/Course";
-import MyCourses from "./Pages/DashBoard/MyCourses/MyCourses";
+// import MyCourses from "./Pages/DashBoard/MyCourses/MyCourses";
 import AdminCourse from "./Pages/AdminDashboard/AdminPages/AdminCourse/AdminCourse";
 import Announcements from "./Pages/AdminDashboard/AdminPages/AdminAnnouncements/Announcements";
 import AdminInstructors from "./Pages/AdminDashboard/AdminPages/AdminInstructors/AdminInstructors";
