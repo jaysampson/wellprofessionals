@@ -124,7 +124,7 @@ const Login = () => {
                   <p>Enter your details below</p>
                 </div>
               </div>
-              <div className="form">
+              <form className="form">
                 <form method="POST">
                   <div className="blank">
                     <label htmlFor="">Email Address</label>
@@ -186,7 +186,7 @@ const Login = () => {
                     </span>
                   </p>
                 </div>
-              </div>
+              </form>
               <div className="signin-options">
                 <div className="or">
                   <hr />

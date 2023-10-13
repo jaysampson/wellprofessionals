@@ -17,7 +17,7 @@
 
 // Applying the mixin to various tags
 p {
-  @include responsive-font-size(14, 20, 320, 1200 !important);
+  @include responsive-font-size(10, 20, 320, 1200 !important);
 }
 
 ul {
@@ -29,11 +29,11 @@ li {
 }
 
 h1 {
-  @include responsive-font-size(24, 36, 320, 1200 !important);
+  @include responsive-font-size(20, 36, 320, 1200 !important);
 }
 
 h2 {
-  @include responsive-font-size(18, 30, 320, 1200 !important);
+  @include responsive-font-size(14, 30, 320, 1200 !important);
 }
 
 span {
@@ -41,11 +41,11 @@ span {
 }
 
 main {
-  @include responsive-font-size(18, 24, 320, 1200 !important);
+  @include responsive-font-size(14, 24, 320, 1200 !important);
 }
 
 header {
-  @include responsive-font-size(18, 26, 320, 1200 !important);
+  @include responsive-font-size(14, 26, 320, 1200 !important);
 }
 
 caption {
