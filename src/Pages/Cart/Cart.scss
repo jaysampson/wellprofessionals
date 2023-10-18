@@ -10,9 +10,11 @@
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
-    gap: 40px;
+    gap: 20px;
+    overflow: auto;
     @media screen and (max-width: 768px) {
       flex-direction: column;
+      gap: 0px;
     }
     .cart-main {
       display: flex;
@@ -23,7 +25,7 @@
       gap: 30px;
       padding: 20px 0px 20px 40px;
       @media screen and (max-width: 768px) {
-        padding: 20px 10px;
+        padding: 15px 10px;
       }
       h2 {
         width: 100%;
@@ -59,38 +61,44 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            img {
-              height: 70px;
-              width: 100px;
-            }
-            .course-des {
+            .cart-course-left {
               display: flex;
-              align-items: flex-start;
-              justify-content: center;
-              flex-direction: column;
-              gap: 7px;
-              p {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 5px;
-                span {
-                  color: #cd760f;
-                }
+              align-items: center;
+              justify-content: flex-start;
+              gap: 10px;
+              img {
+                height: 70px;
+                width: 100px;
               }
-              .rating-star {
+              .course-des {
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: center;
-                gap: 8px;
-                .star {
+                flex-direction: column;
+                gap: 7px;
+                p {
                   display: flex;
                   align-items: center;
                   justify-content: center;
                   gap: 5px;
+                  span {
+                    color: #cd760f;
+                  }
                 }
-                span {
-                  color: #5b6871;
+                .rating-star {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 8px;
+                  .star {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                  }
+                  span {
+                    color: #5b6871;
+                  }
                 }
               }
             }
@@ -107,10 +115,11 @@
       width: 100%;
       background-color: #fbfbfc;
       border-left: 1px #d9d9d9 solid;
-      padding-left: 20px;
+      padding: 0px 20px;
       @media screen and (max-width: 768px) {
         padding: 0px 10px;
         border: none;
+        height: 100%;
       }
       .totals-con {
         background-color: "#fbfbfc";
@@ -119,7 +128,8 @@
         justify-content: center;
         flex-direction: column;
         gap: 20px;
-        width: 50%;
+        width: 100%;
+        padding: 0px 0px 20px 0px;
         @media screen and (max-width: 768px) {
           width: 100%;
         }
@@ -138,6 +148,36 @@
           background: #af5e41;
           box-shadow: 0px 4px 10px 0px #0000001a;
           color: #fff;
+        }
+        .ctn-browsing {
+          display: flex;
+          width: 254px;
+          padding: 13px 27.38px 13px 25px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 4px;
+          border: 1px solid var(--stroke, #af5e41);
+          background: #fff;
+          box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+          color: var(--sec-01, #af5e41);
+        }
+      }
+      .totals-con-2 {
+        background-color: "#fbfbfc";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 0px 0px 20px 0px;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+        hr {
+          height: 1px;
+          background-color: #d9d9d9;
+          width: 100%;
         }
         .ctn-browsing {
           display: flex;

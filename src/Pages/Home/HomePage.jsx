@@ -9,7 +9,6 @@ import {
   faArrowUpRightFromSquare,
   faCheck,
   faSearch,
-  faSpinner,
   faStar,
   faStarHalf,
 } from "@fortawesome/free-solid-svg-icons";
@@ -22,6 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import wellslogo from "../../assets/Images/Wells-Logo.svg";
 import noimage from "../../assets/Images/noimage.png";
 import gif from "../../assets/Images/Loading.gif";
+import { addToCart } from "../../redux/addToCart/cartSlice";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -74,6 +74,10 @@ const Home = () => {
       navigate(`/search/${encodeURIComponent(search)}`);
       console.log("search: ", search);
     }
+  };
+
+  const handleAddToCart = (courses) => {
+    dispatch(addToCart(courses));
   };
 
   if (isLoading) {
@@ -217,7 +221,9 @@ const Home = () => {
                                   {`₦${courses.estimatedPrice}`}
                                 </span>
                               </div>
-                              <button>Add to Cart</button>
+                              <button onClick={() => handleAddToCart(courses)}>
+                                Add to Cart
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -310,7 +316,9 @@ const Home = () => {
                                 {`₦${courses.estimatedPrice}`}
                               </span>
                             </div>
-                            <button>Add to Cart</button>
+                            <button onClick={() => handleAddToCart(courses)}>
+                              Add to Cart
+                            </button>
                           </div>
                         </div>
                       </div>

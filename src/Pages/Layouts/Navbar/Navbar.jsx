@@ -28,6 +28,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [drop, setDrop] = useState(false);
   const { user } = useSelector((state) => state.auth);
+  const cart = useSelector((state) => state.cart);
   function toggleMenu() {
     setToggle(!toggle);
   }
@@ -71,10 +72,10 @@ const Navbar = () => {
             <Link to="/search" className="search-2">
               <FontAwesomeIcon icon={faSearch} className="search-input" />
             </Link>
-            <div className="shop">
+            <NavLink to="/cart" className="shop">
               <img src={shop} alt={shop} />
-              <p>2</p>
-            </div>
+              <p>{cart.cartItems.length}</p>
+            </NavLink>
             <div className="book-notify">
               <img src={book} alt={book} />
               <img src={notify} alt={notify} />
@@ -128,10 +129,10 @@ const Navbar = () => {
               <img src={homeicon} alt={homeicon} />
               <p>Dashboard</p>
             </NavLink>
-            <div className="options">
+            <NavLink to="/cart" className="options">
               <img src={carticon} alt={carticon} />
               <p>Cart</p>
-            </div>
+            </NavLink>
             <NavLink className="options">
               <img src={book} alt={book} />
               <p>Bookmark</p>

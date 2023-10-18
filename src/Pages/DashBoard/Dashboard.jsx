@@ -28,6 +28,7 @@ import { useDispatch } from "react-redux";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import noimage from "../../assets/Images/noimage.png";
+import { addToCart } from "../../redux/addToCart/cartSlice";
 
 const chartData = {
   labels: [
@@ -77,6 +78,10 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(getCourse());
   }, [dispatch]);
+
+  const handleAddToCart = (courses) => {
+    dispatch(addToCart(courses));
+  };
 
   return (
     <div>
@@ -239,10 +244,7 @@ const Dashboard = () => {
                       </div>
                       <div className="course-name">
                         <Link to="/dashboard/mycourses/course">
-                          <h4>
-                            Creative Engineering: Lorem ipsum dolor sit amet,
-                            consectetur
-                          </h4>
+                          <h4>Creative Engineering: Lorem</h4>
                         </Link>
 
                         <FontAwesomeIcon
@@ -921,7 +923,9 @@ const Dashboard = () => {
                             {`₦${courses.estimatedPrice}`}
                           </span>
                         </div>
-                        <button>Add to Cart</button>
+                        <button onClick={() => handleAddToCart(courses)}>
+                          Add to Cart
+                        </button>
                       </div>
                     </div>
                   </div>

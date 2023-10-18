@@ -25,6 +25,7 @@ import { useDispatch, useSelector } from "react-redux";
 import wellslogo from "../../assets/Images/Wells-Logo.svg";
 import noimage from "../../assets/Images/noimage.png";
 import gif from "../../assets/Images/Loading.gif";
+import { addToCart } from "../../redux/addToCart/cartSlice";
 
 const LandingPage = () => {
   const [toggle1, setToggle1] = useState(false);
@@ -63,6 +64,10 @@ const LandingPage = () => {
       navigate(`/search/${encodeURIComponent(search)}`);
       console.log("search: ", search);
     }
+  };
+
+  const handleAddToCart = (courses) => {
+    dispatch(addToCart(courses));
   };
 
   if (isLoading) {
@@ -202,7 +207,9 @@ const LandingPage = () => {
                                   {`₦${courses.estimatedPrice}`}
                                 </span>
                               </div>
-                              <button>Add to Cart</button>
+                              <button onClick={() => handleAddToCart(courses)}>
+                                Add to Cart
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -296,7 +303,9 @@ const LandingPage = () => {
                                   {`₦${courses.estimatedPrice}`}
                                 </span>
                               </div>
-                              <button>Add to Cart</button>
+                              <button onClick={() => handleAddToCart(courses)}>
+                                Add to Cart
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -408,7 +417,9 @@ const LandingPage = () => {
                                 {`₦${courses.estimatedPrice}`}
                               </span>
                             </div>
-                            <button>Add to Cart</button>
+                            <button onClick={() => handleAddToCart(courses)}>
+                              Add to Cart
+                            </button>
                           </div>
                         </div>
                       </div>

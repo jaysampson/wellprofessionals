@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import "./SearchPage.scss";
 import noimage from "../../assets/Images/noimage.png";
+import { addToCart } from "../../redux/addToCart/cartSlice";
 
 const SearchPage = () => {
   const [search, setSearch] = useState("");
@@ -71,6 +72,10 @@ const SearchPage = () => {
       navigate(`/search/${encodeURIComponent(search)}`);
       console.log("search: ", search);
     }
+  };
+
+  const handleAddToCart = (courses) => {
+    dispatch(addToCart(courses));
   };
 
   return (
@@ -280,7 +285,9 @@ const SearchPage = () => {
                             {`₦${courses.estimatedPrice}`}
                           </span>
                         </div>
-                        <button>Add to Cart</button>
+                        <button onClick={() => handleAddToCart(courses)}>
+                          Add to Cart
+                        </button>
                       </div>
                     </div>
                   </div>

@@ -202,7 +202,7 @@
             .courses {
               margin-top: 25px;
               display: flex;
-              align-items: center;
+              align-items: flex-start;
               justify-content: center;
               gap: 40px;
               padding: 0px 0px 20px 0px;
@@ -376,7 +376,7 @@
             .courses {
               margin-top: 25px;
               display: flex;
-              align-items: center;
+              align-items: flex-start;
               gap: 40px;
               padding: 0px 0px 20px 0px;
               width: 100%;
@@ -581,7 +581,7 @@
           .courses {
             margin-top: 25px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 40px;
             padding: 0px 0px 20px 0px;
             width: 100%;

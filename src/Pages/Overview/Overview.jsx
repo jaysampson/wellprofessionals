@@ -12,11 +12,6 @@ import {
   faAngleUp,
   faStarHalf,
 } from "@fortawesome/free-solid-svg-icons";
-import ladies from "../../assets/Images/doings.svg";
-import pro from "../../assets/Images/Pro.svg";
-import star from "../../assets/Icons/Star.svg";
-import halfstar from "../../assets/Icons/Half-star.svg";
-import emptystar from "../../assets/Icons/emptystar.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { fetchACourse } from "../../redux/CourseAPI/courseSlice";
@@ -26,6 +21,7 @@ import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import noimage from "../../assets/Images/noimage.png";
 import courseService from "../../redux/CourseAPI/courseService";
 import gif from "../../assets/Images/Loading.gif";
+import { addToCart } from "../../redux/addToCart/cartSlice";
 
 const Overview = () => {
   const [drop, setDrop] = useState(false);
@@ -60,6 +56,10 @@ const Overview = () => {
   function HandleDrop4() {
     setDrop3(!drop3);
   }
+
+  const handleAddToCart = (courses) => {
+    dispatch(addToCart(courses));
+  };
 
   if (isLoading) {
     return (
@@ -277,13 +277,17 @@ const Overview = () => {
                     />
                     <h3>{courseArray?.course?.name}</h3>
                     <div className="price">
-                      <p>{`₦${courseArray?.course?.price}`}</p>
-                      <div className="slice">{`₦${courseArray?.course?.estimatedPrice}`}</div>
+                      <h4>{`₦${courseArray?.course?.price}`}</h4>
+                      <h5 className="slice">{`₦${courseArray?.course?.estimatedPrice}`}</h5>
                     </div>
                     <div className="purchase">
                       <button className="add"> Buy now</button>
                       <button className="buy">
-                        <span>Add to cart</span>
+                        <span
+                          onClick={() => handleAddToCart(courseArray.course)}
+                        >
+                          Add to cart
+                        </span>
                         <FontAwesomeIcon
                           icon={faCartShopping}
                           className="cart"
@@ -425,7 +429,9 @@ const Overview = () => {
                             {`₦${courses.estimatedPrice}`}
                           </span>
                         </div>
-                        <button>Add to Cart</button>
+                        <button onClick={() => handleAddToCart(courses)}>
+                          Add to Cart
+                        </button>
                       </div>
                     </div>
                   </div>
