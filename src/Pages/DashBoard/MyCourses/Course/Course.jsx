@@ -75,6 +75,9 @@ const Course = () => {
     setActive(header);
   }
 
+  // let vid =
+  //   "https://drive.google.com/file/d/1pH1puH4ftvU73BM4yi_7i5m_4iMWWIRe/preview";
+
   return (
     <div>
       <Navbar />
@@ -83,12 +86,18 @@ const Course = () => {
           <div className="coursepage-hero-left">
             <h3>DRILLING ENGINEERING FUNDAMENTALS</h3>
             <div className="course-vid">
-              <ReactPlayer
-                url={video}
+              {/* <ReactPlayer
+                url={vid}
                 controls={true}
                 width="100%"
                 height="100%"
-              />
+              /> */}
+              <iframe
+                src="https://drive.google.com/file/d/1pH1puH4ftvU73BM4yi_7i5m_4iMWWIRe/preview"
+                width="640"
+                height="480"
+                allow="autoplay"
+              ></iframe>
             </div>
             <div className="coursepage-left-contents">
               <div className="course-details">

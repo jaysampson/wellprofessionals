@@ -83,16 +83,7 @@ const Navbar = () => {
             {user ? (
               <Link to="/settings/profile" className="profile-img">
                 {user.data.image ? (
-                  <img
-                    src={user.data.image}
-                    alt={user.data.name}
-                    style={{
-                      width: "70px",
-                      height: "70px",
-                      borderRadius: "50%",
-                      border: "1px solid #af5e41",
-                    }}
-                  />
+                  <img src={user.data.image} alt={user.data.name} />
                 ) : (
                   <FontAwesomeIcon
                     icon={faUserCircle}
@@ -100,8 +91,8 @@ const Navbar = () => {
                     size="3x"
                     style={{
                       borderRadius: "50%",
-                      width: "70px",
-                      height: "70px",
+                      width: "50px",
+                      height: "50px",
                     }}
                   />
                 )}
@@ -150,16 +141,7 @@ const Navbar = () => {
         {user ? (
           <Link to="/settings/profile" className="nav-user">
             {user.data.image ? (
-              <img
-                src={user.data.image}
-                alt={user.data.name}
-                style={{
-                  width: "70px",
-                  height: "70px",
-                  borderRadius: "50%",
-                  border: "1px solid #af5e41",
-                }}
-              />
+              <img src={user.data.image} alt={user.data.name} />
             ) : (
               <FontAwesomeIcon
                 icon={faUserCircle}
@@ -167,8 +149,8 @@ const Navbar = () => {
                 size="3x"
                 style={{
                   borderRadius: "50%",
-                  width: "70px",
-                  height: "70px",
+                  width: "50px",
+                  height: "50px",
                 }}
               />
             )}
