@@ -292,7 +292,7 @@ const Overview = () => {
                           icon={faCartShopping}
                           className="cart"
                           size="2x"
-                          onClick={() => handleAddToCart(courses)}
+                          onClick={() => handleAddToCart(courseArray.course)}
                         />
                       </button>
                     </div>
