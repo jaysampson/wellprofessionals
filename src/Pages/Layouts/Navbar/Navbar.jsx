@@ -232,18 +232,9 @@ const Navbar = () => {
           </div>
           {drop && (
             <div className="cats">
-              <div className="each-cat">
-                <input type="radio" />
-                Upstream
-              </div>
-              <div className="each-cat">
-                <input type="radio" />
-                Midstream
-              </div>
-              <div className="each-cat">
-                <input type="radio" />
-                Downstream
-              </div>
+              <h3>Upstream</h3>
+              <h3>Midstream</h3>
+              <h3>Downstream</h3>
             </div>
           )}
         </div>

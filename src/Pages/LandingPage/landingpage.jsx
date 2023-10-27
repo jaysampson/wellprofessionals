@@ -428,8 +428,8 @@ const LandingPage = () => {
                   <button>Show more courses</button>
                 </div>
                 <div className="testimonial">
-                  <p>3940+ Happy Well Professionals Users</p>
-                  <h3>Don't just take our words</h3>
+                  <h3>3940+ Happy Well Professionals Users</h3>
+                  <h4>Don't just take our words</h4>
                   <div className="testimony-main">
                     <div className="testimony-con">
                       <img src={testy} alt={testy} className="testy" />
@@ -477,7 +477,7 @@ const LandingPage = () => {
                       </div>
                       <div className="question-con">
                         <div className="question">
-                          <p>Is there a free trail available?</p>
+                          <h4>Is there a free trail available?</h4>
                           <img
                             src={toggle1 ? minus : plus}
                             alt="loading"
@@ -485,15 +485,15 @@ const LandingPage = () => {
                           />
                         </div>
                         {toggle1 && (
-                          <div className="answer">
+                          <span className="answer">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit
-                          </div>
+                          </span>
                         )}
                       </div>
                       <div className="question-con">
                         <div className="question">
-                          <p>Is there a free trail available?</p>
+                          <h4>Is there a free trail available?</h4>
                           <img
                             src={toggle2 ? minus : plus}
                             alt="loading"
@@ -501,15 +501,15 @@ const LandingPage = () => {
                           />
                         </div>
                         {toggle2 && (
-                          <div className="answer">
+                          <span className="answer">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit
-                          </div>
+                          </span>
                         )}
                       </div>
                       <div className="question-con">
                         <div className="question">
-                          <p>Is there a free trail available?</p>
+                          <h3>Is there a free trail available?</h3>
                           <img
                             src={toggle3 ? minus : plus}
                             alt="loading"
@@ -517,15 +517,15 @@ const LandingPage = () => {
                           />
                         </div>
                         {toggle3 && (
-                          <div className="answer">
+                          <span className="answer">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit
-                          </div>
+                          </span>
                         )}
                       </div>
                       <div className="question-con">
                         <div className="question">
-                          <p>Is there a free trail available?</p>
+                          <h4>Is there a free trail available?</h4>
                           <img
                             src={toggle4 ? minus : plus}
                             alt="loading"
@@ -533,10 +533,10 @@ const LandingPage = () => {
                           />
                         </div>
                         {toggle4 && (
-                          <div className="answer">
+                          <span className="answer">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit
-                          </div>
+                          </span>
                         )}
                       </div>
                     </div>
@@ -550,7 +550,7 @@ const LandingPage = () => {
                     <img src={statue} alt={statue} className="statue" />
                   </div>
                   <div className="text">
-                    <p>Still have questions?</p>
+                    <h3>Still have questions?</h3>
                     <span>
                       Can’t find the answer you’re looking for? Please chat to
                       our friendly team.

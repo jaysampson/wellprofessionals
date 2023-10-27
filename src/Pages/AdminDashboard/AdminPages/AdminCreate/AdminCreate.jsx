@@ -23,6 +23,7 @@ const AdminCreate = () => {
 
 const Content = () => {
   const [name, setName] = useState("");
+  const [demoUrl, setDemoUrl] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [estimatedPrice, setEstimatedPrice] = useState("");
@@ -54,6 +55,7 @@ const Content = () => {
 
     const courseData = {
       name,
+      demoUrl,
       description,
       price,
       estimatedPrice,
@@ -115,6 +117,20 @@ const Content = () => {
               onChange={(e) => setName(e.target.value)}
               required
             />
+          </div>
+          <div className="dets">
+            <label htmlFor="">Course Demo Video</label>
+            <input
+              type="text"
+              placeholder="Enter Course Name"
+              value={demoUrl}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <p>
+              This shows your students a preview video of what your course is
+              about. It shouldn't be more than 1 minute and 30 seconds.
+            </p>
           </div>
           <div className="dets">
             <label htmlFor="">Description</label>
