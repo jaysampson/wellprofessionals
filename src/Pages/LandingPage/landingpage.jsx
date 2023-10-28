@@ -4,7 +4,6 @@ import {
   faArrowUpRightFromSquare,
   faCheck,
   faSearch,
-  faSpinner,
   faStar,
   faStarHalf,
 } from "@fortawesome/free-solid-svg-icons";
@@ -22,7 +21,6 @@ import minus from "../../assets/Icons/minus-circle.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import { useDispatch, useSelector } from "react-redux";
-import wellslogo from "../../assets/Images/Wells-Logo.svg";
 import noimage from "../../assets/Images/noimage.png";
 import gif from "../../assets/Images/Loading.gif";
 import { addToCart } from "../../redux/addToCart/cartSlice";
@@ -220,7 +218,7 @@ const LandingPage = () => {
                 </div>
                 <div className="based-on-picks">
                   <div className="top-rated-con">
-                    <h2>Courses for you based on your picks</h2>
+                    <h2>Courses recommended for you</h2>
                     <div className="courses">
                       {data?.getCourse?.map((courses) => (
                         <div className="course-con" key={courses._id}>

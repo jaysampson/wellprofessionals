@@ -19,8 +19,8 @@ const Footer = () => {
               <header>Our Blog</header>
               <h3>Subscribe to our Newsletter</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
             <div className="newsletter">
@@ -41,7 +41,10 @@ const Footer = () => {
           <div className="footer-middle">
             <hr />
             <div className="getstarted">
-              <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</h1>
+              <h1>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod
+              </h1>
               <button>
                 <p>Get Started</p>
                 <FontAwesomeIcon icon={faArrowRight} color="white" />
@@ -54,8 +57,10 @@ const Footer = () => {
               <div className="footer-about">
                 <h4>About Well Professionals</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet accumsan porta lectus
-                  ridiculus in mattis. Netus sodales in volutpat ullamcorper amet adipiscing fermentum.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nullam dictum aliquet accumsan porta lectus ridiculus in
+                  mattis. Netus sodales in volutpat ullamcorper amet adipiscing
+                  fermentum.
                 </p>
                 <div className="footer-icons">
                   <img src={twitterfoot} alt={twitterfoot} />
@@ -86,7 +91,7 @@ const Footer = () => {
                 <section>
                   <p>Resources</p>
                   <ul>
-                    <li>Lorem Ipsum</li>
+                    <li>Get App</li>
                     <li>Lorem Ipsum</li>
                     <li>Lorem Ipsum</li>
                     <li>Lorem Ipsum</li>

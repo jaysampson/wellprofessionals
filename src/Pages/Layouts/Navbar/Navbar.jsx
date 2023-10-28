@@ -207,6 +207,7 @@ const Navbar = () => {
             </Link>
             <h3>Notifications</h3>
             <h3>Change Password</h3>
+            <h3>Get App</h3>
             <Link to="/settings/profile">
               <h3>Settings</h3>
             </Link>
