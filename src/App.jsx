@@ -32,6 +32,7 @@ import { useSelector } from "react-redux";
 import AdminCreate from "./Pages/AdminDashboard/AdminPages/AdminCreate/AdminCreate";
 import AdminCreate2 from "./Pages/AdminDashboard/AdminPages/AdminCreate/AdminCreate2/AdminCreate2";
 import "./font.scss";
+import Categories from "./Pages/Categories/Categories";
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -55,6 +56,7 @@ function App() {
         <Route path="/search/:searchQuery" element={<SearchPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/category/:categoryName" element={<Categories />} />
 
         {/* Student-Dashboard */}
 

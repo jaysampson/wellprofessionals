@@ -14,6 +14,7 @@ import "./Cart.scss";
 import noimage from "../../assets/Images/noimage.png";
 import { useDispatch } from "react-redux";
 import { getTotal, removeFromCart } from "../../redux/addToCart/cartSlice";
+import { Link, NavLink } from "react-router-dom";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -36,17 +37,7 @@ const Cart = () => {
           <div className="items-cart">
             <h3>{cart.cartItems.length} items in cart</h3>
             {cart.cartItems.length === 0 ? (
-              <h3
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "100%",
-                  padding: "30px 0px",
-                }}
-              >
-                Cart is empty
-              </h3>
+              <h3 className="empty">Cart is empty</h3>
             ) : (
               <div className="cart-body">
                 {cart.cartItems?.map((course) => (
@@ -103,9 +94,11 @@ const Cart = () => {
               <hr />
               <h3>{`₦${cart.cartTotalAmount}`}</h3>
               <hr />
-              <button className="ctn-browsing">
-                Continue Browsing Courses
-              </button>
+              <Link to="/search">
+                <button className="ctn-browsing">
+                  Continue Browsing Courses
+                </button>
+              </Link>
             </div>
           ) : (
             <div className="totals-con">
@@ -114,9 +107,11 @@ const Cart = () => {
               <h3>{`₦${cart.cartTotalAmount}`}</h3>
               <hr />
               <button className="buy-btn">Proceed to buy course</button>
-              <button className="ctn-browsing">
-                Continue Browsing Courses
-              </button>
+              <Link to="/search">
+                <button className="ctn-browsing">
+                  Continue Browsing Courses
+                </button>
+              </Link>
             </div>
           )}
         </div>

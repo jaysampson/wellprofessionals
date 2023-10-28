@@ -233,9 +233,21 @@ const Navbar = () => {
           </div>
           {drop && (
             <div className="cats">
-              <h3>Upstream</h3>
-              <h3>Midstream</h3>
-              <h3>Downstream</h3>
+              <h3>
+                <Link to="/category/Upstream" style={{ color: "black" }}>
+                  Upstream
+                </Link>
+              </h3>
+              <h3>
+                <Link to="/category/Midstream" style={{ color: "black" }}>
+                  Midstream
+                </Link>
+              </h3>
+              <h3>
+                <Link to="/category/Downstream" style={{ color: "black" }}>
+                  Downstream
+                </Link>
+              </h3>
             </div>
           )}
         </div>
