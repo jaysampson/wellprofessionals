@@ -35,7 +35,6 @@ const Cart = () => {
           <h2>Shopping Cart</h2>
           <div className="items-cart">
             <h3>{cart.cartItems.length} items in cart</h3>
-            <hr />
             {cart.cartItems.length === 0 ? (
               <h3
                 style={{
@@ -43,7 +42,7 @@ const Cart = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   width: "100%",
-                  height: "40vh",
+                  padding: "30px 0px",
                 }}
               >
                 Cart is empty
