@@ -57,7 +57,7 @@ const Navbar = () => {
             <div className="logo-name">
               <NavLink to="/" className="logo">
                 <img src={wellslogo} alt={wellslogo} />
-                <p> WELL PROFESSIONALS</p>
+                <p>WELL PROFESSIONALS</p>
               </NavLink>
               <div className="categories">
                 <span>Categories</span>
@@ -77,7 +77,6 @@ const Navbar = () => {
               <p>{cart.cartItems.length}</p>
             </NavLink>
             <div className="book-notify">
-              <img src={book} alt={book} />
               <img src={notify} alt={notify} />
             </div>
             {user ? (
@@ -194,8 +193,12 @@ const Navbar = () => {
         </Link>
         <h3>Become an Instructor</h3>
         <h3>Rate & Review</h3>
-        <h3>Terms & Conditions</h3>
-        <h3>Privacy Policy</h3>
+        <Link to="/terms-conditions">
+          <h3>Terms & Conditions</h3>
+        </Link>
+        <Link to="privacy-policy">
+          <h3>Privacy Policy</h3>
+        </Link>
         <h3>Help</h3>
         {user ? (
           <>

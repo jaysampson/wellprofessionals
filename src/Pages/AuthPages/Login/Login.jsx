@@ -53,58 +53,6 @@ const Login = () => {
     dispatch(login(userData));
   };
 
-  //     email: email,
-  //     password: password,
-  //   };
-
-  //   try {
-  //     let response = await fetch("https://wellpro-server.onrender.com/api/user/login", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Accept: "application/json",
-  //       },
-  //       body: JSON.stringify(values),
-  //     });
-
-  //     if (response.status == true) {
-  //       const result = await response.json();
-  //       history.push(`${process.env.PUBLIC_URL}/home`);
-  //     } else {
-  //       const errorResponse = await response.json();
-  //       setError(`Login failed: ${errorResponse.message}`); // Display failure message with reason
-  //     }
-  //   } catch (error) {
-  //     console.error("Login error:", error);
-  //     alert(`An error occurred during login ${error.message}`); // Display error message
-  //   }
-  // }
-
-  // const handleLogin = async () => {
-  //   const values = {
-  //     email: email,
-  //     password: password,
-  //   };
-
-  //   try {
-  //     await dispatch(login(values));
-  //     dispatch(setLoggedIn(true));
-  //     history.push(`${process.env.PUBLIC_URL}/home`);
-  //   } catch (error) {
-  //     console.error("Login error:", error);
-  //     // alert(`An error occurred during login ${error.message}`);
-  //   }
-  // };
-
-  // const handleEmailChange = (e) => {
-  //   setEmail(e.target.value);
-  //   setEror("");
-  // };
-  // const handlePasswordChange = (e) => {
-  //   setPassword(e.target.value);
-  //   setEror("");
-  // };
-
   return (
     <div>
       <div className="signin-pass-container">
