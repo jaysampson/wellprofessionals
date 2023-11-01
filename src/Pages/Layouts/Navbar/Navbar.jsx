@@ -59,7 +59,7 @@ const Navbar = () => {
                 <img src={wellslogo} alt={wellslogo} />
                 <p>WELL PROFESSIONALS</p>
               </NavLink>
-              <div className="categories">
+              <div className="category-tab">
                 <span>Categories</span>
                 <FontAwesomeIcon icon={faAngleDown} color="#64748B" />
               </div>
