@@ -24,7 +24,7 @@
     @media screen and (max-width: 500px) {
       flex-wrap: nowrap;
       flex-direction: column;
-      height: 60vh;
+      height: fit-content;
       overflow: auto;
       justify-content: flex-start;
     }
