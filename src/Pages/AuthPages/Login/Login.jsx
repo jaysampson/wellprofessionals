@@ -110,7 +110,7 @@ const Login = () => {
                   </div>
                 </div>
                 <div className="remember">
-                  <input type="checkbox" className="checkbox" required />
+                  <input type="checkbox" className="checkbox" />
                   <p>Remember me</p>
                 </div>
                 {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
