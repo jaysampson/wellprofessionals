@@ -192,8 +192,11 @@
             justify-content: flex-start;
             width: 100%;
             gap: 10px;
-            p {
+            span {
               margin-bottom: 0px;
+              .terms {
+                color: #af5e41;
+              }
             }
             .checkbox {
               height: 20px;
@@ -224,7 +227,7 @@
                 width: 90%;
               }
 
-              p {
+              span {
                 color: #fff;
                 margin-bottom: 0px;
               }
@@ -243,6 +246,7 @@
               }
               span {
                 margin-bottom: 0px;
+                color: #cd760f;
                 .new {
                   color: #cd760f;
                   font-size: 14px;

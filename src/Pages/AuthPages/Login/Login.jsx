@@ -116,13 +116,13 @@ const Login = () => {
                 {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
                 <div className="signin-ctn-btn">
                   <button type="submit">
-                    <p>
+                    <span>
                       {isLoading ? (
                         <FontAwesomeIcon icon={faSpinner} spin />
                       ) : (
                         "Sign in"
                       )}
-                    </p>
+                    </span>
                   </button>
                 </div>
 

@@ -196,7 +196,7 @@ const Navbar = () => {
         <Link to="/terms-conditions">
           <h3>Terms & Conditions</h3>
         </Link>
-        <Link to="privacy-policy">
+        <Link to="/privacy-policy">
           <h3>Privacy Policy</h3>
         </Link>
         <h3>Help</h3>

@@ -163,20 +163,23 @@ const Register = () => {
                 </div>
                 <div className="remember">
                   <input type="checkbox" className="checkbox" required />
-                  <p>
-                    I agree with the <span>Terms & Conditions</span> of Well
-                    Professionals
-                  </p>
+                  <span>
+                    I agree with the{" "}
+                    <Link to="/privacy-policy" className="terms">
+                      Terms & Conditions
+                    </Link>{" "}
+                    of Well Professionals
+                  </span>
                 </div>
                 <div className="signup-ctn-btn">
                   <button type="submit">
-                    <p>
+                    <span>
                       {isLoading ? (
                         <FontAwesomeIcon icon={faSpinner} spin />
                       ) : (
                         "Sign Up"
                       )}
-                    </p>
+                    </span>
                   </button>
                 </div>
                 <div className="no-account">
