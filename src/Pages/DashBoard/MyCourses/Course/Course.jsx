@@ -94,6 +94,7 @@ const Course = () => {
               /> */}
               <iframe
                 src="https://drive.google.com/file/d/1pH1puH4ftvU73BM4yi_7i5m_4iMWWIRe/preview"
+                // src={course.demoUrl}
                 width="640"
                 height="480"
                 allow="autoplay"
