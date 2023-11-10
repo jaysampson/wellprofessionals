@@ -77,7 +77,14 @@ const Overview = () => {
         <Navbar />
         <div className="overview">
           <div className="overview-con">
-            <div className="overview-top">{/* <BreadCrumb /> */}</div>
+            <div className="overview-top">
+              <iframe
+                src={`https://drive.google.com/file/d/${courseArray?.course?.demoUrl}/view`}
+                height="200px"
+                width="100%"
+                frameborder="0"
+              ></iframe>
+            </div>
             <div className="overview-body">
               <div className="left-con">
                 <header>
@@ -350,7 +357,7 @@ const Overview = () => {
             </div> */}
             </div>
             <div className="recommend">
-              <h3>Topics based on your picks</h3>
+              <h3>Topics recommended for you</h3>
               <div className="courses">
                 {data?.getCourse?.map((courses) => (
                   <div className="course-con" key={courses.id}>

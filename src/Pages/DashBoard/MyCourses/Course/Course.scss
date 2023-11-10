@@ -31,7 +31,6 @@
       .course-vid {
         width: 100%;
         border-radius: 10px;
-        height: fit-content;
       }
     }
     .coursepage-left-contents {
@@ -194,8 +193,11 @@
     .coursepage-hero-right {
       display: flex;
       align-items: flex-start;
-      justify-content: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      height: 500px;
       width: 30%;
+      overflow: auto;
       @media screen and (max-width: "1000px") {
         display: none;
       }
@@ -206,7 +208,7 @@
         align-items: center;
         justify-content: flex-start;
         flex-direction: column;
-        height: 500px;
+        // height: 500px;
         gap: 10px;
         overflow: auto;
         background-color: rgba(204, 204, 204, 0.1);
@@ -232,6 +234,7 @@
             justify-content: space-between;
             gap: 5px;
             flex-direction: column;
+            cursor: pointer;
             .coursenum-time {
               display: flex;
               align-items: center;

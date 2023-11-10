@@ -512,7 +512,8 @@
               @media screen and (max-width: 768px) {
                 flex: 0 0 260px;
               }
-              img {
+              .course-img {
+                border: 1px solid #af5e41;
                 border-radius: 10px;
                 width: 100%;
               }
