@@ -68,6 +68,7 @@ const Course = () => {
 
   function handleLessonClick(index) {
     setCurrentVideoIndex(index);
+    console.log(index, "videoindex");
   }
 
   return (
@@ -93,7 +94,7 @@ const Course = () => {
                 /> */}
                 <iframe
                   title={`lesson-${index}`}
-                  src={`https://drive.google.com/file/d/${lesson.videoUrl}/view`}
+                  src={`https://drive.google.com/file/d/${lesson.videoUrl}/preview`}
                   width="100%"
                   height="500px"
                   allow="autoplay"
@@ -173,11 +174,14 @@ const Course = () => {
             </div>
           </div>
           <div className="coursepage-hero-right">
-            {courseArray?.map((lesson) => (
+            {courseArray?.map((lesson, index) => (
               <div className="course-chapters" key={lesson._id}>
                 <div className="chapter">
                   <img src={ladies} alt={ladies} className="chapter-img" />
-                  <div className="coursename-desc" onClick={handleLessonClick}>
+                  <div
+                    className="coursename-desc"
+                    onClick={() => handleLessonClick(index)}
+                  >
                     <h4>{lesson.title}</h4>
                     <div className="coursenum-time">
                       <span>{`${lesson.videoLength} mins`}</span>

@@ -43,6 +43,7 @@ const Overview = () => {
   );
   const courseArray = useSelector((state) => state.course.courseArray);
   const data = useSelector((state) => state.course.data);
+  console.log(courseArray.course?.demoUrl, "courseArray");
 
   function HandleDrop() {
     setDrop(!drop);
@@ -79,7 +80,7 @@ const Overview = () => {
           <div className="overview-con">
             <div className="overview-top">
               <iframe
-                src={`https://drive.google.com/file/d/${courseArray?.course?.demoUrl}/view`}
+                src={`https://drive.google.com/file/d/${courseArray?.course?.demoUrl}/preview`}
                 height="200px"
                 width="100%"
                 frameborder="0"
