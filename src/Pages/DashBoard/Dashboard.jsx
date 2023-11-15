@@ -18,9 +18,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ladies from "../../assets/Images/doings.svg";
 import pro from "../../assets/Images/Pro.svg";
-import star from "../../assets/Icons/Star.svg";
-import halfstar from "../../assets/Icons/Half-star.svg";
-import emptystar from "../../assets/Icons/emptystar.svg";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { BreadCrumb } from "../BreadCrumb/BreadCrumb";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
@@ -72,9 +69,7 @@ const Dashboard = () => {
   const purchasedcourses = useSelector(
     (state) => state.details.data.data?.courses
   );
-  console.log(purchasedcourses, "purchased");
   // const { user2 } = useSelector((state) => state.auth.courses);
-  // console.log(courseuser, "usercourses");
   let dispatch = useDispatch();
 
   const { isLoading, isError, isSuccess, message } = useSelector(
@@ -109,128 +104,6 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="mark-course">
-            <div className="course-book">
-              {/* <div className="my-courses">
-                <div className="courses-top">
-                  <div className="left-text">
-                    <h3>My Courses</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipis.</p>
-                  </div>
-                  <NavLink to="/dashboard/mycourses" className="all-course">
-                    <span>See All My Courses</span>
-                    <FontAwesomeIcon icon={faAngleRight} />
-                  </NavLink>
-                </div>
-                <div className="course-body">
-                  <div className="body-con">
-                    <div className="level">
-                      <FontAwesomeIcon icon={faCircleDot} />
-                      <p>Completed</p>
-                    </div>
-                    <div className="course-desc">
-                      <p>Lorem ipsum dolor sit amet</p>
-                    </div>
-                    <div className="dates">
-                      <p>2 months</p>
-                    </div>
-                    <FontAwesomeIcon icon={faShare} cursor="pointer" />
-                  </div>
-                  <div className="body-con">
-                    <div className="level">
-                      <FontAwesomeIcon icon={faCircleDot} />
-                      <p>Completed</p>
-                    </div>
-                    <div className="course-desc">
-                      <p>Lorem ipsum dolor sit amet</p>
-                    </div>
-                    <div className="dates">
-                      <p>2 months</p>
-                    </div>
-                    <FontAwesomeIcon icon={faShare} cursor="pointer" />
-                  </div>
-                  <div className="body-con">
-                    <div className="level">
-                      <FontAwesomeIcon icon={faCircleDot} />
-                      <p>Completed</p>
-                    </div>
-                    <div className="course-desc">
-                      <p>Lorem ipsum dolor sit amet</p>
-                    </div>
-                    <div className="dates">
-                      <p>2 months</p>
-                    </div>
-                    <FontAwesomeIcon icon={faShare} cursor="pointer" />
-                  </div>
-                  <div className="body-con">
-                    <div className="level">
-                      <FontAwesomeIcon icon={faCircleDot} />
-                      <p>Completed</p>
-                    </div>
-                    <div className="course-desc">
-                      <p>Lorem ipsum dolor sit amet</p>
-                    </div>
-                    <div className="dates">
-                      <p>2 months</p>
-                    </div>
-                    <FontAwesomeIcon icon={faShare} cursor="pointer" />
-                  </div>
-                </div>
-              </div> */}
-              {/* <div className="bookmark">
-                <div className="mark-top">
-                  <h3>Bookmarked courses</h3>
-                  <p>Lorem ipsum dolor sit ametis.</p>
-                </div>
-                <div className="bookmark-body">
-                  <img src={pro} alt={pro} />
-                  <div className="course-desc">
-                    <h3>Lorem ipsum dolor sit ametis.</h3>
-                    <p>Lorem ipsum dolor sit ametis.</p>
-                  </div>
-                  <div className="price-text">
-                    <p>₦499</p>
-                    <span>Lorem</span>
-                  </div>
-                </div>
-                <div className="bookmark-body">
-                  <img src={pro} alt={pro} />
-                  <div className="course-desc">
-                    <h3>Lorem ipsum dolor sit ametis.</h3>
-                    <p>Lorem ipsum dolor sit ametis.</p>
-                  </div>
-                  <div className="price-text">
-                    <p>₦499</p>
-                    <span>Lorem</span>
-                  </div>
-                </div>
-                <div className="bookmark-body">
-                  <img src={pro} alt={pro} />
-                  <div className="course-desc">
-                    <h3>Lorem ipsum dolor sit ametis.</h3>
-                    <p>Lorem ipsum dolor sit ametis.</p>
-                  </div>
-                  <div className="price-text">
-                    <p>₦499</p>
-                    <span>Lorem</span>
-                  </div>
-                </div>
-                <div className="bookmark-body">
-                  <img src={pro} alt={pro} />
-                  <div className="course-desc">
-                    <h3>Lorem ipsum dolor sit ametis.</h3>
-                    <p>Lorem ipsum dolor sit ametis.</p>
-                  </div>
-                  <div className="price-text">
-                    <p>₦499</p>
-                    <span>Lorem</span>
-                  </div>
-                </div>
-                <NavLink to="/dashboard/mycourses" className="cart">
-                  <span>See All My Courses</span>
-                  <FontAwesomeIcon icon={faAngleRight} />
-                </NavLink>
-              </div> */}
-            </div>
             <div className="my-courses">
               <div className="learning">
                 <h3>Currently Learning</h3>

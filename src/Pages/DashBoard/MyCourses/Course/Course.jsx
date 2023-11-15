@@ -43,33 +43,48 @@ const Course = () => {
   console.log(courseArray, "purchased");
 
   useEffect(() => {
-    const storedIndex = localStorage.getItem("lastPlayedVideoIndex");
+    const storedIndex = localStorage.getItem("currentVideoIndex");
     setCurrentVideoIndex(storedIndex ? parseInt(storedIndex, 10) : 0);
   }, []);
 
-  function handleActive(header) {
-    setActive(header);
-  }
+  const updateLocalStorageIndex = (index) => {
+    localStorage.setItem("currentVideoIndex", index.toString());
+  };
 
-  function handleVideoEnd() {
+  const handleVideoEnd = () => {
     setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % courseArray.length);
-    localStorage.setItem("lastPlayedVideoIndex", currentVideoIndex.toString());
-  }
+    updateLocalStorageIndex(currentVideoIndex + 1);
+  };
 
-  function handleNextVideo() {
-    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % courseArray.length);
-  }
+  const handleNextVideo = () => {
+    if (currentVideoIndex < courseArray.length - 1) {
+      setCurrentVideoIndex((prevIndex) => prevIndex + 1);
+      updateLocalStorageIndex(currentVideoIndex + 1);
+    }
+  };
 
-  function handlePreviousVideo() {
-    setCurrentVideoIndex(
-      (prevIndex) => (prevIndex - 1 + courseArray.length) % courseArray.length
-    );
-  }
+  const handlePreviousVideo = () => {
+    if (currentVideoIndex > 0) {
+      setCurrentVideoIndex((prevIndex) => prevIndex - 1);
+      updateLocalStorageIndex(currentVideoIndex - 1);
+    }
+  };
 
-  function handleLessonClick(index) {
+  const handleLessonClick = (index) => {
     setCurrentVideoIndex(index);
-    console.log(index, "videoindex");
-  }
+    updateLocalStorageIndex(index);
+  };
+
+  const playing = courseArray[currentVideoIndex]?.title;
+
+  console.log(
+    currentVideoIndex,
+    "index",
+    courseArray,
+    "course",
+    playing,
+    "playing"
+  );
 
   return (
     <div>
@@ -78,20 +93,18 @@ const Course = () => {
         <div className="course-page-hero">
           <div className="coursepage-hero-left">
             <h3>{course_details?.name}</h3>
+            <h4 style={{ display: "flex", gap: "5px" }}>
+              <h4 style={{ color: "#af5e41" }}>Now playing </h4>
+              {courseArray[currentVideoIndex]?.title}
+            </h4>
             {courseArray?.map((lesson, index) => (
               <div
                 className="course-vid"
-                // key={lesson._id}
+                key={lesson._id}
                 style={{
                   display: index === currentVideoIndex ? "block" : "none",
                 }}
               >
-                {/* <ReactPlayer
-                  url={`https://drive.google.com/file/d/${lesson.videoUrl}`}
-                  controls={true}
-                  width="100%"
-                  height="100%"
-                /> */}
                 <iframe
                   title={`lesson-${index}`}
                   src={`https://drive.google.com/file/d/${lesson.videoUrl}/preview`}
@@ -106,30 +119,30 @@ const Course = () => {
               <div className="course-details">
                 <div className="controls">
                   <div className="arrow" onClick={handlePreviousVideo}>
-                    <FontAwesomeIcon icon={faArrowLeft} />
-                    <span>Previous</span>
+                    {currentVideoIndex !== 0 && (
+                      <>
+                        <FontAwesomeIcon icon={faArrowLeft} />
+                        <span>Previous</span>
+                        <p>{` ${courseArray[currentVideoIndex - 1]?.title}`}</p>
+                      </>
+                    )}
                   </div>
                   <p>
-                    {courseArray && courseArray[currentVideoIndex]
-                      ? `Chapter ${courseArray[currentVideoIndex].title}`
+                    {courseArray && courseArray[currentVideoIndex > 0]
+                      ? ` ${courseArray[currentVideoIndex]?.title}`
                       : ""}
                   </p>
                 </div>
                 <div className="controls">
                   <div className="arrow" onClick={handleNextVideo}>
-                    <span>Next</span>
-                    <FontAwesomeIcon icon={faArrowRight} />
+                    {currentVideoIndex !== courseArray.length - 1 && (
+                      <>
+                        <span>Next</span>
+                        <FontAwesomeIcon icon={faArrowRight} />
+                        <p>{`${courseArray[currentVideoIndex + 1]?.title}`}</p>
+                      </>
+                    )}
                   </div>
-                  <p>
-                    {courseArray &&
-                    courseArray[(currentVideoIndex + 1) % courseArray.length]
-                      ? `Chapter ${
-                          courseArray[
-                            (currentVideoIndex + 1) % courseArray.length
-                          ].title
-                        }`
-                      : ""}
-                  </p>
                 </div>
               </div>
               <div className="tutor">

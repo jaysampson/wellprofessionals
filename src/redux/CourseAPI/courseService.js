@@ -61,18 +61,6 @@ const getACourse = axios.create({
   baseURL: "https://wellpro-server.onrender.com",
 });
 
-// getACourse.interceptors.request.use(
-//   (config) => {
-//     if (user_token) {
-//       config.headers.Authorization = `Bearer ${user_token}`;
-//     }
-//     return config;
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   }
-// );
-
 const courseService = {
   createCourse,
   getCourse,
