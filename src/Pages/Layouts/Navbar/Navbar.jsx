@@ -191,7 +191,9 @@ const Navbar = () => {
         <Link to="/cart">
           <h3>Cart</h3>
         </Link>
-        <h3>Become an Instructor</h3>
+        <Link to="terms-conditions">
+          <h3>Become an Instructor</h3>
+        </Link>
         <h3>Rate & Review</h3>
         <Link to="/terms-conditions">
           <h3>Terms & Conditions</h3>

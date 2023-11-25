@@ -82,13 +82,13 @@ const TC = () => {
             <h3>6. Code of Conduct</h3>
             <ul>
               <li>
-                a. Users agree to conduct themselves in a respectful and
-                appropriate manner on the Website. Harassment, hate speech, or
-                any form of abusive behavior will not be tolerated.
+                <span>a.Users </span>agree to conduct themselves in a respectful
+                and appropriate manner on the Website. Harassment, hate speech,
+                or any form of abusive behavior will not be tolerated.
               </li>
               <li>
-                b. Instructors agree to provide accurate and high-quality course
-                content to students.
+                <span>b. Instructors</span> agree to provide accurate and
+                high-quality course content to students.
               </li>
             </ul>
           </div>
