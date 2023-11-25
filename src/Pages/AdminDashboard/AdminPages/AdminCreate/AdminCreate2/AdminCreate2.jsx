@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import AdminLayout from "../../../AdminLayout/AdminLayout";
 import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
-import upload from "../../../../../assets/Images/upload.svg";
-import { faCloudUpload, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMinusCircle,
+  faPlusCircle,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
 import { BreadCrumb } from "../../../../BreadCrumb/BreadCrumb";
+import { createCourse } from "../../../../../redux/CourseAPI/courseSlice";
+import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./AdminCreate2.scss";
 
@@ -17,145 +22,244 @@ const AdminCreate2 = () => {
 };
 
 const Content = () => {
-  //   const [name, setName] = useState("");
-  //   const [description, setDescription] = useState("");
-  //   const [price, setPrice] = useState("");
-  //   const [estimatedPrice, setEstimatedPrice] = useState("");
-  //   const [category, setCategory] = useState("");
-  //   const [tags, setTags] = useState("");
-  //   const [level, setLevel] = useState("");
-  //   const [benefits, setBenefits] = useState([{ title: "" }]);
-  //   const [prerequisites, setPrerequisites] = useState([{ title: "" }]);
+  const [lessonData, setLessonData] = useState([
+    {
+      videoUrl: "",
+      title: "",
+      videoSection: "",
+      description: "",
+      videoLength: "",
+      links: [{ title: "", url: "" }],
+    },
+  ]);
+
+  const handleLessonDataChange = (index, field, value, linkIndex) => {
+    setLessonData((prevLessonData) => {
+      const updatedLessonData = [...prevLessonData];
+      if (linkIndex !== undefined) {
+        updatedLessonData[index].links[linkIndex][field] = value;
+      } else {
+        updatedLessonData[index][field] = value;
+      }
+      console.log(updatedLessonData);
+
+      return updatedLessonData;
+    });
+  };
+
+  const addLink = (lessonIndex) => {
+    const updatedLessonData = [...lessonData];
+    updatedLessonData[lessonIndex].links.push({ title: "", url: "" });
+    setLessonData(updatedLessonData);
+  };
+
+  const removeLink = (lessonIndex, linkIndex) => {
+    const updatedLessonData = [...lessonData];
+    updatedLessonData[lessonIndex].links.splice(linkIndex, 1);
+    setLessonData(updatedLessonData);
+  };
+
+  const addLesson = () => {
+    setLessonData([
+      ...lessonData,
+      {
+        videoUrl: "",
+        title: "",
+        videoSection: "",
+        description: "",
+        videoLength: "",
+        links: [{ title: "", url: "" }],
+      },
+    ]);
+  };
+
+  const removeLesson = (index) => {
+    const updatedLessonData = [...lessonData];
+    updatedLessonData.splice(index, 1);
+    setLessonData(updatedLessonData);
+  };
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //   const { course, isLoading, isError, isSuccess, message } = useSelector(
-  //     (state) => state.course
-  //   );
+  const { course, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.course
+  );
 
-  //   useEffect(() => {
-  //     if (isError) {
-  //       toast.error(message);
-  //     }
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
 
-  //     if (course) {
-  //       toast.success("Course Created Successfully");
-  //       dispatch(reset());
-  //       navigate("/admin/create/2");
-  //     }
-  //   }, [isError, course, message, dispatch]);
+    if (course) {
+      toast.success("Course Created Successfully");
+      navigate("/admin");
+      dispatch(reset());
+    }
+  }, [isError, course, message, isSuccess, navigate, dispatch]);
 
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  //     const courseData = {
-  //       name,
-  //       description,
-  //       price,
-  //       estimatedPrice,
-  //       category,
-  //       tags,
-  //       level,
-  //       benefits,
-  //       prerequisites,
-  //     };
-  //     dispatch(createCourse(courseData));
-  //     console.log(courseData, "mychief");
-  //   };
-
-  //   const addPrerequisite = () => {
-  //     setPrerequisites([...prerequisites, { title: "" }]); // Add a new empty prerequisite object
-  //   };
-
-  //   const removePrerequisite = (index) => {
-  //     const updatedPrerequisites = [...prerequisites];
-  //     updatedPrerequisites.splice(index, 1); // Remove the prerequisite object at the specified index
-  //     setPrerequisites(updatedPrerequisites);
-  //   };
-
-  //   const handlePrerequisitesChange = (e, index) => {
-  //     const { value } = e.target;
-  //     const updatedPrerequisites = [...prerequisites];
-  //     updatedPrerequisites[index] = { title: value };
-  //     setPrerequisites(updatedPrerequisites);
-  //   };
-
-  //   const addBenefits = () => {
-  //     setBenefits([...benefits, { title: "" }]); // Add a new empty benefit object
-  //   };
-
-  //   const removeBenefits = (index) => {
-  //     const updatedBenefits = [...benefits];
-  //     updatedBenefits.splice(index, 1); // Remove the benefit object at the specified index
-  //     setBenefits(updatedBenefits);
-  //   };
-
-  //   const handleBenefitsChange = (e, index) => {
-  //     const { value } = e.target;
-  //     const updatedBenefits = [...benefits];
-  //     updatedBenefits[index] = { title: value };
-  //     setBenefits(updatedBenefits);
-  //   };
+    const courseData = {
+      lessonData: [...lessonData],
+    };
+    dispatch(createCourse(courseData));
+    console.log(courseData, "mychief");
+  };
 
   return (
-    <div className="create">
+    <div className="create" method="POST" onSubmit={handleSubmit}>
       <BreadCrumb />
-      <div className="create-contents">
-        <form>
-          <div className="upload">
-            <div className="upload-top">
-              <h2>Upload Course Image</h2>
-              <div className="buttons">
-                <button className="edit">
-                  <span>Edit</span>
-                </button>
-                <button className="upload-btn">
-                  <FontAwesomeIcon icon={faCloudUpload} />
-                  <span>Upload</span>
-                </button>
+      <div className="dets">
+        <h3>Add Lessons</h3>
+        {lessonData.map((lesson, lessonIndex) => (
+          <div key={lessonIndex} className="lesson-container">
+            <h4>Lesson {lessonIndex + 1}</h4>
+            <div className="lesson-details">
+              <label>Video URL</label>
+              <input
+                required
+                type="text"
+                value={lesson.videoUrl}
+                placeholder="Put in the video for this lesson"
+                onChange={(e) =>
+                  handleLessonDataChange(
+                    lessonIndex,
+                    "videoUrl",
+                    e.target.value
+                  )
+                }
+              />
+              <label>Title</label>
+              <input
+                required
+                type="text"
+                value={lesson.title}
+                placeholder="Enter in the lesson title"
+                onChange={(e) =>
+                  handleLessonDataChange(lessonIndex, "title", e.target.value)
+                }
+              />
+              <label>Video Section</label>
+              <input
+                required
+                type="text"
+                value={lesson.videoSection}
+                placeholder="Enter the section of your lesson"
+                onChange={(e) =>
+                  handleLessonDataChange(
+                    lessonIndex,
+                    "videoSection",
+                    e.target.value
+                  )
+                }
+              />
+              <label>Description</label>
+              <textarea
+                required
+                value={lesson.description}
+                cols="30"
+                rows="10"
+                placeholder="Enter the description for this lesson"
+                onChange={(e) =>
+                  handleLessonDataChange(
+                    lessonIndex,
+                    "description",
+                    e.target.value
+                  )
+                }
+              />
+              <label>Video Length</label>
+              <input
+                required
+                type="number"
+                value={lesson.videoLength}
+                placeholder="Enter the video length of the video you just uploaded"
+                onChange={(e) =>
+                  handleLessonDataChange(
+                    lessonIndex,
+                    "videoLength",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
+
+            {/* Links Section */}
+            <div className="links-section">
+              <h3>Links</h3>
+              {lesson.links.map((link, linkIndex) => (
+                <div key={linkIndex} className="link-details">
+                  <div className="link-labels">
+                    <label>Title</label>
+                    <input
+                      required
+                      type="text"
+                      value={link.title}
+                      placeholder="Enter the title of the link"
+                      onChange={(e) =>
+                        handleLessonDataChange(
+                          lessonIndex,
+                          "title",
+                          e.target.value,
+                          linkIndex
+                        )
+                      }
+                    />
+                    <label>URL</label>
+                    <input
+                      required
+                      type="text"
+                      placeholder="Enter the link"
+                      value={link.url}
+                      onChange={(e) =>
+                        handleLessonDataChange(
+                          lessonIndex,
+                          "url",
+                          e.target.value,
+                          linkIndex
+                        )
+                      }
+                    />
+                    <FontAwesomeIcon
+                      icon={faMinusCircle}
+                      color="#303cc"
+                      onClick={() => removeLink(lessonIndex, linkIndex)}
+                      cursor="pointer"
+                    />
+                  </div>
+                </div>
+              ))}
+              <div className="add" onClick={() => addLink(lessonIndex)}>
+                <FontAwesomeIcon icon={faPlusCircle} color="#af5e41" />
+                <span>Add Link</span>
               </div>
             </div>
-            <div className="upload-box">
-              <img src={upload} alt={upload} />
-              <p>Upload a course file here</p>
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              </span>
-              <div className="btns">
-                <buttom className="cancel">Cancel</buttom>
-                <button className="confirm">Confirm</button>
-              </div>
+            <div
+              className="remove-lesson"
+              onClick={() => removeLesson(lessonIndex)}
+            >
+              <p>Remove this Lesson</p>
+              <FontAwesomeIcon
+                icon={faMinusCircle}
+                color="#303cc"
+                cursor="pointer"
+              />
             </div>
           </div>
-          <div className="upload">
-            <div className="upload-top">
-              <h2>Upload Course Preview Video</h2>
-              <div className="buttons">
-                <button className="edit">
-                  <span>Edit</span>
-                </button>
-                <button className="upload-btn">
-                  <FontAwesomeIcon icon={faCloudUpload} />
-                  <span>Upload</span>
-                </button>
-              </div>
-            </div>
-            <div className="upload-box">
-              <img src={upload} alt={upload} />
-              <p>Upload a course file here</p>
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              </span>
-              <div className="btns">
-                <buttom className="cancel">Cancel</buttom>
-                <button className="confirm">Confirm</button>
-              </div>
-            </div>
-          </div>
-          <button type="submit">
-            <FontAwesomeIcon icon={faSpinner} />
-          </button>
-        </form>
+        ))}
+        <div className="add" onClick={addLesson}>
+          <FontAwesomeIcon icon={faPlusCircle} color="#af5e41" />
+          <span>Add Lesson</span>
+        </div>
       </div>
+      <button type="submit">
+        {isLoading ? (
+          <FontAwesomeIcon icon={faSpinner} spin />
+        ) : (
+          "Upload Lesson(s)"
+        )}
+      </button>
     </div>
   );
 };

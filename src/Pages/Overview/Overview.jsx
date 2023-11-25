@@ -15,11 +15,9 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { fetchACourse } from "../../redux/CourseAPI/courseSlice";
-import { BreadCrumb } from "../BreadCrumb/BreadCrumb";
-import wellslogo from "../../assets/Images/Wells-Logo.svg";
+import { getUser } from "../../redux/user/userSlice";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import noimage from "../../assets/Images/noimage.png";
-import courseService from "../../redux/CourseAPI/courseService";
 import gif from "../../assets/Images/Loading.gif";
 import { addToCart } from "../../redux/addToCart/cartSlice";
 
@@ -36,11 +34,19 @@ const Overview = () => {
   useEffect(() => {
     dispatch(fetchACourse(courseId));
     dispatch(getCourse());
+    dispatch(getUser());
   }, [dispatch, courseId]);
 
   const { isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.course
   );
+
+  const user_course = useSelector(
+    (state) => state.details?.data?.data?.courses[0]
+  );
+
+  console.log(user_course, "user");
+
   const courseArray = useSelector((state) => state.course.courseArray);
   const data = useSelector((state) => state.course.data);
   console.log(courseArray.course?.demoUrl, "courseArray");
@@ -283,27 +289,45 @@ const Overview = () => {
                       src={courseArray?.course?.thumbnail?.url}
                       alt={courseArray?.thumbnail?.url}
                     />
-                    <h3>{courseArray?.course?.name}</h3>
-                    <div className="price">
-                      <h4>{`₦${courseArray?.course?.price}`}</h4>
-                      <h5 className="slice">{`₦${courseArray?.course?.estimatedPrice}`}</h5>
-                    </div>
-                    <div className="purchase">
-                      <button className="add"> Buy now</button>
-                      <button className="buy">
-                        <span
-                          onClick={() => handleAddToCart(courseArray.course)}
-                        >
-                          Add to cart
-                        </span>
-                        <FontAwesomeIcon
-                          icon={faCartShopping}
-                          className="cart"
-                          size="2x"
-                          onClick={() => handleAddToCart(courseArray.course)}
-                        />
-                      </button>
-                    </div>
+                    {user_course?.name === courseArray?.course?.name ? (
+                      <Link
+                        to={`/dashboard/mycourses/${courseArray?.course?._id}`}
+                        className="add"
+                      >
+                        <button className="add-btn">
+                          Go to this course{" "}
+                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                        </button>
+                      </Link>
+                    ) : (
+                      <>
+                        <h3>{courseArray?.course?.name}</h3>
+                        <div className="price">
+                          <h4>{`₦${courseArray?.course?.price}`}</h4>
+                          <h5 className="slice">{`₦${courseArray?.course?.estimatedPrice}`}</h5>
+                        </div>
+                        <div className="purchase">
+                          <button className="add"> Buy now</button>
+                          <button className="buy">
+                            <span
+                              onClick={() =>
+                                handleAddToCart(courseArray.course)
+                              }
+                            >
+                              Add to cart
+                            </span>
+                            <FontAwesomeIcon
+                              icon={faCartShopping}
+                              className="cart"
+                              size="2x"
+                              onClick={() =>
+                                handleAddToCart(courseArray.course)
+                              }
+                            />
+                          </button>
+                        </div>
+                      </>
+                    )}
                     <div className="offer">
                       <p>Offer ends in </p>
                       <span>9d 8h 0m 54s</span>

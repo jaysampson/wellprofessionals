@@ -27,7 +27,7 @@ const AdminLayout = ({ content }) => {
             <button className="create">
               <Link to="/admin/create" className="create-1">
                 <FontAwesomeIcon icon={faPlus} />
-                <p>Create New Course</p>
+                <p>Create Course</p>
               </Link>
             </button>
             <NavLink

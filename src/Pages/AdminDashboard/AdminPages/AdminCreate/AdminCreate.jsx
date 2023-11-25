@@ -7,7 +7,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { reset, createCourse } from "../../../../redux/CourseAPI/courseSlice";
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import upload from "../../../../assets/Images/upload.svg";
+
 import {
+  faCloudUpload,
   faMinusCircle,
   faPlusCircle,
   faSpinner,
@@ -32,6 +35,66 @@ const Content = () => {
   const [level, setLevel] = useState("");
   const [benefits, setBenefits] = useState([{ title: "" }]);
   const [prerequisites, setPrerequisites] = useState([{ title: "" }]);
+
+  const [thumbnail, setThumbnail] = useState(null);
+
+  const [lessonData, setLessonData] = useState([
+    {
+      videoUrl: "",
+      title: "",
+      videoSection: "",
+      description: "",
+      videoLength: "",
+      links: [{ title: "", url: "" }],
+    },
+  ]);
+
+  const handleLessonDataChange = (index, field, value, linkIndex) => {
+    setLessonData((prevLessonData) => {
+      const updatedLessonData = [...prevLessonData];
+      if (linkIndex !== undefined) {
+        updatedLessonData[index].links[linkIndex][field] = value;
+      } else {
+        updatedLessonData[index][field] = value;
+      }
+      console.log(updatedLessonData);
+
+      return updatedLessonData;
+    });
+  };
+
+  const addLink = (lessonIndex) => {
+    const updatedLessonData = [...lessonData];
+    updatedLessonData[lessonIndex].links.push({ title: "", url: "" });
+    setLessonData(updatedLessonData);
+  };
+
+  const removeLink = (lessonIndex, linkIndex) => {
+    const updatedLessonData = [...lessonData];
+    updatedLessonData[lessonIndex].links.splice(linkIndex, 1);
+    setLessonData(updatedLessonData);
+  };
+
+  const addLesson = () => {
+    setLessonData([
+      ...lessonData,
+      {
+        videoUrl: "",
+        title: "",
+        videoSection: "",
+        description: "",
+        videoLength: "",
+        links: [{ title: "", url: "" }],
+      },
+    ]);
+  };
+
+  const removeLesson = (index) => {
+    const updatedLessonData = [...lessonData];
+    updatedLessonData.splice(index, 1);
+    setLessonData(updatedLessonData);
+  };
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { course, isLoading, isError, isSuccess, message } = useSelector(
@@ -45,7 +108,34 @@ const Content = () => {
 
     if (course) {
       toast.success("Course Created Successfully");
-      navigate("/admin/create/2");
+      navigate("/admin");
+      dispatch(reset());
+    }
+  }, [isError, course, message, isSuccess, navigate, dispatch]);
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setThumbnail(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleEditImage = () => {
+    document.getElementById("imageInput").click();
+  };
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (course) {
+      toast.success("Course Created Successfully");
+      navigate("/admin/create/lessons");
       dispatch(reset());
     }
   }, [isError, course, message, isSuccess, navigate, dispatch]);
@@ -64,6 +154,7 @@ const Content = () => {
       level,
       benefits,
       prerequisites,
+      lessonData: [...lessonData],
     };
     dispatch(createCourse(courseData));
     console.log(courseData, "mychief");
@@ -107,7 +198,7 @@ const Content = () => {
     <div className="create">
       <BreadCrumb />
       <div className="create-contents">
-        <form>
+        <form method="POST" onSubmit={handleSubmit}>
           <div className="dets">
             <label htmlFor="">Course Name</label>
             <input
@@ -124,7 +215,7 @@ const Content = () => {
               type="text"
               placeholder="Enter Course Name"
               value={demoUrl}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setDemoUrl(e.target.value)}
               required
             />
             <p>
@@ -178,6 +269,43 @@ const Content = () => {
               onChange={(e) => setEstimatedPrice(e.target.value)}
               required
             />
+          </div>
+          <div className="upload">
+            <div className="upload-top">
+              <p>Upload Course Image</p>
+              <div className="buttons">
+                <button
+                  className="edit"
+                  type="button"
+                  onClick={handleEditImage}
+                >
+                  <span>Edit</span>
+                </button>
+                <button
+                  className="upload-btn"
+                  type="button"
+                  onClick={handleEditImage}
+                >
+                  <FontAwesomeIcon icon={faCloudUpload} />
+                  <span>Upload</span>
+                </button>
+                <input
+                  id="imageInput"
+                  type="file"
+                  accept="image/*"
+                  style={{ display: "none" }}
+                  onChange={handleImageUpload}
+                />
+              </div>
+            </div>
+            <div className="upload-box">
+              {thumbnail ? (
+                <img src={thumbnail} alt="Selected" className="selected-img" />
+              ) : (
+                <img src={upload} alt="Default" />
+              )}
+              <p>Upload a course Image here</p>
+            </div>
           </div>
           <div className="dets">
             <label htmlFor="">Tag</label>
@@ -275,9 +403,162 @@ const Content = () => {
               <span>Add More</span>
             </div>
           </div>
-          <button type="submit" onClick={handleSubmit}>
-            {isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Next >>"}
-          </button>
+          <div className="create-2" method="POST" onSubmit={handleSubmit}>
+            <div className="dets">
+              <h4>Add Lessons</h4>
+              {lessonData.map((lesson, lessonIndex) => (
+                <div key={lessonIndex} className="lesson-container">
+                  <h4>Lesson {lessonIndex + 1}</h4>
+                  <div className="lesson-details">
+                    <label>Video URL</label>
+                    <input
+                      required
+                      type="text"
+                      value={lesson.videoUrl}
+                      placeholder="Put in the video for this lesson"
+                      onChange={(e) =>
+                        handleLessonDataChange(
+                          lessonIndex,
+                          "videoUrl",
+                          e.target.value
+                        )
+                      }
+                    />
+                    <label>Title</label>
+                    <input
+                      required
+                      type="text"
+                      value={lesson.title}
+                      placeholder="Enter in the lesson title"
+                      onChange={(e) =>
+                        handleLessonDataChange(
+                          lessonIndex,
+                          "title",
+                          e.target.value
+                        )
+                      }
+                    />
+                    <label>Video Section</label>
+                    <input
+                      required
+                      type="text"
+                      value={lesson.videoSection}
+                      placeholder="Enter the section of your lesson"
+                      onChange={(e) =>
+                        handleLessonDataChange(
+                          lessonIndex,
+                          "videoSection",
+                          e.target.value
+                        )
+                      }
+                    />
+                    <label>Description</label>
+                    <textarea
+                      required
+                      value={lesson.description}
+                      cols="30"
+                      rows="10"
+                      placeholder="Enter the description for this lesson"
+                      onChange={(e) =>
+                        handleLessonDataChange(
+                          lessonIndex,
+                          "description",
+                          e.target.value
+                        )
+                      }
+                    />
+                    <label>Video Length</label>
+                    <input
+                      required
+                      type="number"
+                      value={lesson.videoLength}
+                      placeholder="Enter the video length of the video you just uploaded"
+                      onChange={(e) =>
+                        handleLessonDataChange(
+                          lessonIndex,
+                          "videoLength",
+                          e.target.value
+                        )
+                      }
+                    />
+                  </div>
+
+                  {/* Links Section */}
+                  <div className="links-section">
+                    <h4>Links</h4>
+                    {lesson.links.map((link, linkIndex) => (
+                      <div key={linkIndex} className="link-details">
+                        <div className="link-labels">
+                          <label>Title</label>
+                          <input
+                            required
+                            type="text"
+                            value={link.title}
+                            placeholder="Enter the title of the link"
+                            onChange={(e) =>
+                              handleLessonDataChange(
+                                lessonIndex,
+                                "title",
+                                e.target.value,
+                                linkIndex
+                              )
+                            }
+                          />
+                          <label>URL</label>
+                          <input
+                            required
+                            type="text"
+                            placeholder="Enter the link"
+                            value={link.url}
+                            onChange={(e) =>
+                              handleLessonDataChange(
+                                lessonIndex,
+                                "url",
+                                e.target.value,
+                                linkIndex
+                              )
+                            }
+                          />
+                          <FontAwesomeIcon
+                            icon={faMinusCircle}
+                            color="#303cc"
+                            onClick={() => removeLink(lessonIndex, linkIndex)}
+                            cursor="pointer"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                    <div className="add" onClick={() => addLink(lessonIndex)}>
+                      <FontAwesomeIcon icon={faPlusCircle} color="#af5e41" />
+                      <span>Add Link</span>
+                    </div>
+                  </div>
+                  <div
+                    className="remove-lesson"
+                    onClick={() => removeLesson(lessonIndex)}
+                  >
+                    <p>Remove this Lesson</p>
+                    <FontAwesomeIcon
+                      icon={faMinusCircle}
+                      color="#303cc"
+                      cursor="pointer"
+                    />
+                  </div>
+                </div>
+              ))}
+              <div className="add" onClick={addLesson}>
+                <FontAwesomeIcon icon={faPlusCircle} color="#af5e41" />
+                <span>Add Lesson</span>
+              </div>
+            </div>
+            <button type="submit">
+              {isLoading ? (
+                <FontAwesomeIcon icon={faSpinner} spin />
+              ) : (
+                "Upload Lesson(s)"
+              )}
+            </button>
+          </div>
         </form>
       </div>
     </div>

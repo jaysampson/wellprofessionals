@@ -551,6 +551,30 @@
                 }
               }
             }
+            .add {
+              border-radius: 0.40594rem;
+              background: var(--sec-01, #af5e41);
+              color: #fff;
+              width: 100%;
+              height: 40px;
+              border: none;
+              outline: none;
+              @media screen and (max-width: 1200px) {
+                width: 200px;
+              }
+              @media screen and (max-width: 500px) {
+                width: 70%;
+              }
+              .add-btn {
+                border-radius: 0.40594rem;
+                background: var(--sec-01, #af5e41);
+                color: #fff;
+                width: 100%;
+                height: 40px;
+                border: none;
+                outline: none;
+              }
+            }
             .offer {
               display: flex;
               align-items: center;

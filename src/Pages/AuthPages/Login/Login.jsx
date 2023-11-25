@@ -24,6 +24,8 @@ const Login = () => {
     (state) => state.auth
   );
 
+  console.log(user);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,8 +34,12 @@ const Login = () => {
     }
 
     if (isSuccess) {
-      navigate("/");
       toast.success("Logged in");
+      if (user.data.roles === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/dashboard");
+      }
       dispatch(reset());
     }
   }, [user, isError, isSuccess, message, navigate, dispatch]);

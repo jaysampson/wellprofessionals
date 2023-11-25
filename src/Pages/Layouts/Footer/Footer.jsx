@@ -73,17 +73,33 @@ const Footer = () => {
                 <section>
                   <p>Company</p>
                   <ul>
-                    <li>About</li>
-                    <li>Features</li>
-                    <li>Works</li>
-                    <li>Career</li>
+                    <li>
+                      <Link to="/about" className="links">
+                        About Well Profs
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="" className="links">
+                        Course Creators
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="" className="links">
+                        Partner with Wellprofs
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="" className="links">
+                        Career
+                      </Link>
+                    </li>
                   </ul>
                 </section>
                 <section>
                   <p>Help</p>
                   <ul>
                     <li>Customer Support</li>
-                    <li>Delivery Details</li>
+                    <li>FAQs</li>
                     <Link to="/terms-conditions">
                       <li>Terms & Conditions</li>
                     </Link>
@@ -96,9 +112,10 @@ const Footer = () => {
                   <p>Resources</p>
                   <ul>
                     <li>Get App</li>
-                    <li>Lorem Ipsum</li>
-                    <li>Lorem Ipsum</li>
-                    <li>Lorem Ipsum</li>
+                    <li>Earn on Well Profs</li>
+                    <li>Upcoming Physical Trainings</li>
+                    <li>Accreditations</li>
+                    <li>Blog</li>
                   </ul>
                 </section>
               </div>

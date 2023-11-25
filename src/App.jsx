@@ -35,12 +35,26 @@ import "./font.scss";
 import Categories from "./Pages/Categories/Categories";
 import TC from "./Pages/T&C/T&C";
 import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy";
+import { AuthRedirect } from "./AuthRedirect";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
+const ScrollToTop = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return null;
+};
 
 function App() {
   const { user } = useSelector((state) => state.auth);
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
         {/* AuthPages */}
 
@@ -64,17 +78,31 @@ function App() {
 
         {/* Student-Dashboard */}
 
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/dashboard"
+          element={
+            <AuthRedirect userRoute>
+              <Dashboard />
+            </AuthRedirect>
+          }
+        />
         <Route path="/overview" element={<Overview />} />
         <Route path="/dashboard/mycourses/course" element={<Course />} />
         <Route path="/dashboard/mycourses/:courseId" element={<Course />} />
 
         {/* Admin-Pages */}
 
-        <Route path="/admin/*" element={<AdminDashboard />} />
-        <Route path="/admin/" element={<AdminDashboard />} />
+        {/* <Route path="/admin/*" element={<AdminDashboard />} /> */}
+        <Route
+          path="/admin/"
+          element={
+            <AuthRedirect adminRoute>
+              <AdminDashboard />
+            </AuthRedirect>
+          }
+        />
         <Route path="/admin/create" element={<AdminCreate />} />
-        <Route path="/admin/create/2" element={<AdminCreate2 />} />
+        <Route path="/admin/create/lessons" element={<AdminCreate2 />} />
         <Route path="/admin/admin-courses" element={<AdminCourse />} />
         <Route path="/admin/announcements" element={<Announcements />} />
         <Route path="/admin/admin-instructors" element={<AdminInstructors />} />
