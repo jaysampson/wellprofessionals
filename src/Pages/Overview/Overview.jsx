@@ -87,7 +87,7 @@ const Overview = () => {
             <div className="overview-top">
               <iframe
                 src={`https://drive.google.com/file/d/${courseArray?.course?.demoUrl}/preview`}
-                height="250px"
+                height="200px"
                 width="100%"
                 frameborder="0"
                 className="iframe-2"
