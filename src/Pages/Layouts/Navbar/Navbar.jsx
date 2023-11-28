@@ -210,7 +210,6 @@ const Navbar = () => {
               <h3>Create Course</h3>
             </Link>
             <h3>Notifications</h3>
-            <hr />
           </>
         ) : (
           ""
@@ -233,6 +232,7 @@ const Navbar = () => {
           <h3>Settings</h3>
         </Link>
         <h3>Help</h3>
+        <hr />
         <div className="navigate">
           <p>NAVIGATE TO</p>
           <hr />
