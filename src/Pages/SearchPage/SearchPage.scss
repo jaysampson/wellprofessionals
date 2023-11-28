@@ -120,13 +120,11 @@
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      h2 {
-        span {
+      h3 {
+        display: flex;
+        gap: 5px;
+        .result {
           color: #af5e41;
-          font-size: 24px;
-          @media screen and (max-width: 800px) {
-            font-size: 20px;
-          }
         }
       }
       .sort-arrange {
@@ -182,7 +180,6 @@
         width: 100%;
         h3 {
           font-weight: 700;
-          font-size: 26px;
           color: #000000;
         }
         .courses {
@@ -262,7 +259,6 @@
                 h3 {
                   color: #000000;
                   text-align: left;
-                  font-size: large;
                 }
               }
               .desc {
@@ -344,3 +340,5 @@
     }
   }
 }
+
+@import "../../font.scss";

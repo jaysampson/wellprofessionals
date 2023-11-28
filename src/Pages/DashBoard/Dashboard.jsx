@@ -160,7 +160,7 @@ const Dashboard = () => {
                   <div className="not-purchased">
                     <img src={books} alt={books}></img>
                     <span>You haven't purchased any course yet</span>
-                    <Link className="not-purchased-link">
+                    <Link to="/search/" className="not-purchased-link">
                       <button className="btn">
                         Purchase a course{" "}
                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} />

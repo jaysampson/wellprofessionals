@@ -193,10 +193,10 @@ const SearchPage = () => {
             <button onClick={handleSearch}>Search</button>
           </div>
           <div className="right-layout-top">
-            <h2>
+            <h3>
               Found {filteredCourses?.length} results for{" "}
-              <span>{searchQuery || "All courses"}</span>
-            </h2>
+              <h3 className="result">{searchQuery || "All courses"}</h3>
+            </h3>
             <div className="sort-arrange">
               <div className="sort">
                 <p>Sort by</p>

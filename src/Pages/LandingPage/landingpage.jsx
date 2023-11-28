@@ -24,6 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import noimage from "../../assets/Images/noimage.png";
 import gif from "../../assets/Images/Loading.gif";
 import { addToCart } from "../../redux/addToCart/cartSlice";
+import { toast } from "react-toastify";
 
 const LandingPage = () => {
   const [toggle1, setToggle1] = useState(false);
@@ -61,6 +62,8 @@ const LandingPage = () => {
     if (search) {
       navigate(`/search/${encodeURIComponent(search)}`);
       console.log("search: ", search);
+    } else {
+      toast.info("Type in a course you wish to search for");
     }
   };
 
@@ -214,7 +217,9 @@ const LandingPage = () => {
                       ))}
                     </div>
                   </div>
-                  <button>Show more courses</button>
+                  <Link to="/search/">
+                    <button>Show more courses</button>
+                  </Link>
                 </div>
                 <div className="based-on-picks">
                   <div className="top-rated-con">
@@ -309,7 +314,9 @@ const LandingPage = () => {
                         </div>
                       ))}
                     </div>
-                    <button>Show more courses</button>
+                    <Link to="/search/">
+                      <button>Show more courses</button>
+                    </Link>
                   </div>
                 </div>
                 <div className="what-course">
@@ -423,7 +430,10 @@ const LandingPage = () => {
                       </div>
                     ))}
                   </div>
-                  <button>Show more courses</button>
+                  <Link to="/search/">
+                    {" "}
+                    <button>Show more courses</button>
+                  </Link>
                 </div>
                 <div className="testimonial">
                   <h3>3940+ Happy Well Professionals Users</h3>
@@ -507,7 +517,7 @@ const LandingPage = () => {
                       </div>
                       <div className="question-con">
                         <div className="question">
-                          <h3>Is there a free trail available?</h3>
+                          <h4>Is there a free trail available?</h4>
                           <img
                             src={toggle3 ? minus : plus}
                             alt="loading"

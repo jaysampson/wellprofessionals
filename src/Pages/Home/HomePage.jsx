@@ -230,7 +230,9 @@ const Home = () => {
                       ))}
                     </div>
                   </div>
-                  <button>Show more courses</button>
+                  <Link to="/search/">
+                    <button>Show more courses</button>
+                  </Link>
                 </div>
                 <div className="all-courses">
                   <h2>Courses For You Based On Your Picks</h2>

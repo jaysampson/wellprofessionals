@@ -201,6 +201,20 @@ const Navbar = () => {
         <Link to="/">
           <h3>Home</h3>
         </Link>
+        {user ? (
+          <>
+            <Link to="/dashboard">
+              <h3>Dashboard</h3>
+            </Link>
+            <Link to="/admin/create">
+              <h3>Create Course</h3>
+            </Link>
+            <h3>Notifications</h3>
+            <hr />
+          </>
+        ) : (
+          ""
+        )}
         <Link to="/cart">
           <h3>Cart</h3>
         </Link>
@@ -214,26 +228,11 @@ const Navbar = () => {
         <Link to="/privacy-policy">
           <h3>Privacy Policy</h3>
         </Link>
+        <h3>Get App</h3>
+        <Link to="/settings/profile">
+          <h3>Settings</h3>
+        </Link>
         <h3>Help</h3>
-        {user ? (
-          <>
-            <Link to="/dashboard">
-              <h3>Dashboard</h3>
-            </Link>
-            <Link to="/admin/create">
-              <h3>Create Course</h3>
-            </Link>
-            <h3>Notifications</h3>
-            <h3>Change Password</h3>
-            <h3>Get App</h3>
-            <Link to="/settings/profile">
-              <h3>Settings</h3>
-            </Link>
-            <hr />
-          </>
-        ) : (
-          ""
-        )}
         <div className="navigate">
           <p>NAVIGATE TO</p>
           <hr />
