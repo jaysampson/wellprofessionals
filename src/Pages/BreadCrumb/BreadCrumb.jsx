@@ -10,6 +10,7 @@ export const BreadCrumb = () => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
   const { user } = useSelector((state) => state.auth);
+
   return (
     <div className="bread-crumb">
       {pathnames.length > 0 && (
@@ -25,11 +26,12 @@ export const BreadCrumb = () => {
       )}
       {pathnames.map((name, index) => {
         const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
+        const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
         return (
           <span key={index}>
             {<FontAwesomeIcon icon={faAngleRight} />}
             <Link to={routeTo} className="span">
-              {name}
+              {capitalizedName}
             </Link>
           </span>
         );

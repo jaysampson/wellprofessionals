@@ -10,6 +10,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import upload from "../../../../assets/Images/upload.svg";
 
 import {
+  faAngleDown,
+  faAngleUp,
+  faArrowAltCircleDown,
+  faArrowDown,
   faCloudUpload,
   faMinusCircle,
   faPlusCircle,
@@ -192,6 +196,18 @@ const Content = () => {
     const updatedBenefits = [...benefits];
     updatedBenefits[index] = { title: value };
     setBenefits(updatedBenefits);
+  };
+
+  const [collapsedLessons, setCollapsedLessons] = useState(
+    Array(lessonData.length).fill(false)
+  );
+
+  const handleToggle = (lessonIndex) => {
+    setCollapsedLessons((prevCollapsedLessons) => {
+      const updatedCollapseState = [...prevCollapsedLessons];
+      updatedCollapseState[lessonIndex] = !updatedCollapseState[lessonIndex];
+      return updatedCollapseState;
+    });
   };
 
   return (
@@ -407,144 +423,167 @@ const Content = () => {
             <div className="dets">
               <h4>Add Lessons</h4>
               {lessonData.map((lesson, lessonIndex) => (
-                <div key={lessonIndex} className="lesson-container">
-                  <h4>Lesson {lessonIndex + 1}</h4>
-                  <div className="lesson-details">
-                    <label>Video URL</label>
-                    <input
-                      required
-                      type="text"
-                      value={lesson.videoUrl}
-                      placeholder="Put in the video for this lesson"
-                      onChange={(e) =>
-                        handleLessonDataChange(
-                          lessonIndex,
-                          "videoUrl",
-                          e.target.value
-                        )
+                <>
+                  <div
+                    className="collapse"
+                    onClick={() => handleToggle(lessonIndex)}
+                  >
+                    <h4>Lesson {lessonIndex + 1}</h4>
+                    <FontAwesomeIcon
+                      icon={
+                        collapsedLessons[lessonIndex] ? faAngleDown : faAngleUp
                       }
-                    />
-                    <label>Title</label>
-                    <input
-                      required
-                      type="text"
-                      value={lesson.title}
-                      placeholder="Enter in the lesson title"
-                      onChange={(e) =>
-                        handleLessonDataChange(
-                          lessonIndex,
-                          "title",
-                          e.target.value
-                        )
-                      }
-                    />
-                    <label>Video Section</label>
-                    <input
-                      required
-                      type="text"
-                      value={lesson.videoSection}
-                      placeholder="Enter the section of your lesson"
-                      onChange={(e) =>
-                        handleLessonDataChange(
-                          lessonIndex,
-                          "videoSection",
-                          e.target.value
-                        )
-                      }
-                    />
-                    <label>Description</label>
-                    <textarea
-                      required
-                      value={lesson.description}
-                      cols="30"
-                      rows="10"
-                      placeholder="Enter the description for this lesson"
-                      onChange={(e) =>
-                        handleLessonDataChange(
-                          lessonIndex,
-                          "description",
-                          e.target.value
-                        )
-                      }
-                    />
-                    <label>Video Length</label>
-                    <input
-                      required
-                      type="number"
-                      value={lesson.videoLength}
-                      placeholder="Enter the video length of the video you just uploaded"
-                      onChange={(e) =>
-                        handleLessonDataChange(
-                          lessonIndex,
-                          "videoLength",
-                          e.target.value
-                        )
-                      }
+                      color="#af5e41"
                     />
                   </div>
+                  {collapsedLessons[lessonIndex] ? null : (
+                    <div key={lessonIndex} className="lesson-container">
+                      <div className="lesson-details">
+                        <label>Video URL</label>
+                        <input
+                          required
+                          type="text"
+                          value={lesson.videoUrl}
+                          placeholder="Put in the video for this lesson"
+                          onChange={(e) =>
+                            handleLessonDataChange(
+                              lessonIndex,
+                              "videoUrl",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <label>Title</label>
+                        <input
+                          required
+                          type="text"
+                          value={lesson.title}
+                          placeholder="Enter in the lesson title"
+                          onChange={(e) =>
+                            handleLessonDataChange(
+                              lessonIndex,
+                              "title",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <label>Video Section</label>
+                        <input
+                          required
+                          type="text"
+                          value={lesson.videoSection}
+                          placeholder="Enter the section of your lesson"
+                          onChange={(e) =>
+                            handleLessonDataChange(
+                              lessonIndex,
+                              "videoSection",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <label>Description</label>
+                        <textarea
+                          required
+                          value={lesson.description}
+                          cols="30"
+                          rows="10"
+                          placeholder="Enter the description for this lesson"
+                          onChange={(e) =>
+                            handleLessonDataChange(
+                              lessonIndex,
+                              "description",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <label>Video Length</label>
+                        <input
+                          required
+                          type="number"
+                          value={lesson.videoLength}
+                          placeholder="Enter the video length of the video you just uploaded"
+                          onChange={(e) =>
+                            handleLessonDataChange(
+                              lessonIndex,
+                              "videoLength",
+                              e.target.value
+                            )
+                          }
+                        />
+                      </div>
 
-                  {/* Links Section */}
-                  <div className="links-section">
-                    <h4>Links</h4>
-                    {lesson.links.map((link, linkIndex) => (
-                      <div key={linkIndex} className="link-details">
-                        <div className="link-labels">
-                          <label>Title</label>
-                          <input
-                            required
-                            type="text"
-                            value={link.title}
-                            placeholder="Enter the title of the link"
-                            onChange={(e) =>
-                              handleLessonDataChange(
-                                lessonIndex,
-                                "title",
-                                e.target.value,
-                                linkIndex
-                              )
-                            }
-                          />
-                          <label>URL</label>
-                          <input
-                            required
-                            type="text"
-                            placeholder="Enter the link"
-                            value={link.url}
-                            onChange={(e) =>
-                              handleLessonDataChange(
-                                lessonIndex,
-                                "url",
-                                e.target.value,
-                                linkIndex
-                              )
-                            }
-                          />
+                      {/* Links Section */}
+                      <div className="links-section">
+                        <h4>Links</h4>
+                        {lesson.links.map((link, linkIndex) => (
+                          <div key={linkIndex} className="link-details">
+                            <div className="link-labels">
+                              <label>Title</label>
+                              <input
+                                required
+                                type="text"
+                                value={link.title}
+                                placeholder="Enter the title of the link"
+                                onChange={(e) =>
+                                  handleLessonDataChange(
+                                    lessonIndex,
+                                    "title",
+                                    e.target.value,
+                                    linkIndex
+                                  )
+                                }
+                              />
+                              <label>URL</label>
+                              <input
+                                required
+                                type="text"
+                                placeholder="Enter the link"
+                                value={link.url}
+                                onChange={(e) =>
+                                  handleLessonDataChange(
+                                    lessonIndex,
+                                    "url",
+                                    e.target.value,
+                                    linkIndex
+                                  )
+                                }
+                              />
+                              <FontAwesomeIcon
+                                icon={faMinusCircle}
+                                color="#303cc"
+                                onClick={() =>
+                                  removeLink(lessonIndex, linkIndex)
+                                }
+                                cursor="pointer"
+                              />
+                            </div>
+                          </div>
+                        ))}
+                        <div
+                          className="add"
+                          onClick={() => addLink(lessonIndex)}
+                        >
                           <FontAwesomeIcon
-                            icon={faMinusCircle}
-                            color="#303cc"
-                            onClick={() => removeLink(lessonIndex, linkIndex)}
-                            cursor="pointer"
+                            icon={faPlusCircle}
+                            color="#af5e41"
                           />
+                          <span>Add Link</span>
                         </div>
                       </div>
-                    ))}
-                    <div className="add" onClick={() => addLink(lessonIndex)}>
-                      <FontAwesomeIcon icon={faPlusCircle} color="#af5e41" />
-                      <span>Add Link</span>
+                      <div
+                        className="remove-lesson"
+                        onClick={() => removeLesson(lessonIndex)}
+                      >
+                        <p>Remove this Lesson</p>
+                        <FontAwesomeIcon
+                          icon={faMinusCircle}
+                          color="#303cc"
+                          cursor="pointer"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div
-                    className="remove-lesson"
-                    onClick={() => removeLesson(lessonIndex)}
-                  >
-                    <p>Remove this Lesson</p>
-                    <FontAwesomeIcon
-                      icon={faMinusCircle}
-                      color="#303cc"
-                      cursor="pointer"
-                    />
-                  </div>
-                </div>
+                  )}
+                </>
               ))}
               <div className="add" onClick={addLesson}>
                 <FontAwesomeIcon icon={faPlusCircle} color="#af5e41" />

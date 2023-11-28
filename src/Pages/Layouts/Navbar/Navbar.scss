@@ -104,13 +104,15 @@ nav {
         justify-content: center;
         flex-direction: row;
         gap: 8px;
-        span {
+        select {
+          border: none;
+          outline: none;
           font-weight: 400;
           font-size: 16px;
           color: #64748b;
-        }
-        @media screen and (max-width: 1000px) {
-          display: none;
+          @media screen and (max-width: 1000px) {
+            display: none;
+          }
         }
       }
       .right-nav {

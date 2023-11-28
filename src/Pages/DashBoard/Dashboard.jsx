@@ -27,6 +27,7 @@ import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import noimage from "../../assets/Images/noimage.png";
 import { addToCart } from "../../redux/addToCart/cartSlice";
+import books from "../../assets/Images/books.svg";
 
 const chartData = {
   labels: [
@@ -69,6 +70,7 @@ const Dashboard = () => {
   const purchasedcourses = useSelector(
     (state) => state.details.data.data?.courses
   );
+  console.log(purchasedcourses, "purchased");
   // const { user2 } = useSelector((state) => state.auth.courses);
   let dispatch = useDispatch();
 
@@ -98,63 +100,74 @@ const Dashboard = () => {
             </div>
             <div className="user">
               <h2>Welcome, {user && user.data.name}!</h2>
-              <span>
-                -Here's an overview of your well professionals journey
-              </span>
+              <span>Here's an overview of your well professionals journey</span>
             </div>
           </div>
           <div className="mark-course">
             <div className="my-courses">
               <div className="learning">
                 <h3>Currently Learning</h3>
-                {purchasedcourses?.map((purchased) => (
-                  <div className="learning-course" key={purchased._id}>
-                    <div className="course-con">
-                      <img
-                        className="course-img"
-                        src={purchased?.thumbnail?.url || noimage}
-                        alt={purchased?.thumbnail?.url}
-                      />
-                      <div className="content">
-                        <div className="admin">
-                          <div className="admin-title">
-                            <img src={pro} alt={pro} />
-                            <p>Michael Jordan</p>
+                {purchasedcourses && purchasedcourses.length > 0 ? (
+                  purchasedcourses?.map((purchased) => (
+                    <div className="learning-course" key={purchased._id}>
+                      <div className="course-con">
+                        <img
+                          className="course-img"
+                          src={purchased?.thumbnail?.url || noimage}
+                          alt={purchased?.thumbnail?.url}
+                        />
+                        <div className="content">
+                          <div className="admin">
+                            <div className="admin-title">
+                              <img src={pro} alt={pro} />
+                              <p>Michael Jordan</p>
+                            </div>
+                            <p className="check">
+                              <FontAwesomeIcon
+                                icon={faCheck}
+                                color="#000"
+                                size="2xs"
+                              />
+                            </p>
                           </div>
-                          <p className="check">
-                            <FontAwesomeIcon
-                              icon={faCheck}
-                              color="#000"
-                              size="2xs"
-                            />
-                          </p>
-                        </div>
-                        <div className="course-name">
-                          <Link to={`/dashboard/mycourses/${purchased._id}`}>
-                            <h4>{purchased.name}</h4>
-                          </Link>
+                          <div className="course-name">
+                            <Link to={`/dashboard/mycourses/${purchased._id}`}>
+                              <h4>{purchased.name}</h4>
+                            </Link>
 
-                          <FontAwesomeIcon
-                            icon={faArrowUpRightFromSquare}
-                            color="#000"
-                          />
-                        </div>
-                        <div className="progress">
-                          <progress
-                            className="progress"
-                            max="100"
-                            value="41"
-                          ></progress>
-                          <p>41%</p>
-                        </div>
-                        <div className="course-duration">
-                          <FontAwesomeIcon icon={faClapperboard} />
-                          <p>2-3 weeks course</p>
+                            <FontAwesomeIcon
+                              icon={faArrowUpRightFromSquare}
+                              color="#000"
+                            />
+                          </div>
+                          <div className="progress">
+                            <progress
+                              className="progress"
+                              max="100"
+                              value="41"
+                            ></progress>
+                            <p>41%</p>
+                          </div>
+                          <div className="course-duration">
+                            <FontAwesomeIcon icon={faClapperboard} />
+                            <p>2-3 weeks course</p>
+                          </div>
                         </div>
                       </div>
                     </div>
+                  ))
+                ) : (
+                  <div className="not-purchased">
+                    <img src={books} alt={books}></img>
+                    <span>You haven't purchased any course yet</span>
+                    <Link className="not-purchased-link">
+                      <button className="btn">
+                        Purchase a course{" "}
+                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                      </button>
+                    </Link>
                   </div>
-                ))}
+                )}
               </div>
               <hr />
               <div className="learning">

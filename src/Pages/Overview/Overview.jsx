@@ -87,13 +87,21 @@ const Overview = () => {
             <div className="overview-top">
               <iframe
                 src={`https://drive.google.com/file/d/${courseArray?.course?.demoUrl}/preview`}
-                height="200px"
+                height="250px"
                 width="100%"
                 frameborder="0"
+                className="iframe-2"
               ></iframe>
             </div>
             <div className="overview-body">
               <div className="left-con">
+                <iframe
+                  src={`https://drive.google.com/file/d/${courseArray?.course?.demoUrl}/preview`}
+                  height="350px"
+                  width="100%"
+                  frameborder="0"
+                  className="iframe-1"
+                ></iframe>
                 <header>
                   <p>Lorem ipsum dolor sit</p>
                   <h2>{courseArray?.course?.name}</h2>

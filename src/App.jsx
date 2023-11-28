@@ -86,9 +86,22 @@ function App() {
             </AuthRedirect>
           }
         />
-        <Route path="/overview" element={<Overview />} />
-        <Route path="/dashboard/mycourses/course" element={<Course />} />
-        <Route path="/dashboard/mycourses/:courseId" element={<Course />} />
+        <Route
+          path="/dashboard/mycourses/course"
+          element={
+            <AuthRedirect userRoute>
+              <Course />
+            </AuthRedirect>
+          }
+        />
+        <Route
+          path="/dashboard/mycourses/:courseId"
+          element={
+            <AuthRedirect userRoute>
+              <Course />
+            </AuthRedirect>
+          }
+        />
 
         {/* Admin-Pages */}
 
@@ -101,16 +114,86 @@ function App() {
             </AuthRedirect>
           }
         />
-        <Route path="/admin/create" element={<AdminCreate />} />
-        <Route path="/admin/create/lessons" element={<AdminCreate2 />} />
-        <Route path="/admin/admin-courses" element={<AdminCourse />} />
-        <Route path="/admin/announcements" element={<Announcements />} />
-        <Route path="/admin/admin-instructors" element={<AdminInstructors />} />
-        <Route path="/admin/admin-gradebook" element={<AdminGradebook />} />
-        <Route path="/admin/admin-finance" element={<AdminFinance />} />
-        <Route path="/admin/admin-support" element={<AdminSupport />} />
-        <Route path="/admin/admin-report" element={<AdminReport />} />
-        <Route path="/admin/admin-settings" element={<AdminSettings />} />
+        <Route
+          path="/admin/create"
+          element={
+            <AuthRedirect adminRoute>
+              <AdminCreate />
+            </AuthRedirect>
+          }
+        />
+        <Route
+          path="/admin/create/lessons"
+          element={
+            <AuthRedirect adminRoute>
+              <AdminCreate2 />
+            </AuthRedirect>
+          }
+        />
+        <Route
+          path="/admin/admin-courses"
+          element={
+            <AuthRedirect adminRoute>
+              <AdminCourse />
+            </AuthRedirect>
+          }
+        />
+        <Route
+          path="/admin/announcements"
+          element={
+            <AuthRedirect adminRoute>
+              <Announcements />
+            </AuthRedirect>
+          }
+        />
+        <Route
+          path="/admin/admin-instructors"
+          element={
+            <AuthRedirect adminRoute>
+              <AdminInstructors />
+            </AuthRedirect>
+          }
+        />
+        <Route
+          path="/admin/admin-gradebook"
+          element={
+            <AuthRedirect adminRoute>
+              <AdminGradebook />
+            </AuthRedirect>
+          }
+        />
+        <Route
+          path="/admin/admin-finance"
+          element={
+            <AuthRedirect adminRoute>
+              <AdminFinance />
+            </AuthRedirect>
+          }
+        />
+        <Route
+          path="/admin/admin-support"
+          element={
+            <AuthRedirect adminRoute>
+              <AdminSupport />
+            </AuthRedirect>
+          }
+        />
+        <Route
+          path="/admin/admin-report"
+          element={
+            <AuthRedirect adminRoute>
+              <AdminReport />
+            </AuthRedirect>
+          }
+        />
+        <Route
+          path="/admin/admin-settings"
+          element={
+            <AuthRedirect adminRoute>
+              <AdminSettings />
+            </AuthRedirect>
+          }
+        />
 
         {/* {Setting Pages} */}
 

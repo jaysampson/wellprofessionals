@@ -492,6 +492,38 @@
           @media screen and (max-width: 768px) {
             width: 100%;
           }
+          .not-purchased {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+            img {
+              width: 150px;
+              height: 100px;
+            }
+            .not-purchased-link {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+              width: 100%;
+              .btn {
+                border-radius: 0.40594rem;
+                background: var(--sec-01, #af5e41);
+                color: #fff;
+                width: 30%;
+                height: 40px;
+                border: none;
+                outline: none;
+
+                @media screen and (max-width: 768px) {
+                  width: 60%;
+                }
+              }
+            }
+          }
           .learning-course {
             display: flex;
             align-items: flex-start;

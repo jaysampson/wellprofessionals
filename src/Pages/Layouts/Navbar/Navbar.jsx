@@ -20,7 +20,7 @@ import settingicon from "../../../assets/Icons/setting-icon.svg";
 import carticon from "../../../assets/Icons/cart-icon.svg";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout, reset } from "../../../redux/auth/authSlice";
 
@@ -42,6 +42,15 @@ const Navbar = () => {
     dispatch(logout());
     dispatch(reset());
   }
+  let navigate = useNavigate();
+
+  const handleSelectChange = (event) => {
+    const selectedValue = event.target.value;
+    if (selectedValue) {
+      // Redirect to the selected category page
+      navigate(`/category/${selectedValue}`);
+    }
+  };
 
   return (
     <nav>
@@ -60,8 +69,12 @@ const Navbar = () => {
                 <p>WELL PROFESSIONALS</p>
               </NavLink>
               <div className="category-tab">
-                <span>Categories</span>
-                <FontAwesomeIcon icon={faAngleDown} color="#64748B" />
+                <select onChange={handleSelectChange}>
+                  <option value="">Categories</option>
+                  <option value="Upstream">Upstream</option>
+                  <option value="Midstream">Midstream</option>
+                  <option value="Downstream">Downstream</option>
+                </select>
               </div>
             </div>
           </div>

@@ -35,6 +35,15 @@
         width: 100%;
         gap: 5px;
         flex-direction: column;
+        .collapse {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          padding: 0px 10px;
+          border: 1px #af5e41 solid;
+          border-radius: 5px;
+        }
         input {
           width: 80%;
           height: 40px;
@@ -119,14 +128,19 @@
             }
             .edit {
               border: 1px solid #71717a;
+              span {
+                color: #fff;
+              }
             }
             .upload-btn {
               background: var(--sec-01, #af5e41);
-              color: white;
               display: flex;
               align-items: center;
               justify-content: center;
               gap: 10px;
+              span {
+                color: white;
+              }
             }
           }
         }
