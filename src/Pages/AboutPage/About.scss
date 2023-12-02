@@ -21,15 +21,12 @@
       height: 419px;
       h1 {
         font-weight: 800;
-        font-size: 60px;
         text-align: center;
         color: #ffffff;
         font-family: "Plus Jakarta Sans";
-        letter-spacing: -0em;
       }
       p {
         font-weight: 400;
-        font-size: 20px;
         text-align: center;
         color: #e2ebdf;
         width: 60%;
@@ -61,21 +58,16 @@
             gap: 13px;
             p {
               font-weight: 600;
-              font-size: 16px;
               text-align: center;
-              letter-spacing: -0.2px;
               color: #fdb241;
               margin-bottom: 0px;
             }
             h3 {
               font-style: normal;
               font-weight: 600;
-              font-size: 52px;
               text-align: center;
-              letter-spacing: -2px;
               color: #1e1d2f;
               @media screen and (max-width: 500px) {
-                font-size: 30px;
               }
             }
           }
@@ -102,16 +94,12 @@
                 width: 100%;
               }
               .reason {
-                display: flex;
-                align-items: flex-start;
-                justify-content: flex-start;
                 p {
                   margin-bottom: 0px;
                   font-weight: 400;
-                  font-size: 16px;
-                  letter-spacing: -0.2px;
                   color: #18181b;
                   font-family: "Plus Jakarta Sans";
+                  display: block;
                   span {
                     font-weight: 700;
                   }
@@ -149,28 +137,23 @@
               justify-content: center;
               flex-direction: column;
               gap: 24px;
-              main {
+              h3 {
                 font-weight: 500;
-                font-size: 14px;
                 color: #4f624a;
               }
               h3 {
                 font-family: "Plus Jakarta Sans";
                 font-weight: 600;
-                font-size: 52px;
-                letter-spacing: -2px;
                 color: #1e1d2f;
               }
               p {
                 font-weight: 400;
-                font-size: 16px;
                 color: #18181b;
+                line-height: 26px;
               }
             }
             .read {
               font-weight: 600;
-              font-size: 16px;
-              letter-spacing: -0.2px;
               color: #cd760f;
             }
           }
@@ -193,24 +176,14 @@
             justify-content: center;
             flex-direction: column;
             gap: 24px;
-            main {
+            h2 {
               font-weight: 500;
-              font-size: 16px;
               color: #cd760f;
               text-align: center;
             }
-            h4 {
-              font-family: "Plus Jakarta Sans";
-              font-weight: 600;
-              font-size: 36px;
-              letter-spacing: -2px;
-              color: #101828;
-              text-align: center;
-              letter-spacing: -0.02em;
-            }
+
             p {
               font-weight: 400;
-              font-size: 20px;
               color: #667085;
               text-align: center;
               margin-bottom: 0px;
@@ -222,7 +195,7 @@
           }
           .members {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             flex-wrap: wrap;
             gap: 32px;
@@ -239,24 +212,39 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                h5 {
+                h4 {
                   margin-bottom: 0px;
                   font-weight: 500;
-                  font-size: 18px;
                   text-align: center;
-                  color: #101828;
+                  color: #f3ae27;
                 }
                 p {
                   font-weight: 400;
-                  font-size: 16px;
                   text-align: center;
-                  color: #f3ae27;
+                  color: #101828;
                 }
               }
             }
           }
         }
       }
+      .video {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        h3 {
+          color: #cd760f;
+          font-weight: 500;
+        }
+        p {
+          text-align: center;
+        }
+      }
     }
   }
 }
+
+@import "../../font.scss";

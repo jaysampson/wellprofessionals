@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Layouts/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -65,6 +65,12 @@ const chartOptions = {
 };
 
 const Dashboard = () => {
+  const [activeTab, setActiveTab] = useState("currentlyLearning");
+
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+  };
+
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   const purchasedcourses = useSelector(
@@ -105,340 +111,181 @@ const Dashboard = () => {
           </div>
           <div className="mark-course">
             <div className="my-courses">
+              <div className="tabs">
+                <header
+                  className={
+                    activeTab === "currentlyLearning" ? "active-tab" : ""
+                  }
+                  onClick={() => handleTabClick("currentlyLearning")}
+                >
+                  Learning
+                </header>
+                <header
+                  className={
+                    activeTab === "completedCourses" ? "active-tab" : ""
+                  }
+                  onClick={() => handleTabClick("completedCourses")}
+                >
+                  Completed
+                </header>
+                <header
+                  className={activeTab === "allCourses" ? "active-tab" : ""}
+                  onClick={() => handleTabClick("allCourses")}
+                >
+                  All Courses
+                </header>
+              </div>
               <div className="learning">
-                <h3>Currently Learning</h3>
-                {purchasedcourses && purchasedcourses.length > 0 ? (
-                  purchasedcourses?.map((purchased) => (
-                    <div className="learning-course" key={purchased._id}>
-                      <div className="course-con">
-                        <img
-                          className="course-img"
-                          src={purchased?.thumbnail?.url || noimage}
-                          alt={purchased?.thumbnail?.url}
-                        />
-                        <div className="content">
-                          <div className="admin">
-                            <div className="admin-title">
-                              <img src={pro} alt={pro} />
-                              <p>Michael Jordan</p>
-                            </div>
-                            <p className="check">
-                              <FontAwesomeIcon
-                                icon={faCheck}
-                                color="#000"
-                                size="2xs"
-                              />
-                            </p>
-                          </div>
-                          <div className="course-name">
-                            <Link to={`/dashboard/mycourses/${purchased._id}`}>
-                              <h4>{purchased.name}</h4>
-                            </Link>
-
-                            <FontAwesomeIcon
-                              icon={faArrowUpRightFromSquare}
-                              color="#000"
+                {activeTab === "currentlyLearning" && (
+                  <>
+                    {purchasedcourses && purchasedcourses.length > 0 ? (
+                      purchasedcourses?.map((purchased) => (
+                        <div className="learning-course" key={purchased._id}>
+                          <div className="course-con">
+                            <img
+                              className="course-img"
+                              src={purchased?.thumbnail?.url || noimage}
+                              alt={purchased?.thumbnail?.url}
                             />
-                          </div>
-                          <div className="progress">
-                            <progress
-                              className="progress"
-                              max="100"
-                              value="41"
-                            ></progress>
-                            <p>41%</p>
-                          </div>
-                          <div className="course-duration">
-                            <FontAwesomeIcon icon={faClapperboard} />
-                            <p>2-3 weeks course</p>
+                            <div className="content">
+                              <div className="admin">
+                                <div className="admin-title">
+                                  <img src={pro} alt={pro} />
+                                  <p>Michael Jordan</p>
+                                </div>
+                                <p className="check">
+                                  <FontAwesomeIcon
+                                    icon={faCheck}
+                                    color="#000"
+                                    size="2xs"
+                                  />
+                                </p>
+                              </div>
+                              <div className="course-name">
+                                <Link
+                                  to={`/dashboard/mycourses/${purchased._id}`}
+                                >
+                                  <h4>{purchased.name}</h4>
+                                </Link>
+
+                                <FontAwesomeIcon
+                                  icon={faArrowUpRightFromSquare}
+                                  color="#000"
+                                />
+                              </div>
+                              <div className="progress">
+                                <progress
+                                  className="progress"
+                                  max="100"
+                                  value="41"
+                                ></progress>
+                                <p>41%</p>
+                              </div>
+                              <div className="course-duration">
+                                <FontAwesomeIcon icon={faClapperboard} />
+                                <p>2-3 weeks course</p>
+                              </div>
+                            </div>
                           </div>
                         </div>
+                      ))
+                    ) : (
+                      <div className="not-purchased">
+                        <img src={books} alt={books}></img>
+                        <span>You haven't purchased any course yet</span>
+                        <Link to="/search/" className="not-purchased-link">
+                          <button className="btn">
+                            Purchase a course{" "}
+                            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                          </button>
+                        </Link>
                       </div>
-                    </div>
-                  ))
-                ) : (
+                    )}
+                  </>
+                )}
+              </div>
+              {activeTab === "completedCourses" && (
+                <div className="learning">
                   <div className="not-purchased">
                     <img src={books} alt={books}></img>
-                    <span>You haven't purchased any course yet</span>
+                    <span>You haven't completerd any course yet</span>
                     <Link to="/search/" className="not-purchased-link">
                       <button className="btn">
-                        Purchase a course{" "}
+                        Browse Courses{" "}
                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                       </button>
                     </Link>
                   </div>
-                )}
-              </div>
-              <hr />
-              <div className="learning">
-                <h3>Completed Courses</h3>
-                <div className="learning-course">
-                  <div className="course-con">
-                    <img src={ladies} alt={ladies} />
-                    <div className="content">
-                      <div className="admin">
-                        <div className="admin-title">
-                          <img src={pro} alt={pro} />
-                          <p>Michael Jordan</p>
-                        </div>
-                        <p className="check">
-                          <FontAwesomeIcon
-                            icon={faCheck}
-                            color="#000"
-                            size="2xs"
-                          />
-                        </p>
-                      </div>
-                      <div className="course-name">
-                        <h4>Creative Engineering: Lorem</h4>
-                        <FontAwesomeIcon
-                          icon={faArrowUpRightFromSquare}
-                          color="#000"
-                        />
-                      </div>
-                      <div className="level">
-                        <FontAwesomeIcon icon={faCircleDot} />
-                        <p>Completed</p>
-                      </div>
-                      <div className="course-duration">
-                        <FontAwesomeIcon icon={faClapperboard} />
-                        <p>2-3 weeks course</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="course-con">
-                    <img src={ladies} alt={ladies} />
-                    <div className="content">
-                      <div className="admin">
-                        <div className="admin-title">
-                          <img src={pro} alt={pro} />
-                          <p>Michael Jordan</p>
-                        </div>
-                        <p className="check">
-                          <FontAwesomeIcon
-                            icon={faCheck}
-                            color="#000"
-                            size="2xs"
-                          />
-                        </p>
-                      </div>
-                      <div className="course-name">
-                        <h4>Creative Engineering: Lorem</h4>
-                        <FontAwesomeIcon
-                          icon={faArrowUpRightFromSquare}
-                          color="#000"
-                        />
-                      </div>
-                      <div className="level">
-                        <FontAwesomeIcon icon={faCircleDot} />
-                        <p>Completed</p>
-                      </div>
-                      <div className="course-duration">
-                        <FontAwesomeIcon icon={faClapperboard} />
-                        <p>2-3 weeks course</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="course-con">
-                    <img src={ladies} alt={ladies} />
-                    <div className="content">
-                      <div className="admin">
-                        <div className="admin-title">
-                          <img src={pro} alt={pro} />
-                          <p>Michael Jordan</p>
-                        </div>
-                        <p className="check">
-                          <FontAwesomeIcon
-                            icon={faCheck}
-                            color="#000"
-                            size="2xs"
-                          />
-                        </p>
-                      </div>
-                      <div className="course-name">
-                        <h4>Creative Engineering: Lorem</h4>
-                        <FontAwesomeIcon
-                          icon={faArrowUpRightFromSquare}
-                          color="#000"
-                        />
-                      </div>
-                      <div className="level">
-                        <FontAwesomeIcon icon={faCircleDot} />
-                        <p>Completed</p>
-                      </div>
-                      <div className="course-duration">
-                        <FontAwesomeIcon icon={faClapperboard} />
-                        <p>2-3 weeks course</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="course-con">
-                    <img src={ladies} alt={ladies} />
-                    <div className="content">
-                      <div className="admin">
-                        <div className="admin-title">
-                          <img src={pro} alt={pro} />
-                          <p>Michael Jordan</p>
-                        </div>
-                        <p className="check">
-                          <FontAwesomeIcon
-                            icon={faCheck}
-                            color="#000"
-                            size="2xs"
-                          />
-                        </p>
-                      </div>
-                      <div className="course-name">
-                        <h4>Creative Engineering: Lorem</h4>
-                        <FontAwesomeIcon
-                          icon={faArrowUpRightFromSquare}
-                          color="#000"
-                        />
-                      </div>
-                      <div className="level">
-                        <FontAwesomeIcon icon={faCircleDot} />
-                        <p>Completed</p>
-                      </div>
-                      <div className="course-duration">
-                        <FontAwesomeIcon icon={faClapperboard} />
-                        <p>2-3 weeks course</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="course-con">
-                    <img src={ladies} alt={ladies} />
-                    <div className="content">
-                      <div className="admin">
-                        <div className="admin-title">
-                          <img src={pro} alt={pro} />
-                          <p>Michael Jordan</p>
-                        </div>
-                        <p className="check">
-                          <FontAwesomeIcon
-                            icon={faCheck}
-                            color="#000"
-                            size="2xs"
-                          />
-                        </p>
-                      </div>
-                      <div className="course-name">
-                        <h4>Creative Engineering: Lorem</h4>
-                        <FontAwesomeIcon
-                          icon={faArrowUpRightFromSquare}
-                          color="#000"
-                        />
-                      </div>
-                      <div className="level">
-                        <FontAwesomeIcon icon={faCircleDot} />
-                        <p>Completed</p>
-                      </div>
-                      <div className="course-duration">
-                        <FontAwesomeIcon icon={faClapperboard} />
-                        <p>2-3 weeks course</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="course-con">
-                    <img src={ladies} alt={ladies} />
-                    <div className="content">
-                      <div className="admin">
-                        <div className="admin-title">
-                          <img src={pro} alt={pro} />
-                          <p>Michael Jordan</p>
-                        </div>
-                        <p className="check">
-                          <FontAwesomeIcon
-                            icon={faCheck}
-                            color="#000"
-                            size="2xs"
-                          />
-                        </p>
-                      </div>
-                      <div className="course-name">
-                        <h4>Creative Engineering: Lorem</h4>
-                        <FontAwesomeIcon
-                          icon={faArrowUpRightFromSquare}
-                          color="#000"
-                        />
-                      </div>
-                      <div className="level">
-                        <FontAwesomeIcon icon={faCircleDot} />
-                        <p>Completed</p>
-                      </div>
-                      <div className="course-duration">
-                        <FontAwesomeIcon icon={faClapperboard} />
-                        <p>2-3 weeks course</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="course-con">
-                    <img src={ladies} alt={ladies} />
-                    <div className="content">
-                      <div className="admin">
-                        <div className="admin-title">
-                          <img src={pro} alt={pro} />
-                          <p>Michael Jordan</p>
-                        </div>
-                        <p className="check">
-                          <FontAwesomeIcon
-                            icon={faCheck}
-                            color="#000"
-                            size="2xs"
-                          />
-                        </p>
-                      </div>
-                      <div className="course-name">
-                        <h4>Creative Engineering: Lorem</h4>
-                        <FontAwesomeIcon
-                          icon={faArrowUpRightFromSquare}
-                          color="#000"
-                        />
-                      </div>
-                      <div className="level">
-                        <FontAwesomeIcon icon={faCircleDot} />
-                        <p>Completed</p>
-                      </div>
-                      <div className="course-duration">
-                        <FontAwesomeIcon icon={faClapperboard} />
-                        <p>2-3 weeks course</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="course-con">
-                    <img src={ladies} alt={ladies} />
-                    <div className="content">
-                      <div className="admin">
-                        <div className="admin-title">
-                          <img src={pro} alt={pro} />
-                          <p>Michael Jordan</p>
-                        </div>
-                        <p className="check">
-                          <FontAwesomeIcon
-                            icon={faCheck}
-                            color="#000"
-                            size="2xs"
-                          />
-                        </p>
-                      </div>
-                      <div className="course-name">
-                        <h4>Creative Engineering: Lorem</h4>
-                        <FontAwesomeIcon
-                          icon={faArrowUpRightFromSquare}
-                          color="#000"
-                        />
-                      </div>
-                      <div className="level">
-                        <FontAwesomeIcon icon={faCircleDot} />
-                        <p>Completed</p>
-                      </div>
-                      <div className="course-duration">
-                        <FontAwesomeIcon icon={faClapperboard} />
-                        <p>2-3 weeks course</p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
+              )}
+              {activeTab === "allCourses" && (
+                <div className="learning">
+                  {purchasedcourses && purchasedcourses.length > 0 ? (
+                    purchasedcourses?.map((purchased) => (
+                      <div className="learning-course" key={purchased._id}>
+                        <div className="course-con">
+                          <img
+                            className="course-img"
+                            src={purchased?.thumbnail?.url || noimage}
+                            alt={purchased?.thumbnail?.url}
+                          />
+                          <div className="content">
+                            <div className="admin">
+                              <div className="admin-title">
+                                <img src={pro} alt={pro} />
+                                <p>Michael Jordan</p>
+                              </div>
+                              <p className="check">
+                                <FontAwesomeIcon
+                                  icon={faCheck}
+                                  color="#000"
+                                  size="2xs"
+                                />
+                              </p>
+                            </div>
+                            <div className="course-name">
+                              <Link
+                                to={`/dashboard/mycourses/${purchased._id}`}
+                              >
+                                <h4>{purchased.name}</h4>
+                              </Link>
+
+                              <FontAwesomeIcon
+                                icon={faArrowUpRightFromSquare}
+                                color="#000"
+                              />
+                            </div>
+                            <div className="progress">
+                              <progress
+                                className="progress"
+                                max="100"
+                                value="41"
+                              ></progress>
+                              <p>41%</p>
+                            </div>
+                            <div className="course-duration">
+                              <FontAwesomeIcon icon={faClapperboard} />
+                              <p>2-3 weeks course</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="not-purchased">
+                      <img src={books} alt={books}></img>
+                      <span>You haven't purchased any course yet</span>
+                      <Link to="/search/" className="not-purchased-link">
+                        <button className="btn">
+                          Purchase a course{" "}
+                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                        </button>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              )}
+              <hr />
             </div>
           </div>
           <div className="chart-recent">

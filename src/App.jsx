@@ -14,7 +14,6 @@ import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Course from "./Pages/DashBoard/MyCourses/Course/Course";
-// import MyCourses from "./Pages/DashBoard/MyCourses/MyCourses";
 import AdminCourse from "./Pages/AdminDashboard/AdminPages/AdminCourse/AdminCourse";
 import Announcements from "./Pages/AdminDashboard/AdminPages/AdminAnnouncements/Announcements";
 import AdminInstructors from "./Pages/AdminDashboard/AdminPages/AdminInstructors/AdminInstructors";
@@ -38,6 +37,9 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy";
 import { AuthRedirect } from "./AuthRedirect";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import Support from "./Pages/CustomerSupport/Support";
+import FAQ from "./Pages/FAQ/FAQ";
+import Careers from "./Pages/Careers/Careers";
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -68,6 +70,9 @@ function App() {
         <Route index element={user ? <Home /> : <LandingPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/careers" element={<Careers />} />
         <Route path="/overview/:courseId" element={<Overview />} />
         <Route path="/search/:searchQuery" element={<SearchPage />} />
         <Route path="/search" element={<SearchPage />} />

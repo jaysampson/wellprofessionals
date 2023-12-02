@@ -482,6 +482,26 @@
         flex-direction: column;
         width: 100%;
         gap: 30px;
+
+        .tabs {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+          border-bottom: 1px solid #c6c6c6;
+
+          header {
+            padding: 15px 40px;
+            border-bottom: 0.5px solid #c6c6c6;
+            cursor: pointer;
+            @media screen and (max-width: 768px) {
+              padding: 10px 15px;
+            }
+          }
+          .active-tab {
+            border-bottom: 1px solid #af5e41;
+          }
+        }
         .learning {
           display: flex;
           align-items: flex-start;

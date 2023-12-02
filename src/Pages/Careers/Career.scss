@@ -1,0 +1,58 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.careers-bgc {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 40px;
+  gap: 55px;
+  @media screen and (max-width: 500px) {
+    padding: 30px 10px;
+  }
+  .careers-hero {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+    h3 {
+      color: #cd760f;
+    }
+  }
+  body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 35px;
+    section {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      gap: 15px;
+      .section-body {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+    p {
+      display: block;
+      span {
+        color: #af5e41;
+        font-weight: 700;
+      }
+    }
+  }
+}

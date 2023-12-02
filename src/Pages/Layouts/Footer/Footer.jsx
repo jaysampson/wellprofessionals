@@ -89,7 +89,7 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="" className="links">
+                      <Link to="/careers" className="links">
                         Career
                       </Link>
                     </li>
@@ -98,8 +98,12 @@ const Footer = () => {
                 <section>
                   <p>Help</p>
                   <ul>
-                    <li>Customer Support</li>
-                    <li>FAQs</li>
+                    <Link to="/support">
+                      <li>Customer Support</li>
+                    </Link>
+                    <Link to="/faq">
+                      <li>FAQs</li>
+                    </Link>
                     <Link to="/terms-conditions">
                       <li>Terms & Conditions</li>
                     </Link>
