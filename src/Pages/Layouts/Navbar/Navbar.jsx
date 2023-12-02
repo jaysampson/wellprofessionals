@@ -70,10 +70,12 @@ const Navbar = () => {
               </NavLink>
               <div className="category-tab">
                 <select onChange={handleSelectChange}>
-                  <option value="">Categories</option>
-                  <option value="Upstream">Upstream</option>
-                  <option value="Midstream">Midstream</option>
-                  <option value="Downstream">Downstream</option>
+                  <option value="" disabled>
+                    Categories
+                  </option>
+                  <option value="Upstream">Upstream Courses</option>
+                  <option value="Midstream">Midstream Courses</option>
+                  <option value="Downstream">Downstream Courses</option>
                 </select>
               </div>
             </div>
@@ -95,7 +97,7 @@ const Navbar = () => {
             {user ? (
               <Link to="/settings/profile" className="profile-img">
                 {user.data.image ? (
-                  <img src={user.data.image} alt={user.data.name} />
+                  <img src={user.data?.image} alt={user.data?.image} />
                 ) : (
                   <FontAwesomeIcon
                     icon={faUserCircle}
@@ -153,7 +155,9 @@ const Navbar = () => {
         {user ? (
           <Link to="/settings/profile" className="nav-user">
             {user.data.image ? (
-              <img src={user.data.image} alt={user.data.name} />
+              <div className="img-con">
+                <img src={user.data.image} alt={user.data.name} />
+              </div>
             ) : (
               <FontAwesomeIcon
                 icon={faUserCircle}

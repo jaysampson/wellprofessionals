@@ -183,9 +183,13 @@ nav {
           }
         }
         .profile-img {
+          height: 50px;
+          width: 50px;
+          border: 1px solid #af5e41;
+          border-radius: 50%;
           img {
-            height: 50px;
-            width: 50px;
+            max-height: 50px;
+            max-width: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -250,9 +254,14 @@ nav {
         text-decoration: none;
         color: black;
         gap: 15px;
-        img {
+        .img-con {
           height: 50px;
           width: 50px;
+          border-radius: 50%;
+        }
+        img {
+          height: 100%;
+          width: 100%;
           border-radius: 50%;
           border: 2px solid rgb(255, 111, 0);
         }

@@ -70,9 +70,13 @@ export const Content = () => {
       <div className="user">
         <label htmlFor="imageUpload" style={{ cursor: "pointer" }}>
           {image ? (
-            <img src={image} alt="Selected Image" />
+            <div className="img-con">
+              <img src={image} alt="Selected Image" />
+            </div>
           ) : user.data.image ? (
-            <img src={user.data.image} alt={user.data.image} />
+            <div className="img-con">
+              <img src={user.data.image} alt={user.data.image} />
+            </div>
           ) : (
             <FontAwesomeIcon
               icon={faUserCircle}

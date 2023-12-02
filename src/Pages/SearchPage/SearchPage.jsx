@@ -195,7 +195,7 @@ const SearchPage = () => {
           <div className="right-layout-top">
             <h3>
               Found {filteredCourses?.length} results for{" "}
-              <h3 className="result">{searchQuery || "All courses"}</h3>
+              <span className="result">{searchQuery || "All courses"}</span>
             </h3>
             <div className="sort-arrange">
               <div className="sort">
