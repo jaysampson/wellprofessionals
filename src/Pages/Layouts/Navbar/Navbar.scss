@@ -108,6 +108,7 @@ nav {
           border: none;
           outline: none;
           font-weight: 400;
+          width: fit-content;
           font-size: 16px;
           color: #64748b;
           @media screen and (max-width: 1000px) {
@@ -188,8 +189,8 @@ nav {
           border: 1px solid #af5e41;
           border-radius: 50%;
           img {
-            max-height: 50px;
-            max-width: 50px;
+            height: 100%;
+            width: 100%;
             border-radius: 50%;
             display: flex;
             align-items: center;
