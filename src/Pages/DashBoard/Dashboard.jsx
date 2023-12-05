@@ -205,7 +205,7 @@ const Dashboard = () => {
                 )}
               </div>
               {activeTab === "completedCourses" && (
-                <div className="learning">
+                <div className="learning" style={{ marginTop: "-30px" }}>
                   <div className="not-purchased">
                     <img src={books} alt={books}></img>
                     <span>You haven't completerd any course yet</span>
@@ -219,7 +219,7 @@ const Dashboard = () => {
                 </div>
               )}
               {activeTab === "allCourses" && (
-                <div className="learning">
+                <div className="learning" style={{ marginTop: "-30px" }}>
                   {purchasedcourses && purchasedcourses.length > 0 ? (
                     purchasedcourses?.map((purchased) => (
                       <div className="learning-course" key={purchased._id}>
