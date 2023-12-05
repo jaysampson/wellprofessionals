@@ -30,18 +30,18 @@
         align-items: flex-start;
         flex-direction: column;
         gap: 5px;
+        li {
+          font-size: 15px !important;
+          list-style: none;
+          span {
+            font-size: 15px !important;
+            color: #af5e41;
+          }
+        }
+      }
+      p {
+        font-size: 15px !important;
       }
     }
   }
-}
-li {
-  font-size: 15px !important;
-  list-style: none;
-}
-p {
-  font-size: 15px !important;
-}
-span {
-  font-size: 15px !important;
-  color: #af5e41;
 }
