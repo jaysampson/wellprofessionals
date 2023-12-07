@@ -71,281 +71,170 @@ const LandingPage = () => {
     dispatch(addToCart(courses));
   };
 
-  if (isLoading) {
-    return (
-      <div className="loading-page">
-        <img src={gif} alt={gif} />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="loading-page">
+  //       <img src={gif} alt={gif} />
+  //     </div>
+  //   );
+  // }
 
-  if (isError) {
-    return <div>Error: {message}</div>;
-  } else {
-    return (
-      <div>
-        <Navbar />
-        <div className="landing">
-          <div className="landing-con">
-            <div className="home-hero">
-              <div className="hero-text">
-                <div className="top-text">
-                  <h1>Mastering Oil & Gas, one course at a time</h1>
-                  <p>
-                    We are dedicated to providing comprehensive online courses
-                    in the field of oil and gas
-                  </p>
-                </div>
-                <div className="input-search">
-                  <div className="search">
-                    <FontAwesomeIcon icon={faSearch} color="#fff" />
-                    <input
-                      type="text"
-                      value={search}
-                      placeholder="What course do you want to learn?"
-                      onChange={(e) => setSearch(e.target.value)}
-                    />
-                    <div>
-                      <button className="search-1" onClick={handleSearch}>
-                        Search
-                      </button>
-                    </div>
-                  </div>
-                  <div className="search-2">
-                    <button onClick={handleSearch}>Search Course</button>
-                  </div>
-                </div>
+  // if (isError) {
+  //   return <div>Error: {message}</div>;
+  // } else {
+  return (
+    <div>
+      <Navbar />
+      <div className="landing">
+        <div className="landing-con">
+          <div className="home-hero">
+            <div className="hero-text">
+              <div className="top-text">
+                <h1>Mastering Oil & Gas, one course at a time</h1>
+                <p>
+                  We are dedicated to providing comprehensive online courses in
+                  the field of oil and gas
+                </p>
               </div>
-              <div className="hero-bottom-colors">
-                <div className="brown"></div>
-                <div className="blue"></div>
+              <div className="input-search">
+                <div className="search">
+                  <FontAwesomeIcon icon={faSearch} color="#fff" />
+                  <input
+                    type="text"
+                    value={search}
+                    placeholder="What course do you want to learn?"
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                  <div>
+                    <button className="search-1" onClick={handleSearch}>
+                      Search
+                    </button>
+                  </div>
+                </div>
+                <div className="search-2">
+                  <button onClick={handleSearch}>Search Course</button>
+                </div>
               </div>
             </div>
-            <body>
-              <main>
-                <div className="top-rated">
-                  <div className="top-rated-con">
-                    <h2>Top rated courses</h2>
-                    <div className="courses">
-                      {data?.getCourse?.slice(0, 3).map((courses) => (
-                        <div className="course-con" key={courses.id}>
-                          <img
-                            src={courses?.thumbnail?.url || noimage}
-                            alt={courses.thumbnail?.url}
-                            className="course-img"
-                          />
-                          <div className="content">
-                            <Link
-                              to={`/overview/${courses._id}`}
-                              className="course-name"
-                            >
-                              <h3>
-                                {courses.name.length > 26
-                                  ? courses.name.slice(0, 26) + "..."
-                                  : courses.name}
-                              </h3>
-                              <FontAwesomeIcon
-                                icon={faArrowUpRightFromSquare}
-                                color="#000"
-                              />
-                            </Link>
-                            <div className="desc">
-                              <span>
-                                {courses.description.length > 65
-                                  ? courses.description.slice(0, 65) + "..."
-                                  : courses.description}
-                              </span>
-                            </div>
-                            <div className="admin">
-                              <span style={{ color: "#CD760F" }}>
-                                {" "}
-                                by Michael Jordan
-                              </span>
-                              <p className="check">
-                                <FontAwesomeIcon
-                                  icon={faCheck}
-                                  color="#000"
-                                  size="2xs"
-                                />
-                              </p>
-                            </div>
-                            <div className="rating">
-                              <div className="star">
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  size="sm"
-                                  color="#F8C51B"
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  size="sm"
-                                  color="#F8C51B"
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  size="sm"
-                                  color="#F8C51B"
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  size="sm"
-                                  color="#F8C51B"
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStarHalf}
-                                  size="sm"
-                                  color="#F8C51B"
-                                />
-                              </div>
-                              <div className="rated">
-                                <p>43k Ratings</p>
-                              </div>
-                            </div>
-                            <div className="price-add">
-                              <div className="price">
-                                <p> {`₦${courses.price}`}</p>
-                                <span className="slice">
-                                  {`₦${courses.estimatedPrice}`}
-                                </span>
-                              </div>
-                              <button onClick={() => handleAddToCart(courses)}>
-                                Add to Cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <Link to="/search/">
-                    <button>Show more courses</button>
-                  </Link>
-                </div>
-                <div className="based-on-picks">
-                  <div className="top-rated-con">
-                    <h2>Courses recommended for you</h2>
-                    <div className="courses">
-                      {data?.getCourse?.map((courses) => (
-                        <div className="course-con" key={courses._id}>
-                          <img
-                            src={courses?.thumbnail?.url || noimage}
-                            alt={courses.thumbnail?.url || noimage}
-                            className="course-img"
-                          />
-                          <div className="content">
-                            <Link
-                              to={`/overview/${courses._id}`}
-                              className="course-name"
-                            >
-                              <h3>
-                                {courses.name.length > 26
-                                  ? courses.name.slice(0, 26) + "..."
-                                  : courses.name}
-                              </h3>
-                              <FontAwesomeIcon
-                                icon={faArrowUpRightFromSquare}
-                                color="#000"
-                              />
-                            </Link>
-                            <div className="desc">
-                              <span>
-                                {courses.description.length > 65
-                                  ? courses.description.slice(0, 65) + "..."
-                                  : courses.description}
-                              </span>
-                            </div>
-                            <div className="admin">
-                              <p style={{ color: "#CD760F" }}>
-                                {" "}
-                                by Michael Jordan
-                              </p>
-                              <p className="check">
-                                <FontAwesomeIcon
-                                  icon={faCheck}
-                                  color="#000"
-                                  size="2xs"
-                                />
-                              </p>
-                            </div>
-                            <div className="rating">
-                              <div className="star">
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  size="sm"
-                                  color="#F8C51B"
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  size="sm"
-                                  color="#F8C51B"
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  size="sm"
-                                  color="#F8C51B"
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  size="sm"
-                                  color="#F8C51B"
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStarHalf}
-                                  size="sm"
-                                  color="#F8C51B"
-                                />
-                              </div>
-                              <div className="rated">
-                                <p>43k Ratings</p>
-                              </div>
-                            </div>
-                            <div className="price-add">
-                              <div className="price">
-                                <p> {`₦${courses.price}`}</p>
-                                <span className="slice">
-                                  {`₦${courses.estimatedPrice}`}
-                                </span>
-                              </div>
-                              <button onClick={() => handleAddToCart(courses)}>
-                                Add to Cart
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <Link to="/search/">
-                      <button>Show more courses</button>
-                    </Link>
-                  </div>
-                </div>
-                <div className="what-course">
-                  <h2>What course you looking for?</h2>
-                  <div className="options">
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Lorem Ipsum</p>
-                  </div>
-                </div>
-                <div className="new">
-                  <h2>New Classes (1093)</h2>
+            <div className="hero-bottom-colors">
+              <div className="brown"></div>
+              <div className="blue"></div>
+            </div>
+          </div>
+          <body>
+            <main>
+              <div className="top-rated">
+                <div className="top-rated-con">
+                  <h2>Top rated courses</h2>
                   <div className="courses">
-                    {data?.getCourse?.map((courses) => (
+                    {isLoading && (
+                      <div className="loading-page">
+                        <img src={gif} alt={gif} />
+                      </div>
+                    )}
+                    {data?.getCourse?.slice(0, 3).map((courses) => (
                       <div className="course-con" key={courses.id}>
                         <img
                           src={courses?.thumbnail?.url || noimage}
                           alt={courses.thumbnail?.url}
+                          className="course-img"
+                        />
+                        <div className="content">
+                          <Link
+                            to={`/overview/${courses._id}`}
+                            className="course-name"
+                          >
+                            <h3>
+                              {courses.name.length > 26
+                                ? courses.name.slice(0, 26) + "..."
+                                : courses.name}
+                            </h3>
+                            <FontAwesomeIcon
+                              icon={faArrowUpRightFromSquare}
+                              color="#000"
+                            />
+                          </Link>
+                          <div className="desc">
+                            <span>
+                              {courses.description.length > 65
+                                ? courses.description.slice(0, 65) + "..."
+                                : courses.description}
+                            </span>
+                          </div>
+                          <div className="admin">
+                            <span style={{ color: "#CD760F" }}>
+                              {" "}
+                              by Michael Jordan
+                            </span>
+                            <p className="check">
+                              <FontAwesomeIcon
+                                icon={faCheck}
+                                color="#000"
+                                size="2xs"
+                              />
+                            </p>
+                          </div>
+                          <div className="rating">
+                            <div className="star">
+                              <FontAwesomeIcon
+                                icon={faStar}
+                                size="sm"
+                                color="#F8C51B"
+                              />
+                              <FontAwesomeIcon
+                                icon={faStar}
+                                size="sm"
+                                color="#F8C51B"
+                              />
+                              <FontAwesomeIcon
+                                icon={faStar}
+                                size="sm"
+                                color="#F8C51B"
+                              />
+                              <FontAwesomeIcon
+                                icon={faStar}
+                                size="sm"
+                                color="#F8C51B"
+                              />
+                              <FontAwesomeIcon
+                                icon={faStarHalf}
+                                size="sm"
+                                color="#F8C51B"
+                              />
+                            </div>
+                            <div className="rated">
+                              <p>43k Ratings</p>
+                            </div>
+                          </div>
+                          <div className="price-add">
+                            <div className="price">
+                              <p> {`₦${courses.price}`}</p>
+                              <span className="slice">
+                                {`₦${courses.estimatedPrice}`}
+                              </span>
+                            </div>
+                            <button onClick={() => handleAddToCart(courses)}>
+                              Add to Cart
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <Link to="/search/">
+                  <button>Show more courses</button>
+                </Link>
+              </div>
+              <div className="based-on-picks">
+                <div className="top-rated-con">
+                  <h2>Courses recommended for you</h2>
+                  <div className="courses">
+                    {data?.getCourse?.map((courses) => (
+                      <div className="course-con" key={courses._id}>
+                        <img
+                          src={courses?.thumbnail?.url || noimage}
+                          alt={courses.thumbnail?.url || noimage}
                           className="course-img"
                         />
                         <div className="content">
@@ -431,151 +320,263 @@ const LandingPage = () => {
                     ))}
                   </div>
                   <Link to="/search/">
-                    {" "}
                     <button>Show more courses</button>
                   </Link>
                 </div>
-                <div className="testimonial">
-                  <h3>3940+ Happy Well Professionals Users</h3>
-                  <h4>Don't just take our words</h4>
-                  <div className="testimony-main">
-                    <div className="testimony-con">
-                      <img src={testy} alt={testy} className="testy" />
-                      <div className="rating-text">
-                        <div className="sta">
-                          <img src={star} alt={star} />
-                          <img src={star} alt={star} />
-                          <img src={star} alt={star} />
-                          <img src={star} alt={star} />
+              </div>
+              <div className="what-course">
+                <h2>What course you looking for?</h2>
+                <div className="options">
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                </div>
+              </div>
+              <div className="new">
+                <h2>New Classes (1093)</h2>
+                <div className="courses">
+                  {data?.getCourse?.map((courses) => (
+                    <div className="course-con" key={courses.id}>
+                      <img
+                        src={courses?.thumbnail?.url || noimage}
+                        alt={courses.thumbnail?.url}
+                        className="course-img"
+                      />
+                      <div className="content">
+                        <Link
+                          to={`/overview/${courses._id}`}
+                          className="course-name"
+                        >
+                          <h3>
+                            {courses.name.length > 26
+                              ? courses.name.slice(0, 26) + "..."
+                              : courses.name}
+                          </h3>
+                          <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                            color="#000"
+                          />
+                        </Link>
+                        <div className="desc">
+                          <span>
+                            {courses.description.length > 65
+                              ? courses.description.slice(0, 65) + "..."
+                              : courses.description}
+                          </span>
                         </div>
-                        <p>
-                          "We love Wells professionals! Lorem ipsum dolor sit
-                          amet, consectetur adipiscing elit."
-                        </p>
-                        <span>Eze Wilson</span>
+                        <div className="admin">
+                          <p style={{ color: "#CD760F" }}> by Michael Jordan</p>
+                          <p className="check">
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              color="#000"
+                              size="2xs"
+                            />
+                          </p>
+                        </div>
+                        <div className="rating">
+                          <div className="star">
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              size="sm"
+                              color="#F8C51B"
+                            />
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              size="sm"
+                              color="#F8C51B"
+                            />
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              size="sm"
+                              color="#F8C51B"
+                            />
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              size="sm"
+                              color="#F8C51B"
+                            />
+                            <FontAwesomeIcon
+                              icon={faStarHalf}
+                              size="sm"
+                              color="#F8C51B"
+                            />
+                          </div>
+                          <div className="rated">
+                            <p>43k Ratings</p>
+                          </div>
+                        </div>
+                        <div className="price-add">
+                          <div className="price">
+                            <p> {`₦${courses.price}`}</p>
+                            <span className="slice">
+                              {`₦${courses.estimatedPrice}`}
+                            </span>
+                          </div>
+                          <button onClick={() => handleAddToCart(courses)}>
+                            Add to Cart
+                          </button>
+                        </div>
                       </div>
                     </div>
-                    <div className="testimony-con">
-                      <img src={testy} alt={testy} className="testy" />
-                      <div className="rating-text">
-                        <div className="sta">
-                          <img src={star} alt={star} />
-                          <img src={star} alt={star} />
-                          <img src={star} alt={star} />
-                          <img src={star} alt={star} />
-                        </div>
-                        <p>
-                          "We love Wells professionals! Lorem ipsum dolor sit
-                          amet, consectetur adipiscing elit."
-                        </p>
-                        <span>Eze Wilson</span>
+                  ))}
+                </div>
+                <Link to="/search/">
+                  {" "}
+                  <button>Show more courses</button>
+                </Link>
+              </div>
+              <div className="testimonial">
+                <h3>3940+ Happy Well Professionals Users</h3>
+                <h4>Don't just take our words</h4>
+                <div className="testimony-main">
+                  <div className="testimony-con">
+                    <img src={testy} alt={testy} className="testy" />
+                    <div className="rating-text">
+                      <div className="sta">
+                        <img src={star} alt={star} />
+                        <img src={star} alt={star} />
+                        <img src={star} alt={star} />
+                        <img src={star} alt={star} />
                       </div>
+                      <p>
+                        "We love Wells professionals! Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit."
+                      </p>
+                      <span>Eze Wilson</span>
+                    </div>
+                  </div>
+                  <div className="testimony-con">
+                    <img src={testy} alt={testy} className="testy" />
+                    <div className="rating-text">
+                      <div className="sta">
+                        <img src={star} alt={star} />
+                        <img src={star} alt={star} />
+                        <img src={star} alt={star} />
+                        <img src={star} alt={star} />
+                      </div>
+                      <p>
+                        "We love Wells professionals! Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit."
+                      </p>
+                      <span>Eze Wilson</span>
                     </div>
                   </div>
                 </div>
-                <div className="faq">
-                  <div className="faq-con">
-                    <div className="faq-questions">
-                      <div className="top-text">
-                        <h2>Frequently asked questions</h2>
-                        <h3>
-                          Everything you need to know about the product and
-                          billing.
-                        </h3>
-                      </div>
-                      <div className="question-con">
-                        <div className="question">
-                          <h4>Is there a free trail available?</h4>
-                          <img
-                            src={toggle1 ? minus : plus}
-                            alt="loading"
-                            onClick={handleToggle1}
-                          />
-                        </div>
-                        {toggle1 && (
-                          <span className="answer">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit
-                          </span>
-                        )}
-                      </div>
-                      <div className="question-con">
-                        <div className="question">
-                          <h4>Is there a free trail available?</h4>
-                          <img
-                            src={toggle2 ? minus : plus}
-                            alt="loading"
-                            onClick={handleToggle2}
-                          />
-                        </div>
-                        {toggle2 && (
-                          <span className="answer">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit
-                          </span>
-                        )}
-                      </div>
-                      <div className="question-con">
-                        <div className="question">
-                          <h4>Is there a free trail available?</h4>
-                          <img
-                            src={toggle3 ? minus : plus}
-                            alt="loading"
-                            onClick={handleToggle3}
-                          />
-                        </div>
-                        {toggle3 && (
-                          <span className="answer">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit
-                          </span>
-                        )}
-                      </div>
-                      <div className="question-con">
-                        <div className="question">
-                          <h4>Is there a free trail available?</h4>
-                          <img
-                            src={toggle4 ? minus : plus}
-                            alt="loading"
-                            onClick={handleToggle4}
-                          />
-                        </div>
-                        {toggle4 && (
-                          <span className="answer">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit
-                          </span>
-                        )}
-                      </div>
+              </div>
+              <div className="faq">
+                <div className="faq-con">
+                  <div className="faq-questions">
+                    <div className="top-text">
+                      <h2>Frequently asked questions</h2>
+                      <h3>
+                        Everything you need to know about the product and
+                        billing.
+                      </h3>
                     </div>
-                    <img src={question} alt={question} className="faq-img" />
+                    <div className="question-con">
+                      <div className="question">
+                        <h4>Is there a free trail available?</h4>
+                        <img
+                          src={toggle1 ? minus : plus}
+                          alt="loading"
+                          onClick={handleToggle1}
+                        />
+                      </div>
+                      {toggle1 && (
+                        <span className="answer">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit
+                        </span>
+                      )}
+                    </div>
+                    <div className="question-con">
+                      <div className="question">
+                        <h4>Is there a free trail available?</h4>
+                        <img
+                          src={toggle2 ? minus : plus}
+                          alt="loading"
+                          onClick={handleToggle2}
+                        />
+                      </div>
+                      {toggle2 && (
+                        <span className="answer">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit
+                        </span>
+                      )}
+                    </div>
+                    <div className="question-con">
+                      <div className="question">
+                        <h4>Is there a free trail available?</h4>
+                        <img
+                          src={toggle3 ? minus : plus}
+                          alt="loading"
+                          onClick={handleToggle3}
+                        />
+                      </div>
+                      {toggle3 && (
+                        <span className="answer">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit
+                        </span>
+                      )}
+                    </div>
+                    <div className="question-con">
+                      <div className="question">
+                        <h4>Is there a free trail available?</h4>
+                        <img
+                          src={toggle4 ? minus : plus}
+                          alt="loading"
+                          onClick={handleToggle4}
+                        />
+                      </div>
+                      {toggle4 && (
+                        <span className="answer">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit
+                        </span>
+                      )}
+                    </div>
                   </div>
+                  <img src={question} alt={question} className="faq-img" />
                 </div>
-                <div className="other-faq">
-                  <div className="group-image">
-                    <img src={think} alt={think} className="think" />
-                    <img src={bulb} alt={bulb} className="bulb" />
-                    <img src={statue} alt={statue} className="statue" />
-                  </div>
-                  <div className="text">
-                    <h3>Still have questions?</h3>
-                    <span>
-                      Can’t find the answer you’re looking for? Please chat to
-                      our friendly team.
-                    </span>
-                  </div>
-                  <Link to="/contact">
-                    <button>Get in touch</button>
-                  </Link>
+              </div>
+              <div className="other-faq">
+                <div className="group-image">
+                  <img src={think} alt={think} className="think" />
+                  <img src={bulb} alt={bulb} className="bulb" />
+                  <img src={statue} alt={statue} className="statue" />
                 </div>
-              </main>
-            </body>
-          </div>
+                <div className="text">
+                  <h3>Still have questions?</h3>
+                  <span>
+                    Can’t find the answer you’re looking for? Please chat to our
+                    friendly team.
+                  </span>
+                </div>
+                <Link to="/contact">
+                  <button>Get in touch</button>
+                </Link>
+              </div>
+            </main>
+          </body>
         </div>
-        <Footer />
       </div>
-    );
-  }
+      <Footer />
+    </div>
+  );
 };
 
 export default LandingPage;
