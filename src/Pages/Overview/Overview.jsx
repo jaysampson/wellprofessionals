@@ -20,6 +20,7 @@ import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import noimage from "../../assets/Images/noimage.png";
 import gif from "../../assets/Images/Loading.gif";
 import { addToCart } from "../../redux/addToCart/cartSlice";
+import Skeleton from "react-loading-skeleton";
 
 const Overview = () => {
   const [drop, setDrop] = useState(false);
@@ -68,308 +69,293 @@ const Overview = () => {
     dispatch(addToCart(courses));
   };
 
-  if (isLoading) {
-    return (
-      <div className="loading-page">
-        <img src={gif} alt={gif} />
-      </div>
-    );
-  }
-
-  if (isError) {
-    return <div>Error: {message}</div>;
-  } else {
-    return (
-      <div>
-        <Navbar />
-        <div className="overview">
-          <div className="overview-con">
-            <div className="overview-top">
+  return (
+    <div>
+      <Navbar />
+      <div className="overview">
+        <div className="overview-con">
+          <div className="overview-top">
+            <iframe
+              src={`https://drive.google.com/file/d/${courseArray?.course?.demoUrl}/preview`}
+              height="200px"
+              width="100%"
+              frameborder="0"
+              className="iframe-2"
+            ></iframe>
+          </div>
+          <div className="overview-body">
+            <div className="left-con">
               <iframe
                 src={`https://drive.google.com/file/d/${courseArray?.course?.demoUrl}/preview`}
-                height="200px"
+                height="350px"
                 width="100%"
                 frameborder="0"
-                className="iframe-2"
+                className="iframe-1"
               ></iframe>
-            </div>
-            <div className="overview-body">
-              <div className="left-con">
-                <iframe
-                  src={`https://drive.google.com/file/d/${courseArray?.course?.demoUrl}/preview`}
-                  height="350px"
-                  width="100%"
-                  frameborder="0"
-                  className="iframe-1"
-                ></iframe>
-                <header>
-                  <p>Lorem ipsum dolor sit</p>
-                  <h2>{courseArray?.course?.name}</h2>
-                  <span>{courseArray?.course?.description}</span>
-                </header>
-                <div className="taught-by">
-                  <p>TAUGHT BY</p>
-                  <div className="teacher">
-                    <img src="" alt="" />
-                    <div className="name-desc">
-                      <p>David Udoh</p>
-                      <span>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                      </span>
-                    </div>
+              <header>
+                <p>Lorem ipsum dolor sit</p>
+                <h2>{courseArray?.course?.name}</h2>
+                <span>{courseArray?.course?.description}</span>
+              </header>
+              <div className="taught-by">
+                <p>TAUGHT BY</p>
+                <div className="teacher">
+                  <img src="" alt="" />
+                  <div className="name-desc">
+                    <p>David Udoh</p>
+                    <span>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore
+                    </span>
                   </div>
                 </div>
-                <hr />
-                <div className="expectation">
-                  <div className="expect-top">
-                    <h3>What you’ll learn</h3>
-                    <FontAwesomeIcon
-                      icon={drop ? faAngleUp : faAngleDown}
-                      onClick={HandleDrop}
-                      cursor={"pointer"}
-                    />
-                  </div>
-                  {drop && (
-                    <div className="learnt">
-                      {courseArray?.course?.benefits?.map((benefit) => (
-                        <p key={benefit.id}>
-                          <FontAwesomeIcon icon={faCheck} />
-                          <span>{benefit.title}</span>
-                        </p>
-                      ))}
-                    </div>
-                  )}
+              </div>
+              <hr />
+              <div className="expectation">
+                <div className="expect-top">
+                  <h3>What you’ll learn</h3>
+                  <FontAwesomeIcon
+                    icon={drop ? faAngleUp : faAngleDown}
+                    onClick={HandleDrop}
+                    cursor={"pointer"}
+                  />
                 </div>
-                <hr />
-                <div className="overview-lesson">
-                  <div className="class-overview">
-                    <title>
-                      <p>CLASS OVERVIEW</p>
-                      <div className="class-drop">
-                        <h3>
-                          Learn all of Lorem ipsum dolor sit amet, consectetur
-                        </h3>
-                        <FontAwesomeIcon
-                          icon={drop1 ? faAngleUp : faAngleDown}
-                          onClick={HandleDrop2}
-                          cursor={"pointer"}
-                        />
-                      </div>
-                    </title>
-                    {drop1 && (
-                      <div className="classov-body">
-                        <p>{courseArray?.course?.description}</p>
-                      </div>
-                    )}
+                {drop && (
+                  <div className="learnt">
+                    {courseArray?.course?.benefits?.map((benefit) => (
+                      <p key={benefit.id}>
+                        <FontAwesomeIcon icon={faCheck} />
+                        <span>{benefit.title}</span>
+                      </p>
+                    ))}
                   </div>
-                  <div className="lesson-videos">
-                    <p>LESSONS</p>
-                    <div className="videos">
-                      <div className="vid">
-                        <img src="" alt="" />
-                        <p>1. Lorem Ipsum</p>
-                      </div>
-                      <div className="vid">
-                        <img src="" alt="" />
-                        <p>2. Lorem Ipsum</p>
-                      </div>
-                      <div className="vid">
-                        <img src="" alt="" />
-                        <p>3. Lorem Ipsum</p>
-                      </div>
-                      <div className="vid">
-                        <img src="" alt="" />
-                        <p>4. Lorem Ipsum</p>
-                      </div>
-                      <div className="vid">
-                        <img src="" alt="" />
-                        <p>5. Lorem Ipsum</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <hr />
-                <div className="for-who">
-                  <div className="for-who-top">
-                    <h3>Who’s this class for?</h3>
-                    <FontAwesomeIcon
-                      icon={drop2 ? faAngleUp : faAngleDown}
-                      onClick={HandleDrop3}
-                      cursor={"pointer"}
-                    />
-                  </div>
-
-                  {drop2 && (
-                    <div className="write-up">
-                      {courseArray?.course?.prerequisites?.map(
-                        (prerequisite, index) => (
-                          <div className="persons" key={prerequisite.id}>
-                            <p>{index + 1}</p>
-                            <span>{prerequisite.title}</span>
-                          </div>
-                        )
-                      )}
-                    </div>
-                  )}
-                </div>
-                <hr />
-                <div className="course-reviews">
+                )}
+              </div>
+              <hr />
+              <div className="overview-lesson">
+                <div className="class-overview">
                   <title>
-                    <FontAwesomeIcon icon={faStar} color="#AF5E41" />
-                    <h4>4.91 (642 reviews)</h4>
+                    <p>CLASS OVERVIEW</p>
+                    <div className="class-drop">
+                      <h3>
+                        Learn all of Lorem ipsum dolor sit amet, consectetur
+                      </h3>
+                      <FontAwesomeIcon
+                        icon={drop1 ? faAngleUp : faAngleDown}
+                        onClick={HandleDrop2}
+                        cursor={"pointer"}
+                      />
+                    </div>
                   </title>
-                  <div className="review-con">
-                    <div className="review">
-                      <div className="reviewer">
-                        <img src="" alt="" />
-                        <p>Andrea Udoh</p>
-                      </div>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua
-                      </p>
+                  {drop1 && (
+                    <div className="classov-body">
+                      <p>{courseArray?.course?.description}</p>
                     </div>
-                    <div className="review">
-                      <div className="reviewer">
-                        <img src="" alt="" />
-                        <p>Andrea Udoh</p>
-                      </div>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua
-                      </p>
+                  )}
+                </div>
+                <div className="lesson-videos">
+                  <p>LESSONS</p>
+                  <div className="videos">
+                    <div className="vid">
+                      <img src="" alt="" />
+                      <p>1. Lorem Ipsum</p>
                     </div>
-                    <div className="review">
-                      <div className="reviewer">
-                        <img src="" alt="" />
-                        <p>Andrea Udoh</p>
-                      </div>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua
-                      </p>
+                    <div className="vid">
+                      <img src="" alt="" />
+                      <p>2. Lorem Ipsum</p>
                     </div>
-                    <div className="review">
-                      <div className="reviewer">
-                        <img src="" alt="" />
-                        <p>Andrea Udoh</p>
-                      </div>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua
-                      </p>
+                    <div className="vid">
+                      <img src="" alt="" />
+                      <p>3. Lorem Ipsum</p>
                     </div>
-                    <div className="review">
-                      <div className="reviewer">
-                        <img src="" alt="" />
-                        <p>Andrea Udoh</p>
-                      </div>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua
-                      </p>
+                    <div className="vid">
+                      <img src="" alt="" />
+                      <p>4. Lorem Ipsum</p>
                     </div>
-                    <div className="review">
-                      <div className="reviewer">
-                        <img src="" alt="" />
-                        <p>Andrea Udoh</p>
-                      </div>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua
-                      </p>
+                    <div className="vid">
+                      <img src="" alt="" />
+                      <p>5. Lorem Ipsum</p>
                     </div>
                   </div>
-                  <button>View more reviews</button>
                 </div>
               </div>
-              <div className="right-con">
-                <div className="box">
-                  <div className="box-top">
-                    <img
-                      src={courseArray?.course?.thumbnail?.url}
-                      alt={courseArray?.thumbnail?.url}
-                    />
-                    {user_course?.name === courseArray?.course?.name ? (
-                      <Link
-                        to={`/dashboard/mycourses/${courseArray?.course?._id}`}
-                        className="add"
-                      >
-                        <button className="add-btn">
-                          Go to this course{" "}
-                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                        </button>
-                      </Link>
-                    ) : (
-                      <>
-                        <h3>{courseArray?.course?.name}</h3>
-                        <div className="price">
-                          <h4>{`₦${courseArray?.course?.price}`}</h4>
-                          <h5 className="slice">{`₦${courseArray?.course?.estimatedPrice}`}</h5>
+              <hr />
+              <div className="for-who">
+                <div className="for-who-top">
+                  <h3>Who’s this class for?</h3>
+                  <FontAwesomeIcon
+                    icon={drop2 ? faAngleUp : faAngleDown}
+                    onClick={HandleDrop3}
+                    cursor={"pointer"}
+                  />
+                </div>
+
+                {drop2 && (
+                  <div className="write-up">
+                    {courseArray?.course?.prerequisites?.map(
+                      (prerequisite, index) => (
+                        <div className="persons" key={prerequisite.id}>
+                          <p>{index + 1}</p>
+                          <span>{prerequisite.title}</span>
                         </div>
-                        <div className="purchase">
-                          <button className="add"> Buy now</button>
-                          <button className="buy">
-                            <span
-                              onClick={() =>
-                                handleAddToCart(courseArray.course)
-                              }
-                            >
-                              Add to cart
-                            </span>
-                            <FontAwesomeIcon
-                              icon={faCartShopping}
-                              className="cart"
-                              size="2x"
-                              onClick={() =>
-                                handleAddToCart(courseArray.course)
-                              }
-                            />
-                          </button>
-                        </div>
-                      </>
+                      )
                     )}
-                    <div className="offer">
-                      <p>Offer ends in </p>
-                      <span>9d 8h 0m 54s</span>
-                    </div>
                   </div>
-                  <hr />
-                  <div className="box-bottom">
-                    <p>WHAT'S INCLUDED:</p>
-                    <div className="included">
-                      <div className="items">
-                        <img src="" alt="" />
-                        <p>In-depth video lessons (8h 54m)</p>
+                )}
+              </div>
+              <hr />
+              <div className="course-reviews">
+                <title>
+                  <FontAwesomeIcon icon={faStar} color="#AF5E41" />
+                  <h4>4.91 (642 reviews)</h4>
+                </title>
+                <div className="review-con">
+                  <div className="review">
+                    <div className="reviewer">
+                      <img src="" alt="" />
+                      <p>Andrea Udoh</p>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua
+                    </p>
+                  </div>
+                  <div className="review">
+                    <div className="reviewer">
+                      <img src="" alt="" />
+                      <p>Andrea Udoh</p>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua
+                    </p>
+                  </div>
+                  <div className="review">
+                    <div className="reviewer">
+                      <img src="" alt="" />
+                      <p>Andrea Udoh</p>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua
+                    </p>
+                  </div>
+                  <div className="review">
+                    <div className="reviewer">
+                      <img src="" alt="" />
+                      <p>Andrea Udoh</p>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua
+                    </p>
+                  </div>
+                  <div className="review">
+                    <div className="reviewer">
+                      <img src="" alt="" />
+                      <p>Andrea Udoh</p>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua
+                    </p>
+                  </div>
+                  <div className="review">
+                    <div className="reviewer">
+                      <img src="" alt="" />
+                      <p>Andrea Udoh</p>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua
+                    </p>
+                  </div>
+                </div>
+                <button>View more reviews</button>
+              </div>
+            </div>
+            <div className="right-con">
+              <div className="box">
+                <div className="box-top">
+                  <img
+                    src={courseArray?.course?.thumbnail?.url}
+                    alt={courseArray?.thumbnail?.url}
+                  />
+                  {user_course?.name === courseArray?.course?.name ? (
+                    <Link
+                      to={`/dashboard/mycourses/${courseArray?.course?._id}`}
+                      className="add"
+                    >
+                      <button className="add-btn">
+                        Go to this course{" "}
+                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                      </button>
+                    </Link>
+                  ) : (
+                    <>
+                      <h3>{courseArray?.course?.name}</h3>
+                      <div className="price">
+                        <h4>{`₦${courseArray?.course?.price}`}</h4>
+                        <h5 className="slice">{`₦${courseArray?.course?.estimatedPrice}`}</h5>
                       </div>
-                      <div className="items">
-                        <img src="" alt="" />
-                        <p>Step-by-step curriculum</p>
+                      <div className="purchase">
+                        <button className="add"> Buy now</button>
+                        <button className="buy">
+                          <span
+                            onClick={() => handleAddToCart(courseArray.course)}
+                          >
+                            Add to cart
+                          </span>
+                          <FontAwesomeIcon
+                            icon={faCartShopping}
+                            className="cart"
+                            size="2x"
+                            onClick={() => handleAddToCart(courseArray.course)}
+                          />
+                        </button>
                       </div>
-                      <div className="items">
-                        <img src="" alt="" />
-                        <p>Online and at your own pace</p>
-                      </div>
-                      <div className="items">
-                        <img src="" alt="" />
-                        <p>Watch on all devices</p>
-                      </div>
-                      <div className="items">
-                        <img src="" alt="" />
-                        <p>Unlimited lifetime access</p>
-                      </div>
+                    </>
+                  )}
+                  <div className="offer">
+                    <p>Offer ends in </p>
+                    <span>9d 8h 0m 54s</span>
+                  </div>
+                </div>
+                <hr />
+                <div className="box-bottom">
+                  <p>WHAT'S INCLUDED:</p>
+                  <div className="included">
+                    <div className="items">
+                      <img src="" alt="" />
+                      <p>In-depth video lessons (8h 54m)</p>
+                    </div>
+                    <div className="items">
+                      <img src="" alt="" />
+                      <p>Step-by-step curriculum</p>
+                    </div>
+                    <div className="items">
+                      <img src="" alt="" />
+                      <p>Online and at your own pace</p>
+                    </div>
+                    <div className="items">
+                      <img src="" alt="" />
+                      <p>Watch on all devices</p>
+                    </div>
+                    <div className="items">
+                      <img src="" alt="" />
+                      <p>Unlimited lifetime access</p>
                     </div>
                   </div>
                 </div>
               </div>
-              {/* <div className="box-2">
+            </div>
+            {/* <div className="box-2">
               <div className="box-top-2">
                 <img src="" alt="" />
                 <div className="box-top-text">
@@ -388,9 +374,12 @@ const Overview = () => {
                 </button>
               </div>
             </div> */}
-            </div>
-            <div className="recommend">
-              <h3>Topics recommended for you</h3>
+          </div>
+          <div className="recommend">
+            <h3>Topics recommended for you</h3>
+            {isLoading ? (
+              <Skeleton />
+            ) : (
               <div className="courses">
                 {data?.getCourse?.map((courses) => (
                   <div className="course-con" key={courses.id}>
@@ -478,13 +467,13 @@ const Overview = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            )}
           </div>
         </div>
-        <Footer />
       </div>
-    );
-  }
+      <Footer />
+    </div>
+  );
 };
 
 export default Overview;

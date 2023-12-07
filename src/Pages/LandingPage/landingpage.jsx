@@ -25,6 +25,9 @@ import noimage from "../../assets/Images/noimage.png";
 import gif from "../../assets/Images/Loading.gif";
 import { addToCart } from "../../redux/addToCart/cartSlice";
 import { toast } from "react-toastify";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import { SkeletonFrame } from "../SkeletonFrame/SkeletonFrame";
 
 const LandingPage = () => {
   const [toggle1, setToggle1] = useState(false);
@@ -71,17 +74,6 @@ const LandingPage = () => {
     dispatch(addToCart(courses));
   };
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="loading-page">
-  //       <img src={gif} alt={gif} />
-  //     </div>
-  //   );
-  // }
-
-  // if (isError) {
-  //   return <div>Error: {message}</div>;
-  // } else {
   return (
     <div>
       <Navbar />
@@ -126,101 +118,100 @@ const LandingPage = () => {
               <div className="top-rated">
                 <div className="top-rated-con">
                   <h2>Top rated courses</h2>
-                  <div className="courses">
-                    {isLoading && (
-                      <div className="loading-page">
-                        <img src={gif} alt={gif} />
-                      </div>
-                    )}
-                    {data?.getCourse?.slice(0, 3).map((courses) => (
-                      <div className="course-con" key={courses.id}>
-                        <img
-                          src={courses?.thumbnail?.url || noimage}
-                          alt={courses.thumbnail?.url}
-                          className="course-img"
-                        />
-                        <div className="content">
-                          <Link
-                            to={`/overview/${courses._id}`}
-                            className="course-name"
-                          >
-                            <h3>
-                              {courses.name.length > 26
-                                ? courses.name.slice(0, 26) + "..."
-                                : courses.name}
-                            </h3>
-                            <FontAwesomeIcon
-                              icon={faArrowUpRightFromSquare}
-                              color="#000"
-                            />
-                          </Link>
-                          <div className="desc">
-                            <span>
-                              {courses.description.length > 65
-                                ? courses.description.slice(0, 65) + "..."
-                                : courses.description}
-                            </span>
-                          </div>
-                          <div className="admin">
-                            <span style={{ color: "#CD760F" }}>
-                              {" "}
-                              by Michael Jordan
-                            </span>
-                            <p className="check">
+                  {isLoading ? (
+                    <SkeletonFrame />
+                  ) : (
+                    <div className="courses">
+                      {data?.getCourse?.slice(0, 3).map((courses) => (
+                        <div className="course-con" key={courses.id}>
+                          <img
+                            src={courses?.thumbnail?.url || noimage}
+                            alt={courses.thumbnail?.url}
+                            className="course-img"
+                          />
+                          <div className="content">
+                            <Link
+                              to={`/overview/${courses._id}`}
+                              className="course-name"
+                            >
+                              <h3>
+                                {courses.name.length > 26
+                                  ? courses.name.slice(0, 26) + "..."
+                                  : courses.name}
+                              </h3>
                               <FontAwesomeIcon
-                                icon={faCheck}
+                                icon={faArrowUpRightFromSquare}
                                 color="#000"
-                                size="2xs"
                               />
-                            </p>
-                          </div>
-                          <div className="rating">
-                            <div className="star">
-                              <FontAwesomeIcon
-                                icon={faStar}
-                                size="sm"
-                                color="#F8C51B"
-                              />
-                              <FontAwesomeIcon
-                                icon={faStar}
-                                size="sm"
-                                color="#F8C51B"
-                              />
-                              <FontAwesomeIcon
-                                icon={faStar}
-                                size="sm"
-                                color="#F8C51B"
-                              />
-                              <FontAwesomeIcon
-                                icon={faStar}
-                                size="sm"
-                                color="#F8C51B"
-                              />
-                              <FontAwesomeIcon
-                                icon={faStarHalf}
-                                size="sm"
-                                color="#F8C51B"
-                              />
-                            </div>
-                            <div className="rated">
-                              <p>43k Ratings</p>
-                            </div>
-                          </div>
-                          <div className="price-add">
-                            <div className="price">
-                              <p> {`₦${courses.price}`}</p>
-                              <span className="slice">
-                                {`₦${courses.estimatedPrice}`}
+                            </Link>
+                            <div className="desc">
+                              <span>
+                                {courses.description.length > 65
+                                  ? courses.description.slice(0, 65) + "..."
+                                  : courses.description}
                               </span>
                             </div>
-                            <button onClick={() => handleAddToCart(courses)}>
-                              Add to Cart
-                            </button>
+                            <div className="admin">
+                              <span style={{ color: "#CD760F" }}>
+                                {" "}
+                                by Michael Jordan
+                              </span>
+                              <p className="check">
+                                <FontAwesomeIcon
+                                  icon={faCheck}
+                                  color="#000"
+                                  size="2xs"
+                                />
+                              </p>
+                            </div>
+                            <div className="rating">
+                              <div className="star">
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  size="sm"
+                                  color="#F8C51B"
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  size="sm"
+                                  color="#F8C51B"
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  size="sm"
+                                  color="#F8C51B"
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  size="sm"
+                                  color="#F8C51B"
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStarHalf}
+                                  size="sm"
+                                  color="#F8C51B"
+                                />
+                              </div>
+                              <div className="rated">
+                                <p>43k Ratings</p>
+                              </div>
+                            </div>
+                            <div className="price-add">
+                              <div className="price">
+                                <p> {`₦${courses.price}`}</p>
+                                <span className="slice">
+                                  {`₦${courses.estimatedPrice}`}
+                                </span>
+                              </div>
+                              <button onClick={() => handleAddToCart(courses)}>
+                                Add to Cart
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <Link to="/search/">
                   <button>Show more courses</button>
@@ -229,12 +220,135 @@ const LandingPage = () => {
               <div className="based-on-picks">
                 <div className="top-rated-con">
                   <h2>Courses recommended for you</h2>
+                  {isLoading ? (
+                    <SkeletonFrame />
+                  ) : (
+                    <div className="courses">
+                      {data?.getCourse?.map((courses) => (
+                        <div className="course-con" key={courses._id}>
+                          <img
+                            src={courses?.thumbnail?.url || noimage}
+                            alt={courses.thumbnail?.url || noimage}
+                            className="course-img"
+                          />
+                          <div className="content">
+                            <Link
+                              to={`/overview/${courses._id}`}
+                              className="course-name"
+                            >
+                              <h3>
+                                {courses.name.length > 26
+                                  ? courses.name.slice(0, 26) + "..."
+                                  : courses.name}
+                              </h3>
+                              <FontAwesomeIcon
+                                icon={faArrowUpRightFromSquare}
+                                color="#000"
+                              />
+                            </Link>
+                            <div className="desc">
+                              <span>
+                                {courses.description.length > 65
+                                  ? courses.description.slice(0, 65) + "..."
+                                  : courses.description}
+                              </span>
+                            </div>
+                            <div className="admin">
+                              <p style={{ color: "#CD760F" }}>
+                                {" "}
+                                by Michael Jordan
+                              </p>
+                              <p className="check">
+                                <FontAwesomeIcon
+                                  icon={faCheck}
+                                  color="#000"
+                                  size="2xs"
+                                />
+                              </p>
+                            </div>
+                            <div className="rating">
+                              <div className="star">
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  size="sm"
+                                  color="#F8C51B"
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  size="sm"
+                                  color="#F8C51B"
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  size="sm"
+                                  color="#F8C51B"
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  size="sm"
+                                  color="#F8C51B"
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStarHalf}
+                                  size="sm"
+                                  color="#F8C51B"
+                                />
+                              </div>
+                              <div className="rated">
+                                <p>43k Ratings</p>
+                              </div>
+                            </div>
+                            <div className="price-add">
+                              <div className="price">
+                                <p> {`₦${courses.price}`}</p>
+                                <span className="slice">
+                                  {`₦${courses.estimatedPrice}`}
+                                </span>
+                              </div>
+                              <button onClick={() => handleAddToCart(courses)}>
+                                Add to Cart
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  <Link to="/search/">
+                    <button>Show more courses</button>
+                  </Link>
+                </div>
+              </div>
+              <div className="what-course">
+                <h2>What course you looking for?</h2>
+                <div className="options">
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                  <p>Lorem Ipsum</p>
+                </div>
+              </div>
+              <div className="new">
+                <h2>New Classes (1093)</h2>
+                {isLoading ? (
+                  <SkeletonFrame />
+                ) : (
                   <div className="courses">
                     {data?.getCourse?.map((courses) => (
-                      <div className="course-con" key={courses._id}>
+                      <div className="course-con" key={courses.id}>
                         <img
                           src={courses?.thumbnail?.url || noimage}
-                          alt={courses.thumbnail?.url || noimage}
+                          alt={courses.thumbnail?.url}
                           className="course-img"
                         />
                         <div className="content">
@@ -319,119 +433,7 @@ const LandingPage = () => {
                       </div>
                     ))}
                   </div>
-                  <Link to="/search/">
-                    <button>Show more courses</button>
-                  </Link>
-                </div>
-              </div>
-              <div className="what-course">
-                <h2>What course you looking for?</h2>
-                <div className="options">
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                </div>
-              </div>
-              <div className="new">
-                <h2>New Classes (1093)</h2>
-                <div className="courses">
-                  {data?.getCourse?.map((courses) => (
-                    <div className="course-con" key={courses.id}>
-                      <img
-                        src={courses?.thumbnail?.url || noimage}
-                        alt={courses.thumbnail?.url}
-                        className="course-img"
-                      />
-                      <div className="content">
-                        <Link
-                          to={`/overview/${courses._id}`}
-                          className="course-name"
-                        >
-                          <h3>
-                            {courses.name.length > 26
-                              ? courses.name.slice(0, 26) + "..."
-                              : courses.name}
-                          </h3>
-                          <FontAwesomeIcon
-                            icon={faArrowUpRightFromSquare}
-                            color="#000"
-                          />
-                        </Link>
-                        <div className="desc">
-                          <span>
-                            {courses.description.length > 65
-                              ? courses.description.slice(0, 65) + "..."
-                              : courses.description}
-                          </span>
-                        </div>
-                        <div className="admin">
-                          <p style={{ color: "#CD760F" }}> by Michael Jordan</p>
-                          <p className="check">
-                            <FontAwesomeIcon
-                              icon={faCheck}
-                              color="#000"
-                              size="2xs"
-                            />
-                          </p>
-                        </div>
-                        <div className="rating">
-                          <div className="star">
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              size="sm"
-                              color="#F8C51B"
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              size="sm"
-                              color="#F8C51B"
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              size="sm"
-                              color="#F8C51B"
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              size="sm"
-                              color="#F8C51B"
-                            />
-                            <FontAwesomeIcon
-                              icon={faStarHalf}
-                              size="sm"
-                              color="#F8C51B"
-                            />
-                          </div>
-                          <div className="rated">
-                            <p>43k Ratings</p>
-                          </div>
-                        </div>
-                        <div className="price-add">
-                          <div className="price">
-                            <p> {`₦${courses.price}`}</p>
-                            <span className="slice">
-                              {`₦${courses.estimatedPrice}`}
-                            </span>
-                          </div>
-                          <button onClick={() => handleAddToCart(courses)}>
-                            Add to Cart
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                )}
                 <Link to="/search/">
                   {" "}
                   <button>Show more courses</button>
