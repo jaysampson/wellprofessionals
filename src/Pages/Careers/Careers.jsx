@@ -1,9 +1,12 @@
 import React from "react";
 import "./Career.scss";
+import Navbar from "../Layouts/Navbar/Navbar";
+import Footer from "../Layouts/Footer/Footer";
 
 const Careers = () => {
   return (
     <div>
+      <Navbar />
       <div className="careers-bgc">
         <div className="careers-hero">
           <h1>JOIN OUR TEAM AT WELL PROFESSIONALS</h1>
@@ -92,6 +95,7 @@ const Careers = () => {
           </section>
         </body>
       </div>
+      <Footer />
     </div>
   );
 };

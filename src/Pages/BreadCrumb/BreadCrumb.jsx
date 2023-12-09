@@ -9,19 +9,14 @@ import "../BreadCrumb/BreadCrumb.scss";
 export const BreadCrumb = () => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
-  const { user } = useSelector((state) => state.auth);
 
   return (
     <div className="bread-crumb">
       {pathnames.length > 0 && (
         <React.Fragment>
-          {user ? (
+          <Link to="/">
             <img src={homeicon} alt={homeicon} />
-          ) : (
-            <Link to="/">
-              <img src={homeicon} alt={homeicon} />
-            </Link>
-          )}
+          </Link>
         </React.Fragment>
       )}
       {pathnames.map((name, index) => {

@@ -1,10 +1,4 @@
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
-.creators-bgc {
+.earn-bgc {
   width: 100%;
   display: flex;
   align-items: center;
@@ -15,7 +9,7 @@
   @media screen and (max-width: 500px) {
     padding: 30px 10px;
   }
-  .creators-hero {
+  .earn-hero {
     width: 100%;
     display: flex;
     align-items: center;
@@ -45,6 +39,25 @@
         justify-content: center;
         flex-direction: column;
         gap: 5px;
+        p {
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+          gap: 8px;
+          ul {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+            li {
+              span {
+                color: black;
+              }
+            }
+          }
+        }
       }
     }
     p {

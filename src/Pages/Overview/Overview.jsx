@@ -93,7 +93,7 @@ const Overview = () => {
                 className="iframe-1"
               ></iframe>
               <header>
-                <p>Lorem ipsum dolor sit</p>
+                <p>{courseArray?.course?.category}</p>
                 <h2>{courseArray?.course?.name}</h2>
                 <span>{courseArray?.course?.description}</span>
               </header>
@@ -376,12 +376,12 @@ const Overview = () => {
             </div> */}
           </div>
           <div className="recommend">
-            <h3>Topics recommended for you</h3>
+            <h2>Topics recommended for you</h2>
             {isLoading ? (
               <Skeleton />
             ) : (
               <div className="courses">
-                {data?.getCourse?.map((courses) => (
+                {data?.getCourse?.slice(0, 8).map((courses) => (
                   <div className="course-con" key={courses.id}>
                     <img
                       src={courses?.thumbnail?.url || noimage}

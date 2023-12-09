@@ -107,8 +107,10 @@
             margin: 0px;
             padding: 0px;
             display: inline-flex;
-            padding: 0.25rem 1.74438rem 0.25rem 0.875rem;
+            width: 100px;
+            padding: 0.25rem;
             align-items: flex-start;
+            justify-content: center;
             border-radius: 0.1875rem;
             background: #cd760f;
             color: #fff;
@@ -761,7 +763,7 @@
       width: 100%;
       margin-top: 30px;
       margin-bottom: 30px;
-      h3 {
+      h2 {
         width: 100%;
         color: #000;
         text-align: center;

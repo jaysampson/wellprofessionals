@@ -1,5 +1,6 @@
 import {
   faAngleDown,
+  faAppleAlt,
   faArrowRightFromBracket,
   faBars,
   faMinus,
@@ -7,6 +8,7 @@ import {
   faSearch,
   faUserCircle,
   faXmark,
+  faXmarkCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import wellslogo from "../../../assets/Images/Wells-Logo.svg";
@@ -27,6 +29,7 @@ import { logout, reset } from "../../../redux/auth/authSlice";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [drop, setDrop] = useState(false);
+  const [offer, setOffer] = useState(false);
   const { user } = useSelector((state) => state.auth);
   const cart = useSelector((state) => state.cart);
   function toggleMenu() {
@@ -35,6 +38,10 @@ const Navbar = () => {
 
   function toggleDrop() {
     setDrop(!drop);
+  }
+
+  function toggleOffer() {
+    setOffer(!offer);
   }
   let dispatch = useDispatch();
 
@@ -55,6 +62,32 @@ const Navbar = () => {
   return (
     <nav>
       <div className="home-nav">
+        {offer && (
+          <div className="offers">
+            <div></div>
+            <div className="offer-links">
+              <span>Get the app on andriod</span>
+              <i
+                class="fa-brands fa-google-play fa-bounce"
+                style={{ marginLeft: "5px", marginRight: "5px" }}
+              ></i>
+              <span>and on ios</span>{" "}
+              <i
+                class="fa-brands fa-app-store-ios fa-bounce"
+                style={{ marginLeft: "5px", marginRight: "5px" }}
+              ></i>
+            </div>
+            <div className="x-mark">
+              <FontAwesomeIcon
+                icon={faXmarkCircle}
+                color="white"
+                cursor="pointer"
+                onClick={toggleOffer}
+              />
+            </div>
+          </div>
+        )}
+
         <div className="main">
           <FontAwesomeIcon
             icon={toggle ? faXmark : faBars}
@@ -95,7 +128,7 @@ const Navbar = () => {
               <img src={notify} alt={notify} />
             </div>
             {user ? (
-              <Link to="/settings/profile" className="profile-img">
+              <Link to="/settings-profile" className="profile-img">
                 {user.data.image ? (
                   <img src={user.data?.image} alt={user.data?.image} />
                 ) : (
@@ -123,11 +156,6 @@ const Navbar = () => {
             )}
           </div>
         </div>
-        <div className="offers">
-          <p>
-            Limited time launch <span>discount</span> : 20% off 03:25:15
-          </p>
-        </div>
         {user ? (
           <div className="student-options">
             <NavLink to="/dashboard" className="options">
@@ -142,7 +170,7 @@ const Navbar = () => {
               <img src={book} alt={book} />
               <p>Bookmark</p>
             </NavLink>
-            <NavLink to="/settings/profile" className="options">
+            <NavLink to="/settings-profile" className="options">
               <img src={settingicon} alt={settingicon} />
               <p>Setting</p>
             </NavLink>
@@ -153,7 +181,7 @@ const Navbar = () => {
       </div>
       <div className={toggle ? "sidebar" : "null"}>
         {user ? (
-          <Link to="/settings/profile" className="nav-user">
+          <Link to="/settings-profile" className="nav-user">
             {user.data.image ? (
               <div className="img-con">
                 <img src={user.data.image} alt={user.data.name} />

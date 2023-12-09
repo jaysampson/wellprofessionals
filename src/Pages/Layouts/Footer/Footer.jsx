@@ -79,12 +79,12 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="" className="links">
+                      <Link to="/course-creators" className="links">
                         Course Creators
                       </Link>
                     </li>
                     <li>
-                      <Link to="" className="links">
+                      <Link to="/partners" className="links">
                         Partner with Wellprofs
                       </Link>
                     </li>
@@ -116,9 +116,13 @@ const Footer = () => {
                   <p>Resources</p>
                   <ul>
                     <li>Get App</li>
-                    <li>Earn on Well Profs</li>
+                    <Link to="/earn">
+                      <li>Earn on Well Profs</li>
+                    </Link>
                     <li>Upcoming Physical Trainings</li>
-                    <li>Accreditations</li>
+                    <Link to="/accreditation">
+                      <li>Accreditations</li>
+                    </Link>
                     <li>Blog</li>
                   </ul>
                 </section>

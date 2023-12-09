@@ -31,7 +31,7 @@ const SettingLayout = ({ content }) => {
             <h4>General</h4>
             <ul>
               <NavLink
-                to="/settings/profile"
+                to="/settings-profile"
                 className={({ isActive }) =>
                   isActive ? "active" : "not-active"
                 }
@@ -41,7 +41,7 @@ const SettingLayout = ({ content }) => {
                 </li>
               </NavLink>
               <NavLink
-                to="/settings/cards"
+                to="/settings-cards"
                 className={({ isActive }) =>
                   isActive ? "active" : "not-active"
                 }
@@ -51,7 +51,7 @@ const SettingLayout = ({ content }) => {
                 </li>
               </NavLink>
               <NavLink
-                to="/settings/certificates"
+                to="/certificates"
                 className={({ isActive }) =>
                   isActive ? "active" : "not-active"
                 }
@@ -61,7 +61,7 @@ const SettingLayout = ({ content }) => {
                 </li>
               </NavLink>
               <NavLink
-                to="/settings/verification"
+                to="/settings-verification"
                 className={({ isActive }) =>
                   isActive ? "active" : "not-active"
                 }

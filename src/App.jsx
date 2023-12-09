@@ -40,6 +40,10 @@ import { useEffect } from "react";
 import Support from "./Pages/CustomerSupport/Support";
 import FAQ from "./Pages/FAQ/FAQ";
 import Careers from "./Pages/Careers/Careers";
+import CourseCreators from "./Pages/CourseCreators/CourseCreators";
+import Partner from "./Pages/Partner/Partner";
+import Accreditation from "./Pages/Accreditation/Accreditation";
+import Earn from "./Pages/Earn/Earn";
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -73,6 +77,10 @@ function App() {
         <Route path="/support" element={<Support />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/partners" element={<Partner />} />
+        <Route path="/earn" element={<Earn />} />
+        <Route path="/accreditation" element={<Accreditation />} />
+        <Route path="/course-creators" element={<CourseCreators />} />
         <Route path="/overview/:courseId" element={<Overview />} />
         <Route path="/search/:searchQuery" element={<SearchPage />} />
         <Route path="/search" element={<SearchPage />} />
@@ -202,8 +210,8 @@ function App() {
 
         {/* {Setting Pages} */}
 
-        <Route path="/settings/*" element={<SettingLayout />} />
-        <Route path="/settings/profile" element={<Profile />} />
+        <Route path="/settings-profile/*" element={<SettingLayout />} />
+        <Route path="/settings-profile" element={<Profile />} />
       </Routes>
       <ToastContainer />
     </>
