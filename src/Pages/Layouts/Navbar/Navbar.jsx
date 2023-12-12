@@ -259,10 +259,12 @@ const Navbar = () => {
           <h3>Privacy Policy</h3>
         </Link>
         <h3>Get App</h3>
-        <Link to="/settings/profile">
+        <Link to="/settings-profile">
           <h3>Settings</h3>
         </Link>
-        <h3>Help</h3>
+        <Link to="/support">
+          <h3>Help</h3>
+        </Link>
         <hr />
         <div className="navigate">
           <p>NAVIGATE TO</p>

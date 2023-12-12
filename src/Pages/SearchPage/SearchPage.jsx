@@ -31,6 +31,10 @@ const SearchPage = () => {
   const { searchQuery } = useParams();
   const data = useSelector((state) => state.course.data);
 
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.course
+  );
+
   useEffect(() => {
     dispatch(getCourse());
   }, [dispatch]);
