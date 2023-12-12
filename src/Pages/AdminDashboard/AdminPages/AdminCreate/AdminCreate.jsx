@@ -119,11 +119,19 @@ const Content = () => {
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
+
     if (file) {
       const reader = new FileReader();
+
       reader.onloadend = () => {
-        setThumbnail(reader.result);
+        // Convert the image to base64
+        const base64Image = reader.result;
+
+        // Set the base64 image to state
+        setThumbnail(base64Image);
       };
+
+      // Read the image file as a data URL
       reader.readAsDataURL(file);
     }
   };
@@ -159,6 +167,7 @@ const Content = () => {
       benefits,
       prerequisites,
       lessonData: [...lessonData],
+      thumbnail,
     };
     dispatch(createCourse(courseData));
     console.log(courseData, "mychief");
@@ -229,7 +238,7 @@ const Content = () => {
             <label htmlFor="">Course Demo Video</label>
             <input
               type="text"
-              placeholder="Enter Course Name"
+              placeholder="Add the googledrive Id for your preview video"
               value={demoUrl}
               onChange={(e) => setDemoUrl(e.target.value)}
               required
@@ -520,7 +529,6 @@ const Content = () => {
                             <div className="link-labels">
                               <label>Title</label>
                               <input
-                                required
                                 type="text"
                                 value={link.title}
                                 placeholder="Enter the title of the link"
@@ -535,7 +543,6 @@ const Content = () => {
                               />
                               <label>URL</label>
                               <input
-                                required
                                 type="text"
                                 placeholder="Enter the link"
                                 value={link.url}

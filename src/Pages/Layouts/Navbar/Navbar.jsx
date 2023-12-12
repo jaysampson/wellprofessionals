@@ -87,7 +87,6 @@ const Navbar = () => {
             </div>
           </div>
         )}
-
         <div className="main">
           <FontAwesomeIcon
             icon={toggle ? faXmark : faBars}

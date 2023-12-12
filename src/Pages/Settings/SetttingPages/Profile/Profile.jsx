@@ -17,6 +17,7 @@ const Profile = () => {
 
 export const Content = () => {
   const [image, setImage] = useState(null);
+  const [base64Image, setBase64Image] = useState(null);
 
   const dispatch = useDispatch();
   const { user, isLoading, isError, isSuccess, message } = useSelector(
@@ -37,22 +38,30 @@ export const Content = () => {
 
   const updateDetails = (e) => {
     e.preventDefault();
+
     const userData = {
       name,
       email,
       mobile,
-      image,
+      image: base64Image,
     };
+
     dispatch(updateUser(userData));
-    console.log("clicked");
+    console.log(base64Image, "base64Image");
   };
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
 
     if (selectedImage) {
-      // You can handle the selected image here, such as displaying it or uploading it to a server.
-      setImage(URL.createObjectURL(selectedImage));
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        setImage(URL.createObjectURL(selectedImage));
+        setBase64Image(reader.result); // Set the base64 image in state
+      };
+
+      reader.readAsDataURL(selectedImage);
     }
   };
 
@@ -75,7 +84,7 @@ export const Content = () => {
             </div>
           ) : user.data.image ? (
             <div className="img-con">
-              <img src={user.data.image} alt={user.data.image} />
+              <img src={user.data.image} alt="image" />
             </div>
           ) : (
             <FontAwesomeIcon

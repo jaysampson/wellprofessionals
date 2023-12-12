@@ -75,17 +75,6 @@ const Course = () => {
     updateLocalStorageIndex(index);
   };
 
-  const playing = courseArray[currentVideoIndex]?.title;
-
-  console.log(
-    currentVideoIndex,
-    "index",
-    courseArray,
-    "course",
-    playing,
-    "playing"
-  );
-
   return (
     <div>
       <Navbar />
@@ -95,7 +84,9 @@ const Course = () => {
             <h3>{course_details?.name}</h3>
             <h4 style={{ display: "flex", gap: "5px" }}>
               <h4 style={{ color: "#af5e41" }}>Now playing </h4>
-              {courseArray[currentVideoIndex]?.title}
+              {courseArray && courseArray[currentVideoIndex]
+                ? courseArray[currentVideoIndex].title
+                : "No title available"}
             </h4>
             {courseArray?.map((lesson, index) => (
               <div
@@ -109,40 +100,41 @@ const Course = () => {
                   title={`lesson-${index}`}
                   src={`https://drive.google.com/file/d/${lesson.videoUrl}/preview`}
                   width="100%"
-                  height="500px"
                   allow="autoplay"
+                  className="video-player"
                   onEnded={handleVideoEnd}
                 ></iframe>
               </div>
             ))}
             <div className="coursepage-left-contents">
               <div className="course-details">
-                <div className="controls">
-                  <div className="arrow" onClick={handlePreviousVideo}>
-                    {currentVideoIndex !== 0 && (
-                      <>
+                <div className="controls" onClick={handlePreviousVideo}>
+                  {currentVideoIndex !== 0 && (
+                    <div className="arrow">
+                      <div className="arrow-con">
                         <FontAwesomeIcon icon={faArrowLeft} />
                         <span>Previous</span>
-                        <p>{` ${courseArray[currentVideoIndex - 1]?.title}`}</p>
-                      </>
-                    )}
-                  </div>
-                  <p>
-                    {courseArray && courseArray[currentVideoIndex > 0]
-                      ? ` ${courseArray[currentVideoIndex]?.title}`
-                      : ""}
-                  </p>
+                      </div>
+                      {courseArray && courseArray[currentVideoIndex]
+                        ? courseArray[currentVideoIndex - 1].title
+                        : "No title available"}
+                    </div>
+                  )}
                 </div>
-                <div className="controls">
-                  <div className="arrow" onClick={handleNextVideo}>
-                    {currentVideoIndex !== courseArray.length - 1 && (
-                      <>
+                <div className="controls" onClick={handleNextVideo}>
+                  {currentVideoIndex !== courseArray?.length - 1 && (
+                    <div className="arrow-2">
+                      <div className="arrow-con">
                         <span>Next</span>
                         <FontAwesomeIcon icon={faArrowRight} />
-                        <p>{`${courseArray[currentVideoIndex + 1]?.title}`}</p>
-                      </>
-                    )}
-                  </div>
+                      </div>
+                      <p>
+                        {courseArray && courseArray[currentVideoIndex]
+                          ? courseArray[currentVideoIndex + 1].title
+                          : "No title available"}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="tutor">

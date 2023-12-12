@@ -30,9 +30,9 @@
         border-radius: 50%;
         border: 1px solid #af5e41;
         img {
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
+          width: inherit;
+          height: inherit;
+          border-radius: inherit;
         }
       }
     }

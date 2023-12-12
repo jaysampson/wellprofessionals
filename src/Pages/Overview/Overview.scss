@@ -41,7 +41,7 @@
       flex-direction: column;
       position: sticky;
       z-index: 1;
-      top: 110px;
+      top: 95px;
       .iframe-2 {
         display: none;
         @media screen and (max-width: 768px) {
@@ -785,18 +785,18 @@
           justify-content: flex-start;
         }
         .course-con {
-          flex: 0 0 300px;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-direction: column;
           gap: 30px;
-          @media screen and (max-width: 600px) {
-            width: 260px;
+          flex: 0 0 300px;
+          @media screen and (max-width: 768px) {
+            flex: 0 0 260px;
           }
-          .course-img {
-            border-radius: 10px;
+          img {
             width: 100%;
+            border-radius: 8px;
             height: 200px;
             border: 1px solid #af5e41;
           }

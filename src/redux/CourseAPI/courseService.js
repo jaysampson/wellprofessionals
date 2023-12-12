@@ -24,6 +24,7 @@ const createCourse = async (courseData) => {
     }
   } catch (error) {
     console.error("Error creating course:", error);
+    console.error("user token", user_token);
     throw error;
   }
 };
