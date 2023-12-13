@@ -22,7 +22,7 @@ import wellslogo from "../../assets/Images/Wells-Logo.svg";
 import noimage from "../../assets/Images/noimage.png";
 import gif from "../../assets/Images/Loading.gif";
 import { addToCart } from "../../redux/addToCart/cartSlice";
-import { SkeletonFrame } from "../SkeletonFrame/SkeletonFrame";
+import { SkeletonFrame, SkeletonFrame2 } from "../SkeletonFrame/SkeletonFrame";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -231,7 +231,7 @@ const Home = () => {
               <div className="all-courses">
                 <h2>Courses Recommended for you</h2>
                 {isLoading ? (
-                  <SkeletonFrame />
+                  <SkeletonFrame2 />
                 ) : (
                   <div className="courses">
                     {displayedCourses?.map((courses) => (
