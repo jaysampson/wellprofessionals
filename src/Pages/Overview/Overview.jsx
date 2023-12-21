@@ -21,6 +21,7 @@ import noimage from "../../assets/Images/noimage.png";
 import gif from "../../assets/Images/Loading.gif";
 import { addToCart } from "../../redux/addToCart/cartSlice";
 import Skeleton from "react-loading-skeleton";
+import { toast } from "react-toastify";
 
 const Overview = () => {
   const [drop, setDrop] = useState(false);
@@ -68,6 +69,52 @@ const Overview = () => {
   const handleAddToCart = (courses) => {
     dispatch(addToCart(courses));
   };
+
+  function notPurchased() {
+    toast.info("Purchase the course to access the lessons");
+  }
+
+  const calculateTotalVideoLength = () => {
+    if (courseArray?.course?.lessonData) {
+      return courseArray.course.lessonData.reduce(
+        (totalLength, lesson) => totalLength + lesson.videoLength,
+        0
+      );
+    }
+    return 0;
+  };
+
+  const formatVideoLength = (totalMinutes) => {
+    if (totalMinutes < 60) {
+      return `${totalMinutes} mins`;
+    } else {
+      const hours = Math.floor(totalMinutes / 60);
+      const minutes = totalMinutes % 60;
+      return `${hours} hr ${minutes} mins`;
+    }
+  };
+
+  const [shuffledRecommendations, setShuffledRecommendations] = useState([]);
+
+  // Update shuffled recommendations when data changes
+  useEffect(() => {
+    const shuffleArray = (array) => {
+      let shuffledArray = array.slice();
+      for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [
+          shuffledArray[j],
+          shuffledArray[i],
+        ];
+      }
+      return shuffledArray;
+    };
+
+    const recommendationsArray = data?.getCourse || [];
+    const shuffledArray = shuffleArray(recommendationsArray);
+
+    setShuffledRecommendations(shuffledArray);
+  }, [data]);
 
   return (
     <div>
@@ -135,11 +182,8 @@ const Overview = () => {
               <div className="overview-lesson">
                 <div className="class-overview">
                   <title>
-                    <p>CLASS OVERVIEW</p>
                     <div className="class-drop">
-                      <h3>
-                        Learn all of Lorem ipsum dolor sit amet, consectetur
-                      </h3>
+                      <p>CLASS OVERVIEW</p>
                       <FontAwesomeIcon
                         icon={drop1 ? faAngleUp : faAngleDown}
                         onClick={HandleDrop2}
@@ -154,28 +198,19 @@ const Overview = () => {
                   )}
                 </div>
                 <div className="lesson-videos">
-                  <p>LESSONS</p>
                   <div className="videos">
-                    <div className="vid">
-                      <img src="" alt="" />
-                      <p>1. Lorem Ipsum</p>
-                    </div>
-                    <div className="vid">
-                      <img src="" alt="" />
-                      <p>2. Lorem Ipsum</p>
-                    </div>
-                    <div className="vid">
-                      <img src="" alt="" />
-                      <p>3. Lorem Ipsum</p>
-                    </div>
-                    <div className="vid">
-                      <img src="" alt="" />
-                      <p>4. Lorem Ipsum</p>
-                    </div>
-                    <div className="vid">
-                      <img src="" alt="" />
-                      <p>5. Lorem Ipsum</p>
-                    </div>
+                    {courseArray?.course?.lessonData.map((lesson, index) => (
+                      <div className="vid" key={index} onClick={notPurchased}>
+                        <iframe
+                          src={`https://drive.google.com/file/d/${lesson.videoUrl}/preview`}
+                          width="100%"
+                          className="video-player"
+                        ></iframe>
+                        <p>
+                          {index + 1}. {lesson.title}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -332,23 +367,28 @@ const Overview = () => {
                   <p>WHAT'S INCLUDED:</p>
                   <div className="included">
                     <div className="items">
-                      <img src="" alt="" />
-                      <p>In-depth video lessons (8h 54m)</p>
+                      <p>In-depth video lessons</p>
                     </div>
                     <div className="items">
-                      <img src="" alt="" />
+                      <p>
+                        Course Total hours ({" "}
+                        {formatVideoLength(
+                          Math.round(calculateTotalVideoLength())
+                        )}{" "}
+                        )
+                      </p>
+                    </div>
+
+                    <div className="items">
                       <p>Step-by-step curriculum</p>
                     </div>
                     <div className="items">
-                      <img src="" alt="" />
                       <p>Online and at your own pace</p>
                     </div>
                     <div className="items">
-                      <img src="" alt="" />
                       <p>Watch on all devices</p>
                     </div>
                     <div className="items">
-                      <img src="" alt="" />
                       <p>Unlimited lifetime access</p>
                     </div>
                   </div>
@@ -381,7 +421,7 @@ const Overview = () => {
               <Skeleton />
             ) : (
               <div className="courses">
-                {data?.getCourse?.slice(0, 8).map((courses) => (
+                {shuffledRecommendations.slice(0, 8).map((courses) => (
                   <div className="course-con" key={courses.id}>
                     <img
                       src={courses?.thumbnail?.url || noimage}

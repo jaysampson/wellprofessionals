@@ -19,9 +19,9 @@ import NoteComp from "./NoteComp/NoteComp";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../../../redux/user/userSlice";
+import ReactDrive from "react-drive/dist/ReactDrive";
 
 const Course = () => {
-  const [active, setActive] = useState("lesson");
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   const { courseId } = useParams();
@@ -99,8 +99,9 @@ const Course = () => {
                 <iframe
                   title={`lesson-${index}`}
                   src={`https://drive.google.com/file/d/${lesson.videoUrl}/preview`}
+                  allow="autoplay; fullscreen"
+                  sandbox="allow-same-origin allow-scripts"
                   width="100%"
-                  allow="autoplay"
                   className="video-player"
                   onEnded={handleVideoEnd}
                 ></iframe>
@@ -137,7 +138,7 @@ const Course = () => {
                   )}
                 </div>
               </div>
-              <div className="tutor">
+              {/* <div className="tutor">
                 <h5>TUTOR</h5>
                 <div className="img-name">
                   <img src={ladies} alt={ladies} className="tutor-img" />
@@ -149,31 +150,13 @@ const Course = () => {
                     </span>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="coursepage-left-subs">
-                <div className="subs">
-                  <p
-                    className={active === "lesson" ? "picked" : ""}
-                    onClick={() => handleActive("lesson")}
-                  >
-                    Lessons
-                  </p>
-                  <p
-                    className={active === "note" ? "picked" : ""}
-                    onClick={() => handleActive("note")}
-                  >
-                    Notes
-                  </p>
-                </div>
-
                 <div className="picked-display">
-                  {active === "lesson" && (
-                    <LessonsComp
-                      course={courseArray}
-                      choose={handleLessonClick}
-                    />
-                  )}
-                  {active === "note" && <NoteComp />}
+                  <LessonsComp
+                    course={courseArray}
+                    choose={handleLessonClick}
+                  />
                 </div>
               </div>
             </div>
@@ -182,7 +165,6 @@ const Course = () => {
             {courseArray?.map((lesson, index) => (
               <div className="course-chapters" key={lesson._id}>
                 <div className="chapter">
-                  <img src={ladies} alt={ladies} className="chapter-img" />
                   <div
                     className="coursename-desc"
                     onClick={() => handleLessonClick(index)}

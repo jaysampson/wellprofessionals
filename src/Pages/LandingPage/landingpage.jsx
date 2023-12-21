@@ -28,6 +28,7 @@ import { toast } from "react-toastify";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonFrame } from "../SkeletonFrame/SkeletonFrame";
+import { differenceInMonths, parseISO } from "date-fns";
 
 const LandingPage = () => {
   const [toggle1, setToggle1] = useState(false);
@@ -73,6 +74,15 @@ const LandingPage = () => {
   const handleAddToCart = (courses) => {
     dispatch(addToCart(courses));
   };
+
+  const oneMonthAgo = new Date();
+  oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+  const newClasses = data?.getCourse
+    ?.filter(
+      (courses) =>
+        differenceInMonths(parseISO(courses.createdAt), oneMonthAgo) >= 0
+    )
+    .sort((a, b) => parseISO(b.createdAt) - parseISO(a.createdAt));
 
   return (
     <div>
@@ -322,29 +332,24 @@ const LandingPage = () => {
               <div className="what-course">
                 <h2>What course you looking for?</h2>
                 <div className="options">
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
-                  <p>Lorem Ipsum</p>
+                  <Link to="/category/UpStream">
+                    <p>UpStream Courses</p>
+                  </Link>
+                  <Link to="/category/MidStream">
+                    <p>MidStream Courses</p>
+                  </Link>
+                  <Link to="/category/DownStream">
+                    <p>DownStream Courses</p>
+                  </Link>
                 </div>
               </div>
               <div className="new">
-                <h2>New Classes (1093)</h2>
+                <h2>New Classes ({newClasses?.length})</h2>
                 {isLoading ? (
                   <SkeletonFrame />
                 ) : (
                   <div className="courses">
-                    {data?.getCourse?.map((courses) => (
+                    {newClasses?.map((courses) => (
                       <div className="course-con" key={courses.id}>
                         <img
                           src={courses?.thumbnail?.url || noimage}

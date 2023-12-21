@@ -133,14 +133,12 @@ const Login = () => {
                 </div>
 
                 <div className="no-account">
-                  <p>
+                  <span>
                     Don't have an account?{" "}
-                    <span>
-                      <Link to="/auth-register" className="new">
-                        Create free account
-                      </Link>
-                    </span>
-                  </p>
+                    <Link to="/auth-register" className="new">
+                      Create free account
+                    </Link>
+                  </span>
                 </div>
               </form>
               <div className="signin-options">

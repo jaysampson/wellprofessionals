@@ -110,37 +110,18 @@ const SearchPage = () => {
             </div>
             <div className="filters">
               <ul>
-                <h4>Features</h4>
+                <h4>Category</h4>
                 <li>
                   <input type="checkbox" />
-                  <p>Downloadable content</p>
+                  <p>UpStream</p>
                 </li>
                 <li>
                   <input type="checkbox" />
-                  <p>Subtitles</p>
+                  <p>MidStream</p>
                 </li>
                 <li>
                   <input type="checkbox" />
-                  <p>Test</p>
-                </li>
-                <li>
-                  <input type="checkbox" />
-                  <p>Lorem</p>
-                </li>
-              </ul>
-              <ul>
-                <h4>Language</h4>
-                <li>
-                  <input type="checkbox" />
-                  <p>French</p>
-                </li>
-                <li>
-                  <input type="checkbox" />
-                  <p>English</p>
-                </li>
-                <li>
-                  <input type="checkbox" />
-                  <p>Spanish</p>
+                  <p>DownStream</p>
                 </li>
               </ul>
               <ul>
@@ -208,7 +189,6 @@ const SearchPage = () => {
                 <select name="" id="">
                   <option value="">Featured</option>
                   <option value="">Price</option>
-                  <option value="">Popularity</option>
                 </select>
               </div>
             </div>

@@ -126,6 +126,13 @@ nav {
         align-items: center;
         justify-content: center;
         gap: 25px;
+        .become {
+          color: black;
+          transition: color 0.3s ease;
+          &:hover {
+            color: #af5e41;
+          }
+        }
         .search-2 {
           text-decoration: none;
           color: black;

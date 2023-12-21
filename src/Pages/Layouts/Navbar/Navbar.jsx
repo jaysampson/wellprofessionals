@@ -116,6 +116,9 @@ const Navbar = () => {
             <FontAwesomeIcon icon={faSearch} />
           </Link>
           <div className="right-nav">
+            <NavLink to="/cart" className="become">
+              <p>Become an Instructor</p>
+            </NavLink>
             <Link to="/search" className="search-2">
               <FontAwesomeIcon icon={faSearch} className="search-input" />
             </Link>
@@ -123,9 +126,9 @@ const Navbar = () => {
               <img src={shop} alt={shop} />
               <p>{cart.cartItems.length}</p>
             </NavLink>
-            <div className="book-notify">
+            {/* <div className="book-notify">
               <img src={notify} alt={notify} />
-            </div>
+            </div> */}
             {user ? (
               <Link to="/settings-profile" className="profile-img">
                 {user.data.image ? (
@@ -240,7 +243,7 @@ const Navbar = () => {
             <Link to="/admin/create">
               <h3>Create Course</h3>
             </Link>
-            <h3>Notifications</h3>
+            {/* <h3>Notifications</h3> */}
           </>
         ) : (
           ""

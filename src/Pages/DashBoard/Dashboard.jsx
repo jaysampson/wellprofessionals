@@ -96,6 +96,27 @@ const Dashboard = () => {
     dispatch(addToCart(courses));
   };
 
+  const [shuffledCourses, setShuffledCourses] = useState([]);
+
+  useEffect(() => {
+    const shuffleArray = (array) => {
+      let shuffledArray = array.slice();
+      for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [
+          shuffledArray[j],
+          shuffledArray[i],
+        ];
+      }
+      return shuffledArray;
+    };
+
+    const coursesArray = data?.getCourse || [];
+    const shuffledArray = shuffleArray(coursesArray);
+
+    setShuffledCourses(shuffledArray);
+  }, [data]);
+
   return (
     <div>
       <Navbar />
@@ -376,8 +397,8 @@ const Dashboard = () => {
                 <SkeletonFrame />
               ) : (
                 <div className="courses">
-                  {data?.getCourse?.map((courses) => (
-                    <div className="course-con" key={courses.id}>
+                  {shuffledCourses?.map((courses) => (
+                    <div className="course-con" key={Math.random(courses.id)}>
                       <img
                         src={courses?.thumbnail?.url || noimage}
                         alt={courses.thumbnail?.url}

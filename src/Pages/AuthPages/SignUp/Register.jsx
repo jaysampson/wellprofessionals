@@ -183,14 +183,12 @@ const Register = () => {
                   </button>
                 </div>
                 <div className="no-account">
-                  <p>
+                  <span>
                     Already have an account?{" "}
-                    <span>
-                      <Link to="/auth-login" className="new">
-                        Sign into your account
-                      </Link>
-                    </span>
-                  </p>
+                    <Link to="/auth-login" className="new">
+                      Sign into your account
+                    </Link>
+                  </span>
                 </div>
               </form>
               <div className="signup-options">

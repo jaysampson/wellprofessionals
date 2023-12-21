@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export const AuthRedirect = ({ adminRoute, userRoute, children }) => {
+export const AuthRedirect = ({ adminRoute, userRoute, children, loggedIn }) => {
   const { user } = useSelector((state) => state.auth);
   const users = user?.data?.roles === "user";
   const admin = user?.data?.roles === "admin"; // Safely access nested properties
@@ -20,6 +20,5 @@ export const AuthRedirect = ({ adminRoute, userRoute, children }) => {
     toast.info("You are not logged in");
     return <Navigate to="/auth-login" />;
   }
-
   return children;
 };

@@ -31,7 +31,7 @@ const Footer = () => {
                 </form>
                 <p>
                   We care about your data in our
-                  <Link to="/" className="privacy">
+                  <Link to="/privacy-policy" className="privacy">
                     privacy policy
                   </Link>
                 </p>

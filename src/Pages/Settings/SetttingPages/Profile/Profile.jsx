@@ -145,32 +145,6 @@ export const Content = () => {
                 required
               />
             </div>
-            <div className="dets">
-              <label htmlFor="">Bio or About Me</label>
-              <textarea
-                name=""
-                id=""
-                cols="30"
-                rows="10"
-                placeholder="Describe yourself"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              ></textarea>
-            </div>
-            <div className="dets">
-              <label htmlFor="">Language</label>
-              <select
-                name=""
-                id=""
-                value={language}
-                onChange={(e) => setLanguage(e.target.value)}
-              >
-                <option>Select preffered language</option>
-                <option value="English">English</option>
-                <option value="French">French</option>
-                <option value="Spanish">Spanish</option>
-              </select>
-            </div>
           </div>
         </div>
         <button type="submit" onClick={updateDetails}>

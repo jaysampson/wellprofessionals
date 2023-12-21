@@ -554,11 +554,12 @@
               color: #fff;
               text-align: center;
               // font-size: 16.143px;
-              flex: 0 0 140px;
+              flex: 0 0 fit-content;
+              padding: 10px;
               height: 40px;
               @media screen and (max-width: 768px) {
                 // font-size: 14px;
-                flex: 0 0 120px;
+                flex: 0 0 185px;
               }
             }
           }

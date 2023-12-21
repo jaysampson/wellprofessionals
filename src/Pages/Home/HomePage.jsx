@@ -34,12 +34,34 @@ const Home = () => {
   );
   const data = useSelector((state) => state.course.data);
 
-  const [currentPage, setCurrentPage] = useState(0); // State for the current page
+  const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(
     window.innerWidth >= 900 ? 6 : window.innerWidth >= 500 ? 4 : 2
   );
-  // const itemsPerPage = 6; // Number of items per page
-  const pageCount = Math.ceil(data?.getCourse?.length / itemsPerPage); // Total number of pages
+  const pageCount = Math.ceil(data?.getCourse?.length / itemsPerPage);
+
+  // Add a state to hold the shuffled courses
+  const [shuffledCourses, setShuffledCourses] = useState([]);
+
+  // Update shuffled courses when data changes
+  useEffect(() => {
+    const shuffleArray = (array) => {
+      let shuffledArray = array.slice();
+      for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [
+          shuffledArray[j],
+          shuffledArray[i],
+        ];
+      }
+      return shuffledArray;
+    };
+
+    const coursesArray = data?.getCourse || [];
+    const shuffledArray = shuffleArray(coursesArray);
+
+    setShuffledCourses(shuffledArray);
+  }, [data]);
 
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
@@ -47,7 +69,7 @@ const Home = () => {
 
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const displayedCourses = data?.getCourse?.slice(startIndex, endIndex);
+  const displayedCourses = shuffledCourses.slice(startIndex, endIndex);
 
   // State for mobile view
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 500);
@@ -58,7 +80,7 @@ const Home = () => {
     const handleResize = () => {
       setIsMobileView(window.innerWidth <= 500);
       setItemsPerPage(
-        window.innerWidth >= 900 ? 6 : window.innerWidth >= 500 ? 4 : 2
+        window.innerWidth >= 900 ? 8 : window.innerWidth >= 900 ? 2 : 1
       );
     };
     window.addEventListener("resize", handleResize);
