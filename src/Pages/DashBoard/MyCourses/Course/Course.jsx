@@ -12,14 +12,12 @@ import { useState, useEffect } from "react";
 import video from "../../../../assets/Images/video.mp4";
 import den from "../../../../assets/Images/den.mp4";
 import denn from "../../../../assets/Images/den2.mp4";
-import ReactPlayer from "react-player";
 import Footer from "../../../Layouts/Footer/Footer";
 import LessonsComp from "./LessonComp/LessonsComp";
 import NoteComp from "./NoteComp/NoteComp";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../../../redux/user/userSlice";
-import ReactDrive from "react-drive/dist/ReactDrive";
 
 const Course = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
