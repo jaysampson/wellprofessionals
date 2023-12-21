@@ -98,6 +98,7 @@ const Course = () => {
                   title={`lesson-${index}`}
                   src={`https://drive.google.com/file/d/${lesson.videoUrl}/preview`}
                   allow="autoplay; fullscreen"
+                  allowFullScreen
                   sandbox="allow-same-origin allow-scripts"
                   width="100%"
                   className="video-player"
