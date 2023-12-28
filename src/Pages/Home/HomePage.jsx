@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import noimage from "../../assets/Images/noimage.png";
 import { addToCart } from "../../redux/addToCart/cartSlice";
 import { SkeletonFrame, SkeletonFrame2 } from "../SkeletonFrame/SkeletonFrame";
+import { toast } from "react-toastify";
 
 const Home = () => {
   const [search, setSearch] = useState("");
