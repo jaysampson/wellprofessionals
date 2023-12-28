@@ -42,7 +42,7 @@ const Course = () => {
   };
 
   const handleNextVideo = () => {
-    if (currentVideoIndex < courseArray.length - 1) {
+    if (currentVideoIndex < courseArray?.lessonData.length - 1) {
       setCurrentVideoIndex((prevIndex) => prevIndex + 1);
       updateLocalStorageIndex(currentVideoIndex + 1);
     }
@@ -103,22 +103,26 @@ const Course = () => {
                         <FontAwesomeIcon icon={faArrowLeft} />
                         <span>Previous</span>
                       </div>
-                      {courseArray && courseArray[currentVideoIndex]
-                        ? courseArray[currentVideoIndex - 1].title
+                      {courseArray?.lessonData &&
+                      courseArray?.lessonData[currentVideoIndex]
+                        ? courseArray?.lessonData[currentVideoIndex - 1]?.title
                         : "No title available"}
                     </div>
                   )}
                 </div>
                 <div className="controls" onClick={handleNextVideo}>
-                  {currentVideoIndex !== courseArray?.length - 1 && (
+                  {currentVideoIndex !==
+                    courseArray?.lessonData?.length - 1 && (
                     <div className="arrow-2">
                       <div className="arrow-con">
                         <span>Next</span>
                         <FontAwesomeIcon icon={faArrowRight} />
                       </div>
                       <p>
-                        {courseArray && courseArray[currentVideoIndex]
-                          ? courseArray[currentVideoIndex + 1].title
+                        {courseArray?.lessonData &&
+                        courseArray?.lessonData[currentVideoIndex]
+                          ? courseArray?.lessonData[currentVideoIndex + 1]
+                              ?.title
                           : "No title available"}
                       </p>
                     </div>
