@@ -18,9 +18,7 @@ import ReactPaginate from "react-paginate";
 import { Link, useNavigate } from "react-router-dom";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import { useDispatch, useSelector } from "react-redux";
-import wellslogo from "../../assets/Images/Wells-Logo.svg";
 import noimage from "../../assets/Images/noimage.png";
-import gif from "../../assets/Images/Loading.gif";
 import { addToCart } from "../../redux/addToCart/cartSlice";
 import { SkeletonFrame, SkeletonFrame2 } from "../SkeletonFrame/SkeletonFrame";
 
@@ -95,7 +93,8 @@ const Home = () => {
     // Redirect to the search page with the search query as a route parameter
     if (search) {
       navigate(`/search/${encodeURIComponent(search)}`);
-      console.log("search: ", search);
+    } else {
+      toast.info("Type in a course you wish to search for");
     }
   };
 

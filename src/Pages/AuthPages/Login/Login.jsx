@@ -24,8 +24,6 @@ const Login = () => {
     (state) => state.auth
   );
 
-  console.log(user);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,7 +42,6 @@ const Login = () => {
     }
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
-  console.log(message);
   function handleToggle() {
     setToggle(!toggle);
   }

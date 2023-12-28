@@ -64,7 +64,6 @@ const Register = () => {
       };
       dispatch(register(userData));
     }
-    console.log("clicked");
   };
 
   return (

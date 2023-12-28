@@ -6,7 +6,7 @@ const LessonsComp = ({ course, choose }) => {
   return (
     <div className="lesson-comp">
       <header className="class-ov-header">CLASS OVERVIEW</header>
-      {course?.map((lesson, index) => (
+      {course?.lessonData?.map((lesson, index) => (
         <div className="course-chapters" key={lesson._id}>
           <div className="chapter">
             <img src={ladies} alt={ladies} className="chapter-img" />

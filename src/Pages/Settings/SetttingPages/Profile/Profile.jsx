@@ -47,7 +47,6 @@ export const Content = () => {
     };
 
     dispatch(updateUser(userData));
-    console.log(base64Image, "base64Image");
   };
 
   const handleImageChange = (e) => {

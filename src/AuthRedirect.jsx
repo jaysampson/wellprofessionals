@@ -8,8 +8,6 @@ export const AuthRedirect = ({ adminRoute, userRoute, children, loggedIn }) => {
   const users = user?.data?.roles === "user";
   const admin = user?.data?.roles === "admin"; // Safely access nested properties
 
-  console.log(user?.data?.roles, "hello");
-
   if (adminRoute && users) {
     toast.info("You are not logged in as an admin");
     return <Navigate to="/dashboard" />;

@@ -69,13 +69,10 @@ const SearchPage = () => {
     return true; // Include the course if it passes the price range and search query filter
   });
 
-  console.log(filteredCourses, "filteredCourses");
-
   const handleSearch = () => {
     // Redirect to the search page with the search query as a route parameter
     if (search) {
       navigate(`/search/${encodeURIComponent(search)}`);
-      console.log("search: ", search);
     }
   };
 

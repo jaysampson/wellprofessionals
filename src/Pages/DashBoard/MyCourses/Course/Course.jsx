@@ -2,22 +2,16 @@ import Navbar from "../../../Layouts/Navbar/Navbar";
 import "../Course/Course.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faAngleDown,
   faAngleRight,
   faArrowLeft,
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
-import ladies from "../../../../assets/Images/doings.svg";
 import { useState, useEffect } from "react";
-import video from "../../../../assets/Images/video.mp4";
-import den from "../../../../assets/Images/den.mp4";
-import denn from "../../../../assets/Images/den2.mp4";
 import Footer from "../../../Layouts/Footer/Footer";
 import LessonsComp from "./LessonComp/LessonsComp";
-import NoteComp from "./NoteComp/NoteComp";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../../../redux/user/userSlice";
+import { fetchACourse } from "../../../../redux/CourseAPI/courseSlice";
 
 const Course = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -26,19 +20,12 @@ const Course = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUser());
-  }, [dispatch]);
+    dispatch(fetchACourse(courseId));
+  }, [dispatch, courseId]);
 
-  const { isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.course
-  );
-  const courseArray = useSelector(
-    (state) => state.details.data.data?.courses[0]?.lessonData
-  );
-  const course_details = useSelector(
-    (state) => state.details.data.data?.courses[0]
-  );
-  console.log(courseArray, "purchased");
+  const courseArray = useSelector((state) => state.course.courseArray?.course);
+
+  console.log(courseArray, "meat");
 
   useEffect(() => {
     const storedIndex = localStorage.getItem("currentVideoIndex");
@@ -79,14 +66,15 @@ const Course = () => {
       <div className="course-page">
         <div className="course-page-hero">
           <div className="coursepage-hero-left">
-            <h3>{course_details?.name}</h3>
+            <h3>{courseArray?.name}</h3>
             <h4 style={{ display: "flex", gap: "5px" }}>
               <h4 style={{ color: "#af5e41" }}>Now playing </h4>
-              {courseArray && courseArray[currentVideoIndex]
-                ? courseArray[currentVideoIndex].title
+              {courseArray?.lessonData &&
+              courseArray?.lessonData[currentVideoIndex]
+                ? courseArray?.lessonData[currentVideoIndex]?.title
                 : "No title available"}
             </h4>
-            {courseArray?.map((lesson, index) => (
+            {courseArray?.lessonData?.map((lesson, index) => (
               <div
                 className="course-vid"
                 key={lesson._id}
@@ -161,7 +149,7 @@ const Course = () => {
             </div>
           </div>
           <div className="coursepage-hero-right">
-            {courseArray?.map((lesson, index) => (
+            {courseArray?.lessonData?.map((lesson, index) => (
               <div className="course-chapters" key={lesson._id}>
                 <div className="chapter">
                   <div

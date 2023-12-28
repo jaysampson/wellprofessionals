@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import AdminLayout from "./AdminLayout/AdminLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faAngleRight,
   faCloudUpload,
-  faEllipsis,
   faEllipsisVertical,
 } from "@fortawesome/free-solid-svg-icons";
 import upload from "../../assets/Images/upload.svg";

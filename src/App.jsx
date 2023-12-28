@@ -29,7 +29,6 @@ import "./font.scss";
 import Cart from "./Pages/Cart/Cart";
 import { useSelector } from "react-redux";
 import AdminCreate from "./Pages/AdminDashboard/AdminPages/AdminCreate/AdminCreate";
-import AdminCreate2 from "./Pages/AdminDashboard/AdminPages/AdminCreate/AdminCreate2/AdminCreate2";
 import "./font.scss";
 import Categories from "./Pages/Categories/Categories";
 import TC from "./Pages/T&C/T&C";
@@ -132,14 +131,6 @@ function App() {
           element={
             <AuthRedirect adminRoute>
               <AdminCreate />
-            </AuthRedirect>
-          }
-        />
-        <Route
-          path="/admin/create/lessons"
-          element={
-            <AuthRedirect adminRoute>
-              <AdminCreate2 />
             </AuthRedirect>
           }
         />

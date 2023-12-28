@@ -2,16 +2,13 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Layouts/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faAngleRight,
-  faCircleDot,
   faClapperboard,
-  faShare,
   faStar,
   faStarHalf,
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Layouts/Footer/Footer";
 import "../DashBoard/Dashboard.scss";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   faArrowUpRightFromSquare,
   faCheck,
@@ -72,20 +69,17 @@ const Dashboard = () => {
     setActiveTab(tabName);
   };
 
-  const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   const purchasedcourses = useSelector(
     (state) => state.details.data.data?.courses
   );
-  console.log(purchasedcourses, "purchased");
-  // const { user2 } = useSelector((state) => state.auth.courses);
+
   let dispatch = useDispatch();
 
   const { isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.course
   );
   const data = useSelector((state) => state.course.data);
-  // const course = useSelector((state) => state.course.data.courses);
 
   useEffect(() => {
     dispatch(getCourse());
@@ -163,13 +157,14 @@ const Dashboard = () => {
                     {isLoading ? (
                       <SkeletonFrame />
                     ) : (
-                      <>
+                      <div className="learning-course">
                         {purchasedcourses && purchasedcourses.length > 0 ? (
                           purchasedcourses?.map((purchased) => (
-                            <div
-                              className="learning-course"
-                              key={purchased._id}
-                            >
+                            // <div
+                            //   className="learning-course"
+                            //   key={purchased._id}
+                            // >
+                            <>
                               <div className="course-con">
                                 <img
                                   className="course-img"
@@ -216,7 +211,7 @@ const Dashboard = () => {
                                   </div>
                                 </div>
                               </div>
-                            </div>
+                            </>
                           ))
                         ) : (
                           <div className="not-purchased">
@@ -232,7 +227,7 @@ const Dashboard = () => {
                             </Link>
                           </div>
                         )}
-                      </>
+                      </div>
                     )}
                   </>
                 )}

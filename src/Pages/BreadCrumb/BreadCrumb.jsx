@@ -2,7 +2,6 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux/es/hooks/useSelector";
 import homeicon from "../../assets/Icons/home-icon.svg";
 import "../BreadCrumb/BreadCrumb.scss";
 

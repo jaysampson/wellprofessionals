@@ -1,6 +1,4 @@
 import {
-  faAngleDown,
-  faAppleAlt,
   faArrowRightFromBracket,
   faBars,
   faMinus,
@@ -13,9 +11,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import wellslogo from "../../../assets/Images/Wells-Logo.svg";
 import shop from "../../../assets/Icons/shop-bag.svg";
-import lang from "../../../assets/Icons/language-icon.svg";
 import book from "../../../assets/Icons/bookmark-2.svg";
-import notify from "../../../assets/Icons/notification-bing.svg";
 import "../Navbar/Navbar.scss";
 import homeicon from "../../../assets/Icons/home-icon.svg";
 import settingicon from "../../../assets/Icons/setting-icon.svg";
@@ -126,9 +122,6 @@ const Navbar = () => {
               <img src={shop} alt={shop} />
               <p>{cart.cartItems.length}</p>
             </NavLink>
-            {/* <div className="book-notify">
-              <img src={notify} alt={notify} />
-            </div> */}
             {user ? (
               <Link to="/settings-profile" className="profile-img">
                 {user.data.image ? (
@@ -243,7 +236,6 @@ const Navbar = () => {
             <Link to="/admin/create">
               <h3>Create Course</h3>
             </Link>
-            {/* <h3>Notifications</h3> */}
           </>
         ) : (
           ""

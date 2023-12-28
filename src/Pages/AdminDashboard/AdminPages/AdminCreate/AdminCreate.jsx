@@ -12,8 +12,6 @@ import upload from "../../../../assets/Images/upload.svg";
 import {
   faAngleDown,
   faAngleUp,
-  faArrowAltCircleDown,
-  faArrowDown,
   faCloudUpload,
   faMinusCircle,
   faPlusCircle,

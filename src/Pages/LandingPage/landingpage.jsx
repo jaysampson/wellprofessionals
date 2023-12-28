@@ -22,10 +22,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { getCourse } from "../../redux/CourseAPI/courseSlice";
 import { useDispatch, useSelector } from "react-redux";
 import noimage from "../../assets/Images/noimage.png";
-import gif from "../../assets/Images/Loading.gif";
 import { addToCart } from "../../redux/addToCart/cartSlice";
 import { toast } from "react-toastify";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonFrame } from "../SkeletonFrame/SkeletonFrame";
 import { differenceInMonths, parseISO } from "date-fns";
@@ -65,7 +63,6 @@ const LandingPage = () => {
     // Redirect to the search page with the search query as a route parameter
     if (search) {
       navigate(`/search/${encodeURIComponent(search)}`);
-      console.log("search: ", search);
     } else {
       toast.info("Type in a course you wish to search for");
     }

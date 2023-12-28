@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BreadCrumb } from "../BreadCrumb/BreadCrumb";
 import {
   faCircleCheck,
+  faSpinner,
   faStar,
   faStarHalf,
   faTrash,
@@ -14,18 +15,57 @@ import "./Cart.scss";
 import noimage from "../../assets/Images/noimage.png";
 import { useDispatch } from "react-redux";
 import { getTotal, removeFromCart } from "../../redux/addToCart/cartSlice";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { createOrder } from "../../redux/purchaseCourse/purchaseCourseSlice";
+import { toast } from "react-toastify";
+import { reset } from "../../redux/auth/authSlice";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.order
+  );
+  const { user } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
+
+  const courseId = cart?.cartItems[0]?._id;
+  const userId = user?.data?._id;
 
   const handleRemoveFromCart = (course) => {
     dispatch(removeFromCart(course));
   };
-  useEffect(() => {
-    dispatch(getTotal());
-  }, [cart, dispatch]);
+  useEffect(
+    (course) => {
+      if (isError) {
+        toast.error(message);
+      }
+      if (isSuccess) {
+        toast.success("Course Successfully purchased");
+        cart?.cartItems.forEach((course) => {
+          dispatch(removeFromCart(course));
+        });
+        dispatch(reset());
+      }
+      dispatch(getTotal());
+    },
+    [cart, isError, isSuccess, message, dispatch]
+  );
+
+  const purchaseCourse = (e) => {
+    e.preventDefault();
+
+    if (cart?.cartItems.length > 1) {
+      toast.info("You can only purchase one course at a time");
+      return;
+    }
+
+    const orderData = {
+      courseId,
+      userId,
+    };
+    dispatch(createOrder(orderData));
+  };
 
   return (
     <div className="cart-page">
@@ -35,12 +75,12 @@ const Cart = () => {
           <BreadCrumb />
           <h2>Shopping Cart</h2>
           <div className="items-cart">
-            <h3>{cart.cartItems.length} items in cart</h3>
-            {cart.cartItems.length === 0 ? (
+            <h3>{cart?.cartItems?.length} items in cart</h3>
+            {cart?.cartItems.length === 0 ? (
               <h3 className="empty">Cart is empty</h3>
             ) : (
               <div className="cart-body">
-                {cart.cartItems?.map((course) => (
+                {cart?.cartItems?.map((course) => (
                   <>
                     <hr />
                     <div className="cart-course" key={course._id}>
@@ -88,11 +128,11 @@ const Cart = () => {
           </div>
         </div>
         <div className="totals">
-          {cart.cartItems.length === 0 ? (
+          {cart?.cartItems.length === 0 ? (
             <div className="totals-con-2">
               <h2>Subtotal</h2>
               <hr />
-              <h3>{`₦${cart.cartTotalAmount}`}</h3>
+              <h3>{`₦${cart?.cartTotalAmount}`}</h3>
               <hr />
               <Link to="/search">
                 <button className="ctn-browsing">
@@ -104,9 +144,15 @@ const Cart = () => {
             <div className="totals-con">
               <h2>Subtotal</h2>
               <hr />
-              <h3>{`₦${cart.cartTotalAmount}`}</h3>
+              <h3>{`₦${cart?.cartTotalAmount}`}</h3>
               <hr />
-              <button className="buy-btn">Proceed to buy course</button>
+              <button className="buy-btn" onClick={purchaseCourse}>
+                {isLoading ? (
+                  <FontAwesomeIcon icon={faSpinner} spin />
+                ) : (
+                  "        Proceed to buy course"
+                )}
+              </button>
               <Link to="/search">
                 <button className="ctn-browsing">
                   Continue Browsing Courses

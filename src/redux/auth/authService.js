@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const user_id = JSON.parse(localStorage.getItem("id"));
 const user_token = JSON.parse(localStorage.getItem("token"));
@@ -43,24 +44,11 @@ const updateUser = async (userData) => {
     if (response.data) {
       localStorage.setItem("user", JSON.stringify(response.data));
     }
-    console.log(user_token, user_id);
     return response.data;
   } catch (error) {
-    console.error("Update user error:", error, user_id, user_token);
     throw error;
   }
 };
-
-// //get courses
-
-// const courses = async (userData) => {
-//   const response = await axios.post(COURSE_API, userData);
-//   if (response.data) {
-//     // localStorage.setItem("user", JSON.stringify(response.data));
-//     console.log("successful");
-//   }
-//   return response.data;
-// };
 
 //logout user
 const logout = () => {
