@@ -11,6 +11,7 @@ import {
   faCartShopping,
   faAngleUp,
   faStarHalf,
+  faLock,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -23,10 +24,10 @@ import Skeleton from "react-loading-skeleton";
 import { toast } from "react-toastify";
 
 const Overview = () => {
-  const [drop, setDrop] = useState(false);
-  const [drop1, setDrop1] = useState(false);
-  const [drop2, setDrop2] = useState(false);
-  const [drop3, setDrop3] = useState(false);
+  const [drop, setDrop] = useState(true);
+  const [drop1, setDrop1] = useState(true);
+  const [drop2, setDrop2] = useState(true);
+  const [drop3, setDrop3] = useState(true);
 
   const { courseId } = useParams();
   console.log(courseId, "courseId");
@@ -126,6 +127,9 @@ const Overview = () => {
               height="200px"
               width="100%"
               frameborder="0"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+              sandbox="allow-same-origin allow-scripts"
               className="iframe-2"
             ></iframe>
           </div>
@@ -136,6 +140,9 @@ const Overview = () => {
                 height="350px"
                 width="100%"
                 frameborder="0"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+                sandbox="allow-same-origin allow-scripts"
                 className="iframe-1"
               ></iframe>
               <header>
@@ -191,26 +198,25 @@ const Overview = () => {
                     </div>
                   </title>
                   {drop1 && (
-                    <div className="classov-body">
-                      <p>{courseArray?.course?.description}</p>
+                    <div className="lesson-videos">
+                      <div className="videos">
+                        {courseArray?.course?.lessonData.map(
+                          (lesson, index) => (
+                            <div
+                              className="vid"
+                              key={index}
+                              onClick={notPurchased}
+                            >
+                              <p>
+                                {index + 1}. {lesson.title}
+                              </p>
+                              <FontAwesomeIcon icon={faLock} />
+                            </div>
+                          )
+                        )}
+                      </div>
                     </div>
                   )}
-                </div>
-                <div className="lesson-videos">
-                  <div className="videos">
-                    {courseArray?.course?.lessonData.map((lesson, index) => (
-                      <div className="vid" key={index} onClick={notPurchased}>
-                        <iframe
-                          src={`https://drive.google.com/file/d/${lesson.videoUrl}/preview`}
-                          width="100%"
-                          className="video-player"
-                        ></iframe>
-                        <p>
-                          {index + 1}. {lesson.title}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
               <hr />

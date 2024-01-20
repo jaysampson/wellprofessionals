@@ -13,6 +13,7 @@ const getUser = async () => {
     });
     if (response.data) {
       console.log("fetched user details");
+      console.log(response.data, "User Details");
       return response.data;
     } else {
       throw new Error("Invalid response format");

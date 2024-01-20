@@ -1,4 +1,5 @@
 import {
+  faAngleDown,
   faArrowRightFromBracket,
   faBars,
   faMinus,
@@ -98,9 +99,7 @@ const Navbar = () => {
               </NavLink>
               <div className="category-tab">
                 <select onChange={handleSelectChange}>
-                  <option value="" disabled>
-                    Categories
-                  </option>
+                  <option value="">Categories</option>
                   <option value="Upstream">Upstream Courses</option>
                   <option value="Midstream">Midstream Courses</option>
                   <option value="Downstream">Downstream Courses</option>

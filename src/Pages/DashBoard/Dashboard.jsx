@@ -217,6 +217,10 @@ const Dashboard = () => {
                           <div className="not-purchased">
                             <img src={books} alt={books}></img>
                             <span>You haven't purchased any course yet</span>
+                            <span>
+                              Reload page if you have courses and they aren't
+                              showing
+                            </span>
                             <Link to="/search/" className="not-purchased-link">
                               <button className="btn">
                                 Purchase a course{" "}

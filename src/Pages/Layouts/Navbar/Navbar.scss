@@ -109,18 +109,26 @@ nav {
         justify-content: center;
         flex-direction: row;
         gap: 8px;
+        width: max-content;
         select {
           border: none;
           outline: none;
           font-weight: 400;
-          width: fit-content;
           font-size: 16px;
           color: #64748b;
-          @media screen and (max-width: 1000px) {
+          width: 100%; // Set the width to 100% to inherit the parent's width
+
+          option {
+            width: fit-content; // Set the width of the options
+          }
+        }
+        @media screen and (max-width: 1000px) {
+          select {
             display: none;
           }
         }
       }
+
       .right-nav {
         display: flex;
         align-items: center;
