@@ -53,6 +53,8 @@ const updateUser = async (userData) => {
 //logout user
 const logout = () => {
   localStorage.removeItem("user");
+  localStorage.removeItem("id");
+  localStorage.removeItem("token");
 };
 
 const authService = {
