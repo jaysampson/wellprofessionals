@@ -328,10 +328,7 @@ const Overview = () => {
                     alt={courseArray?.thumbnail?.url}
                   />
                   {user_course?.name === courseArray?.course?.name ? (
-                    <Link
-                      to={`/dashboard/mycourses/${courseArray?.course?._id}`}
-                      className="add"
-                    >
+                    <Link to={`/dashboard`} className="add">
                       <button className="add-btn">
                         Go to this course{" "}
                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
