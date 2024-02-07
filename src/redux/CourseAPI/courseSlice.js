@@ -54,7 +54,6 @@ export const fetchACourse = createAsyncThunk(
     const response = await courseService.getACourse.get(
       `/api/course/${courseId}`
     );
-    console.log(response.data);
     return response.data;
   }
 );

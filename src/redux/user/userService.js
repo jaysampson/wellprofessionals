@@ -12,15 +12,11 @@ const getUser = async () => {
       },
     });
     if (response.data) {
-      console.log("fetched user details");
-      console.log(response.data, "User Details");
       return response.data;
     } else {
       throw new Error("Invalid response format");
     }
   } catch (error) {
-    console.log("Error geting user details:", error);
-    console.log(user_token);
     throw error;
   }
 };

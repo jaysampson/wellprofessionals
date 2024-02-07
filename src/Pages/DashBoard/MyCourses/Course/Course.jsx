@@ -11,29 +11,41 @@ import Footer from "../../../Layouts/Footer/Footer";
 import LessonsComp from "./LessonComp/LessonsComp";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchACourse } from "../../../../redux/CourseAPI/courseSlice";
+import { getUser } from "../../../../redux/user/userSlice";
 
 const Course = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-
-  const { courseId } = useParams();
+  const { courseId, videoIndex } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchACourse(courseId));
+    dispatch(getUser());
   }, [dispatch, courseId]);
 
-  const courseArray = useSelector((state) => state.course.courseArray?.course);
-
-  console.log(courseArray, "meat");
+  const courseArray = useSelector(
+    (state) => state.details.data.data?.courses[videoIndex]
+  );
+  console.log(courseArray, "array");
 
   useEffect(() => {
-    const storedIndex = localStorage.getItem("currentVideoIndex");
+    const courseNameKey = courseArray?.name.slice(0, 10);
+    const parsedProgress =
+      JSON.parse(localStorage.getItem("courseProgress")) || {};
+    const storedIndex = parsedProgress[courseNameKey]?.currentVideoIndex;
     setCurrentVideoIndex(storedIndex ? parseInt(storedIndex, 10) : 0);
-  }, []);
+  }, [courseArray]);
 
   const updateLocalStorageIndex = (index) => {
-    localStorage.setItem("currentVideoIndex", index.toString());
+    const courseNameKey = courseArray?.name.slice(0, 10);
+    const parsedProgress =
+      JSON.parse(localStorage.getItem("courseProgress")) || {};
+
+    parsedProgress[courseNameKey] = {
+      ...parsedProgress[courseNameKey],
+      currentVideoIndex: index.toString(),
+    };
+
+    localStorage.setItem("courseProgress", JSON.stringify(parsedProgress));
   };
 
   const handleVideoEnd = () => {

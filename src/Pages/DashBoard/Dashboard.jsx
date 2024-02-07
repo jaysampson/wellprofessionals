@@ -159,7 +159,7 @@ const Dashboard = () => {
                     ) : (
                       <div className="learning-course">
                         {purchasedcourses && purchasedcourses.length > 0 ? (
-                          purchasedcourses?.map((purchased) => (
+                          purchasedcourses?.map((purchased, index) => (
                             // <div
                             //   className="learning-course"
                             //   key={purchased._id}
@@ -187,7 +187,7 @@ const Dashboard = () => {
                                   </div>
                                   <div className="course-name">
                                     <Link
-                                      to={`/dashboard/mycourses/${purchased._id}`}
+                                      to={`/dashboard/mycourses/${purchased._id}/${index}`}
                                     >
                                       <h4>{purchased.name}</h4>
                                     </Link>

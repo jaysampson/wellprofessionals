@@ -107,7 +107,7 @@ function App() {
           }
         />
         <Route
-          path="/dashboard/mycourses/:courseId"
+          path="/dashboard/mycourses/:courseId/:videoIndex"
           element={
             <AuthRedirect userRoute>
               <Course />

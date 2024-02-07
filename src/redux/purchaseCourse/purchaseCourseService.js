@@ -14,6 +14,7 @@ const createOrder = async (orderData) => {
     if (response.data) {
       return response.data;
     } else {
+      console.log(user_token);
       throw new Error("Invalid response format");
     }
   } catch (error) {
