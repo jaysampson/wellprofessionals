@@ -336,9 +336,6 @@ const Dashboard = () => {
               <div className="recent-con">
                 <div className="recent-top">
                   <h3>My recent Studies</h3>
-                  <select name="" id="">
-                    <option value="">Last 7 days</option>
-                  </select>
                 </div>
                 <div className="progress-main">
                   <div className="progress-con">
