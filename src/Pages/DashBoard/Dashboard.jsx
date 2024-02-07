@@ -111,6 +111,42 @@ const Dashboard = () => {
     setShuffledCourses(shuffledArray);
   }, [data]);
 
+  const [recentStudies, setRecentStudies] = useState([]);
+
+  useEffect(() => {
+    // Retrieve recent studies data from localStorage
+    const localStorageData = JSON.parse(localStorage.getItem("courseProgress"));
+
+    // Set initial state based on the localStorage data
+    setRecentStudies(localStorageData?.recentStudies || []);
+  }, []);
+
+  const updateLocalStorageIndex = (recentStudy) => {
+    const courseNameKey = recentStudy?.name?.slice(0, 10);
+    const parsedProgress =
+      JSON.parse(localStorage.getItem("courseProgress")) || {};
+
+    if (!parsedProgress.recentStudies) {
+      parsedProgress.recentStudies = [];
+    }
+
+    // Remove the recentStudy from the array if it already exists
+    parsedProgress.recentStudies = parsedProgress.recentStudies.filter(
+      (study) => study.name !== recentStudy.name
+    );
+
+    // Add the recentStudy to the beginning of the array, making it the most recent
+    parsedProgress.recentStudies.unshift(recentStudy);
+
+    localStorage.setItem("courseProgress", JSON.stringify(parsedProgress));
+  };
+
+  const handleRecentStudyClick = (course) => {
+    // Update the recent studies list when a course is clicked
+    setRecentStudies([course, ...recentStudies.filter((c) => c !== course)]);
+    // Update the local storage with the new recent study information
+    updateLocalStorageIndex(course);
+  };
   return (
     <div>
       <Navbar />
@@ -188,6 +224,114 @@ const Dashboard = () => {
                                   <div className="course-name">
                                     <Link
                                       to={`/dashboard/mycourses/${purchased._id}/${index}`}
+                                      onClick={() =>
+                                        handleRecentStudyClick(purchased)
+                                      }
+                                    >
+                                      <h4>{purchased.name}</h4>
+                                    </Link>
+
+                                    <FontAwesomeIcon
+                                      icon={faArrowUpRightFromSquare}
+                                      color="#000"
+                                    />
+                                  </div>
+                                  <div className="progress">
+                                    <progress
+                                      className="progress"
+                                      max="100"
+                                      value="41"
+                                    ></progress>
+                                    <p>41%</p>
+                                  </div>
+                                  <div className="course-duration">
+                                    <FontAwesomeIcon icon={faClapperboard} />
+                                    <p>2-3 weeks course</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          ))
+                        ) : (
+                          <div className="not-purchased">
+                            <img src={books} alt={books}></img>
+                            <span>
+                              You have completed your course(s) or haven't
+                              purchased a course
+                            </span>
+                            <span
+                              style={{ textAlign: "center", color: "gray" }}
+                            >
+                              Reload page if you have courses you're learning
+                              and they aren't showing
+                            </span>
+                            <Link to="/search/" className="not-purchased-link">
+                              <button className="btn">
+                                Browse courses{" "}
+                                <FontAwesomeIcon
+                                  icon={faArrowUpRightFromSquare}
+                                />
+                              </button>
+                            </Link>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+              {activeTab === "completedCourses" && (
+                <div className="learning" style={{ marginTop: "-30px" }}>
+                  <div className="not-purchased">
+                    <img src={books} alt={books}></img>
+                    <span style={{ textAlign: "center" }}>
+                      You haven't completerd any course yet
+                    </span>
+                    <Link to="/search/" className="not-purchased-link">
+                      <button className="btn">
+                        Browse Courses{" "}
+                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              )}
+              <div className="learning" style={{ marginTop: "-30px" }}>
+                {activeTab === "allCourses" && (
+                  <>
+                    {isLoading ? (
+                      <SkeletonFrame />
+                    ) : (
+                      <div className="learning-course">
+                        {purchasedcourses && purchasedcourses.length > 0 ? (
+                          purchasedcourses?.map((purchased, index) => (
+                            <>
+                              <div className="course-con">
+                                <img
+                                  className="course-img"
+                                  src={purchased?.thumbnail?.url || noimage}
+                                  alt={purchased?.thumbnail?.url}
+                                />
+                                <div className="content">
+                                  <div className="admin">
+                                    <div className="admin-title">
+                                      <img src={pro} alt={pro} />
+                                      <p>Michael Jordan</p>
+                                    </div>
+                                    <p className="check">
+                                      <FontAwesomeIcon
+                                        icon={faCheck}
+                                        color="#000"
+                                        size="2xs"
+                                      />
+                                    </p>
+                                  </div>
+                                  <div className="course-name">
+                                    <Link
+                                      to={`/dashboard/mycourses/${purchased._id}/${index}`}
+                                      onClick={() =>
+                                        handleRecentStudyClick(purchased)
+                                      }
                                     >
                                       <h4>{purchased.name}</h4>
                                     </Link>
@@ -217,7 +361,9 @@ const Dashboard = () => {
                           <div className="not-purchased">
                             <img src={books} alt={books}></img>
                             <span>You haven't purchased any course yet</span>
-                            <span>
+                            <span
+                              style={{ textAlign: "center", color: "gray" }}
+                            >
                               Reload page if you have courses and they aren't
                               showing
                             </span>
@@ -236,95 +382,6 @@ const Dashboard = () => {
                   </>
                 )}
               </div>
-              {activeTab === "completedCourses" && (
-                <div className="learning" style={{ marginTop: "-30px" }}>
-                  <div className="not-purchased">
-                    <img src={books} alt={books}></img>
-                    <span>You haven't completerd any course yet</span>
-                    <Link to="/search/" className="not-purchased-link">
-                      <button className="btn">
-                        Browse Courses{" "}
-                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              )}
-              {activeTab === "allCourses" && (
-                <div className="learning" style={{ marginTop: "-30px" }}>
-                  {isLoading ? (
-                    <SkeletonFrame />
-                  ) : (
-                    <>
-                      {purchasedcourses && purchasedcourses.length > 0 ? (
-                        purchasedcourses?.map((purchased) => (
-                          <div className="learning-course" key={purchased._id}>
-                            <div className="course-con">
-                              <img
-                                className="course-img"
-                                src={purchased?.thumbnail?.url || noimage}
-                                alt={purchased?.thumbnail?.url}
-                              />
-                              <div className="content">
-                                <div className="admin">
-                                  <div className="admin-title">
-                                    <img src={pro} alt={pro} />
-                                    <p>Michael Jordan</p>
-                                  </div>
-                                  <p className="check">
-                                    <FontAwesomeIcon
-                                      icon={faCheck}
-                                      color="#000"
-                                      size="2xs"
-                                    />
-                                  </p>
-                                </div>
-                                <div className="course-name">
-                                  <Link
-                                    to={`/dashboard/mycourses/${purchased._id}`}
-                                  >
-                                    <h4>{purchased.name}</h4>
-                                  </Link>
-
-                                  <FontAwesomeIcon
-                                    icon={faArrowUpRightFromSquare}
-                                    color="#000"
-                                  />
-                                </div>
-                                <div className="progress">
-                                  <progress
-                                    className="progress"
-                                    max="100"
-                                    value="41"
-                                  ></progress>
-                                  <p>41%</p>
-                                </div>
-                                <div className="course-duration">
-                                  <FontAwesomeIcon icon={faClapperboard} />
-                                  <p>2-3 weeks course</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))
-                      ) : (
-                        <div className="not-purchased">
-                          <img src={books} alt={books}></img>
-                          <span>You haven't purchased any course yet</span>
-                          <Link to="/search/" className="not-purchased-link">
-                            <button className="btn">
-                              Purchase a course{" "}
-                              <FontAwesomeIcon
-                                icon={faArrowUpRightFromSquare}
-                              />
-                            </button>
-                          </Link>
-                        </div>
-                      )}
-                    </>
-                  )}
-                </div>
-              )}
               <hr />
             </div>
           </div>
@@ -338,54 +395,27 @@ const Dashboard = () => {
                   <h3>My recent Studies</h3>
                 </div>
                 <div className="progress-main">
-                  <div className="progress-con">
-                    <div className="course">
-                      <p>Lorem ipsum dolor sit.</p>
-                      <p>72%</p>
+                  {recentStudies.map((course, index) => (
+                    <div className="progress-con" key={index}>
+                      <div
+                        className="course"
+                        onClick={() => handleRecentStudyClick(course)}
+                      >
+                        <p>{course.name}</p>
+                        <p>41%</p>
+                      </div>
+                      <progress
+                        className="progress"
+                        max="100"
+                        value={41}
+                      ></progress>
                     </div>
-                    <progress
-                      className="progress"
-                      max="100"
-                      value="72"
-                    ></progress>
-                  </div>
-                  <div className="progress-con">
-                    <div className="course">
-                      <p>Lorem ipsum dolor sit.</p>
-                      <p>62%</p>
-                    </div>
-                    <progress
-                      className="progress"
-                      max="100"
-                      value="62"
-                    ></progress>
-                  </div>
-                  <div className="progress-con">
-                    <div className="course">
-                      <p>Lorem ipsum dolor sit.</p>
-                      <p>41%</p>
-                    </div>
-                    <progress
-                      className="progress"
-                      max="100"
-                      value="41"
-                    ></progress>
-                  </div>
-                  <div className="progress-con">
-                    <div className="course">
-                      <p>Lorem ipsum dolor sit.</p>
-                      <p>23%</p>
-                    </div>
-                    <progress
-                      className="progress"
-                      max="100"
-                      value="23"
-                    ></progress>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
+
           <div className="on-picks">
             <div className="top-rated-con">
               <h2>Topics recommended for you</h2>
@@ -418,7 +448,7 @@ const Dashboard = () => {
                         <div className="desc">
                           <span>
                             {courses.description.length > 65
-                              ? courses.description.slice(0, 65) + "..."
+                              ? courses.description.slice(0, 60) + "..."
                               : courses.description}
                           </span>
                         </div>
